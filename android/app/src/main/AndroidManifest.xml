@@ -11,9 +11,11 @@
     <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
     
     <application
-        android:label="linkcim"
+        android:label="Linkcim"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="false"
+        android:requestLegacyExternalStorage="false">
         <activity
             android:name=".MainActivity"
             android:exported="true"

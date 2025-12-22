@@ -128,3 +128,7 @@ nssm.exe
 # Temporary files
 *.tmp
 *.temp
+
+# APK files (too large for Git, use GitHub Releases instead)
+*.apk
+linkcim-*.apk
