@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:linkcim/utils/url_utils.dart';
+import 'package:linkcim/l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -184,13 +185,18 @@ class VideoThumbnail extends StatelessWidget {
             ),
           ),
           SizedBox(height: 8),
-          Text(
-            'Yükleniyor...',
-            style: TextStyle(
-              color: platformColor,
-              fontSize: 10,
-              fontWeight: FontWeight.w500,
-            ),
+          Builder(
+            builder: (context) {
+              final l10n = AppLocalizations.of(context)!;
+              return Text(
+                l10n.loading,
+                style: TextStyle(
+                  color: platformColor,
+                  fontSize: 10,
+                  fontWeight: FontWeight.w500,
+                ),
+              );
+            },
           ),
         ],
       ),
@@ -235,15 +241,20 @@ class VideoThumbnail extends StatelessWidget {
           ),
           SizedBox(height: 6),
           Flexible(
-            child: Text(
-              'Önizleme\nYükleniyor...',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.grey[600],
-                fontSize: 10,
-              ),
-              overflow: TextOverflow.ellipsis,
-              maxLines: 2,
+            child: Builder(
+              builder: (context) {
+                final l10n = AppLocalizations.of(context)!;
+                return Text(
+                  l10n.previewLoading,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.grey[600],
+                    fontSize: 10,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                );
+              },
             ),
           ),
         ],
@@ -252,86 +263,93 @@ class VideoThumbnail extends StatelessWidget {
   }
 
   Widget _buildPlatformPlaceholder(String platform) {
-    Color platformColor;
-    IconData platformIcon;
-    String platformName;
+    return Builder(
+      builder: (context) {
+        final l10n = AppLocalizations.of(context)!;
+        Color platformColor;
+        IconData platformIcon;
+        String platformName;
 
-    switch (platform) {
-      case 'instagram':
-        platformColor = Colors.purple;
-        platformIcon = Icons.camera_alt;
-        platformName = 'Instagram';
-        break;
-      case 'youtube':
-        platformColor = Colors.red;
-        platformIcon = Icons.play_circle_filled;
-        platformName = 'YouTube';
-        break;
-      case 'tiktok':
-        platformColor = Colors.black;
-        platformIcon = Icons.music_video;
-        platformName = 'TikTok';
-        break;
-      case 'twitter':
-        platformColor = Colors.blue;
-        platformIcon = Icons.video_camera_back;
-        platformName = 'Twitter';
-        break;
-      default:
-        platformColor = Colors.grey;
-        platformIcon = Icons.video_library;
-        platformName = 'Video';
-    }
+        switch (platform) {
+          case 'instagram':
+            platformColor = Color(0xFFE4405F);
+            platformIcon = Icons.camera_alt;
+            platformName = l10n.platformInstagram;
+            break;
+          case 'youtube':
+            platformColor = Color(0xFFFF0000);
+            platformIcon = Icons.play_circle_filled;
+            platformName = l10n.platformYouTube;
+            break;
+          case 'tiktok':
+            platformColor = Color(0xFF000000);
+            platformIcon = Icons.music_video;
+            platformName = l10n.platformTikTok;
+            break;
+          case 'twitter':
+            platformColor = Color(0xFF1DA1F2);
+            platformIcon = Icons.video_camera_back;
+            platformName = l10n.platformTwitter;
+            break;
+          default:
+            platformColor = Colors.grey;
+            platformIcon = Icons.video_library;
+            platformName = l10n.platformGeneral;
+        }
 
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            platformColor.withOpacity(0.1),
-            platformColor.withOpacity(0.05),
-          ],
-        ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(
-            padding: EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: platformColor.withOpacity(0.2),
-              shape: BoxShape.circle,
-            ),
-            child: Icon(
-              platformIcon,
-              size: 24,
-              color: platformColor,
+        return Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                platformColor.withOpacity(0.1),
+                platformColor.withOpacity(0.05),
+              ],
             ),
           ),
-          SizedBox(height: 8),
-          Flexible(
-            child: Text(
-              platformName,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: platformColor,
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: platformColor.withOpacity(0.2),
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(
+                  platformIcon,
+                  size: 24,
+                  color: platformColor,
+                ),
               ),
-              overflow: TextOverflow.ellipsis,
-              maxLines: 1,
-            ),
+              SizedBox(height: 8),
+              Flexible(
+                child: Text(
+                  platformName,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: platformColor,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 
-  Widget _buildErrorWidget() {
+  Widget _buildErrorWidget(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
     return Container(
-      color: Colors.grey[400],
+      color: theme.colorScheme.surfaceVariant,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
@@ -339,15 +357,15 @@ class VideoThumbnail extends StatelessWidget {
           Icon(
             Icons.broken_image,
             size: 32,
-            color: Colors.grey[700],
+            color: theme.colorScheme.onSurfaceVariant,
           ),
           SizedBox(height: 6),
           Flexible(
             child: Text(
-              'Önizleme\nUlaşılamıyor',
+              l10n.previewUnavailable,
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: Colors.grey[700],
+                color: theme.colorScheme.onSurfaceVariant,
                 fontSize: 10,
               ),
               overflow: TextOverflow.ellipsis,

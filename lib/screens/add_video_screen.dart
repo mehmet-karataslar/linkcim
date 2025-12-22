@@ -1,7 +1,7 @@
 // Dosya Konumu: lib/screens/add_video_screen.dart
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:linkcim/l10n/app_localizations.dart';
 import 'package:linkcim/models/saved_video.dart';
 import 'package:linkcim/services/database_service.dart';
 import 'package:linkcim/utils/constants.dart';
@@ -328,7 +328,7 @@ class _AddVideoScreenState extends State<AddVideoScreen> {
                     Wrap(
                       spacing: 8,
                       runSpacing: 8,
-                      children: AppConstants.defaultCategories.map((category) {
+                      children: AppConstants.getDefaultCategories(l10n).map((category) {
                         final isSelected = _categoryController.text == category;
                         return GestureDetector(
                           onTap: () {

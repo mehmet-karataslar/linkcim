@@ -505,5 +505,284 @@
   "appInformation": "Application information",
   "@appInformation": {
     "description": "Application information label"
+  },
+  "searchPlaceholderShort": "Search...",
+  "@searchPlaceholderShort": {
+    "description": "Short search placeholder"
+  },
+  "shareVideoLink": "Share Video Link",
+  "@shareVideoLink": {
+    "description": "Share video link button"
+  },
+  "shareVideoLinkDesc": "Via phone share menu",
+  "@shareVideoLinkDesc": {
+    "description": "Share video link description"
+  },
+  "shareDetailedInfo": "Share Detailed Info",
+  "@shareDetailedInfo": {
+    "description": "Share detailed info button"
+  },
+  "shareDetailedInfoDesc": "With title, description and tags",
+  "@shareDetailedInfoDesc": {
+    "description": "Share detailed info description"
+  },
+  "copyLink": "Copy Link",
+  "@copyLink": {
+    "description": "Copy link button"
+  },
+  "copyLinkDesc": "Copy to clipboard",
+  "@copyLinkDesc": {
+    "description": "Copy link description"
+  },
+  "linkCopied": "Link copied to clipboard",
+  "@linkCopied": {
+    "description": "Link copied message"
+  },
+  "shareError": "Share error",
+  "@shareError": {
+    "description": "Share error message"
+  },
+  "copyError": "Copy error",
+  "@copyError": {
+    "description": "Copy error message"
+  },
+  "videoLinkShared": "Video link shared",
+  "@videoLinkShared": {
+    "description": "Video link shared message"
+  },
+  "videoDetailsShared": "Video details shared",
+  "@videoDetailsShared": {
+    "description": "Video details shared message"
+  },
+  "loading": "Loading...",
+  "@loading": {
+    "description": "Loading message"
+  },
+  "previewLoading": "Preview\nLoading...",
+  "@previewLoading": {
+    "description": "Preview loading message"
+  },
+  "previewUnavailable": "Preview\nUnavailable",
+  "@previewUnavailable": {
+    "description": "Preview unavailable message"
+  },
+  "platformInstagram": "Instagram",
+  "@platformInstagram": {
+    "description": "Instagram platform name"
+  },
+  "platformYouTube": "YouTube",
+  "@platformYouTube": {
+    "description": "YouTube platform name"
+  },
+  "platformTikTok": "TikTok",
+  "@platformTikTok": {
+    "description": "TikTok platform name"
+  },
+  "platformTwitter": "Twitter",
+  "@platformTwitter": {
+    "description": "Twitter platform name"
+  },
+  "platformFacebook": "Facebook",
+  "@platformFacebook": {
+    "description": "Facebook platform name"
+  },
+  "platformVimeo": "Vimeo",
+  "@platformVimeo": {
+    "description": "Vimeo platform name"
+  },
+  "platformReddit": "Reddit",
+  "@platformReddit": {
+    "description": "Reddit platform name"
+  },
+  "platformGeneral": "General",
+  "@platformGeneral": {
+    "description": "General platform name"
+  },
+  "categoryGeneral": "General",
+  "@categoryGeneral": {
+    "description": "General category"
+  },
+  "categorySoftware": "Software",
+  "@categorySoftware": {
+    "description": "Software category"
+  },
+  "categoryEducation": "Education",
+  "@categoryEducation": {
+    "description": "Education category"
+  },
+  "categoryEntertainment": "Entertainment",
+  "@categoryEntertainment": {
+    "description": "Entertainment category"
+  },
+  "categorySports": "Sports",
+  "@categorySports": {
+    "description": "Sports category"
+  },
+  "categoryFood": "Food",
+  "@categoryFood": {
+    "description": "Food category"
+  },
+  "categoryMusic": "Music",
+  "@categoryMusic": {
+    "description": "Music category"
+  },
+  "categoryArt": "Art",
+  "@categoryArt": {
+    "description": "Art category"
+  },
+  "categoryScience": "Science",
+  "@categoryScience": {
+    "description": "Science category"
+  },
+  "categoryTechnology": "Technology",
+  "@categoryTechnology": {
+    "description": "Technology category"
+  },
+  "noDescription": "No description",
+  "@noDescription": {
+    "description": "No description text"
+  },
+  "descriptionNotAvailable": "Description not available",
+  "@descriptionNotAvailable": {
+    "description": "Description not available text"
+  },
+  "noTags": "No tags",
+  "@noTags": {
+    "description": "No tags text"
+  },
+  "sharedFromLinkcim": "Shared from Linkcim app",
+  "@sharedFromLinkcim": {
+    "description": "Shared from app message"
+  },
+  "videoCollection": "Video Collection ({count} videos)",
+  "@videoCollection": {
+    "description": "Video collection title",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "categoryVideos": "{category} Category",
+  "@categoryVideos": {
+    "description": "Category videos title",
+    "placeholders": {
+      "category": {
+        "type": "String"
+      }
+    }
+  },
+  "videosFoundInCategory": "{count} videos found",
+  "@videosFoundInCategory": {
+    "description": "Videos found in category",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "andMoreVideos": "... and {count} more videos",
+  "@andMoreVideos": {
+    "description": "And more videos message",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "videoTitleFromUrl": "Video Title",
+  "@videoTitleFromUrl": {
+    "description": "Video title from URL"
+  },
+  "instagramPost": "Instagram Post",
+  "@instagramPost": {
+    "description": "Instagram post type"
+  },
+  "instagramReel": "Instagram Reel",
+  "@instagramReel": {
+    "description": "Instagram reel type"
+  },
+  "instagramTV": "Instagram TV",
+  "@instagramTV": {
+    "description": "Instagram TV type"
+  },
+  "instagramVideo": "Instagram Video",
+  "@instagramVideo": {
+    "description": "Instagram video type"
+  },
+  "youtubeVideo": "YouTube Video",
+  "@youtubeVideo": {
+    "description": "YouTube video type"
+  },
+  "youtubeShorts": "YouTube Shorts",
+  "@youtubeShorts": {
+    "description": "YouTube Shorts type"
+  },
+  "tiktokVideo": "TikTok Video",
+  "@tiktokVideo": {
+    "description": "TikTok video type"
+  },
+  "tiktokVideoShortLink": "TikTok Video (Short Link)",
+  "@tiktokVideoShortLink": {
+    "description": "TikTok video short link type"
+  },
+  "twitterPost": "Twitter Post",
+  "@twitterPost": {
+    "description": "Twitter post type"
+  },
+  "twitterUser": "Twitter (@{username})",
+  "@twitterUser": {
+    "description": "Twitter user format",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "xTwitterPost": "X/Twitter Post",
+  "@xTwitterPost": {
+    "description": "X/Twitter post type"
+  },
+  "xTwitterUser": "X/Twitter (@{username})",
+  "@xTwitterUser": {
+    "description": "X/Twitter user format",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "facebookVideo": "Facebook Video",
+  "@facebookVideo": {
+    "description": "Facebook video type"
+  },
+  "vimeoVideo": "Vimeo Video",
+  "@vimeoVideo": {
+    "description": "Vimeo video type"
+  },
+  "redditVideo": "Reddit Video",
+  "@redditVideo": {
+    "description": "Reddit video type"
+  },
+  "unknownChannel": "Unknown Channel",
+  "@unknownChannel": {
+    "description": "Unknown channel name"
+  },
+  "quickShare": "Quick Share",
+  "@quickShare": {
+    "description": "Quick share button"
+  },
+  "videoShared": "Video shared",
+  "@videoShared": {
+    "description": "Video shared message"
+  },
+  "shareFailed": "Share failed: {error}",
+  "@shareFailed": {
+    "description": "Share failed message",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
   }
 }

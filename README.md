@@ -141,30 +141,6 @@ Katkılarınızı memnuniyetle karşılıyoruz!
 4. Branch'inizi push edin (`git push origin feature/amazing-feature`)
 5. Pull Request oluşturun
 
-## 📝 Changelog
-
-### v2.0.3 (Son Sürüm)
-- 🔧 Ana sayfa overflow sorunu düzeltildi
-- 📱 Responsive tasarım iyileştirmeleri
-- 🎨 Empty state tasarımı optimize edildi
-
-### v2.0.2
-- 🗂️ Arama sayfası basitleştirildi
-- ❌ Filtre butonu kaldırıldı
-- ⚡ Performans optimizasyonu
-
-### v2.0.1
-- 🚨 Search screen overflow hatası düzeltildi
-- ⏱️ Thumbnail timeout süreleri optimize edildi
-- 🎯 UI performans iyileştirmeleri
-
-### v2.0.0
-- 🎨 Modern UI tasarımı
-- 🌍 Çoklu dil desteği (Türkçe, İngilizce)
-- 🌓 Tema desteği (Açık, Koyu, Sistem)
-- 🖼️ Gerçek video thumbnail'ları
-- 🔍 Gelişmiş arama ve filtreleme
-- 📱 Yeni platformlar (Facebook, Vimeo, Reddit)
 
 ## 📞 İletişim
 

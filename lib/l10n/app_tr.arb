@@ -505,5 +505,284 @@
   "appInformation": "Uygulama bilgileri",
   "@appInformation": {
     "description": "Uygulama bilgileri etiketi"
+  },
+  "searchPlaceholderShort": "Ara...",
+  "@searchPlaceholderShort": {
+    "description": "Kısa arama placeholder"
+  },
+  "shareVideoLink": "Video Linkini Paylaş",
+  "@shareVideoLink": {
+    "description": "Video linkini paylaş butonu"
+  },
+  "shareVideoLinkDesc": "Telefonun paylaş menüsü ile",
+  "@shareVideoLinkDesc": {
+    "description": "Video linkini paylaş açıklaması"
+  },
+  "shareDetailedInfo": "Detaylı Bilgi Paylaş",
+  "@shareDetailedInfo": {
+    "description": "Detaylı bilgi paylaş butonu"
+  },
+  "shareDetailedInfoDesc": "Başlık, açıklama ve etiketlerle",
+  "@shareDetailedInfoDesc": {
+    "description": "Detaylı bilgi paylaş açıklaması"
+  },
+  "copyLink": "Linki Kopyala",
+  "@copyLink": {
+    "description": "Linki kopyala butonu"
+  },
+  "copyLinkDesc": "Panoya kopyala",
+  "@copyLinkDesc": {
+    "description": "Linki kopyala açıklaması"
+  },
+  "linkCopied": "Link panoya kopyalandı",
+  "@linkCopied": {
+    "description": "Link kopyalandı mesajı"
+  },
+  "shareError": "Paylaşma hatası",
+  "@shareError": {
+    "description": "Paylaşma hatası mesajı"
+  },
+  "copyError": "Kopyalama hatası",
+  "@copyError": {
+    "description": "Kopyalama hatası mesajı"
+  },
+  "videoLinkShared": "Video linki paylaşıldı",
+  "@videoLinkShared": {
+    "description": "Video linki paylaşıldı mesajı"
+  },
+  "videoDetailsShared": "Video detayları paylaşıldı",
+  "@videoDetailsShared": {
+    "description": "Video detayları paylaşıldı mesajı"
+  },
+  "loading": "Yükleniyor...",
+  "@loading": {
+    "description": "Yükleniyor mesajı"
+  },
+  "previewLoading": "Önizleme\nYükleniyor...",
+  "@previewLoading": {
+    "description": "Önizleme yükleniyor mesajı"
+  },
+  "previewUnavailable": "Önizleme\nUlaşılamıyor",
+  "@previewUnavailable": {
+    "description": "Önizleme ulaşılamıyor mesajı"
+  },
+  "platformInstagram": "Instagram",
+  "@platformInstagram": {
+    "description": "Instagram platform adı"
+  },
+  "platformYouTube": "YouTube",
+  "@platformYouTube": {
+    "description": "YouTube platform adı"
+  },
+  "platformTikTok": "TikTok",
+  "@platformTikTok": {
+    "description": "TikTok platform adı"
+  },
+  "platformTwitter": "Twitter",
+  "@platformTwitter": {
+    "description": "Twitter platform adı"
+  },
+  "platformFacebook": "Facebook",
+  "@platformFacebook": {
+    "description": "Facebook platform adı"
+  },
+  "platformVimeo": "Vimeo",
+  "@platformVimeo": {
+    "description": "Vimeo platform adı"
+  },
+  "platformReddit": "Reddit",
+  "@platformReddit": {
+    "description": "Reddit platform adı"
+  },
+  "platformGeneral": "Genel",
+  "@platformGeneral": {
+    "description": "Genel platform adı"
+  },
+  "categoryGeneral": "Genel",
+  "@categoryGeneral": {
+    "description": "Genel kategori"
+  },
+  "categorySoftware": "Yazılım",
+  "@categorySoftware": {
+    "description": "Yazılım kategori"
+  },
+  "categoryEducation": "Eğitim",
+  "@categoryEducation": {
+    "description": "Eğitim kategori"
+  },
+  "categoryEntertainment": "Eğlence",
+  "@categoryEntertainment": {
+    "description": "Eğlence kategori"
+  },
+  "categorySports": "Spor",
+  "@categorySports": {
+    "description": "Spor kategori"
+  },
+  "categoryFood": "Yemek",
+  "@categoryFood": {
+    "description": "Yemek kategori"
+  },
+  "categoryMusic": "Müzik",
+  "@categoryMusic": {
+    "description": "Müzik kategori"
+  },
+  "categoryArt": "Sanat",
+  "@categoryArt": {
+    "description": "Sanat kategori"
+  },
+  "categoryScience": "Bilim",
+  "@categoryScience": {
+    "description": "Bilim kategori"
+  },
+  "categoryTechnology": "Teknoloji",
+  "@categoryTechnology": {
+    "description": "Teknoloji kategori"
+  },
+  "noDescription": "Açıklama yok",
+  "@noDescription": {
+    "description": "Açıklama yok metni"
+  },
+  "descriptionNotAvailable": "Açıklama mevcut değil",
+  "@descriptionNotAvailable": {
+    "description": "Açıklama mevcut değil metni"
+  },
+  "noTags": "Etiket yok",
+  "@noTags": {
+    "description": "Etiket yok metni"
+  },
+  "sharedFromLinkcim": "Linkcim uygulaması ile paylaşıldı",
+  "@sharedFromLinkcim": {
+    "description": "Uygulamadan paylaşıldı mesajı"
+  },
+  "videoCollection": "Video Koleksiyonu ({count} video)",
+  "@videoCollection": {
+    "description": "Video koleksiyonu başlığı",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "categoryVideos": "{category} Kategorisi",
+  "@categoryVideos": {
+    "description": "Kategori videoları başlığı",
+    "placeholders": {
+      "category": {
+        "type": "String"
+      }
+    }
+  },
+  "videosFoundInCategory": "{count} video bulundu",
+  "@videosFoundInCategory": {
+    "description": "Kategoride bulunan videolar",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "andMoreVideos": "... ve {count} video daha",
+  "@andMoreVideos": {
+    "description": "Ve daha fazla video mesajı",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "videoTitleFromUrl": "Video Başlığı",
+  "@videoTitleFromUrl": {
+    "description": "URL'den video başlığı"
+  },
+  "instagramPost": "Instagram Gönderi",
+  "@instagramPost": {
+    "description": "Instagram gönderi tipi"
+  },
+  "instagramReel": "Instagram Reel",
+  "@instagramReel": {
+    "description": "Instagram reel tipi"
+  },
+  "instagramTV": "Instagram TV",
+  "@instagramTV": {
+    "description": "Instagram TV tipi"
+  },
+  "instagramVideo": "Instagram Video",
+  "@instagramVideo": {
+    "description": "Instagram video tipi"
+  },
+  "youtubeVideo": "YouTube Video",
+  "@youtubeVideo": {
+    "description": "YouTube video tipi"
+  },
+  "youtubeShorts": "YouTube Shorts",
+  "@youtubeShorts": {
+    "description": "YouTube Shorts tipi"
+  },
+  "tiktokVideo": "TikTok Video",
+  "@tiktokVideo": {
+    "description": "TikTok video tipi"
+  },
+  "tiktokVideoShortLink": "TikTok Video (Kısa Link)",
+  "@tiktokVideoShortLink": {
+    "description": "TikTok video kısa link tipi"
+  },
+  "twitterPost": "Twitter Gönderi",
+  "@twitterPost": {
+    "description": "Twitter gönderi tipi"
+  },
+  "twitterUser": "Twitter (@{username})",
+  "@twitterUser": {
+    "description": "Twitter kullanıcı formatı",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "xTwitterPost": "X/Twitter Gönderi",
+  "@xTwitterPost": {
+    "description": "X/Twitter gönderi tipi"
+  },
+  "xTwitterUser": "X/Twitter (@{username})",
+  "@xTwitterUser": {
+    "description": "X/Twitter kullanıcı formatı",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "facebookVideo": "Facebook Video",
+  "@facebookVideo": {
+    "description": "Facebook video tipi"
+  },
+  "vimeoVideo": "Vimeo Video",
+  "@vimeoVideo": {
+    "description": "Vimeo video tipi"
+  },
+  "redditVideo": "Reddit Video",
+  "@redditVideo": {
+    "description": "Reddit video tipi"
+  },
+  "unknownChannel": "Bilinmeyen Kanal",
+  "@unknownChannel": {
+    "description": "Bilinmeyen kanal adı"
+  },
+  "quickShare": "Hızlı Paylaş",
+  "@quickShare": {
+    "description": "Hızlı paylaş butonu"
+  },
+  "videoShared": "Video paylaşıldı",
+  "@videoShared": {
+    "description": "Video paylaşıldı mesajı"
+  },
+  "shareFailed": "Paylaşma başarısız: {error}",
+  "@shareFailed": {
+    "description": "Paylaşma başarısız mesajı",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
   }
 }

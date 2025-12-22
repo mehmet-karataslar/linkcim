@@ -6,6 +6,7 @@ import 'package:linkcim/models/saved_video.dart';
 import 'package:linkcim/widgets/tag_chip.dart';
 import 'package:linkcim/widgets/video_thumbnail.dart';
 import 'package:linkcim/widgets/share_menu.dart';
+import 'package:linkcim/l10n/app_localizations.dart';
 
 import 'package:linkcim/screens/video_preview_screen.dart';
 import 'package:linkcim/screens/add_video_screen.dart';
@@ -49,23 +50,33 @@ class VideoCard extends StatelessWidget {
   }
 
   // Platform ikonu ve rengi
-  Widget _buildPlatformChip() {
+  Widget _buildPlatformChip(BuildContext context) {
+    final theme = Theme.of(context);
     Color platformColor;
     switch (video.platform.toLowerCase()) {
       case 'instagram':
-        platformColor = Colors.purple;
+        platformColor = Color(0xFFE4405F);
         break;
       case 'youtube':
-        platformColor = Colors.red;
+        platformColor = Color(0xFFFF0000);
         break;
       case 'tiktok':
-        platformColor = Colors.black;
+        platformColor = Color(0xFF000000);
         break;
       case 'twitter':
-        platformColor = Colors.blue;
+        platformColor = Color(0xFF1DA1F2);
+        break;
+      case 'facebook':
+        platformColor = Color(0xFF1877F2);
+        break;
+      case 'vimeo':
+        platformColor = Color(0xFF1AB7EA);
+        break;
+      case 'reddit':
+        platformColor = Color(0xFFFF4500);
         break;
       default:
-        platformColor = Colors.grey;
+        platformColor = theme.colorScheme.onSurfaceVariant;
     }
 
     return Container(
@@ -95,10 +106,14 @@ class VideoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
+    
     return Card(
       margin: const EdgeInsets.only(bottom: 12),
       elevation: 2,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      color: theme.colorScheme.surface,
       child: InkWell(
         onTap: () => _openPreview(context),
         borderRadius: BorderRadius.circular(12),
@@ -118,11 +133,11 @@ class VideoCard extends StatelessWidget {
                       width: 120,
                       height: 90,
                       decoration: BoxDecoration(
-                        color: Colors.grey[200],
+                        color: theme.colorScheme.surfaceVariant,
                         borderRadius: BorderRadius.circular(12),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
+                            color: theme.colorScheme.shadow.withOpacity(0.1),
                             blurRadius: 8,
                             offset: Offset(0, 3),
                           ),
@@ -149,9 +164,10 @@ class VideoCard extends StatelessWidget {
                         // Başlık
                         Text(
                           video.title,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
+                            color: theme.colorScheme.onSurface,
                           ),
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
@@ -160,7 +176,7 @@ class VideoCard extends StatelessWidget {
                         const SizedBox(height: 6),
 
                         // Platform chip
-                        _buildPlatformChip(),
+                        _buildPlatformChip(context),
 
                         const SizedBox(height: 4),
 
@@ -171,7 +187,7 @@ class VideoCard extends StatelessWidget {
                               child: Text(
                                 video.authorDisplay,
                                 style: TextStyle(
-                                  color: Colors.grey[600],
+                                  color: theme.colorScheme.onSurfaceVariant,
                                   fontSize: 12,
                                 ),
                                 overflow: TextOverflow.ellipsis,
@@ -180,7 +196,7 @@ class VideoCard extends StatelessWidget {
                             Text(
                               video.formattedDate,
                               style: TextStyle(
-                                color: Colors.grey[500],
+                                color: theme.colorScheme.onSurfaceVariant,
                                 fontSize: 11,
                               ),
                             ),
@@ -201,7 +217,7 @@ class VideoCard extends StatelessWidget {
                 Text(
                   video.description,
                   style: TextStyle(
-                    color: Colors.grey[700],
+                    color: theme.colorScheme.onSurface,
                     fontSize: 13,
                   ),
                   maxLines: 2,
@@ -233,8 +249,8 @@ class VideoCard extends StatelessWidget {
                   Expanded(
                     child: OutlinedButton.icon(
                       onPressed: () => _openPreview(context),
-                      icon: const Icon(Icons.preview, size: 16),
-                      label: const Text('Önizleme'),
+                      icon: Icon(Icons.preview, size: 16),
+                      label: Text(l10n.preview),
                       style: OutlinedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 8),
                         shape: RoundedRectangleBorder(
@@ -250,8 +266,8 @@ class VideoCard extends StatelessWidget {
                   Expanded(
                     child: OutlinedButton.icon(
                       onPressed: _openVideo,
-                      icon: const Icon(Icons.open_in_new, size: 16),
-                      label: const Text('Aç'),
+                      icon: Icon(Icons.open_in_new, size: 16),
+                      label: Text(l10n.open),
                       style: OutlinedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(vertical: 8),
                         shape: RoundedRectangleBorder(
@@ -286,38 +302,38 @@ class VideoCard extends StatelessWidget {
                           break;
                       }
                     },
-                    icon: Icon(Icons.more_vert, color: Colors.grey[600]),
+                    icon: Icon(Icons.more_vert, color: theme.colorScheme.onSurfaceVariant),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
                     itemBuilder: (context) => [
-                      const PopupMenuItem(
+                      PopupMenuItem(
                         value: 'edit',
                         child: Row(
                           children: [
                             Icon(Icons.edit, size: 16),
                             SizedBox(width: 8),
-                            Text('Düzenle'),
+                            Text(l10n.edit),
                           ],
                         ),
                       ),
-                      const PopupMenuItem(
+                      PopupMenuItem(
                         value: 'share',
                         child: Row(
                           children: [
                             Icon(Icons.share, size: 16),
                             SizedBox(width: 8),
-                            Text('Paylaş'),
+                            Text(l10n.share),
                           ],
                         ),
                       ),
-                      const PopupMenuItem(
+                      PopupMenuItem(
                         value: 'delete',
                         child: Row(
                           children: [
-                            Icon(Icons.delete, size: 16, color: Colors.red),
+                            Icon(Icons.delete, size: 16, color: theme.colorScheme.error),
                             SizedBox(width: 8),
-                            Text('Sil', style: TextStyle(color: Colors.red)),
+                            Text(l10n.delete, style: TextStyle(color: theme.colorScheme.error)),
                           ],
                         ),
                       ),

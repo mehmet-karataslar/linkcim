@@ -64,5 +64,19 @@ class ThemeService extends ChangeNotifier {
         return 'Sistem Teması';
     }
   }
+
+  Future<void> setThemeMode(ThemeMode mode) async {
+    switch (mode) {
+      case ThemeMode.light:
+        await setTheme(AppTheme.light);
+        break;
+      case ThemeMode.dark:
+        await setTheme(AppTheme.dark);
+        break;
+      case ThemeMode.system:
+        await setTheme(AppTheme.system);
+        break;
+    }
+  }
 }
 

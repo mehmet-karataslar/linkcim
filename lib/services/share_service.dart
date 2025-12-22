@@ -2,36 +2,37 @@
 
 import 'package:share_plus/share_plus.dart';
 import 'package:linkcim/models/saved_video.dart';
+import 'package:linkcim/l10n/app_localizations.dart';
 import 'package:flutter/services.dart';
 
 class ShareService {
   // Video linkini paylaş
-  static Future<void> shareVideoLink(SavedVideo video) async {
+  static Future<void> shareVideoLink(SavedVideo video, AppLocalizations l10n) async {
     try {
-      final shareText = _buildShareText(video);
+      final shareText = _buildShareText(video, l10n);
 
       await Share.share(
         shareText,
         subject: video.title,
       );
     } catch (e) {
-      print('Paylaşma hatası: $e');
-      throw 'Paylaşma işlemi başarısız: $e';
+      print('${l10n.shareError}: $e');
+      throw '${l10n.shareError}: $e';
     }
   }
 
   // Video bilgilerini detaylı paylaş
-  static Future<void> shareVideoDetails(SavedVideo video) async {
+  static Future<void> shareVideoDetails(SavedVideo video, AppLocalizations l10n) async {
     try {
-      final detailedText = _buildDetailedShareText(video);
+      final detailedText = _buildDetailedShareText(video, l10n);
 
       await Share.share(
         detailedText,
-        subject: 'Linkci\'den Video Paylaşımı: ${video.title}',
+        subject: '${l10n.videoInfo}: ${video.title}',
       );
     } catch (e) {
-      print('Detaylı paylaşma hatası: $e');
-      throw 'Paylaşma işlemi başarısız: $e';
+      print('${l10n.shareError}: $e');
+      throw '${l10n.shareError}: $e';
     }
   }
 
@@ -40,123 +41,122 @@ class ShareService {
     try {
       await Share.share(url);
     } catch (e) {
-      print('Link paylaşma hatası: $e');
-      throw 'Link paylaşma başarısız: $e';
+      print('Link share error: $e');
+      throw 'Link share failed: $e';
     }
   }
 
   // Linki panoya kopyala
-  static Future<void> copyLinkToClipboard(String url) async {
+  static Future<void> copyLinkToClipboard(String url, AppLocalizations l10n) async {
     try {
       await Clipboard.setData(ClipboardData(text: url));
     } catch (e) {
-      print('Kopyalama hatası: $e');
-      throw 'Kopyalama işlemi başarısız: $e';
+      print('${l10n.copyError}: $e');
+      throw '${l10n.copyError}: $e';
     }
   }
 
   // Video bilgilerini panoya kopyala
-  static Future<void> copyVideoDetailsToClipboard(SavedVideo video) async {
+  static Future<void> copyVideoDetailsToClipboard(SavedVideo video, AppLocalizations l10n) async {
     try {
-      final detailedText = _buildDetailedShareText(video);
+      final detailedText = _buildDetailedShareText(video, l10n);
       await Clipboard.setData(ClipboardData(text: detailedText));
     } catch (e) {
-      print('Video detay kopyalama hatası: $e');
-      throw 'Kopyalama işlemi başarısız: $e';
+      print('${l10n.copyError}: $e');
+      throw '${l10n.copyError}: $e';
     }
   }
 
   // Birden fazla video linkini paylaş
-  static Future<void> shareMultipleVideos(List<SavedVideo> videos) async {
+  static Future<void> shareMultipleVideos(List<SavedVideo> videos, AppLocalizations l10n) async {
     try {
       if (videos.isEmpty) {
-        throw 'Paylaşılacak video bulunamadı';
+        throw l10n.noVideos;
       }
 
-      final shareText = _buildMultipleVideosShareText(videos);
+      final shareText = _buildMultipleVideosShareText(videos, l10n);
 
       await Share.share(
         shareText,
-        subject: 'Linkci\'den ${videos.length} Video Paylaşımı',
+        subject: l10n.videoCollection(videos.length),
       );
     } catch (e) {
-      print('Çoklu paylaşma hatası: $e');
-      throw 'Paylaşma işlemi başarısız: $e';
+      print('${l10n.shareError}: $e');
+      throw '${l10n.shareError}: $e';
     }
   }
 
   // Kategori bazlı paylaşım
-  static Future<void> shareVideosByCategory(String category, List<SavedVideo> videos) async {
+  static Future<void> shareVideosByCategory(String category, List<SavedVideo> videos, AppLocalizations l10n) async {
     try {
       final categoryVideos = videos.where((v) => v.category == category).toList();
 
       if (categoryVideos.isEmpty) {
-        throw '$category kategorisinde video bulunamadı';
+        throw l10n.noVideoFound;
       }
 
-      final shareText = _buildCategoryShareText(category, categoryVideos);
+      final shareText = _buildCategoryShareText(category, categoryVideos, l10n);
 
       await Share.share(
         shareText,
-        subject: 'Linkci - $category Kategorisi (${categoryVideos.length} video)',
+        subject: '${l10n.categoryVideos(category)} (${categoryVideos.length} ${l10n.videosFound(categoryVideos.length)})',
       );
     } catch (e) {
-      print('Kategori paylaşma hatası: $e');
-      throw 'Kategori paylaşma başarısız: $e';
+      print('${l10n.shareError}: $e');
+      throw '${l10n.shareError}: $e';
     }
   }
 
   // Basit paylaşım metni oluştur
-  static String _buildShareText(SavedVideo video) {
+  static String _buildShareText(SavedVideo video, AppLocalizations l10n) {
     return '''
 🎬 ${video.title}
 
-📱 Instagram Linki:
+📱 ${l10n.videoUrl}:
 ${video.videoUrl}
 
-📝 Açıklama: ${video.description.isNotEmpty ? video.description : 'Açıklama yok'}
+📝 ${l10n.videoDescription}: ${video.description.isNotEmpty ? video.description : l10n.noDescription}
 
-🏷️ Kategori: ${video.category}
+🏷️ ${l10n.category}: ${video.category}
 
-${video.tags.isNotEmpty ? '🔖 Etiketler: ${video.tags.join(', ')}' : ''}
+${video.tags.isNotEmpty ? '🔖 ${l10n.tags}: ${video.tags.join(', ')}' : ''}
 
-📅 Kayıt Tarihi: ${video.formattedDate}
+📅 ${video.formattedDate}
 
 ---
-Linkci uygulaması ile paylaşıldı 📱
+${l10n.sharedFromLinkcim} 📱
 ''';
   }
 
   // Detaylı paylaşım metni oluştur
-  static String _buildDetailedShareText(SavedVideo video) {
+  static String _buildDetailedShareText(SavedVideo video, AppLocalizations l10n) {
     return '''
 🎬 ${video.title}
 
-📱 Instagram Linki:
+📱 ${l10n.videoUrl}:
 ${video.videoUrl}
 
-📝 Açıklama:
-${video.description.isNotEmpty ? video.description : 'Açıklama mevcut değil'}
+📝 ${l10n.videoDescription}:
+${video.description.isNotEmpty ? video.description : l10n.descriptionNotAvailable}
 
-📊 Video Bilgileri:
-• Kategori: ${video.category}
-• Etiketler: ${video.tags.isNotEmpty ? video.tags.join(', ') : 'Etiket yok'}
-• Kayıt Tarihi: ${video.formattedDate}
+📊 ${l10n.videoInfo}:
+• ${l10n.category}: ${video.category}
+• ${l10n.tags}: ${video.tags.isNotEmpty ? video.tags.join(', ') : l10n.noTags}
+• ${video.formattedDate}
 • Video Key: ${video.key}
 
-🔗 Kısa Link: ${video.videoUrl.length > 50 ? video.videoUrl.substring(0, 50) + '...' : video.videoUrl}
+🔗 ${video.videoUrl.length > 50 ? video.videoUrl.substring(0, 50) + '...' : video.videoUrl}
 
 ---
-Bu video Linkci uygulaması ile organize edilmiş ve paylaşılmıştır 📱
-Instagram videolarınızı kaydedin, kategorize edin, kolayca bulun!
+${l10n.sharedFromLinkcim} 📱
 ''';
   }
 
   // Birden fazla video için paylaşım metni
-  static String _buildMultipleVideosShareText(List<SavedVideo> videos) {
+  static String _buildMultipleVideosShareText(List<SavedVideo> videos, AppLocalizations l10n) {
     final buffer = StringBuffer();
 
-    buffer.writeln('🎬 Video Koleksiyonu (${videos.length} video)');
+    buffer.writeln('🎬 ${l10n.videoCollection(videos.length)}');
     buffer.writeln('');
 
     for (int i = 0; i < videos.length; i++) {
@@ -171,17 +171,17 @@ Instagram videolarınızı kaydedin, kategorize edin, kolayca bulun!
     }
 
     buffer.writeln('---');
-    buffer.writeln('Linkci uygulaması ile organize edilmiş koleksiyon 📱');
+    buffer.writeln('${l10n.sharedFromLinkcim} 📱');
 
     return buffer.toString();
   }
 
   // Kategori bazlı paylaşım metni
-  static String _buildCategoryShareText(String category, List<SavedVideo> videos) {
+  static String _buildCategoryShareText(String category, List<SavedVideo> videos, AppLocalizations l10n) {
     final buffer = StringBuffer();
 
-    buffer.writeln('📁 $category Kategorisi');
-    buffer.writeln('${videos.length} video bulundu');
+    buffer.writeln('📁 ${l10n.categoryVideos(category)}');
+    buffer.writeln(l10n.videosFoundInCategory(videos.length));
     buffer.writeln('');
 
     for (int i = 0; i < videos.length && i < 10; i++) { // Maksimum 10 video
@@ -195,38 +195,38 @@ Instagram videolarınızı kaydedin, kategorize edin, kolayca bulun!
     }
 
     if (videos.length > 10) {
-      buffer.writeln('... ve ${videos.length - 10} video daha');
+      buffer.writeln(l10n.andMoreVideos(videos.length - 10));
       buffer.writeln('');
     }
 
     buffer.writeln('---');
-    buffer.writeln('Linkci uygulaması ile kategorize edilmiş videolar 📱');
+    buffer.writeln('${l10n.sharedFromLinkcim} 📱');
 
     return buffer.toString();
   }
 
   // WhatsApp'a özel paylaşım
-  static Future<void> shareToWhatsApp(SavedVideo video) async {
+  static Future<void> shareToWhatsApp(SavedVideo video, AppLocalizations l10n) async {
     try {
-      final text = _buildShareText(video);
+      final text = _buildShareText(video, l10n);
       await Share.share(text, subject: video.title);
     } catch (e) {
-      throw 'WhatsApp paylaşma başarısız: $e';
+      throw '${l10n.shareError}: $e';
     }
   }
 
   // Email'e özel paylaşım
-  static Future<void> shareViaEmail(SavedVideo video) async {
+  static Future<void> shareViaEmail(SavedVideo video, AppLocalizations l10n) async {
     try {
-      final subject = 'Video Paylaşımı: ${video.title}';
-      final body = _buildDetailedShareText(video);
+      final subject = '${l10n.videoInfo}: ${video.title}';
+      final body = _buildDetailedShareText(video, l10n);
 
       await Share.share(
         body,
         subject: subject,
       );
     } catch (e) {
-      throw 'Email paylaşma başarısız: $e';
+      throw '${l10n.shareError}: $e';
     }
   }
 }

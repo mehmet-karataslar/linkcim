@@ -1,7 +1,7 @@
 // Dosya Konumu: lib/screens/search_screen.dart
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:linkcim/l10n/app_localizations.dart';
 import 'package:linkcim/models/saved_video.dart';
 import 'package:linkcim/services/database_service.dart';
 import 'package:linkcim/widgets/video_card.dart';
@@ -245,7 +245,7 @@ class _SearchScreenState extends State<SearchScreen> {
             child: isLoading
                 ? Center(child: CircularProgressIndicator())
                 : searchResults.isEmpty
-                    ? _buildEmptyState()
+                    ? _buildEmptyState(context)
                     : ListView.builder(
                         padding:
                             EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -279,7 +279,9 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 
-  Widget _buildEmptyState() {
+  Widget _buildEmptyState(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
     return Center(
       child: Container(
         margin: EdgeInsets.all(40),

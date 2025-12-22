@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:linkcim/l10n/app_localizations.dart';
 import 'package:video_player/video_player.dart';
 import 'package:chewie/chewie.dart';
 import 'dart:io';
@@ -60,7 +60,7 @@ class _LocalVideoPlayerScreenState extends State<LocalVideoPlayerScreen> {
       }
 
       // Önceki controller'ları temizle
-      await _chewieController?.dispose();
+      _chewieController?.dispose();
       await _videoPlayerController?.dispose();
 
       // Video player controller'ı oluştur

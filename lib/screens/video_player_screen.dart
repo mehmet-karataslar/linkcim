@@ -1,7 +1,7 @@
 // Dosya Konumu: lib/screens/video_player_screen.dart
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:linkcim/l10n/app_localizations.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:linkcim/models/saved_video.dart';
 import 'package:linkcim/utils/url_utils.dart';

@@ -28,10 +28,15 @@ class TagChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     Color chipColor = backgroundColor ??
-        (highlighted ? Colors.yellow[200]! : Colors.blue[50]!);
+        (highlighted 
+            ? theme.colorScheme.tertiaryContainer 
+            : theme.colorScheme.primaryContainer);
     Color labelColor = textColor ??
-        (highlighted ? Colors.black : Colors.blue[800]!);
+        (highlighted 
+            ? theme.colorScheme.onTertiaryContainer 
+            : theme.colorScheme.onPrimaryContainer);
 
     double fontSize;
     EdgeInsets padding;
@@ -70,7 +75,9 @@ class TagChip extends StatelessWidget {
         deleteIcon: Icon(Icons.close, size: iconSize),
         deleteIconColor: labelColor,
         backgroundColor: chipColor,
-        side: highlighted ? BorderSide(color: Colors.orange, width: 2) : null,
+        side: highlighted 
+            ? BorderSide(color: theme.colorScheme.tertiary, width: 2) 
+            : null,
       );
     }
 
@@ -82,8 +89,8 @@ class TagChip extends StatelessWidget {
           color: chipColor,
           borderRadius: BorderRadius.circular(16),
           border: highlighted
-              ? Border.all(color: Colors.orange, width: 2)
-              : Border.all(color: Colors.grey[300]!),
+              ? Border.all(color: theme.colorScheme.tertiary, width: 2)
+              : Border.all(color: theme.colorScheme.outline),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,

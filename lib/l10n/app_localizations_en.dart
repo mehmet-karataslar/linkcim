@@ -387,4 +387,201 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get appInformation => 'Application information';
+
+  @override
+  String get searchPlaceholderShort => 'Search...';
+
+  @override
+  String get shareVideoLink => 'Share Video Link';
+
+  @override
+  String get shareVideoLinkDesc => 'Via phone share menu';
+
+  @override
+  String get shareDetailedInfo => 'Share Detailed Info';
+
+  @override
+  String get shareDetailedInfoDesc => 'With title, description and tags';
+
+  @override
+  String get copyLink => 'Copy Link';
+
+  @override
+  String get copyLinkDesc => 'Copy to clipboard';
+
+  @override
+  String get linkCopied => 'Link copied to clipboard';
+
+  @override
+  String get shareError => 'Share error';
+
+  @override
+  String get copyError => 'Copy error';
+
+  @override
+  String get videoLinkShared => 'Video link shared';
+
+  @override
+  String get videoDetailsShared => 'Video details shared';
+
+  @override
+  String get loading => 'Loading...';
+
+  @override
+  String get previewLoading => 'Preview\nLoading...';
+
+  @override
+  String get previewUnavailable => 'Preview\nUnavailable';
+
+  @override
+  String get platformInstagram => 'Instagram';
+
+  @override
+  String get platformYouTube => 'YouTube';
+
+  @override
+  String get platformTikTok => 'TikTok';
+
+  @override
+  String get platformTwitter => 'Twitter';
+
+  @override
+  String get platformFacebook => 'Facebook';
+
+  @override
+  String get platformVimeo => 'Vimeo';
+
+  @override
+  String get platformReddit => 'Reddit';
+
+  @override
+  String get platformGeneral => 'General';
+
+  @override
+  String get categoryGeneral => 'General';
+
+  @override
+  String get categorySoftware => 'Software';
+
+  @override
+  String get categoryEducation => 'Education';
+
+  @override
+  String get categoryEntertainment => 'Entertainment';
+
+  @override
+  String get categorySports => 'Sports';
+
+  @override
+  String get categoryFood => 'Food';
+
+  @override
+  String get categoryMusic => 'Music';
+
+  @override
+  String get categoryArt => 'Art';
+
+  @override
+  String get categoryScience => 'Science';
+
+  @override
+  String get categoryTechnology => 'Technology';
+
+  @override
+  String get noDescription => 'No description';
+
+  @override
+  String get descriptionNotAvailable => 'Description not available';
+
+  @override
+  String get noTags => 'No tags';
+
+  @override
+  String get sharedFromLinkcim => 'Shared from Linkcim app';
+
+  @override
+  String videoCollection(int count) {
+    return 'Video Collection ($count videos)';
+  }
+
+  @override
+  String categoryVideos(String category) {
+    return '$category Category';
+  }
+
+  @override
+  String videosFoundInCategory(int count) {
+    return '$count videos found';
+  }
+
+  @override
+  String andMoreVideos(int count) {
+    return '... and $count more videos';
+  }
+
+  @override
+  String get videoTitleFromUrl => 'Video Title';
+
+  @override
+  String get instagramPost => 'Instagram Post';
+
+  @override
+  String get instagramReel => 'Instagram Reel';
+
+  @override
+  String get instagramTV => 'Instagram TV';
+
+  @override
+  String get instagramVideo => 'Instagram Video';
+
+  @override
+  String get youtubeVideo => 'YouTube Video';
+
+  @override
+  String get youtubeShorts => 'YouTube Shorts';
+
+  @override
+  String get tiktokVideo => 'TikTok Video';
+
+  @override
+  String get tiktokVideoShortLink => 'TikTok Video (Short Link)';
+
+  @override
+  String get twitterPost => 'Twitter Post';
+
+  @override
+  String twitterUser(String username) {
+    return 'Twitter (@$username)';
+  }
+
+  @override
+  String get xTwitterPost => 'X/Twitter Post';
+
+  @override
+  String xTwitterUser(String username) {
+    return 'X/Twitter (@$username)';
+  }
+
+  @override
+  String get facebookVideo => 'Facebook Video';
+
+  @override
+  String get vimeoVideo => 'Vimeo Video';
+
+  @override
+  String get redditVideo => 'Reddit Video';
+
+  @override
+  String get unknownChannel => 'Unknown Channel';
+
+  @override
+  String get quickShare => 'Quick Share';
+
+  @override
+  String get videoShared => 'Video shared';
+
+  @override
+  String shareFailed(String error) {
+    return 'Share failed: $error';
+  }
 }

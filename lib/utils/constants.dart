@@ -1,5 +1,7 @@
 // Dosya Konumu: lib/utils/constants.dart
 
+import 'package:linkcim/l10n/app_localizations.dart';
+
 class AppConstants {
   // Debug modu
   static const bool debugMode = true;
@@ -12,19 +14,21 @@ class AppConstants {
   static const textColor = 0xFF212121;
   static const hintColor = 0xFF757575;
 
-  // Varsayılan kategoriler
-  static const List<String> defaultCategories = [
-    'Genel',
-    'Yazılım',
-    'Eğitim',
-    'Eğlence',
-    'Spor',
-    'Yemek',
-    'Müzik',
-    'Sanat',
-    'Bilim',
-    'Teknoloji',
-  ];
+  // Varsayılan kategoriler - Lokalizasyon kullanılacak
+  static List<String> getDefaultCategories(AppLocalizations l10n) {
+    return [
+      l10n.categoryGeneral,
+      l10n.categorySoftware,
+      l10n.categoryEducation,
+      l10n.categoryEntertainment,
+      l10n.categorySports,
+      l10n.categoryFood,
+      l10n.categoryMusic,
+      l10n.categoryArt,
+      l10n.categoryScience,
+      l10n.categoryTechnology,
+    ];
+  }
 
   // Popüler etiketler
   static const List<String> popularTags = [
@@ -154,36 +158,36 @@ class AppConstants {
   }
 
   // 🎬 URL'den başlık çıkarma - Multi-Platform
-  static String extractTitleFromUrl(String url) {
+  static String extractTitleFromUrl(String url, AppLocalizations l10n) {
     try {
       String platform = detectPlatform(url);
       String emoji = platformEmojis[platform] ?? '🎬';
 
       switch (platform) {
         case 'Instagram':
-          return _extractInstagramTitle(url, emoji);
+          return _extractInstagramTitle(url, emoji, l10n);
         case 'YouTube':
-          return _extractYouTubeTitle(url, emoji);
+          return _extractYouTubeTitle(url, emoji, l10n);
         case 'TikTok':
-          return _extractTikTokTitle(url, emoji);
+          return _extractTikTokTitle(url, emoji, l10n);
         case 'Twitter':
-          return _extractTwitterTitle(url, emoji);
+          return _extractTwitterTitle(url, emoji, l10n);
         case 'Facebook':
-          return '$emoji Facebook Video';
+          return '$emoji ${l10n.facebookVideo}';
         case 'Vimeo':
-          return '$emoji Vimeo Video';
+          return '$emoji ${l10n.vimeoVideo}';
         case 'Reddit':
-          return '$emoji Reddit Video';
+          return '$emoji ${l10n.redditVideo}';
         default:
-          return '$emoji Video Başlık';
+          return '$emoji ${l10n.videoTitleFromUrl}';
       }
     } catch (e) {
-      return '🎬 Video Başlık';
+      return '🎬 ${l10n.videoTitleFromUrl}';
     }
   }
 
   // Instagram başlık çıkarma
-  static String _extractInstagramTitle(String url, String emoji) {
+  static String _extractInstagramTitle(String url, String emoji, AppLocalizations l10n) {
     Uri uri = Uri.parse(url);
     String path = uri.path;
 
@@ -196,26 +200,26 @@ class AppConstants {
 
       switch (type) {
         case 'p':
-          return '$emoji Instagram Gönderi';
+          return '$emoji ${l10n.instagramPost}';
         case 'reel':
-          return '$emoji Instagram Reel';
+          return '$emoji ${l10n.instagramReel}';
         case 'tv':
-          return '$emoji Instagram TV';
+          return '$emoji ${l10n.instagramTV}';
         default:
-          return '$emoji Instagram Video';
+          return '$emoji ${l10n.instagramVideo}';
       }
     }
 
-    return '$emoji Instagram Video';
+    return '$emoji ${l10n.instagramVideo}';
   }
 
   // YouTube başlık çıkarma
-  static String _extractYouTubeTitle(String url, String emoji) {
+  static String _extractYouTubeTitle(String url, String emoji, AppLocalizations l10n) {
     Uri uri = Uri.parse(url);
 
     // YouTube Shorts
     if (url.contains('/shorts/')) {
-      return '$emoji YouTube Shorts';
+      return '$emoji ${l10n.youtubeShorts}';
     }
 
     // Normal YouTube video
@@ -229,27 +233,27 @@ class AppConstants {
       }
 
       if (videoId != null && videoId.length >= 8) {
-        return '$emoji YouTube Video';
+        return '$emoji ${l10n.youtubeVideo}';
       }
     }
 
-    return '$emoji YouTube Video';
+    return '$emoji ${l10n.youtubeVideo}';
   }
 
   // TikTok başlık çıkarma
-  static String _extractTikTokTitle(String url, String emoji) {
+  static String _extractTikTokTitle(String url, String emoji, AppLocalizations l10n) {
     if (url.contains('/video/')) {
-      return '$emoji TikTok Video';
+      return '$emoji ${l10n.tiktokVideo}';
     }
     if (url.contains('vm.tiktok.com/')) {
-      return '$emoji TikTok Video (Kısa Link)';
+      return '$emoji ${l10n.tiktokVideoShortLink}';
     }
 
-    return '$emoji TikTok Video';
+    return '$emoji ${l10n.tiktokVideo}';
   }
 
   // Twitter başlık çıkarma
-  static String _extractTwitterTitle(String url, String emoji) {
+  static String _extractTwitterTitle(String url, String emoji, AppLocalizations l10n) {
     try {
       Uri uri = Uri.parse(url);
 
@@ -269,19 +273,19 @@ class AppConstants {
       // X.com domain kontrolü
       if (url.contains('x.com')) {
         if (username.isNotEmpty) {
-          return '$emoji X/Twitter (@$username)';
+          return '$emoji ${l10n.xTwitterUser(username)}';
         }
-        return '$emoji X/Twitter Gönderi';
+        return '$emoji ${l10n.xTwitterPost}';
       }
 
       // Twitter.com domain
       if (username.isNotEmpty) {
-        return '$emoji Twitter (@$username)';
+        return '$emoji ${l10n.twitterUser(username)}';
       }
 
-      return '$emoji Twitter Gönderi';
+      return '$emoji ${l10n.twitterPost}';
     } catch (e) {
-      return '$emoji Twitter Gönderi';
+      return '$emoji ${l10n.twitterPost}';
     }
   }
 

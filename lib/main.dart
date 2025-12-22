@@ -8,7 +8,7 @@ import 'package:linkcim/services/database_service.dart';
 import 'package:linkcim/services/theme_service.dart';
 import 'package:linkcim/services/locale_service.dart';
 import 'package:linkcim/screens/home_screen.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:linkcim/l10n/app_localizations.dart';
 
 void main() async {
   // Flutter framework'ü başlat

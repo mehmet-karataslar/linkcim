@@ -1,7 +1,7 @@
 // Dosya Konumu: lib/screens/video_preview_screen.dart
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:linkcim/l10n/app_localizations.dart';
 import 'package:linkcim/models/saved_video.dart';
 import 'package:linkcim/widgets/video_thumbnail.dart';
 import 'package:linkcim/widgets/share_menu.dart';
@@ -430,15 +430,17 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
                   child: OutlinedButton.icon(
                     onPressed: () async {
                       try {
+                        final l10n = AppLocalizations.of(context)!;
                         await ShareService.copyLinkToClipboard(
-                            widget.video.videoUrl);
-                        _showSuccess('Link kopyalandı');
+                            widget.video.videoUrl, l10n);
+                        _showSuccess(l10n.linkCopied);
                       } catch (e) {
-                        _showError('Kopyalama başarısız');
+                        final l10n = AppLocalizations.of(context)!;
+                        _showError(l10n.copyError);
                       }
                     },
                     icon: Icon(Icons.copy),
-                    label: Text('Link Kopyala'),
+                    label: Text(AppLocalizations.of(context)!.copyLink),
                   ),
                 ),
                 SizedBox(width: 8),
@@ -580,15 +582,17 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
                           child: ElevatedButton.icon(
                             onPressed: () async {
                               try {
+                                final l10n = AppLocalizations.of(context)!;
                                 await ShareService.copyLinkToClipboard(
-                                    widget.video.videoUrl);
-                                _showSuccess('Link panoya kopyalandı! 📋');
+                                    widget.video.videoUrl, l10n);
+                                _showSuccess(l10n.linkCopied);
                               } catch (e) {
-                                _showError('Kopyalama başarısız');
+                                final l10n = AppLocalizations.of(context)!;
+                                _showError(l10n.copyError);
                               }
                             },
                             icon: Icon(Icons.copy, size: 18),
-                            label: Text('URL\'yi Kopyala'),
+                            label: Text(AppLocalizations.of(context)!.copyLink),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.grey[700],
                               foregroundColor: Colors.white,

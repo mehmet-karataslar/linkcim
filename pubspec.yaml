@@ -39,10 +39,7 @@ dependencies:
   flutter_inappwebview: ^6.0.0
 
   # Paylaşma ve clipboard
-  share_plus: ^9.0.0
-
-  # Dosya açma - Gelişmiş
-  open_file: ^3.5.4
+  share_plus: ^12.0.1
 
   # Görsel önbellekleme ve resim yönetimi
   cached_network_image: ^3.3.1
@@ -78,13 +75,6 @@ dependencies:
   
   # Video thumbnail oluşturma - Güçlendirilmiş
   video_thumbnail: ^0.5.3
-  
-  # Audio kayıt ve çalma - İsteğe bağlı
-  record: ^5.1.0
-  just_audio: ^0.9.39
-  
-  # Audio waveforms - İsteğe bağlı
-  audio_waveforms: ^1.0.5
 
   # Network optimizasyonu (opsiyonel)
   # dio_cache_interceptor: ^3.5.0

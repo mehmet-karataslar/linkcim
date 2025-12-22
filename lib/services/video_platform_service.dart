@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:linkcim/utils/constants.dart';
 import 'package:linkcim/services/instagram_service.dart';
+import 'package:linkcim/l10n/app_localizations.dart';
 
 class VideoPlatformService {
   static const bool debugMode = true;
@@ -14,42 +15,42 @@ class VideoPlatformService {
   }
 
   // 🎬 Ana video metadata çekme fonksiyonu
-  static Future<Map<String, dynamic>> getVideoMetadata(String url) async {
+  static Future<Map<String, dynamic>> getVideoMetadata(String url, AppLocalizations l10n) async {
     try {
       String platform = AppConstants.detectPlatform(url);
       _debugPrint('Video metadata çekiliyor: $platform - $url');
 
       switch (platform) {
         case 'YouTube':
-          return await _getYouTubeMetadata(url);
+          return await _getYouTubeMetadata(url, l10n);
         case 'TikTok':
-          return await _getTikTokMetadata(url);
+          return await _getTikTokMetadata(url, l10n);
         case 'Instagram':
-          return await _getInstagramMetadata(url);
+          return await _getInstagramMetadata(url, l10n);
         case 'Twitter':
-          return await _getTwitterMetadata(url);
+          return await _getTwitterMetadata(url, l10n);
         case 'Facebook':
-          return await _getFacebookMetadata(url);
+          return await _getFacebookMetadata(url, l10n);
         case 'Vimeo':
-          return await _getVimeoMetadata(url);
+          return await _getVimeoMetadata(url, l10n);
         case 'Reddit':
-          return await _getRedditMetadata(url);
+          return await _getRedditMetadata(url, l10n);
         default:
-          return _createBasicMetadata(url, platform);
+          return _createBasicMetadata(url, platform, l10n);
       }
     } catch (e) {
       _debugPrint('Video metadata hatası: $e');
-      return _createErrorMetadata(url, e.toString());
+      return _createErrorMetadata(url, e.toString(), l10n);
     }
   }
 
   // 📺 YouTube metadata çekme
-  static Future<Map<String, dynamic>> _getYouTubeMetadata(String url) async {
+  static Future<Map<String, dynamic>> _getYouTubeMetadata(String url, AppLocalizations l10n) async {
     try {
       // YouTube oEmbed API kullanarak metadata çek
       String videoId = _extractYouTubeVideoId(url);
       if (videoId.isEmpty) {
-        return _createBasicMetadata(url, 'YouTube');
+        return _createBasicMetadata(url, 'YouTube', l10n);
       }
 
       // YouTube oEmbed endpoint
@@ -63,13 +64,14 @@ class VideoPlatformService {
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
+        String emoji = AppConstants.platformEmojis['YouTube'] ?? '📺';
 
         return {
           'success': true,
           'platform': 'YouTube',
-          'title': data['title'] ?? '📺 YouTube Video',
-          'description': _generateDescription(data['title'], 'YouTube'),
-          'author': data['author_name'] ?? 'Bilinmeyen Kanal',
+          'title': data['title'] ?? '$emoji ${l10n.youtubeVideo}',
+          'description': _generateDescription(data['title'], 'YouTube', l10n),
+          'author': data['author_name'] ?? l10n.unknownChannel,
           'duration': null, // oEmbed'de duration yok
           'thumbnail': data['thumbnail_url'],
           'view_count': null,
@@ -80,15 +82,15 @@ class VideoPlatformService {
         };
       }
 
-      return _createBasicMetadata(url, 'YouTube');
+      return _createBasicMetadata(url, 'YouTube', l10n);
     } catch (e) {
       _debugPrint('YouTube metadata hatası: $e');
-      return _createBasicMetadata(url, 'YouTube');
+      return _createBasicMetadata(url, 'YouTube', l10n);
     }
   }
 
   // 🎵 TikTok metadata çekme
-  static Future<Map<String, dynamic>> _getTikTokMetadata(String url) async {
+  static Future<Map<String, dynamic>> _getTikTokMetadata(String url, AppLocalizations l10n) async {
     try {
       // TikTok için oEmbed API kullan
       final oembedUrl =
@@ -101,13 +103,14 @@ class VideoPlatformService {
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
+        String emoji = AppConstants.platformEmojis['TikTok'] ?? '🎵';
 
         return {
           'success': true,
           'platform': 'TikTok',
-          'title': data['title'] ?? '🎵 TikTok Video',
-          'description': _generateDescription(data['title'], 'TikTok'),
-          'author': data['author_name'] ?? 'Bilinmeyen Kullanıcı',
+          'title': data['title'] ?? '$emoji ${l10n.tiktokVideo}',
+          'description': _generateDescription(data['title'], 'TikTok', l10n),
+          'author': data['author_name'] ?? l10n.unknownChannel,
           'duration': null,
           'thumbnail': data['thumbnail_url'],
           'view_count': null,
@@ -118,15 +121,15 @@ class VideoPlatformService {
         };
       }
 
-      return _createBasicMetadata(url, 'TikTok');
+      return _createBasicMetadata(url, 'TikTok', l10n);
     } catch (e) {
       _debugPrint('TikTok metadata hatası: $e');
-      return _createBasicMetadata(url, 'TikTok');
+      return _createBasicMetadata(url, 'TikTok', l10n);
     }
   }
 
   // 🐦 Twitter metadata çekme
-  static Future<Map<String, dynamic>> _getTwitterMetadata(String url) async {
+  static Future<Map<String, dynamic>> _getTwitterMetadata(String url, AppLocalizations l10n) async {
     try {
       // Twitter oEmbed API kullan (eğer hala çalışıyorsa)
       // Not: Twitter'ın API erişimi kısıtlı olabilir
@@ -149,14 +152,15 @@ class VideoPlatformService {
 
         if (response.statusCode == 200) {
           final data = jsonDecode(response.body);
+          String emoji = AppConstants.platformEmojis['Twitter'] ?? '🐦';
 
           return {
             'success': true,
             'platform': 'Twitter',
             'title': data['html'] != null
                 ? _extractTextFromHTML(data['html'])
-                : '🐦 Twitter Gönderi',
-            'description': _generateDescription(data['html'], 'Twitter'),
+                : '$emoji ${l10n.twitterPost}',
+            'description': _generateDescription(data['html'], 'Twitter', l10n),
             'author': data['author_name'] ?? username,
             'duration': null,
             'thumbnail': null,
@@ -173,14 +177,15 @@ class VideoPlatformService {
       }
 
       // Fallback: Basit metadata oluştur
+      String emoji = AppConstants.platformEmojis['Twitter'] ?? '🐦';
       return {
         'success': true,
         'platform': 'Twitter',
         'title': username.isNotEmpty
-            ? '🐦 @$username Twitter'
-            : '🐦 Twitter Gönderi',
-        'description': _generateDescription(null, 'Twitter'),
-        'author': username.isNotEmpty ? '@$username' : 'Bilinmeyen',
+            ? '$emoji ${l10n.twitterUser(username)}'
+            : '$emoji ${l10n.twitterPost}',
+        'description': _generateDescription(null, 'Twitter', l10n),
+        'author': username.isNotEmpty ? '@$username' : l10n.unknownChannel,
         'duration': null,
         'thumbnail': null,
         'view_count': null,
@@ -192,12 +197,12 @@ class VideoPlatformService {
       };
     } catch (e) {
       _debugPrint('Twitter metadata hatası: $e');
-      return _createBasicMetadata(url, 'Twitter');
+      return _createBasicMetadata(url, 'Twitter', l10n);
     }
   }
 
   // 📸 Instagram metadata çekme
-  static Future<Map<String, dynamic>> _getInstagramMetadata(String url) async {
+  static Future<Map<String, dynamic>> _getInstagramMetadata(String url, AppLocalizations l10n) async {
     try {
       _debugPrint('Instagram metadata çekiliyor: $url');
 
@@ -205,14 +210,15 @@ class VideoPlatformService {
       final result = await InstagramService.getVideoMetadata(url);
 
       if (result['success'] == true) {
+        String emoji = AppConstants.platformEmojis['Instagram'] ?? '📸';
         return {
           'success': true,
           'platform': 'Instagram',
-          'title': result['title'] ?? '📸 Instagram Video',
-          'description': _generateDescription(result['title'], 'Instagram'),
+          'title': result['title'] ?? '$emoji ${l10n.instagramVideo}',
+          'description': _generateDescription(result['title'], 'Instagram', l10n),
           'author': result['author'] ??
               result['author_username'] ??
-              'Bilinmeyen Kullanıcı',
+              l10n.unknownChannel,
           'author_username': result['author_username'] ?? '',
           'duration': result['duration'],
           'thumbnail': result['thumbnail'] ?? result['estimated_thumbnail'],
@@ -232,10 +238,10 @@ class VideoPlatformService {
         };
       }
 
-      return _createBasicMetadata(url, 'Instagram');
+      return _createBasicMetadata(url, 'Instagram', l10n);
     } catch (e) {
       _debugPrint('Instagram metadata hatası: $e');
-      return _createBasicMetadata(url, 'Instagram');
+      return _createBasicMetadata(url, 'Instagram', l10n);
     }
   }
 
@@ -356,7 +362,7 @@ class VideoPlatformService {
   }
 
   // 👤 Facebook metadata çekme
-  static Future<Map<String, dynamic>> _getFacebookMetadata(String url) async {
+  static Future<Map<String, dynamic>> _getFacebookMetadata(String url, AppLocalizations l10n) async {
     try {
       // Facebook oEmbed API kullanarak metadata çek
       final oembedUrl =
@@ -371,9 +377,9 @@ class VideoPlatformService {
         return {
           'success': true,
           'platform': 'Facebook',
-          'title': data['title'] ?? 'Facebook Video',
-          'description': data['description'] ?? 'Facebook platformundan video',
-          'author': data['author_name'] ?? 'Bilinmeyen',
+          'title': data['title'] ?? l10n.facebookVideo,
+          'description': data['description'] ?? _generateDescription(null, 'Facebook', l10n),
+          'author': data['author_name'] ?? l10n.unknownChannel,
           'duration': null,
           'thumbnail': data['thumbnail_url'],
           'view_count': null,
@@ -383,16 +389,16 @@ class VideoPlatformService {
           'raw_data': data,
         };
       } else {
-        return _createBasicMetadata(url, 'Facebook');
+        return _createBasicMetadata(url, 'Facebook', l10n);
       }
     } catch (e) {
       _debugPrint('Facebook metadata hatası: $e');
-      return _createBasicMetadata(url, 'Facebook');
+      return _createBasicMetadata(url, 'Facebook', l10n);
     }
   }
 
   // 🎬 Vimeo metadata çekme
-  static Future<Map<String, dynamic>> _getVimeoMetadata(String url) async {
+  static Future<Map<String, dynamic>> _getVimeoMetadata(String url, AppLocalizations l10n) async {
     try {
       // Vimeo oEmbed API kullanarak metadata çek
       final oembedUrl =
@@ -407,9 +413,9 @@ class VideoPlatformService {
         return {
           'success': true,
           'platform': 'Vimeo',
-          'title': data['title'] ?? 'Vimeo Video',
-          'description': data['description'] ?? 'Vimeo platformundan video',
-          'author': data['author_name'] ?? 'Bilinmeyen',
+          'title': data['title'] ?? l10n.vimeoVideo,
+          'description': data['description'] ?? _generateDescription(null, 'Vimeo', l10n),
+          'author': data['author_name'] ?? l10n.unknownChannel,
           'duration': data['duration'],
           'thumbnail': data['thumbnail_url'],
           'view_count': null,
@@ -419,16 +425,16 @@ class VideoPlatformService {
           'raw_data': data,
         };
       } else {
-        return _createBasicMetadata(url, 'Vimeo');
+        return _createBasicMetadata(url, 'Vimeo', l10n);
       }
     } catch (e) {
       _debugPrint('Vimeo metadata hatası: $e');
-      return _createBasicMetadata(url, 'Vimeo');
+      return _createBasicMetadata(url, 'Vimeo', l10n);
     }
   }
 
   // 🤖 Reddit metadata çekme
-  static Future<Map<String, dynamic>> _getRedditMetadata(String url) async {
+  static Future<Map<String, dynamic>> _getRedditMetadata(String url, AppLocalizations l10n) async {
     try {
       // Reddit oEmbed API kullanarak metadata çek
       // Reddit'in resmi oEmbed API'si yok, bu yüzden basit metadata oluşturuyoruz
@@ -437,9 +443,9 @@ class VideoPlatformService {
       return {
         'success': true,
         'platform': 'Reddit',
-        'title': 'Reddit Video',
-        'description': 'Reddit platformundan video',
-        'author': 'Bilinmeyen',
+        'title': l10n.redditVideo,
+        'description': _generateDescription(null, 'Reddit', l10n),
+        'author': l10n.unknownChannel,
         'duration': null,
         'thumbnail': null,
         'view_count': null,
@@ -450,7 +456,7 @@ class VideoPlatformService {
       };
     } catch (e) {
       _debugPrint('Reddit metadata hatası: $e');
-      return _createBasicMetadata(url, 'Reddit');
+      return _createBasicMetadata(url, 'Reddit', l10n);
     }
   }
 
@@ -502,24 +508,77 @@ class VideoPlatformService {
   }
 
   // 📝 Yardımcı fonksiyonlar
-  static String _generateDescription(String? title, String platform) {
+  static String _generateDescription(String? title, String platform, AppLocalizations l10n) {
+    String platformName;
+    switch (platform) {
+      case 'Instagram':
+        platformName = l10n.platformInstagram;
+        break;
+      case 'YouTube':
+        platformName = l10n.platformYouTube;
+        break;
+      case 'TikTok':
+        platformName = l10n.platformTikTok;
+        break;
+      case 'Twitter':
+        platformName = l10n.platformTwitter;
+        break;
+      case 'Facebook':
+        platformName = l10n.platformFacebook;
+        break;
+      case 'Vimeo':
+        platformName = l10n.platformVimeo;
+        break;
+      case 'Reddit':
+        platformName = l10n.platformReddit;
+        break;
+      default:
+        platformName = platform;
+    }
+    
     if (title == null || title.isEmpty) {
-      return '$platform platformundan video';
+      return '$platformName ${l10n.videoInfo}';
     }
 
-    return 'Bu video $platform platformundan alınmıştır: ${title.length > 100 ? title.substring(0, 100) + '...' : title}';
+    return '${l10n.videoInfo}: ${title.length > 100 ? title.substring(0, 100) + '...' : title}';
   }
 
   static Map<String, dynamic> _createBasicMetadata(
-      String url, String platform) {
+      String url, String platform, AppLocalizations l10n) {
     String emoji = AppConstants.platformEmojis[platform] ?? '🎬';
+    String platformName;
+    switch (platform) {
+      case 'Instagram':
+        platformName = l10n.platformInstagram;
+        break;
+      case 'YouTube':
+        platformName = l10n.platformYouTube;
+        break;
+      case 'TikTok':
+        platformName = l10n.platformTikTok;
+        break;
+      case 'Twitter':
+        platformName = l10n.platformTwitter;
+        break;
+      case 'Facebook':
+        platformName = l10n.platformFacebook;
+        break;
+      case 'Vimeo':
+        platformName = l10n.platformVimeo;
+        break;
+      case 'Reddit':
+        platformName = l10n.platformReddit;
+        break;
+      default:
+        platformName = platform;
+    }
 
     return {
       'success': true,
       'platform': platform,
-      'title': '$emoji $platform Video',
-      'description': _generateDescription(null, platform),
-      'author': 'Bilinmeyen',
+      'title': '$emoji $platformName ${l10n.videoInfo}',
+      'description': _generateDescription(null, platform, l10n),
+      'author': l10n.unknownChannel,
       'duration': null,
       'thumbnail': null,
       'view_count': null,
@@ -530,16 +589,42 @@ class VideoPlatformService {
     };
   }
 
-  static Map<String, dynamic> _createErrorMetadata(String url, String error) {
+  static Map<String, dynamic> _createErrorMetadata(String url, String error, AppLocalizations l10n) {
     String platform = AppConstants.detectPlatform(url);
     String emoji = AppConstants.platformEmojis[platform] ?? '🎬';
+    String platformName;
+    switch (platform) {
+      case 'Instagram':
+        platformName = l10n.platformInstagram;
+        break;
+      case 'YouTube':
+        platformName = l10n.platformYouTube;
+        break;
+      case 'TikTok':
+        platformName = l10n.platformTikTok;
+        break;
+      case 'Twitter':
+        platformName = l10n.platformTwitter;
+        break;
+      case 'Facebook':
+        platformName = l10n.platformFacebook;
+        break;
+      case 'Vimeo':
+        platformName = l10n.platformVimeo;
+        break;
+      case 'Reddit':
+        platformName = l10n.platformReddit;
+        break;
+      default:
+        platformName = platform;
+    }
 
     return {
       'success': false,
       'platform': platform,
-      'title': '$emoji $platform Video',
-      'description': 'Video bilgileri alınamadı',
-      'author': 'Bilinmeyen',
+      'title': '$emoji $platformName ${l10n.videoInfo}',
+      'description': l10n.dataLoadError,
+      'author': l10n.unknownChannel,
       'duration': null,
       'thumbnail': null,
       'view_count': null,

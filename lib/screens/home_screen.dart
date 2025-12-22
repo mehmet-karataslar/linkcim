@@ -1,7 +1,7 @@
 // Dosya Konumu: lib/screens/home_screen.dart
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:linkcim/l10n/app_localizations.dart';
 import 'package:linkcim/models/saved_video.dart';
 import 'package:linkcim/services/database_service.dart';
 
@@ -34,6 +34,16 @@ class _HomeScreenState extends State<HomeScreen>
 
   final DatabaseService _dbService = DatabaseService();
 
+  void _initializeAnimations() {
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 500),
+    );
+    _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: _animationController, curve: Curves.easeIn),
+    );
+  }
+
   @override
   void initState() {
     super.initState();
@@ -41,6 +51,12 @@ class _HomeScreenState extends State<HomeScreen>
     _loadData();
 
     _animationController.forward();
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
   }
 
   Future<void> _loadData() async {

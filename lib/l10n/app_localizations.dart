@@ -835,6 +835,372 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Application information'**
   String get appInformation;
+
+  /// Short search placeholder
+  ///
+  /// In en, this message translates to:
+  /// **'Search...'**
+  String get searchPlaceholderShort;
+
+  /// Share video link button
+  ///
+  /// In en, this message translates to:
+  /// **'Share Video Link'**
+  String get shareVideoLink;
+
+  /// Share video link description
+  ///
+  /// In en, this message translates to:
+  /// **'Via phone share menu'**
+  String get shareVideoLinkDesc;
+
+  /// Share detailed info button
+  ///
+  /// In en, this message translates to:
+  /// **'Share Detailed Info'**
+  String get shareDetailedInfo;
+
+  /// Share detailed info description
+  ///
+  /// In en, this message translates to:
+  /// **'With title, description and tags'**
+  String get shareDetailedInfoDesc;
+
+  /// Copy link button
+  ///
+  /// In en, this message translates to:
+  /// **'Copy Link'**
+  String get copyLink;
+
+  /// Copy link description
+  ///
+  /// In en, this message translates to:
+  /// **'Copy to clipboard'**
+  String get copyLinkDesc;
+
+  /// Link copied message
+  ///
+  /// In en, this message translates to:
+  /// **'Link copied to clipboard'**
+  String get linkCopied;
+
+  /// Share error message
+  ///
+  /// In en, this message translates to:
+  /// **'Share error'**
+  String get shareError;
+
+  /// Copy error message
+  ///
+  /// In en, this message translates to:
+  /// **'Copy error'**
+  String get copyError;
+
+  /// Video link shared message
+  ///
+  /// In en, this message translates to:
+  /// **'Video link shared'**
+  String get videoLinkShared;
+
+  /// Video details shared message
+  ///
+  /// In en, this message translates to:
+  /// **'Video details shared'**
+  String get videoDetailsShared;
+
+  /// Loading message
+  ///
+  /// In en, this message translates to:
+  /// **'Loading...'**
+  String get loading;
+
+  /// Preview loading message
+  ///
+  /// In en, this message translates to:
+  /// **'Preview\nLoading...'**
+  String get previewLoading;
+
+  /// Preview unavailable message
+  ///
+  /// In en, this message translates to:
+  /// **'Preview\nUnavailable'**
+  String get previewUnavailable;
+
+  /// Instagram platform name
+  ///
+  /// In en, this message translates to:
+  /// **'Instagram'**
+  String get platformInstagram;
+
+  /// YouTube platform name
+  ///
+  /// In en, this message translates to:
+  /// **'YouTube'**
+  String get platformYouTube;
+
+  /// TikTok platform name
+  ///
+  /// In en, this message translates to:
+  /// **'TikTok'**
+  String get platformTikTok;
+
+  /// Twitter platform name
+  ///
+  /// In en, this message translates to:
+  /// **'Twitter'**
+  String get platformTwitter;
+
+  /// Facebook platform name
+  ///
+  /// In en, this message translates to:
+  /// **'Facebook'**
+  String get platformFacebook;
+
+  /// Vimeo platform name
+  ///
+  /// In en, this message translates to:
+  /// **'Vimeo'**
+  String get platformVimeo;
+
+  /// Reddit platform name
+  ///
+  /// In en, this message translates to:
+  /// **'Reddit'**
+  String get platformReddit;
+
+  /// General platform name
+  ///
+  /// In en, this message translates to:
+  /// **'General'**
+  String get platformGeneral;
+
+  /// General category
+  ///
+  /// In en, this message translates to:
+  /// **'General'**
+  String get categoryGeneral;
+
+  /// Software category
+  ///
+  /// In en, this message translates to:
+  /// **'Software'**
+  String get categorySoftware;
+
+  /// Education category
+  ///
+  /// In en, this message translates to:
+  /// **'Education'**
+  String get categoryEducation;
+
+  /// Entertainment category
+  ///
+  /// In en, this message translates to:
+  /// **'Entertainment'**
+  String get categoryEntertainment;
+
+  /// Sports category
+  ///
+  /// In en, this message translates to:
+  /// **'Sports'**
+  String get categorySports;
+
+  /// Food category
+  ///
+  /// In en, this message translates to:
+  /// **'Food'**
+  String get categoryFood;
+
+  /// Music category
+  ///
+  /// In en, this message translates to:
+  /// **'Music'**
+  String get categoryMusic;
+
+  /// Art category
+  ///
+  /// In en, this message translates to:
+  /// **'Art'**
+  String get categoryArt;
+
+  /// Science category
+  ///
+  /// In en, this message translates to:
+  /// **'Science'**
+  String get categoryScience;
+
+  /// Technology category
+  ///
+  /// In en, this message translates to:
+  /// **'Technology'**
+  String get categoryTechnology;
+
+  /// No description text
+  ///
+  /// In en, this message translates to:
+  /// **'No description'**
+  String get noDescription;
+
+  /// Description not available text
+  ///
+  /// In en, this message translates to:
+  /// **'Description not available'**
+  String get descriptionNotAvailable;
+
+  /// No tags text
+  ///
+  /// In en, this message translates to:
+  /// **'No tags'**
+  String get noTags;
+
+  /// Shared from app message
+  ///
+  /// In en, this message translates to:
+  /// **'Shared from Linkcim app'**
+  String get sharedFromLinkcim;
+
+  /// Video collection title
+  ///
+  /// In en, this message translates to:
+  /// **'Video Collection ({count} videos)'**
+  String videoCollection(int count);
+
+  /// Category videos title
+  ///
+  /// In en, this message translates to:
+  /// **'{category} Category'**
+  String categoryVideos(String category);
+
+  /// Videos found in category
+  ///
+  /// In en, this message translates to:
+  /// **'{count} videos found'**
+  String videosFoundInCategory(int count);
+
+  /// And more videos message
+  ///
+  /// In en, this message translates to:
+  /// **'... and {count} more videos'**
+  String andMoreVideos(int count);
+
+  /// Video title from URL
+  ///
+  /// In en, this message translates to:
+  /// **'Video Title'**
+  String get videoTitleFromUrl;
+
+  /// Instagram post type
+  ///
+  /// In en, this message translates to:
+  /// **'Instagram Post'**
+  String get instagramPost;
+
+  /// Instagram reel type
+  ///
+  /// In en, this message translates to:
+  /// **'Instagram Reel'**
+  String get instagramReel;
+
+  /// Instagram TV type
+  ///
+  /// In en, this message translates to:
+  /// **'Instagram TV'**
+  String get instagramTV;
+
+  /// Instagram video type
+  ///
+  /// In en, this message translates to:
+  /// **'Instagram Video'**
+  String get instagramVideo;
+
+  /// YouTube video type
+  ///
+  /// In en, this message translates to:
+  /// **'YouTube Video'**
+  String get youtubeVideo;
+
+  /// YouTube Shorts type
+  ///
+  /// In en, this message translates to:
+  /// **'YouTube Shorts'**
+  String get youtubeShorts;
+
+  /// TikTok video type
+  ///
+  /// In en, this message translates to:
+  /// **'TikTok Video'**
+  String get tiktokVideo;
+
+  /// TikTok video short link type
+  ///
+  /// In en, this message translates to:
+  /// **'TikTok Video (Short Link)'**
+  String get tiktokVideoShortLink;
+
+  /// Twitter post type
+  ///
+  /// In en, this message translates to:
+  /// **'Twitter Post'**
+  String get twitterPost;
+
+  /// Twitter user format
+  ///
+  /// In en, this message translates to:
+  /// **'Twitter (@{username})'**
+  String twitterUser(String username);
+
+  /// X/Twitter post type
+  ///
+  /// In en, this message translates to:
+  /// **'X/Twitter Post'**
+  String get xTwitterPost;
+
+  /// X/Twitter user format
+  ///
+  /// In en, this message translates to:
+  /// **'X/Twitter (@{username})'**
+  String xTwitterUser(String username);
+
+  /// Facebook video type
+  ///
+  /// In en, this message translates to:
+  /// **'Facebook Video'**
+  String get facebookVideo;
+
+  /// Vimeo video type
+  ///
+  /// In en, this message translates to:
+  /// **'Vimeo Video'**
+  String get vimeoVideo;
+
+  /// Reddit video type
+  ///
+  /// In en, this message translates to:
+  /// **'Reddit Video'**
+  String get redditVideo;
+
+  /// Unknown channel name
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown Channel'**
+  String get unknownChannel;
+
+  /// Quick share button
+  ///
+  /// In en, this message translates to:
+  /// **'Quick Share'**
+  String get quickShare;
+
+  /// Video shared message
+  ///
+  /// In en, this message translates to:
+  /// **'Video shared'**
+  String get videoShared;
+
+  /// Share failed message
+  ///
+  /// In en, this message translates to:
+  /// **'Share failed: {error}'**
+  String shareFailed(String error);
 }
 
 class _AppLocalizationsDelegate

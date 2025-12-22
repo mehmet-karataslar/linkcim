@@ -387,4 +387,201 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get appInformation => 'Uygulama bilgileri';
+
+  @override
+  String get searchPlaceholderShort => 'Ara...';
+
+  @override
+  String get shareVideoLink => 'Video Linkini Paylaş';
+
+  @override
+  String get shareVideoLinkDesc => 'Telefonun paylaş menüsü ile';
+
+  @override
+  String get shareDetailedInfo => 'Detaylı Bilgi Paylaş';
+
+  @override
+  String get shareDetailedInfoDesc => 'Başlık, açıklama ve etiketlerle';
+
+  @override
+  String get copyLink => 'Linki Kopyala';
+
+  @override
+  String get copyLinkDesc => 'Panoya kopyala';
+
+  @override
+  String get linkCopied => 'Link panoya kopyalandı';
+
+  @override
+  String get shareError => 'Paylaşma hatası';
+
+  @override
+  String get copyError => 'Kopyalama hatası';
+
+  @override
+  String get videoLinkShared => 'Video linki paylaşıldı';
+
+  @override
+  String get videoDetailsShared => 'Video detayları paylaşıldı';
+
+  @override
+  String get loading => 'Yükleniyor...';
+
+  @override
+  String get previewLoading => 'Önizleme\nYükleniyor...';
+
+  @override
+  String get previewUnavailable => 'Önizleme\nUlaşılamıyor';
+
+  @override
+  String get platformInstagram => 'Instagram';
+
+  @override
+  String get platformYouTube => 'YouTube';
+
+  @override
+  String get platformTikTok => 'TikTok';
+
+  @override
+  String get platformTwitter => 'Twitter';
+
+  @override
+  String get platformFacebook => 'Facebook';
+
+  @override
+  String get platformVimeo => 'Vimeo';
+
+  @override
+  String get platformReddit => 'Reddit';
+
+  @override
+  String get platformGeneral => 'Genel';
+
+  @override
+  String get categoryGeneral => 'Genel';
+
+  @override
+  String get categorySoftware => 'Yazılım';
+
+  @override
+  String get categoryEducation => 'Eğitim';
+
+  @override
+  String get categoryEntertainment => 'Eğlence';
+
+  @override
+  String get categorySports => 'Spor';
+
+  @override
+  String get categoryFood => 'Yemek';
+
+  @override
+  String get categoryMusic => 'Müzik';
+
+  @override
+  String get categoryArt => 'Sanat';
+
+  @override
+  String get categoryScience => 'Bilim';
+
+  @override
+  String get categoryTechnology => 'Teknoloji';
+
+  @override
+  String get noDescription => 'Açıklama yok';
+
+  @override
+  String get descriptionNotAvailable => 'Açıklama mevcut değil';
+
+  @override
+  String get noTags => 'Etiket yok';
+
+  @override
+  String get sharedFromLinkcim => 'Linkcim uygulaması ile paylaşıldı';
+
+  @override
+  String videoCollection(int count) {
+    return 'Video Koleksiyonu ($count video)';
+  }
+
+  @override
+  String categoryVideos(String category) {
+    return '$category Kategorisi';
+  }
+
+  @override
+  String videosFoundInCategory(int count) {
+    return '$count video bulundu';
+  }
+
+  @override
+  String andMoreVideos(int count) {
+    return '... ve $count video daha';
+  }
+
+  @override
+  String get videoTitleFromUrl => 'Video Başlığı';
+
+  @override
+  String get instagramPost => 'Instagram Gönderi';
+
+  @override
+  String get instagramReel => 'Instagram Reel';
+
+  @override
+  String get instagramTV => 'Instagram TV';
+
+  @override
+  String get instagramVideo => 'Instagram Video';
+
+  @override
+  String get youtubeVideo => 'YouTube Video';
+
+  @override
+  String get youtubeShorts => 'YouTube Shorts';
+
+  @override
+  String get tiktokVideo => 'TikTok Video';
+
+  @override
+  String get tiktokVideoShortLink => 'TikTok Video (Kısa Link)';
+
+  @override
+  String get twitterPost => 'Twitter Gönderi';
+
+  @override
+  String twitterUser(String username) {
+    return 'Twitter (@$username)';
+  }
+
+  @override
+  String get xTwitterPost => 'X/Twitter Gönderi';
+
+  @override
+  String xTwitterUser(String username) {
+    return 'X/Twitter (@$username)';
+  }
+
+  @override
+  String get facebookVideo => 'Facebook Video';
+
+  @override
+  String get vimeoVideo => 'Vimeo Video';
+
+  @override
+  String get redditVideo => 'Reddit Video';
+
+  @override
+  String get unknownChannel => 'Bilinmeyen Kanal';
+
+  @override
+  String get quickShare => 'Hızlı Paylaş';
+
+  @override
+  String get videoShared => 'Video paylaşıldı';
+
+  @override
+  String shareFailed(String error) {
+    return 'Paylaşma başarısız: $error';
+  }
 }
