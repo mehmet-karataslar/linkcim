@@ -126,13 +126,13 @@ Videolarınızı eklerken otomatik olarak platform bilgileri çekilir:
 
 ### 📱 Android APK Kurulumu
 
-1. **APK Dosyasını İndirin:**
-   - [📥 linkcim-v1.0.0.apk](https://github.com/mehmetkaratslar/linkcim/raw/main/reels/linkcim-v1.0.0.apk)
-   - Dosya boyutu: ~61 MB
+1. **APK'yı indirin:**
+   - **GitHub Releases**: [📥 v1.0.0 Release](https://github.com/mehmetkaratslar/linkcim/releases/tag/v1.0.0) veya [📥 Latest Release](https://github.com/mehmetkaratslar/linkcim/releases/latest)
+   - **Direkt İndirme**: [📥 linkcim-v1.0.0.apk](release/linkcim-v1.0.0.apk) (61.3MB)
    - En güncel versiyon: **Linkcim v1.0.0**
 
 2. **APK'yı yükleyin:**
-   - APK dosyasını cihazınıza indirin
+   - `linkcim-v1.0.0.apk` dosyasını cihazınıza indirin
    - Ayarlar > Güvenlik > Bilinmeyen Kaynaklardan yüklemeye izin verin
    - APK dosyasına tıklayarak yükleyin
 

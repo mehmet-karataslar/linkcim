@@ -129,7 +129,7 @@ nssm.exe
 *.tmp
 *.temp
 
-# APK files in root (reels klasöründeki APK'lar commit edilecek)
+# APK files (release klasöründeki APK'lar commit edilecek)
 *.apk
 linkcim-*.apk
-!/reels/*.apk
+!/release/*.apk
