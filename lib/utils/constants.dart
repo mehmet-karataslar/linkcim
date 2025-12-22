@@ -62,6 +62,9 @@ class AppConstants {
     'YouTube',
     'TikTok',
     'Twitter',
+    'Facebook',
+    'Vimeo',
+    'Reddit',
   ];
 
   // 📱 Platform emojileri
@@ -70,6 +73,9 @@ class AppConstants {
     'YouTube': '📺',
     'TikTok': '🎵',
     'Twitter': '🐦',
+    'Facebook': '👤',
+    'Vimeo': '🎬',
+    'Reddit': '🤖',
     'Genel': '🎬',
   };
 
@@ -78,7 +84,10 @@ class AppConstants {
     return isValidInstagramUrl(url) ||
         isValidYouTubeUrl(url) ||
         isValidTikTokUrl(url) ||
-        isValidTwitterUrl(url);
+        isValidTwitterUrl(url) ||
+        isValidFacebookUrl(url) ||
+        isValidVimeoUrl(url) ||
+        isValidRedditUrl(url);
   }
 
   // Instagram URL validation
@@ -109,12 +118,38 @@ class AppConstants {
         (url.contains('mobile.twitter.com') && url.contains('/status/'));
   }
 
+  // Facebook URL validation
+  static bool isValidFacebookUrl(String url) {
+    return (url.contains('facebook.com') && 
+            (url.contains('/video.php') || 
+             url.contains('/watch') || 
+             url.contains('/videos/'))) ||
+        (url.contains('fb.com') && url.contains('/watch')) ||
+        (url.contains('fb.watch'));
+  }
+
+  // Vimeo URL validation
+  static bool isValidVimeoUrl(String url) {
+    return (url.contains('vimeo.com') && url.contains('/')) ||
+        (url.contains('player.vimeo.com'));
+  }
+
+  // Reddit URL validation
+  static bool isValidRedditUrl(String url) {
+    return (url.contains('reddit.com') && 
+            (url.contains('/r/') || url.contains('/user/'))) ||
+        (url.contains('redd.it'));
+  }
+
   // 🔍 Platform Detection
   static String detectPlatform(String url) {
     if (isValidInstagramUrl(url)) return 'Instagram';
     if (isValidYouTubeUrl(url)) return 'YouTube';
     if (isValidTikTokUrl(url)) return 'TikTok';
     if (isValidTwitterUrl(url)) return 'Twitter';
+    if (isValidFacebookUrl(url)) return 'Facebook';
+    if (isValidVimeoUrl(url)) return 'Vimeo';
+    if (isValidRedditUrl(url)) return 'Reddit';
     return 'Genel';
   }
 
@@ -133,6 +168,12 @@ class AppConstants {
           return _extractTikTokTitle(url, emoji);
         case 'Twitter':
           return _extractTwitterTitle(url, emoji);
+        case 'Facebook':
+          return '$emoji Facebook Video';
+        case 'Vimeo':
+          return '$emoji Vimeo Video';
+        case 'Reddit':
+          return '$emoji Reddit Video';
         default:
           return '$emoji Video Başlık';
       }
@@ -255,6 +296,12 @@ class AppConstants {
         return 0xFF000000; // TikTok siyahı
       case 'Twitter':
         return 0xFF1DA1F2; // Twitter mavisi
+      case 'Facebook':
+        return 0xFF1877F2; // Facebook mavisi
+      case 'Vimeo':
+        return 0xFF1AB7EA; // Vimeo mavisi
+      case 'Reddit':
+        return 0xFFFF4500; // Reddit turuncusu
       default:
         return primaryColor; // Varsayılan mavi
     }

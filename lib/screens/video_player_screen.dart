@@ -1,6 +1,7 @@
 // Dosya Konumu: lib/screens/video_player_screen.dart
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:linkcim/models/saved_video.dart';
 import 'package:linkcim/utils/url_utils.dart';
@@ -91,12 +92,12 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
           IconButton(
             icon: Icon(Icons.refresh),
             onPressed: _refresh,
-            tooltip: 'Yenile',
+            tooltip: AppLocalizations.of(context)!.refresh,
           ),
           IconButton(
             icon: Icon(Icons.share),
             onPressed: () => ShareMenu.show(context, widget.video),
-            tooltip: 'Paylaş',
+            tooltip: AppLocalizations.of(context)!.share,
           ),
         ],
       ),

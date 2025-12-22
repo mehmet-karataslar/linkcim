@@ -1,12 +1,10 @@
 // Dosya Konumu: lib/screens/add_video_screen.dart
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:linkcim/models/saved_video.dart';
 import 'package:linkcim/services/database_service.dart';
-import 'package:linkcim/services/ai_service.dart';
-import 'package:linkcim/services/video_platform_service.dart';
 import 'package:linkcim/utils/constants.dart';
-import 'package:linkcim/widgets/tag_chip.dart';
 
 class AddVideoScreen extends StatefulWidget {
   final SavedVideo? video;
@@ -27,9 +25,6 @@ class _AddVideoScreenState extends State<AddVideoScreen> {
 
   List<String> tags = [];
   bool isEditing = false;
-  bool isAnalyzing = false;
-  bool hasAnalyzed = false;
-  Map<String, dynamic> aiSuggestions = {};
 
   final DatabaseService _dbService = DatabaseService();
 
@@ -67,122 +62,15 @@ class _AddVideoScreenState extends State<AddVideoScreen> {
     setState(() => tags.remove(tag));
   }
 
-  // 🤖 AI Analizi
-  Future<void> _performAIAnalysis() async {
-    if (_urlController.text.isEmpty) {
-      _showError('Önce video linki girin');
-      return;
-    }
-
-    if (!AppConstants.isValidVideoUrl(_urlController.text)) {
-      _showError('Geçerli bir video linki girin');
-      return;
-    }
-
-    setState(() {
-      isAnalyzing = true;
-    });
-
-    try {
-      // 1. Platform verilerini al
-      final platform = AppConstants.detectPlatform(_urlController.text);
-      final platformData =
-          await VideoPlatformService.getVideoMetadata(_urlController.text);
-
-      String analysisText = '';
-
-      if (platformData['success'] == true) {
-        analysisText = '''
-Platform: $platform
-Başlık: ${platformData['title'] ?? ''}
-Açıklama: ${platformData['description'] ?? ''}
-Yükleyen: ${platformData['author'] ?? ''}
-''';
-      } else {
-        analysisText = 'Video URL: ${_urlController.text}\nPlatform: $platform';
-      }
-
-      // 2. AI analizi yap
-      final aiResult = await AIService.analyzeVideo(
-        title: analysisText,
-      );
-
-      if (aiResult['success'] == true) {
-        setState(() {
-          hasAnalyzed = true;
-          aiSuggestions = {
-            'title': aiResult['title'] ?? platformData['title'] ?? '',
-            'description':
-                aiResult['description'] ?? platformData['description'] ?? '',
-            'category': aiResult['category'] ?? 'Genel',
-            'tags': List<String>.from(aiResult['tags'] ?? []),
-            'platform_data': platformData,
-          };
-        });
-
-        _showSuccess('🤖 AI analizi tamamlandı! Önerileri uygulayabilirsiniz.');
-      } else {
-        // AI başarısız olsa bile platform verilerini kullan
-        if (platformData['success'] == true) {
-          setState(() {
-            hasAnalyzed = true;
-            aiSuggestions = {
-              'title': platformData['title'] ?? '',
-              'description': platformData['description'] ?? '',
-              'category': 'Genel',
-              'tags': <String>[],
-              'platform_data': platformData,
-            };
-          });
-          _showSuccess(
-              '📊 Platform verileri alındı! Önerileri uygulayabilirsiniz.');
-        } else {
-          throw Exception(aiResult['error'] ?? 'AI analizi başarısız');
-        }
-      }
-    } catch (e) {
-      _showError('Analiz hatası: $e');
-    } finally {
-      setState(() {
-        isAnalyzing = false;
-      });
-    }
-  }
-
-  // 🎯 AI Önerilerini Uygula
-  void _applyAISuggestions() {
-    if (aiSuggestions.isEmpty) return;
-
-    setState(() {
-      if (aiSuggestions['title'] != null &&
-          aiSuggestions['title'].toString().isNotEmpty) {
-        _titleController.text = aiSuggestions['title'];
-      }
-      if (aiSuggestions['description'] != null &&
-          aiSuggestions['description'].toString().isNotEmpty) {
-        _descriptionController.text = aiSuggestions['description'];
-      }
-      if (aiSuggestions['category'] != null &&
-          aiSuggestions['category'].toString().isNotEmpty) {
-        _categoryController.text = aiSuggestions['category'];
-      }
-      if (aiSuggestions['tags'] != null) {
-        final suggestedTags = List<String>.from(aiSuggestions['tags']);
-        tags = suggestedTags.take(10).toList(); // Maksimum 10 etiket
-      }
-    });
-
-    _showSuccess('✨ AI önerileri uygulandı!');
-  }
-
   // 💾 Video Kaydetme
   Future<void> _saveVideo() async {
     if (!_formKey.currentState!.validate()) return;
 
+    final l10n = AppLocalizations.of(context)!;
+    
     if (_urlController.text.isNotEmpty &&
         !AppConstants.isValidVideoUrl(_urlController.text)) {
-      _showError(
-          'Geçerli bir video linki giriniz (Instagram, YouTube, TikTok, Twitter)');
+      _showError(l10n.invalidUrl);
       return;
     }
 
@@ -196,7 +84,7 @@ Yükleyen: ${platformData['author'] ?? ''}
         widget.video!.tags = tags;
 
         await _dbService.updateVideo(widget.video!);
-        _showSuccess('Video güncellendi');
+        _showSuccess(l10n.videoUpdated);
       } else {
         // Yeni video ekleme
         final video = SavedVideo.create(
@@ -211,12 +99,12 @@ Yükleyen: ${platformData['author'] ?? ''}
         );
 
         await _dbService.addVideo(video);
-        _showSuccess('Video başarıyla kaydedildi');
+        _showSuccess(l10n.videoSaved);
       }
 
       Navigator.of(context).pop(true);
     } catch (e) {
-      _showError('Kayıt hatası: $e');
+      _showError('${l10n.saveError}: $e');
     }
   }
 
@@ -246,19 +134,22 @@ Yükleyen: ${platformData['author'] ?? ''}
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
+    
     return Scaffold(
-      backgroundColor: Colors.grey[50],
+      backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, color: Colors.grey[700]),
+          icon: Icon(Icons.arrow_back_ios, color: theme.colorScheme.onSurface),
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: Text(
-          isEditing ? 'Video Düzenle' : 'Video Ekle',
+          isEditing ? l10n.editVideo : l10n.addVideo,
           style: TextStyle(
-            color: Colors.grey[800],
+            color: theme.colorScheme.onSurface,
             fontSize: 20,
             fontWeight: FontWeight.w600,
           ),
@@ -275,20 +166,20 @@ Yükleyen: ${platformData['author'] ?? ''}
               // Başlık
               Text(
                 isEditing
-                    ? '✏️ Video Bilgilerini Düzenle'
-                    : '🎬 Yeni Video Ekle',
+                    ? '✏️ ${l10n.editVideoInfo}'
+                    : '🎬 ${l10n.newVideo}',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  color: Colors.grey[800],
+                  color: theme.colorScheme.onSurface,
                 ),
               ),
               SizedBox(height: 8),
               Text(
-                'Video bilgilerini girin ve koleksiyonunuza ekleyin',
+                l10n.videoInfoDescription,
                 style: TextStyle(
                   fontSize: 16,
-                  color: Colors.grey[600],
+                  color: theme.colorScheme.onSurfaceVariant,
                 ),
               ),
               SizedBox(height: 32),
@@ -298,19 +189,18 @@ Yükleyen: ${platformData['author'] ?? ''}
                 child: TextFormField(
                   controller: _urlController,
                   decoration: InputDecoration(
-                    labelText: 'Video Linki',
-                    hintText:
-                        'https://www.instagram.com/p/... veya https://youtu.be/...',
+                    labelText: l10n.videoUrl,
+                    hintText: l10n.enterVideoUrl,
                     border: InputBorder.none,
                     prefixIcon: Container(
                       margin: EdgeInsets.all(12),
                       padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        color: Colors.blue[50],
+                        color: theme.colorScheme.primaryContainer,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child:
-                          Icon(Icons.link, color: Colors.blue[600], size: 20),
+                          Icon(Icons.link, color: theme.colorScheme.primary, size: 20),
                     ),
                     suffixIcon: _urlController.text.isNotEmpty
                         ? Container(
@@ -334,10 +224,10 @@ Yükleyen: ${platformData['author'] ?? ''}
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Video linki gerekli';
+                      return l10n.videoUrlRequired;
                     }
                     if (!AppConstants.isValidVideoUrl(value)) {
-                      return 'Geçerli video linki giriniz';
+                      return l10n.invalidUrl;
                     }
                     return null;
                   },
@@ -347,242 +237,28 @@ Yükleyen: ${platformData['author'] ?? ''}
 
               SizedBox(height: 20),
 
-              // AI Analiz Butonu
-              Container(
-                width: double.infinity,
-                margin: EdgeInsets.only(bottom: 20),
-                child: Row(
-                  children: [
-                    // AI Analiz butonu
-                    Expanded(
-                      flex: 3,
-                      child: Container(
-                        height: 50,
-                        child: ElevatedButton.icon(
-                          onPressed: isAnalyzing ? null : _performAIAnalysis,
-                          icon: isAnalyzing
-                              ? SizedBox(
-                                  width: 20,
-                                  height: 20,
-                                  child: CircularProgressIndicator(
-                                    strokeWidth: 2,
-                                    valueColor: AlwaysStoppedAnimation<Color>(
-                                        Colors.white),
-                                  ),
-                                )
-                              : Icon(Icons.auto_awesome, size: 22),
-                          label: Text(
-                            isAnalyzing
-                                ? 'Analiz Ediliyor...'
-                                : '🤖 AI Analizi',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 16,
-                            ),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.purple[600],
-                            foregroundColor: Colors.white,
-                            elevation: 4,
-                            shadowColor: Colors.purple.withOpacity(0.4),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-
-                    // AI Önerilerini Uygula butonu (sadece analiz yapıldıysa göster)
-                    if (hasAnalyzed && aiSuggestions.isNotEmpty) ...[
-                      SizedBox(width: 12),
-                      Expanded(
-                        flex: 2,
-                        child: Container(
-                          height: 50,
-                          child: ElevatedButton.icon(
-                            onPressed: _applyAISuggestions,
-                            icon: Icon(Icons.auto_fix_high, size: 20),
-                            label: Text(
-                              'Uygula',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 14,
-                              ),
-                            ),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.green[600],
-                              foregroundColor: Colors.white,
-                              elevation: 4,
-                              shadowColor: Colors.green.withOpacity(0.4),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(16),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ],
-                ),
-              ),
-
-              // AI Önerileri Kartı (sadece analiz yapıldıysa göster)
-              if (hasAnalyzed && aiSuggestions.isNotEmpty) ...[
-                Container(
-                  width: double.infinity,
-                  margin: EdgeInsets.only(bottom: 20),
-                  padding: EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [Colors.purple[50]!, Colors.blue[50]!],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ),
-                    borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: Colors.purple[200]!),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.purple.withOpacity(0.1),
-                        blurRadius: 8,
-                        offset: Offset(0, 2),
-                      ),
-                    ],
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Container(
-                            padding: EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                              color: Colors.purple[100],
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: Icon(Icons.psychology,
-                                color: Colors.purple[700], size: 20),
-                          ),
-                          SizedBox(width: 12),
-                          Expanded(
-                            child: Text(
-                              '🤖 AI Önerileri',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.purple[700],
-                              ),
-                            ),
-                          ),
-                          Container(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 8, vertical: 4),
-                            decoration: BoxDecoration(
-                              color: Colors.green[100],
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: Text(
-                              'Hazır',
-                              style: TextStyle(
-                                color: Colors.green[700],
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 12),
-
-                      // Önerilen başlık
-                      if (aiSuggestions['title'] != null &&
-                          aiSuggestions['title'].toString().isNotEmpty) ...[
-                        _buildSuggestionRow(
-                            'Başlık', aiSuggestions['title'], Icons.title),
-                        SizedBox(height: 8),
-                      ],
-
-                      // Önerilen kategori
-                      if (aiSuggestions['category'] != null &&
-                          aiSuggestions['category'].toString().isNotEmpty) ...[
-                        _buildSuggestionRow('Kategori',
-                            aiSuggestions['category'], Icons.category),
-                        SizedBox(height: 8),
-                      ],
-
-                      // Önerilen etiketler
-                      if (aiSuggestions['tags'] != null &&
-                          (aiSuggestions['tags'] as List).isNotEmpty) ...[
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Icon(Icons.tag,
-                                size: 16, color: Colors.purple[600]),
-                            SizedBox(width: 8),
-                            Text(
-                              'Etiketler:',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                color: Colors.purple[700],
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 4),
-                        Wrap(
-                          spacing: 6,
-                          runSpacing: 4,
-                          children: (aiSuggestions['tags'] as List)
-                              .take(5)
-                              .map((tag) {
-                            return Container(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 8, vertical: 2),
-                              decoration: BoxDecoration(
-                                color: Colors.purple[100],
-                                borderRadius: BorderRadius.circular(12),
-                                border: Border.all(color: Colors.purple[300]!),
-                              ),
-                              child: Text(
-                                tag.toString(),
-                                style: TextStyle(
-                                  color: Colors.purple[700],
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            );
-                          }).toList(),
-                        ),
-                      ],
-                    ],
-                  ),
-                ),
-              ],
-
               // Başlık girişi
               _buildInputCard(
                 child: TextFormField(
                   controller: _titleController,
                   decoration: InputDecoration(
-                    labelText: 'Video Başlığı',
-                    hintText: 'Video başlığını girin',
+                    labelText: l10n.videoTitle,
+                    hintText: l10n.enterTitle,
                     border: InputBorder.none,
                     prefixIcon: Container(
                       margin: EdgeInsets.all(12),
                       padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        color: Colors.purple[50],
+                        color: theme.colorScheme.secondaryContainer,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Icon(Icons.title,
-                          color: Colors.purple[600], size: 20),
+                          color: theme.colorScheme.onSecondaryContainer, size: 20),
                     ),
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Başlık gerekli';
+                      return l10n.titleRequired;
                     }
                     return null;
                   },
@@ -598,18 +274,18 @@ Yükleyen: ${platformData['author'] ?? ''}
                   controller: _descriptionController,
                   maxLines: 4,
                   decoration: InputDecoration(
-                    labelText: 'Video Açıklaması',
-                    hintText: 'Video hakkında açıklama yazın (isteğe bağlı)',
+                    labelText: l10n.videoDescription,
+                    hintText: l10n.enterDescription,
                     border: InputBorder.none,
                     prefixIcon: Container(
                       margin: EdgeInsets.all(12),
                       padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        color: Colors.green[50],
+                        color: theme.colorScheme.tertiaryContainer,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Icon(Icons.description,
-                          color: Colors.green[600], size: 20),
+                          color: theme.colorScheme.onTertiaryContainer, size: 20),
                     ),
                     alignLabelWithHint: true,
                   ),
@@ -627,23 +303,23 @@ Yükleyen: ${platformData['author'] ?? ''}
                     TextFormField(
                       controller: _categoryController,
                       decoration: InputDecoration(
-                        labelText: 'Kategori',
-                        hintText: 'Video kategorisini seçin',
+                        labelText: l10n.category,
+                        hintText: l10n.selectCategory,
                         border: InputBorder.none,
                         prefixIcon: Container(
                           margin: EdgeInsets.all(12),
                           padding: EdgeInsets.all(8),
                           decoration: BoxDecoration(
-                            color: Colors.orange[50],
+                            color: theme.colorScheme.errorContainer,
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: Icon(Icons.category,
-                              color: Colors.orange[600], size: 20),
+                              color: theme.colorScheme.onErrorContainer, size: 20),
                         ),
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Kategori gerekli';
+                          return l10n.categoryRequired;
                         }
                         return null;
                       },
@@ -665,21 +341,21 @@ Yükleyen: ${platformData['author'] ?? ''}
                                 horizontal: 12, vertical: 6),
                             decoration: BoxDecoration(
                               color: isSelected
-                                  ? Colors.orange[100]
-                                  : Colors.grey[100],
+                                  ? theme.colorScheme.primaryContainer
+                                  : theme.colorScheme.surfaceVariant,
                               borderRadius: BorderRadius.circular(20),
                               border: Border.all(
                                 color: isSelected
-                                    ? Colors.orange[300]!
-                                    : Colors.grey[300]!,
+                                    ? theme.colorScheme.primary
+                                    : theme.colorScheme.outline,
                               ),
                             ),
                             child: Text(
                               category,
                               style: TextStyle(
                                 color: isSelected
-                                    ? Colors.orange[700]
-                                    : Colors.grey[700],
+                                    ? theme.colorScheme.onPrimaryContainer
+                                    : theme.colorScheme.onSurfaceVariant,
                                 fontSize: 12,
                                 fontWeight: isSelected
                                     ? FontWeight.w600
@@ -707,20 +383,20 @@ Yükleyen: ${platformData['author'] ?? ''}
                           child: TextFormField(
                             controller: _tagController,
                             decoration: InputDecoration(
-                              labelText: 'Etiket Ekle',
-                              hintText: 'Etiket yazın ve Enter\'a basın',
+                              labelText: l10n.addTag,
+                              hintText: l10n.enterTag,
                               border: InputBorder.none,
                               prefixIcon: Container(
                                 margin: EdgeInsets.all(12),
                                 padding: EdgeInsets.all(8),
                                 decoration: BoxDecoration(
-                                  color: Colors.teal[50],
+                                  color: theme.colorScheme.primaryContainer,
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 child: Icon(Icons.tag,
-                                    color: Colors.teal[600], size: 20),
+                                    color: theme.colorScheme.primary, size: 20),
                               ),
-                              suffixText: '${tags.length}/10',
+                              suffixText: l10n.tagsCount(tags.length),
                             ),
                             onFieldSubmitted: (_) => _addTag(),
                             enabled: tags.length < 10,
@@ -729,12 +405,12 @@ Yükleyen: ${platformData['author'] ?? ''}
                         SizedBox(width: 12),
                         Container(
                           decoration: BoxDecoration(
-                            color: Colors.teal[100],
+                            color: theme.colorScheme.primaryContainer,
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: IconButton(
                             onPressed: tags.length < 10 ? _addTag : null,
-                            icon: Icon(Icons.add, color: Colors.teal[700]),
+                            icon: Icon(Icons.add, color: theme.colorScheme.onPrimaryContainer),
                           ),
                         ),
                       ],
@@ -742,10 +418,10 @@ Yükleyen: ${platformData['author'] ?? ''}
                     if (tags.isNotEmpty) ...[
                       SizedBox(height: 16),
                       Text(
-                        'Etiketler (${tags.length}/10):',
+                        l10n.tagsCount(tags.length),
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
-                          color: Colors.grey[700],
+                          color: theme.colorScheme.onSurface,
                         ),
                       ),
                       SizedBox(height: 8),
@@ -757,9 +433,9 @@ Yükleyen: ${platformData['author'] ?? ''}
                             padding: EdgeInsets.symmetric(
                                 horizontal: 12, vertical: 6),
                             decoration: BoxDecoration(
-                              color: Colors.teal[50],
+                              color: theme.colorScheme.primaryContainer,
                               borderRadius: BorderRadius.circular(16),
-                              border: Border.all(color: Colors.teal[200]!),
+                              border: Border.all(color: theme.colorScheme.primary),
                             ),
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
@@ -767,7 +443,7 @@ Yükleyen: ${platformData['author'] ?? ''}
                                 Text(
                                   tag,
                                   style: TextStyle(
-                                    color: Colors.teal[700],
+                                    color: theme.colorScheme.onPrimaryContainer,
                                     fontSize: 12,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -778,7 +454,7 @@ Yükleyen: ${platformData['author'] ?? ''}
                                   child: Icon(
                                     Icons.close,
                                     size: 16,
-                                    color: Colors.teal[600],
+                                    color: theme.colorScheme.onPrimaryContainer,
                                   ),
                                 ),
                               ],
@@ -794,29 +470,12 @@ Yükleyen: ${platformData['author'] ?? ''}
               SizedBox(height: 40),
 
               // Kaydet butonu
-              Container(
+              SizedBox(
                 width: double.infinity,
                 height: 56,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [Colors.blue[400]!, Colors.blue[600]!],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
-                  borderRadius: BorderRadius.circular(16),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.blue[200]!,
-                      blurRadius: 8,
-                      offset: Offset(0, 4),
-                    ),
-                  ],
-                ),
                 child: ElevatedButton(
                   onPressed: _saveVideo,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.transparent,
-                    shadowColor: Colors.transparent,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     ),
@@ -826,14 +485,12 @@ Yükleyen: ${platformData['author'] ?? ''}
                     children: [
                       Icon(
                         isEditing ? Icons.update : Icons.save,
-                        color: Colors.white,
                         size: 24,
                       ),
                       SizedBox(width: 12),
                       Text(
-                        isEditing ? 'Güncelle' : 'Kaydet',
+                        isEditing ? l10n.update : l10n.save,
                         style: TextStyle(
-                          color: Colors.white,
                           fontSize: 18,
                           fontWeight: FontWeight.w600,
                         ),
@@ -852,13 +509,14 @@ Yükleyen: ${platformData['author'] ?? ''}
   }
 
   Widget _buildInputCard({required Widget child}) {
+    final theme = Theme.of(context);
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: theme.cardColor,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey[200]!,
+            color: theme.shadowColor.withOpacity(0.1),
             blurRadius: 8,
             offset: Offset(0, 2),
           ),
@@ -866,36 +524,6 @@ Yükleyen: ${platformData['author'] ?? ''}
       ),
       padding: EdgeInsets.all(4),
       child: child,
-    );
-  }
-
-  Widget _buildSuggestionRow(String label, String value, IconData icon) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Icon(icon, size: 16, color: Colors.purple[600]),
-        SizedBox(width: 8),
-        Text(
-          '$label:',
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            color: Colors.purple[700],
-            fontSize: 12,
-          ),
-        ),
-        SizedBox(width: 4),
-        Expanded(
-          child: Text(
-            value,
-            style: TextStyle(
-              color: Colors.purple[600],
-              fontSize: 12,
-            ),
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-          ),
-        ),
-      ],
     );
   }
 }

@@ -1,14 +1,14 @@
 // Dosya Konumu: lib/screens/home_screen.dart
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:linkcim/models/saved_video.dart';
 import 'package:linkcim/services/database_service.dart';
-import 'package:linkcim/services/ai_service.dart';
-import 'package:linkcim/services/video_download_service.dart';
+
 import 'package:linkcim/screens/add_video_screen.dart';
 import 'package:linkcim/screens/search_screen.dart';
 import 'package:linkcim/screens/settings_screen.dart';
-import 'package:linkcim/screens/download_history_screen.dart';
+
 import 'package:linkcim/widgets/video_card.dart';
 import 'package:linkcim/widgets/search_bar.dart';
 
@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen>
   List<SavedVideo> videos = [];
   List<SavedVideo> filteredVideos = [];
   List<String> categories = [];
-  String selectedCategory = 'Tümü';
+  String selectedCategory = '';
   bool isLoading = true;
 
   // Sistem durumu
@@ -39,28 +39,6 @@ class _HomeScreenState extends State<HomeScreen>
     super.initState();
     _initializeAnimations();
     _loadData();
-    _checkSystemStatus();
-  }
-
-  @override
-  void dispose() {
-    _animationController.dispose();
-    super.dispose();
-  }
-
-  void _initializeAnimations() {
-    _animationController = AnimationController(
-      duration: Duration(milliseconds: 1000),
-      vsync: this,
-    );
-
-    _fadeAnimation = Tween<double>(
-      begin: 0.0,
-      end: 1.0,
-    ).animate(CurvedAnimation(
-      parent: _animationController,
-      curve: Curves.easeInOut,
-    ));
 
     _animationController.forward();
   }
@@ -72,10 +50,12 @@ class _HomeScreenState extends State<HomeScreen>
       final allVideos = await _dbService.getAllVideos();
       final allCategories = await _dbService.getAllCategories();
 
+      final l10n = AppLocalizations.of(context)!;
       setState(() {
         videos = allVideos;
         filteredVideos = allVideos;
-        categories = ['Tümü', ...allCategories];
+        selectedCategory = l10n.allCategories;
+        categories = [l10n.allCategories, ...allCategories];
         isLoading = false;
       });
 
@@ -83,35 +63,18 @@ class _HomeScreenState extends State<HomeScreen>
       _animationController.forward();
     } catch (e) {
       setState(() => isLoading = false);
-      _showError('Veriler yüklenirken hata oluştu: $e');
+      final l10n = AppLocalizations.of(context)!;
+      _showError('${l10n.dataLoadError}: $e');
     }
   }
 
-  Future<void> _checkSystemStatus() async {
-    try {
-      // AI sistem durumunu kontrol et
-      final aiEnabled = await AIService.isAIAnalysisEnabled;
 
-      // İndirme sistemi durumunu kontrol et
-      final downloadPermissions =
-          await VideoDownloadService.requestPermissions();
-
-      setState(() {
-        systemStatus = {
-          'ai_enabled': aiEnabled,
-          'download_permissions': downloadPermissions,
-          'total_videos': videos.length,
-        };
-      });
-    } catch (e) {
-      print('Sistem durumu kontrol hatası: $e');
-    }
-  }
 
   void _filterByCategory(String category) {
+    final l10n = AppLocalizations.of(context)!;
     setState(() {
       selectedCategory = category;
-      if (category == 'Tümü') {
+      if (category == l10n.allCategories) {
         filteredVideos = videos;
       } else {
         filteredVideos = videos.where((v) => v.category == category).toList();
@@ -142,26 +105,27 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   Future<void> _deleteVideo(SavedVideo video) async {
+    final l10n = AppLocalizations.of(context)!;
     final confirm = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
         title: Row(
           children: [
-            Icon(Icons.delete_forever, color: Colors.red),
+            Icon(Icons.delete_forever, color: Theme.of(context).colorScheme.error),
             SizedBox(width: 8),
-            Text('Video Sil'),
+            Text(l10n.videoDelete),
           ],
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Bu videoyu silmek istediğinizden emin misiniz?'),
+            Text(l10n.confirmDelete),
             SizedBox(height: 12),
             Container(
               padding: EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: Colors.grey[100],
+                color: Theme.of(context).colorScheme.surfaceVariant,
                 borderRadius: BorderRadius.circular(6),
               ),
               child: Text(
@@ -174,12 +138,12 @@ class _HomeScreenState extends State<HomeScreen>
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: Text('İptal'),
+            child: Text(l10n.cancel),
           ),
           ElevatedButton(
             onPressed: () => Navigator.of(context).pop(true),
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-            child: Text('Sil', style: TextStyle(color: Colors.white)),
+            style: ElevatedButton.styleFrom(backgroundColor: Theme.of(context).colorScheme.error),
+            child: Text(l10n.delete, style: TextStyle(color: Colors.white)),
           ),
         ],
       ),
@@ -188,10 +152,10 @@ class _HomeScreenState extends State<HomeScreen>
     if (confirm == true) {
       try {
         await _dbService.deleteVideo(video);
-        _showSuccess('Video silindi');
+        _showSuccess(l10n.videoDeleted);
         _loadData();
       } catch (e) {
-        _showError('Video silinemedi: $e');
+        _showError('${l10n.videoDeleteError}: $e');
       }
     }
   }
@@ -224,7 +188,7 @@ class _HomeScreenState extends State<HomeScreen>
               Icon(Icons.analytics, color: Colors.white, size: 24),
               SizedBox(width: 8),
               Text(
-                'Video İstatistikleri',
+                AppLocalizations.of(context)!.videoStatistics,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
@@ -246,7 +210,7 @@ class _HomeScreenState extends State<HomeScreen>
               Expanded(
                 child: _buildStatCard(
                   Icons.video_library,
-                  'Toplam Video',
+                  AppLocalizations.of(context)!.totalVideos,
                   '${videos.length}',
                   Colors.white.withOpacity(0.2),
                 ),
@@ -255,7 +219,7 @@ class _HomeScreenState extends State<HomeScreen>
               Expanded(
                 child: _buildStatCard(
                   Icons.category,
-                  'Kategoriler',
+                  AppLocalizations.of(context)!.categories,
                   '${categories.length - 1}',
                   Colors.white.withOpacity(0.2),
                 ),
@@ -278,7 +242,7 @@ class _HomeScreenState extends State<HomeScreen>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Platform Dağılımı',
+                  AppLocalizations.of(context)!.platformDistribution,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 14,
@@ -306,7 +270,7 @@ class _HomeScreenState extends State<HomeScreen>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Popüler Kategoriler',
+                  AppLocalizations.of(context)!.popularCategories,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 14,
@@ -433,49 +397,14 @@ class _HomeScreenState extends State<HomeScreen>
           children: [
             Icon(Icons.rocket_launch, size: 24),
             SizedBox(width: 8),
-            Text('Linkcim'),
+            Text(AppLocalizations.of(context)!.appTitle),
           ],
         ),
         automaticallyImplyLeading: false,
         actions: [
-          // İstatistikler butonu
-          IconButton(
-            icon: Stack(
-              children: [
-                Icon(Icons.analytics),
-                if (videos.isNotEmpty)
-                  Positioned(
-                    right: 0,
-                    top: 0,
-                    child: Container(
-                      width: 8,
-                      height: 8,
-                      decoration: BoxDecoration(
-                        color: Colors.blue,
-                        shape: BoxShape.circle,
-                      ),
-                    ),
-                  ),
-              ],
-            ),
-            tooltip: 'Video İstatistikleri',
-            onPressed: () =>
-                setState(() => showSystemStatus = !showSystemStatus),
-          ),
 
-          // İndirilen videolar
-          IconButton(
-            icon: Icon(Icons.video_library),
-            tooltip: 'İndirilen Videolar',
-            onPressed: () {
-              print('🎬 İndirilen videolar sayfasına gidiliyor...');
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => DownloadHistoryScreen()),
-              ).then((_) => _loadData());
-            },
-          ),
+
+
 
           // Arama
           IconButton(
@@ -505,12 +434,12 @@ class _HomeScreenState extends State<HomeScreen>
         child: Column(
           children: [
             // Sistem durumu banner'ı
-            _buildSystemStatusBanner(),
+
 
             // Arama çubuğu
             CustomSearchBar(
               onSearch: _onSearch,
-              hintText: 'Videolarınızı arayın...',
+              hintText: AppLocalizations.of(context)!.searchVideos,
             ),
 
             // Kategori filtreleri
@@ -524,6 +453,7 @@ class _HomeScreenState extends State<HomeScreen>
                   itemBuilder: (context, index) {
                     final category = categories[index];
                     final isSelected = category == selectedCategory;
+                    final theme = Theme.of(context);
 
                     return Padding(
                       padding: EdgeInsets.only(
@@ -534,9 +464,9 @@ class _HomeScreenState extends State<HomeScreen>
                         label: Text(category),
                         selected: isSelected,
                         onSelected: (_) => _filterByCategory(category),
-                        selectedColor: Colors.blue[100],
-                        checkmarkColor: Colors.blue[800],
-                        backgroundColor: Colors.grey[100],
+                        selectedColor: theme.colorScheme.primaryContainer,
+                        checkmarkColor: theme.colorScheme.onPrimaryContainer,
+                        backgroundColor: theme.colorScheme.surfaceVariant,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
@@ -555,7 +485,7 @@ class _HomeScreenState extends State<HomeScreen>
                         children: [
                           CircularProgressIndicator(),
                           SizedBox(height: 16),
-                          Text('Videolar yükleniyor...'),
+                          Text(AppLocalizations.of(context)!.videosLoading),
                         ],
                       ),
                     )
@@ -592,15 +522,16 @@ class _HomeScreenState extends State<HomeScreen>
           });
         },
         icon: Icon(Icons.add),
-        label: Text('Yeni Video'),
-        tooltip: 'Yeni Video Ekle',
-        backgroundColor: Colors.blue[600],
-        foregroundColor: Colors.white,
+        label: Text(AppLocalizations.of(context)!.newVideo),
+        tooltip: AppLocalizations.of(context)!.addVideo,
       ),
     );
   }
 
   Widget _buildEmptyState() {
+    final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
+    
     return Center(
       child: SingleChildScrollView(
         padding: EdgeInsets.all(32),
@@ -610,33 +541,33 @@ class _HomeScreenState extends State<HomeScreen>
             Container(
               padding: EdgeInsets.all(24),
               decoration: BoxDecoration(
-                color: Colors.blue[50],
+                color: theme.colorScheme.primaryContainer,
                 shape: BoxShape.circle,
               ),
               child: Icon(
                 Icons.rocket_launch,
                 size: 48,
-                color: Colors.blue[400],
+                color: theme.colorScheme.onPrimaryContainer,
               ),
             ),
             SizedBox(height: 20),
             Text(
-              videos.isEmpty ? 'Henüz video eklemediniz' : 'Video bulunamadı',
+              videos.isEmpty ? l10n.noVideos : l10n.noVideoFound,
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
-                color: Colors.grey[700],
+                color: theme.colorScheme.onSurface,
               ),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 8),
             Text(
               videos.isEmpty
-                  ? 'İlk videonuzu eklemek için aşağıdaki butona tıklayın.'
-                  : 'Farklı anahtar kelimeler deneyin.',
+                  ? l10n.addFirstVideo
+                  : l10n.tryDifferentKeywords,
               style: TextStyle(
                 fontSize: 14,
-                color: Colors.grey[500],
+                color: theme.colorScheme.onSurfaceVariant,
                 height: 1.4,
               ),
               textAlign: TextAlign.center,
@@ -655,12 +586,7 @@ class _HomeScreenState extends State<HomeScreen>
                   });
                 },
                 icon: Icon(Icons.add),
-                label: Text('İlk Videonuzu Ekleyin'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue[600],
-                  foregroundColor: Colors.white,
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                ),
+                label: Text(l10n.addFirstVideoButton),
               ),
               SizedBox(height: 12),
               Wrap(
@@ -668,9 +594,8 @@ class _HomeScreenState extends State<HomeScreen>
                 spacing: 6,
                 runSpacing: 6,
                 children: [
-                  _buildFeatureChip('🧠 AI Analizi'),
-                  _buildFeatureChip('📥 İndirme'),
-                  _buildFeatureChip('🎯 Kategori'),
+                  _buildFeatureChip('🎯 ${l10n.category}'),
+                  _buildFeatureChip('🔍 ${l10n.search}'),
                 ],
               ),
             ],
@@ -681,21 +606,26 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   Widget _buildFeatureChip(String text) {
+    final theme = Theme.of(context);
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
-        color: Colors.blue[50],
+        color: theme.colorScheme.primaryContainer,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: Colors.blue[200]!),
+        border: Border.all(color: theme.colorScheme.primary),
       ),
       child: Text(
         text,
         style: TextStyle(
           fontSize: 12,
-          color: Colors.blue[700],
+          color: theme.colorScheme.onPrimaryContainer,
           fontWeight: FontWeight.w500,
         ),
       ),
     );
+  }
+  
+  void _checkSystemStatus() {
+    // System status check - can be implemented later
   }
 }

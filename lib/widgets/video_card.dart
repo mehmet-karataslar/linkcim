@@ -6,12 +6,9 @@ import 'package:linkcim/models/saved_video.dart';
 import 'package:linkcim/widgets/tag_chip.dart';
 import 'package:linkcim/widgets/video_thumbnail.dart';
 import 'package:linkcim/widgets/share_menu.dart';
-import 'package:linkcim/widgets/download_progress_dialog.dart';
+
 import 'package:linkcim/screens/video_preview_screen.dart';
-import 'package:linkcim/screens/video_player_screen.dart';
 import 'package:linkcim/screens/add_video_screen.dart';
-import 'package:linkcim/services/video_download_service.dart';
-import 'package:linkcim/utils/constants.dart';
 
 class VideoCard extends StatelessWidget {
   final SavedVideo video;
@@ -27,34 +24,7 @@ class VideoCard extends StatelessWidget {
     this.highlightText,
   }) : super(key: key);
 
-  // Video indirme
-  Future<void> _downloadVideo(BuildContext context) async {
-    final confirmed = await showDialog<bool>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Video İndir'),
-        content: Text('${video.title} videosunu indirmek istiyor musunuz?'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('İptal'),
-          ),
-          ElevatedButton(
-            onPressed: () => Navigator.of(context).pop(true),
-            child: const Text('İndir'),
-          ),
-        ],
-      ),
-    );
 
-    if (confirmed == true) {
-      showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (context) => DownloadProgressDialog(video: video),
-      );
-    }
-  }
 
   // Video açma
   Future<void> _openVideo() async {
@@ -137,7 +107,7 @@ class VideoCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Üst kısım: Thumbnail + Bilgiler + İndir butonu
+              // Üst kısım: Thumbnail + Bilgiler
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -220,30 +190,7 @@ class VideoCard extends StatelessWidget {
                     ),
                   ),
 
-                  const SizedBox(width: 12),
 
-                  // İndir butonu
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.blue[600],
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Material(
-                      color: Colors.transparent,
-                      child: InkWell(
-                        onTap: () => _downloadVideo(context),
-                        borderRadius: BorderRadius.circular(8),
-                        child: const Padding(
-                          padding: EdgeInsets.all(8),
-                          child: Icon(
-                            Icons.download,
-                            color: Colors.white,
-                            size: 20,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
                 ],
               ),
 

@@ -1,10 +1,10 @@
 // Dosya Konumu: lib/screens/search_screen.dart
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:linkcim/models/saved_video.dart';
 import 'package:linkcim/services/database_service.dart';
 import 'package:linkcim/widgets/video_card.dart';
-import 'package:linkcim/widgets/tag_chip.dart';
 import 'package:linkcim/screens/add_video_screen.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -46,7 +46,8 @@ class _SearchScreenState extends State<SearchScreen> {
       });
     } catch (e) {
       setState(() => isLoading = false);
-      _showError('Arama hatası: $e');
+      final l10n = AppLocalizations.of(context)!;
+      _showError('${l10n.searchError}: $e');
     }
   }
 
@@ -63,19 +64,21 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   Future<void> _deleteVideo(SavedVideo video) async {
+    final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
     final confirm = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Video Sil'),
-        content: Text('Bu videoyu silmek istediğinizden emin misiniz?'),
+        title: Text(l10n.videoDelete),
+        content: Text(l10n.confirmDelete),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: Text('İptal'),
+            child: Text(l10n.cancel),
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
-            child: Text('Sil', style: TextStyle(color: Colors.red)),
+            child: Text(l10n.delete, style: TextStyle(color: theme.colorScheme.error)),
           ),
         ],
       ),
@@ -84,24 +87,27 @@ class _SearchScreenState extends State<SearchScreen> {
     if (confirm == true) {
       try {
         await _dbService.deleteVideo(video);
-        _showSuccess('Video silindi');
+        _showSuccess(l10n.videoDeleted);
         _performSearch();
       } catch (e) {
-        _showError('Video silinemedi: $e');
+        _showError('${l10n.videoDeleteError}: $e');
       }
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
+    
     return Scaffold(
-      backgroundColor: Colors.grey[50],
+      backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.grey[800],
+        backgroundColor: theme.appBarTheme.backgroundColor,
+        foregroundColor: theme.appBarTheme.foregroundColor,
         title: Text(
-          'Video Arama',
+          l10n.videoSearch,
           style: TextStyle(
             fontWeight: FontWeight.w700,
             fontSize: 20,
@@ -130,7 +136,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   _searchController.clear();
                   _performSearch();
                 },
-                tooltip: 'Aramayı Temizle',
+                tooltip: l10n.clearSearch,
               ),
             ),
         ],
@@ -161,8 +167,8 @@ class _SearchScreenState extends State<SearchScreen> {
             child: TextField(
               controller: _searchController,
               decoration: InputDecoration(
-                hintText: 'Video ara... (başlık, yazar, platform, etiket)',
-                hintStyle: TextStyle(color: Colors.grey[400]),
+                hintText: l10n.searchPlaceholder,
+                hintStyle: TextStyle(color: theme.colorScheme.onSurfaceVariant),
                 border: InputBorder.none,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20, vertical: 16),
@@ -170,11 +176,11 @@ class _SearchScreenState extends State<SearchScreen> {
                   margin: EdgeInsets.all(12),
                   padding: EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: Colors.blue[50],
+                    color: theme.colorScheme.primaryContainer,
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Icon(Icons.search_rounded,
-                      color: Colors.blue[600], size: 20),
+                      color: theme.colorScheme.primary, size: 20),
                 ),
                 suffixIcon: _searchController.text.isNotEmpty
                     ? Container(
@@ -223,10 +229,10 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
                 SizedBox(width: 8),
                 Text(
-                  '${searchResults.length} video bulundu',
+                  l10n.videosFound(searchResults.length),
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
-                    color: Colors.grey[800],
+                    color: theme.colorScheme.onSurface,
                     fontSize: 14,
                   ),
                 ),
@@ -306,20 +312,20 @@ class _SearchScreenState extends State<SearchScreen> {
             ),
             SizedBox(height: 24),
             Text(
-              'Video Bulunamadı',
+              l10n.noVideoFound,
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: Colors.grey[800],
+                color: theme.colorScheme.onSurface,
               ),
             ),
             SizedBox(height: 12),
             Text(
-              'Arama kriterinize uygun video bulunamadı.\nFarklı anahtar kelimeler deneyin.',
+              l10n.noVideoMatch,
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 14,
-                color: Colors.grey[600],
+                color: theme.colorScheme.onSurfaceVariant,
                 height: 1.5,
               ),
             ),
@@ -332,15 +338,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   _performSearch();
                 },
                 icon: Icon(Icons.refresh_rounded),
-                label: Text('Aramayı Temizle'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue[600],
-                  foregroundColor: Colors.white,
-                  padding: EdgeInsets.symmetric(vertical: 12),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
+                label: Text(l10n.clearSearch),
               ),
             ),
           ],

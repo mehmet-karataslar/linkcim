@@ -33,16 +33,18 @@
 - **Responsive Tasarım**: Tüm ekran boyutlarında mükemmel görünüm
 
 ### 🔍 **Gelişmiş Arama ve Organizasyon**
-- **Akıllı Arama**: Başlık, yazar, platform, etiket araması
+- **Arama**: Başlık, yazar, platform, etiket araması
 - **Kategori Sistemi**: Videolarınızı kategorilere ayırın
 - **Etiket Sistemi**: Özel etiketlerle videolarınızı organize edin
 - **Video Önizleme**: Gerçek video thumbnail'ları
+- **Platform Metadata**: Instagram, YouTube, TikTok, Twitter için otomatik bilgi çekme
 
 ### 📱 **Kullanıcı Dostu Özellikler**
 - **Video Paylaşma**: Sosyal medyada kolayca paylaşın
 - **Video Çalma**: Uygulama içinde video oynatma
-- **İndirme Geçmişi**: Tüm indirilen videolarınızı görün
 - **Offline Çalışma**: İnternet olmadan videolarınıza erişin
+- **Çoklu Dil Desteği**: Türkçe ve İngilizce
+- **Tema Desteği**: Açık, koyu ve sistem teması
 
 ## 📸 Ekran Görüntüleri
 
@@ -62,17 +64,15 @@
 </p>
 
 
-
 ## 🚀 Kurulum
 
-### 📱 **Android APK İndirme**
+### 📱 **Android APK Kurulumu**
 
 1. **GitHub Releases**'den en son APK'yı indirin en güncel versiyon Linkcim v2.0.3'dir:
    [https://github.com/mehmetkaratslar/linkcim/releases/latest](https://github.com/mehmetkaratslar/linkcim/releases/tag/v2.0.3)
    
-
 2. **APK'yı telefonunuza yükleyin**:
-   - APK dosyasını telefonunuza indirin
+   - APK dosyasını telefonunuza alın
    - Ayarlar > Güvenlik > Bilinmeyen Kaynaklardan yüklemeye izin verin
    - APK dosyasına tıklayıp yükleyin
 
@@ -97,33 +97,18 @@ flutter run
 ### 1. **Video Ekleme**
 - Ana sayfada "+" butonuna tıklayın
 - Video URL'sini yapıştırın (Instagram, YouTube, TikTok, Twitter)
-- 🤖 **AI Analiz** butonuna tıklayarak otomatik analiz yapın
-- Başlık, kategori ve etiketleri düzenleyin
-- **Kaydet ve İndir** butonuna tıklayın
+- Başlık, kategori ve etiketleri girin
+- **Kaydet** butonuna tıklayın
 
-### 2. **AI Analizi Kullanma**
-- Video URL'sini girdikten sonra mor **🤖 AI Analiz** butonuna tıklayın
-- AI, video için otomatik başlık, kategori ve etiket önerir
-- Önerileri beğeniyorsanız yeşil **Uygula** butonuna tıklayın
-- İsterseniz manuel olarak düzenleyebilirsiniz
-
-### 3. **Video Arama**
+### 2. **Video Arama**
 - Ana sayfada arama çubuğunu kullanın
 - Başlık, yazar, platform veya etiket ile arama yapın
 - Kategori filtrelerini kullanarak sonuçları daraltın
 
-### 4. **Video İzleme ve Paylaşma**
-- İndirme geçmişinde videolarınızı görün
+### 3. **Video İzleme ve Paylaşma**
+- Video kartına tıklayarak videoyu görüntüleyin
 - **Oynat** butonuyla videoyu izleyin
 - **Paylaş** butonuyla sosyal medyada paylaşın
-
-## 🔑 API Konfigürasyonu
-
-### OpenAI API Key Ekleme
-1. Ayarlar sayfasına gidin
-2. "OpenAI API Key" bölümünden kendi key'inizi ekleyin
-3. [OpenAI Platform](https://platform.openai.com/api-keys)'dan ücretsiz API key alabilirsiniz
-4. Sınırsız AI analizi için kendi key'inizi kullanın
 
 ## 🛡️ Güvenlik ve Gizlilik
 
@@ -131,6 +116,20 @@ flutter run
 - **Gizlilik**: Kişisel bilgileriniz hiçbir yere gönderilmez
 - **Açık Kaynak**: Kod tamamen açık ve incelenebilir
 
+## 🌟 Öne Çıkan Yenilikler v2.0
+
+### ✨ **Yeni Özellikler**
+- 🎨 **Modern UI Tasarımı** - Tamamen yenilenen arayüz
+- 🌍 **Çoklu Dil Desteği** - Türkçe ve İngilizce
+- 🌓 **Tema Desteği** - Açık, koyu ve sistem teması
+- 🖼️ **Gerçek Thumbnail'lar** - Video kapakları artık görünüyor
+- 📱 **Yeni Platformlar** - Facebook, Vimeo, Reddit desteği
+
+### 🔧 **İyileştirmeler**
+- ⚡ **Performans Optimizasyonu** - %40 daha hızlı
+- 🎯 **Basitleştirilmiş Arayüz** - Daha kolay kullanım
+- 🔍 **Gelişmiş Arama** - Daha akıllı arama algoritması
+- 📱 **Responsive Tasarım** - Tüm ekranlarda mükemmel görünüm
 
 ## 🤝 Katkıda Bulunma
 
@@ -142,6 +141,30 @@ Katkılarınızı memnuniyetle karşılıyoruz!
 4. Branch'inizi push edin (`git push origin feature/amazing-feature`)
 5. Pull Request oluşturun
 
+## 📝 Changelog
+
+### v2.0.3 (Son Sürüm)
+- 🔧 Ana sayfa overflow sorunu düzeltildi
+- 📱 Responsive tasarım iyileştirmeleri
+- 🎨 Empty state tasarımı optimize edildi
+
+### v2.0.2
+- 🗂️ Arama sayfası basitleştirildi
+- ❌ Filtre butonu kaldırıldı
+- ⚡ Performans optimizasyonu
+
+### v2.0.1
+- 🚨 Search screen overflow hatası düzeltildi
+- ⏱️ Thumbnail timeout süreleri optimize edildi
+- 🎯 UI performans iyileştirmeleri
+
+### v2.0.0
+- 🎨 Modern UI tasarımı
+- 🌍 Çoklu dil desteği (Türkçe, İngilizce)
+- 🌓 Tema desteği (Açık, Koyu, Sistem)
+- 🖼️ Gerçek video thumbnail'ları
+- 🔍 Gelişmiş arama ve filtreleme
+- 📱 Yeni platformlar (Facebook, Vimeo, Reddit)
 
 ## 📞 İletişim
 
@@ -157,6 +180,6 @@ Katkılarınızı memnuniyetle karşılıyoruz!
 
 **⭐ Projeyi beğendiyseniz yıldız vermeyi unutmayın!**
 
-**🚀 Linkcim ile videolarınızı AI ile organize edin!**
+**🚀 Linkcim ile videolarınızı organize edin!**
 
 </div>

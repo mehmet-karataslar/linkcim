@@ -1,0 +1,509 @@
+{
+  "@@locale": "tr",
+  "appTitle": "Linkcim",
+  "@appTitle": {
+    "description": "Uygulama başlığı"
+  },
+  "home": "Ana Sayfa",
+  "@home": {
+    "description": "Ana sayfa başlığı"
+  },
+  "addVideo": "Video Ekle",
+  "@addVideo": {
+    "description": "Video ekleme butonu"
+  },
+  "editVideo": "Video Düzenle",
+  "@editVideo": {
+    "description": "Video düzenleme başlığı"
+  },
+  "search": "Ara",
+  "@search": {
+    "description": "Arama butonu"
+  },
+  "settings": "Ayarlar",
+  "@settings": {
+    "description": "Ayarlar sayfası başlığı"
+  },
+  "videoTitle": "Video Başlığı",
+  "@videoTitle": {
+    "description": "Video başlığı etiketi"
+  },
+  "videoDescription": "Video Açıklaması",
+  "@videoDescription": {
+    "description": "Video açıklaması etiketi"
+  },
+  "category": "Kategori",
+  "@category": {
+    "description": "Kategori etiketi"
+  },
+  "tags": "Etiketler",
+  "@tags": {
+    "description": "Etiketler etiketi"
+  },
+  "save": "Kaydet",
+  "@save": {
+    "description": "Kaydet butonu"
+  },
+  "update": "Güncelle",
+  "@update": {
+    "description": "Güncelle butonu"
+  },
+  "cancel": "İptal",
+  "@cancel": {
+    "description": "İptal butonu"
+  },
+  "delete": "Sil",
+  "@delete": {
+    "description": "Sil butonu"
+  },
+  "edit": "Düzenle",
+  "@edit": {
+    "description": "Düzenle butonu"
+  },
+  "noVideos": "Henüz video eklenmedi",
+  "@noVideos": {
+    "description": "Video yok mesajı"
+  },
+  "addFirstVideo": "İlk videonuzu ekleyin",
+  "@addFirstVideo": {
+    "description": "İlk video ekleme mesajı"
+  },
+  "allCategories": "Tümü",
+  "@allCategories": {
+    "description": "Tüm kategoriler filtresi"
+  },
+  "videoUrl": "Video Linki",
+  "@videoUrl": {
+    "description": "Video URL etiketi"
+  },
+  "enterVideoUrl": "Video linkini girin",
+  "@enterVideoUrl": {
+    "description": "Video URL giriş placeholder"
+  },
+  "invalidUrl": "Geçerli bir video linki giriniz",
+  "@invalidUrl": {
+    "description": "Geçersiz URL hatası"
+  },
+  "required": "Gerekli",
+  "@required": {
+    "description": "Zorunlu alan etiketi"
+  },
+  "optional": "İsteğe bağlı",
+  "@optional": {
+    "description": "Opsiyonel alan etiketi"
+  },
+  "language": "Dil",
+  "@language": {
+    "description": "Dil seçimi etiketi"
+  },
+  "turkish": "Türkçe",
+  "@turkish": {
+    "description": "Türkçe dil seçeneği"
+  },
+  "english": "İngilizce",
+  "@english": {
+    "description": "İngilizce dil seçeneği"
+  },
+  "theme": "Tema",
+  "@theme": {
+    "description": "Tema seçimi etiketi"
+  },
+  "lightTheme": "Açık Tema",
+  "@lightTheme": {
+    "description": "Açık tema seçeneği"
+  },
+  "darkTheme": "Koyu Tema",
+  "@darkTheme": {
+    "description": "Koyu tema seçeneği"
+  },
+  "systemTheme": "Sistem Teması",
+  "@systemTheme": {
+    "description": "Sistem teması seçeneği"
+  },
+  "permissions": "İzinler",
+  "@permissions": {
+    "description": "İzinler bölümü"
+  },
+  "storagePermissions": "Depolama İzinleri",
+  "@storagePermissions": {
+    "description": "Depolama izinleri başlığı"
+  },
+  "managePermissions": "İzinleri Yönet",
+  "@managePermissions": {
+    "description": "İzinleri yönet butonu"
+  },
+  "systemSettings": "Sistem Ayarları",
+  "@systemSettings": {
+    "description": "Sistem ayarları butonu"
+  },
+  "dataManagement": "Veri Yönetimi",
+  "@dataManagement": {
+    "description": "Veri yönetimi bölümü"
+  },
+  "clearAllData": "Tüm Verileri Sil",
+  "@clearAllData": {
+    "description": "Tüm verileri sil butonu"
+  },
+  "clearDataWarning": "Bu işlem tüm videolarınızı silecektir ve geri alınamaz. Devam etmek istediğinizden emin misiniz?",
+  "@clearDataWarning": {
+    "description": "Veri silme uyarısı"
+  },
+  "about": "Hakkında",
+  "@about": {
+    "description": "Hakkında butonu"
+  },
+  "appInfo": "Akıllı Video Kayıt ve Kategorilendirme Uygulaması",
+  "@appInfo": {
+    "description": "Uygulama açıklaması"
+  },
+  "addTag": "Etiket Ekle",
+  "@addTag": {
+    "description": "Etiket ekle etiketi"
+  },
+  "enterTag": "Etiket yazın ve Enter'a basın",
+  "@enterTag": {
+    "description": "Etiket giriş placeholder"
+  },
+  "newVideo": "Yeni Video Ekle",
+  "@newVideo": {
+    "description": "Yeni video ekle başlığı"
+  },
+  "editVideoInfo": "Video Bilgilerini Düzenle",
+  "@editVideoInfo": {
+    "description": "Video düzenle başlığı"
+  },
+  "videoInfoDescription": "Video bilgilerini girin ve koleksiyonunuza ekleyin",
+  "@videoInfoDescription": {
+    "description": "Video ekle açıklaması"
+  },
+  "selectCategory": "Video kategorisini seçin",
+  "@selectCategory": {
+    "description": "Kategori seçimi placeholder"
+  },
+  "videoSaved": "Video başarıyla kaydedildi",
+  "@videoSaved": {
+    "description": "Video kaydedildi mesajı"
+  },
+  "videoUpdated": "Video güncellendi",
+  "@videoUpdated": {
+    "description": "Video güncellendi mesajı"
+  },
+  "saveError": "Kayıt hatası",
+  "@saveError": {
+    "description": "Kayıt hatası mesajı"
+  },
+  "allPermissionsGranted": "Tüm izinler verildi",
+  "@allPermissionsGranted": {
+    "description": "Tüm izinler verildi mesajı"
+  },
+  "permissionsMissing": "İzinler eksik",
+  "@permissionsMissing": {
+    "description": "İzinler eksik mesajı"
+  },
+  "permissionInfo": "Linkcim uygulaması aşağıdaki izinlere ihtiyaç duyar:",
+  "@permissionInfo": {
+    "description": "İzin bilgisi açıklaması"
+  },
+  "storageAccess": "Depolama Erişimi",
+  "@storageAccess": {
+    "description": "Depolama erişimi açıklaması"
+  },
+  "storageAccessDesc": "Uygulama verilerine erişmek için",
+  "@storageAccessDesc": {
+    "description": "Depolama erişimi açıklaması"
+  },
+  "videoMediaAccess": "Video/Medya Erişimi",
+  "@videoMediaAccess": {
+    "description": "Video/Medya erişimi başlığı"
+  },
+  "videoMediaAccessDesc": "Video dosyalarına erişmek için",
+  "@videoMediaAccessDesc": {
+    "description": "Video/Medya erişimi açıklaması"
+  },
+  "fileManagement": "Dosya Yönetimi",
+  "@fileManagement": {
+    "description": "Dosya yönetimi başlığı"
+  },
+  "fileManagementDesc": "Video dosyalarını organize etmek için",
+  "@fileManagementDesc": {
+    "description": "Dosya yönetimi açıklaması"
+  },
+  "dataPrivacy": "Verileriniz güvende, sadece uygulama işlevselliği için kullanılır.",
+  "@dataPrivacy": {
+    "description": "Veri gizliliği mesajı"
+  },
+  "requestingPermissions": "İzinler isteniyor...",
+  "@requestingPermissions": {
+    "description": "İzin isteniyor mesajı"
+  },
+  "permissionsGranted": "Tüm izinler verildi!",
+  "@permissionsGranted": {
+    "description": "İzinler verildi mesajı"
+  },
+  "permissionsDenied": "Bazı izinler reddedildi.",
+  "@permissionsDenied": {
+    "description": "İzinler reddedildi mesajı"
+  },
+  "dataCleared": "Tüm veriler silindi",
+  "@dataCleared": {
+    "description": "Veriler silindi mesajı"
+  },
+  "clearDataError": "Veri silinirken hata oluştu",
+  "@clearDataError": {
+    "description": "Veri silme hatası"
+  },
+  "appVersion": "Uygulama Sürümü",
+  "@appVersion": {
+    "description": "Uygulama sürümü etiketi"
+  },
+  "developedWith": "Flutter ile geliştirilmiştir.",
+  "@developedWith": {
+    "description": "Geliştirme bilgisi"
+  },
+  "newVideo": "Yeni Video",
+  "@newVideo": {
+    "description": "Yeni video butonu"
+  },
+  "searchVideos": "Videolarınızı arayın...",
+  "@searchVideos": {
+    "description": "Arama placeholder"
+  },
+  "videosLoading": "Videolar yükleniyor...",
+  "@videosLoading": {
+    "description": "Video yükleme mesajı"
+  },
+  "noVideoFound": "Video bulunamadı",
+  "@noVideoFound": {
+    "description": "Video bulunamadı mesajı"
+  },
+  "tryDifferentKeywords": "Farklı anahtar kelimeler deneyin.",
+  "@tryDifferentKeywords": {
+    "description": "Farklı kelime deneme mesajı"
+  },
+  "addFirstVideoButton": "İlk Videonuzu Ekleyin",
+  "@addFirstVideoButton": {
+    "description": "İlk video ekle butonu"
+  },
+  "videoDelete": "Video Sil",
+  "@videoDelete": {
+    "description": "Video sil başlığı"
+  },
+  "confirmDelete": "Bu videoyu silmek istediğinizden emin misiniz?",
+  "@confirmDelete": {
+    "description": "Silme onay mesajı"
+  },
+  "videoDeleted": "Video silindi",
+  "@videoDeleted": {
+    "description": "Video silindi mesajı"
+  },
+  "videoDeleteError": "Video silinemedi",
+  "@videoDeleteError": {
+    "description": "Video silme hatası"
+  },
+  "dataLoadError": "Veriler yüklenirken hata oluştu",
+  "@dataLoadError": {
+    "description": "Veri yükleme hatası"
+  },
+  "videoUrlRequired": "Video linki gerekli",
+  "@videoUrlRequired": {
+    "description": "Video URL zorunlu mesajı"
+  },
+  "titleRequired": "Başlık gerekli",
+  "@titleRequired": {
+    "description": "Başlık zorunlu mesajı"
+  },
+  "categoryRequired": "Kategori gerekli",
+  "@categoryRequired": {
+    "description": "Kategori zorunlu mesajı"
+  },
+  "enterTitle": "Video başlığını girin",
+  "@enterTitle": {
+    "description": "Başlık placeholder"
+  },
+  "enterDescription": "Video hakkında açıklama yazın (isteğe bağlı)",
+  "@enterDescription": {
+    "description": "Açıklama placeholder"
+  },
+  "tagsCount": "Etiketler ({count}/10)",
+  "@tagsCount": {
+    "description": "Etiket sayısı",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "videoSearch": "Video Arama",
+  "@videoSearch": {
+    "description": "Video arama başlığı"
+  },
+  "searchPlaceholder": "Video ara... (başlık, yazar, platform, etiket)",
+  "@searchPlaceholder": {
+    "description": "Arama placeholder"
+  },
+  "clearSearch": "Aramayı Temizle",
+  "@clearSearch": {
+    "description": "Aramayı temizle butonu"
+  },
+  "videosFound": "{count} video bulundu",
+  "@videosFound": {
+    "description": "Video bulundu mesajı",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "searchError": "Arama hatası",
+  "@searchError": {
+    "description": "Arama hatası mesajı"
+  },
+  "noVideoMatch": "Arama kriterinize uygun video bulunamadı.\nFarklı anahtar kelimeler deneyin.",
+  "@noVideoMatch": {
+    "description": "Video eşleşmedi mesajı"
+  },
+  "videoStatistics": "Video İstatistikleri",
+  "@videoStatistics": {
+    "description": "Video istatistikleri başlığı"
+  },
+  "totalVideos": "Toplam Video",
+  "@totalVideos": {
+    "description": "Toplam video etiketi"
+  },
+  "categories": "Kategoriler",
+  "@categories": {
+    "description": "Kategoriler etiketi"
+  },
+  "platformDistribution": "Platform Dağılımı",
+  "@platformDistribution": {
+    "description": "Platform dağılımı başlığı"
+  },
+  "popularCategories": "Popüler Kategoriler",
+  "@popularCategories": {
+    "description": "Popüler kategoriler başlığı"
+  },
+  "refresh": "Yenile",
+  "@refresh": {
+    "description": "Yenile butonu"
+  },
+  "share": "Paylaş",
+  "@share": {
+    "description": "Paylaş butonu"
+  },
+  "preview": "Önizleme",
+  "@preview": {
+    "description": "Önizleme butonu"
+  },
+  "open": "Aç",
+  "@open": {
+    "description": "Aç butonu"
+  },
+  "openInPlatform": "Platformda Aç",
+  "@openInPlatform": {
+    "description": "Platformda aç butonu"
+  },
+  "videoInfo": "Video Bilgileri",
+  "@videoInfo": {
+    "description": "Video bilgileri başlığı"
+  },
+  "duration": "Süre",
+  "@duration": {
+    "description": "Süre etiketi"
+  },
+  "resolution": "Çözünürlük",
+  "@resolution": {
+    "description": "Çözünürlük etiketi"
+  },
+  "fileSize": "Dosya Boyutu",
+  "@fileSize": {
+    "description": "Dosya boyutu etiketi"
+  },
+  "filePath": "Dosya Yolu",
+  "@filePath": {
+    "description": "Dosya yolu etiketi"
+  },
+  "calculating": "Hesaplanıyor...",
+  "@calculating": {
+    "description": "Hesaplanıyor mesajı"
+  },
+  "videoLoading": "Video yükleniyor...",
+  "@videoLoading": {
+    "description": "Video yükleme mesajı"
+  },
+  "videoCannotPlay": "Video Oynatılamadı",
+  "@videoCannotPlay": {
+    "description": "Video oynatılamadı başlığı"
+  },
+  "retry": "Tekrar Dene",
+  "@retry": {
+    "description": "Tekrar dene butonu"
+  },
+  "goBack": "Geri Dön",
+  "@goBack": {
+    "description": "Geri dön butonu"
+  },
+  "unknownError": "Bilinmeyen bir hata oluştu",
+  "@unknownError": {
+    "description": "Bilinmeyen hata mesajı"
+  },
+  "videoFileNotFound": "Video dosyası bulunamadı",
+  "@videoFileNotFound": {
+    "description": "Video dosyası bulunamadı mesajı"
+  },
+  "videoFileEmpty": "Video dosyası boş veya okunamıyor",
+  "@videoFileEmpty": {
+    "description": "Video dosyası boş mesajı"
+  },
+  "videoLoadTimeout": "Video yükleme zaman aşımına uğradı",
+  "@videoLoadTimeout": {
+    "description": "Video yükleme timeout mesajı"
+  },
+  "videoFormatNotSupported": "Video formatı desteklenmiyor",
+  "@videoFormatNotSupported": {
+    "description": "Video formatı desteklenmiyor mesajı"
+  },
+  "noPermission": "Video dosyasına erişim izni yok",
+  "@noPermission": {
+    "description": "İzin yok mesajı"
+  },
+  "videoPlayError": "Video oynatılamadı",
+  "@videoPlayError": {
+    "description": "Video oynatma hatası"
+  },
+  "linkOpenError": "Link açma hatası",
+  "@linkOpenError": {
+    "description": "Link açma hatası"
+  },
+  "platformCannotOpen": "açılamadı",
+  "@platformCannotOpen": {
+    "description": "Platform açılamadı mesajı"
+  },
+  "organizeVideos": "Videolarınızı organize edin ve kolayca bulun.",
+  "@organizeVideos": {
+    "description": "Uygulama açıklaması"
+  },
+  "manualEditPermissions": "Uygulama izinlerini manuel olarak düzenle",
+  "@manualEditPermissions": {
+    "description": "Manuel izin düzenleme mesajı"
+  },
+  "checkingPermissions": "İzinler kontrol ediliyor...",
+  "@checkingPermissions": {
+    "description": "İzinler kontrol ediliyor mesajı"
+  },
+  "permissionRequestError": "İzin isteme hatası",
+  "@permissionRequestError": {
+    "description": "İzin isteme hatası"
+  },
+  "iosAutoPermission": "iOS cihazlarda otomatik izin verildi",
+  "@iosAutoPermission": {
+    "description": "iOS otomatik izin mesajı"
+  },
+  "carefulUse": "Dikkatli kullanın - geri alınamaz",
+  "@carefulUse": {
+    "description": "Dikkatli kullan mesajı"
+  },
+  "appInformation": "Uygulama bilgileri",
+  "@appInformation": {
+    "description": "Uygulama bilgileri etiketi"
+  }
+}

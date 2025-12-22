@@ -1,7 +1,7 @@
 # Dosya Konumu: pubspec.yaml
 
 name: linkcim
-description: Süper Güçlü Video İndirme ve Akıllı AI Analiz Uygulaması - Her türlü videoyu indir, kategorize et ve organize et!
+description: Süper Güçlü Video Organizasyon Uygulaması - Her türlü videoyu kategorize et ve organize et!
 publish_to: 'none'
 version: 2.0.0+2
 
@@ -11,6 +11,8 @@ environment:
 
 dependencies:
   flutter:
+    sdk: flutter
+  flutter_localizations:
     sdk: flutter
 
   # Veritabanı - Hive
@@ -27,7 +29,7 @@ dependencies:
   url_launcher: ^6.2.5
 
   # Tarih ve zaman formatlama
-  intl: ^0.19.0
+  intl: ^0.20.2
 
   # UI ikonları ve tasarım
   cupertino_icons: ^1.0.6
@@ -41,9 +43,6 @@ dependencies:
 
   # Dosya açma - Gelişmiş
   open_file: ^3.5.4
-
-  # Galeri kayıt
-  gal: ^2.3.0
 
   # Görsel önbellekleme ve resim yönetimi
   cached_network_image: ^3.3.1
@@ -87,7 +86,7 @@ dependencies:
   # Audio waveforms - İsteğe bağlı
   audio_waveforms: ^1.0.5
 
-  # Network ve download optimizasyonu (opsiyonel)
+  # Network optimizasyonu (opsiyonel)
   # dio_cache_interceptor: ^3.5.0
   # dio_certificate_pinning: ^4.1.0
 
@@ -109,8 +108,14 @@ dev_dependencies:
   integration_test:
     sdk: flutter
 
+  # App icon generation
+  flutter_launcher_icons: ^0.13.1
+
 flutter:
   uses-material-design: true
+
+  # Çoklu dil desteği
+  generate: true
 
   # App assets
   assets:
@@ -181,4 +186,22 @@ linter:
     - no_duplicate_case_values
     - valid_regexps
 
+# Flutter Launcher Icons Configuration
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/icon.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "assets/icons/icon.png"
+    background_color: "#ffffff"
+    theme_color: "#ffffff"
+  windows:
+    generate: true
+    image_path: "assets/icons/icon.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/icons/icon.png"
 

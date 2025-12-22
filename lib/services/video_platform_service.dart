@@ -28,6 +28,12 @@ class VideoPlatformService {
           return await _getInstagramMetadata(url);
         case 'Twitter':
           return await _getTwitterMetadata(url);
+        case 'Facebook':
+          return await _getFacebookMetadata(url);
+        case 'Vimeo':
+          return await _getVimeoMetadata(url);
+        case 'Reddit':
+          return await _getRedditMetadata(url);
         default:
           return _createBasicMetadata(url, platform);
       }
@@ -346,6 +352,152 @@ class VideoPlatformService {
       return 'tweet';
     } catch (e) {
       return 'tweet';
+    }
+  }
+
+  // 👤 Facebook metadata çekme
+  static Future<Map<String, dynamic>> _getFacebookMetadata(String url) async {
+    try {
+      // Facebook oEmbed API kullanarak metadata çek
+      final oembedUrl =
+          'https://www.facebook.com/plugins/video/oembed.json?url=${Uri.encodeComponent(url)}';
+
+      final response = await http.get(
+        Uri.parse(oembedUrl),
+      ).timeout(Duration(seconds: timeoutSeconds));
+
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        return {
+          'success': true,
+          'platform': 'Facebook',
+          'title': data['title'] ?? 'Facebook Video',
+          'description': data['description'] ?? 'Facebook platformundan video',
+          'author': data['author_name'] ?? 'Bilinmeyen',
+          'duration': null,
+          'thumbnail': data['thumbnail_url'],
+          'view_count': null,
+          'upload_date': null,
+          'video_id': _extractFacebookVideoId(url),
+          'url': url,
+          'raw_data': data,
+        };
+      } else {
+        return _createBasicMetadata(url, 'Facebook');
+      }
+    } catch (e) {
+      _debugPrint('Facebook metadata hatası: $e');
+      return _createBasicMetadata(url, 'Facebook');
+    }
+  }
+
+  // 🎬 Vimeo metadata çekme
+  static Future<Map<String, dynamic>> _getVimeoMetadata(String url) async {
+    try {
+      // Vimeo oEmbed API kullanarak metadata çek
+      final oembedUrl =
+          'https://vimeo.com/api/oembed.json?url=${Uri.encodeComponent(url)}';
+
+      final response = await http.get(
+        Uri.parse(oembedUrl),
+      ).timeout(Duration(seconds: timeoutSeconds));
+
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        return {
+          'success': true,
+          'platform': 'Vimeo',
+          'title': data['title'] ?? 'Vimeo Video',
+          'description': data['description'] ?? 'Vimeo platformundan video',
+          'author': data['author_name'] ?? 'Bilinmeyen',
+          'duration': data['duration'],
+          'thumbnail': data['thumbnail_url'],
+          'view_count': null,
+          'upload_date': data['upload_date'],
+          'video_id': _extractVimeoVideoId(url),
+          'url': url,
+          'raw_data': data,
+        };
+      } else {
+        return _createBasicMetadata(url, 'Vimeo');
+      }
+    } catch (e) {
+      _debugPrint('Vimeo metadata hatası: $e');
+      return _createBasicMetadata(url, 'Vimeo');
+    }
+  }
+
+  // 🤖 Reddit metadata çekme
+  static Future<Map<String, dynamic>> _getRedditMetadata(String url) async {
+    try {
+      // Reddit oEmbed API kullanarak metadata çek
+      // Reddit'in resmi oEmbed API'si yok, bu yüzden basit metadata oluşturuyoruz
+      final videoId = _extractRedditVideoId(url);
+      
+      return {
+        'success': true,
+        'platform': 'Reddit',
+        'title': 'Reddit Video',
+        'description': 'Reddit platformundan video',
+        'author': 'Bilinmeyen',
+        'duration': null,
+        'thumbnail': null,
+        'view_count': null,
+        'upload_date': null,
+        'video_id': videoId,
+        'url': url,
+        'raw_data': {},
+      };
+    } catch (e) {
+      _debugPrint('Reddit metadata hatası: $e');
+      return _createBasicMetadata(url, 'Reddit');
+    }
+  }
+
+  // 🆔 Platform video ID çıkarma fonksiyonları
+  static String _extractFacebookVideoId(String url) {
+    try {
+      final uri = Uri.parse(url);
+      final pathSegments = uri.pathSegments;
+      if (pathSegments.contains('video.php')) {
+        final queryParams = uri.queryParameters;
+        return queryParams['v'] ?? '';
+      } else if (pathSegments.contains('watch')) {
+        final queryParams = uri.queryParameters;
+        return queryParams['v'] ?? '';
+      } else if (url.contains('fb.watch')) {
+        final match = RegExp(r'fb\.watch/([A-Za-z0-9_-]+)').firstMatch(url);
+        return match?.group(1) ?? '';
+      }
+      return '';
+    } catch (e) {
+      return '';
+    }
+  }
+
+  static String _extractVimeoVideoId(String url) {
+    try {
+      final uri = Uri.parse(url);
+      final pathSegments = uri.pathSegments;
+      if (pathSegments.isNotEmpty) {
+        return pathSegments.last;
+      }
+      return '';
+    } catch (e) {
+      return '';
+    }
+  }
+
+  static String _extractRedditVideoId(String url) {
+    try {
+      final uri = Uri.parse(url);
+      final pathSegments = uri.pathSegments;
+      if (pathSegments.length >= 2 && pathSegments[0] == 'r') {
+        return pathSegments[pathSegments.length - 1];
+      }
+      return '';
+    } catch (e) {
+      return '';
     }
   }
 

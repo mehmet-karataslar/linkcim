@@ -1,6 +1,7 @@
 // Dosya Konumu: lib/screens/video_preview_screen.dart
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:linkcim/models/saved_video.dart';
 import 'package:linkcim/widgets/video_thumbnail.dart';
 import 'package:linkcim/widgets/share_menu.dart';
@@ -10,8 +11,7 @@ import 'package:linkcim/screens/add_video_screen.dart';
 import 'package:linkcim/services/share_service.dart';
 import 'package:linkcim/services/instagram_service.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:linkcim/services/video_download_service.dart';
-import 'package:linkcim/widgets/download_progress_dialog.dart';
+
 
 class VideoPreviewScreen extends StatefulWidget {
   final SavedVideo video;
@@ -191,139 +191,13 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
     );
   }
 
-  Future<void> _downloadVideo() async {
-    // Format seçim dialogu göster
-    final selectedFormat = await _showFormatSelectionDialog();
-    if (selectedFormat == null) return; // Kullanıcı iptal etti
 
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (context) => DownloadProgressDialog(
-        video: widget.video,
-        format: selectedFormat['format'],
-        quality: selectedFormat['quality'],
-      ),
-    );
-  }
-
-  Future<Map<String, String>?> _showFormatSelectionDialog() async {
-    return showDialog<Map<String, String>>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Row(
-          children: [
-            Icon(Icons.video_settings, color: Colors.blue[600]),
-            SizedBox(width: 8),
-            Text('Format Seçin'),
-          ],
-        ),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              'İndirmek istediğiniz video formatını ve kalitesini seçin:',
-              style: TextStyle(fontSize: 14, color: Colors.grey[700]),
-            ),
-            SizedBox(height: 16),
-
-            // MP4 Video Seçenekleri
-            _buildFormatOption(
-              icon: Icons.video_file,
-              title: 'MP4 Video - Yüksek Kalite',
-              subtitle: '1080p veya mevcut en yüksek kalite',
-              format: 'mp4',
-              quality: 'high',
-              color: Colors.green,
-            ),
-
-            _buildFormatOption(
-              icon: Icons.video_file,
-              title: 'MP4 Video - Orta Kalite',
-              subtitle: '720p kalite, daha küçük dosya boyutu',
-              format: 'mp4',
-              quality: 'medium',
-              color: Colors.blue,
-            ),
-
-            _buildFormatOption(
-              icon: Icons.video_file,
-              title: 'MP4 Video - Düşük Kalite',
-              subtitle: '480p kalite, en küçük dosya boyutu',
-              format: 'mp4',
-              quality: 'low',
-              color: Colors.orange,
-            ),
-
-            SizedBox(height: 8),
-            Divider(),
-            SizedBox(height: 8),
-
-            // MP3 Audio Seçeneği
-            _buildFormatOption(
-              icon: Icons.audio_file,
-              title: 'MP3 Ses',
-              subtitle: 'Sadece ses dosyası (192kbps)',
-              format: 'mp3',
-              quality: 'medium',
-              color: Colors.purple,
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: Text('İptal'),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildFormatOption({
-    required IconData icon,
-    required String title,
-    required String subtitle,
-    required String format,
-    required String quality,
-    required Color color,
-  }) {
-    return Card(
-      elevation: 2,
-      margin: EdgeInsets.symmetric(vertical: 4),
-      child: ListTile(
-        leading: Container(
-          padding: EdgeInsets.all(8),
-          decoration: BoxDecoration(
-            color: color.withOpacity(0.1),
-            borderRadius: BorderRadius.circular(8),
-          ),
-          child: Icon(icon, color: color, size: 24),
-        ),
-        title: Text(
-          title,
-          style: TextStyle(fontWeight: FontWeight.w600),
-        ),
-        subtitle: Text(
-          subtitle,
-          style: TextStyle(fontSize: 12, color: Colors.grey[600]),
-        ),
-        onTap: () {
-          Navigator.of(context).pop({
-            'format': format,
-            'quality': quality,
-          });
-        },
-        trailing: Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Video Önizleme'),
+        title: Text(AppLocalizations.of(context)!.preview),
         actions: [
           IconButton(
             icon: Icon(Icons.edit),
@@ -545,60 +419,7 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
 
             SizedBox(height: 12),
 
-            // İndirme butonu (büyük ve belirgin)
-            Container(
-              width: double.infinity,
-              height: 60,
-              child: ElevatedButton.icon(
-                onPressed: _downloadVideo,
-                icon: Icon(Icons.download, size: 28),
-                label: Text(
-                  'VİDEO İNDİR',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1.2,
-                  ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green,
-                  foregroundColor: Colors.white,
-                  elevation: 8,
-                  shadowColor: Colors.green.withOpacity(0.3),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-              ),
-            ),
 
-            SizedBox(height: 8),
-
-            // Platform özel uyarı
-            Container(
-              width: double.infinity,
-              padding: EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: Colors.blue[50],
-                border: Border.all(color: Colors.blue[200]!),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Row(
-                children: [
-                  Icon(Icons.info, color: Colors.blue[700], size: 20),
-                  SizedBox(width: 8),
-                  Expanded(
-                    child: Text(
-                      'Video ${widget.video.platform.toLowerCase()} platformundan indirilecek. İndirme birkaç dakika sürebilir.',
-                      style: TextStyle(
-                        color: Colors.blue[700],
-                        fontSize: 13,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
 
             SizedBox(height: 12),
 
