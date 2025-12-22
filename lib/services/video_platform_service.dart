@@ -637,13 +637,13 @@ class VideoPlatformService {
   }
 
   // 🧪 Platform test fonksiyonu
-  static Future<Map<String, bool>> testPlatformSupport() async {
+  static Future<Map<String, bool>> testPlatformSupport(AppLocalizations l10n) async {
     Map<String, bool> results = {};
 
     try {
       // YouTube test
       final youtubeResult = await _getYouTubeMetadata(
-          'https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+          'https://www.youtube.com/watch?v=dQw4w9WgXcQ', l10n);
       results['YouTube'] = youtubeResult['success'] == true;
 
       // TikTok test (dummy URL)

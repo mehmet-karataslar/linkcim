@@ -584,4 +584,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String shareFailed(String error) {
     return 'Share failed: $error';
   }
+
+  @override
+  String get grantPermission => 'Grant Permission';
+
+  @override
+  String get later => 'Later';
+
+  @override
+  String get videoAccess => 'Video Access';
+
+  @override
+  String get videoAccessDescription => 'To save and organize video links';
 }

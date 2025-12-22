@@ -784,5 +784,21 @@
         "type": "String"
       }
     }
+  },
+  "grantPermission": "Grant Permission",
+  "@grantPermission": {
+    "description": "Grant permission button"
+  },
+  "later": "Later",
+  "@later": {
+    "description": "Later button"
+  },
+  "videoAccess": "Video Access",
+  "@videoAccess": {
+    "description": "Video access title"
+  },
+  "videoAccessDescription": "To save and organize video links",
+  "@videoAccessDescription": {
+    "description": "Video access description"
   }
 }

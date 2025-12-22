@@ -784,5 +784,21 @@
         "type": "String"
       }
     }
+  },
+  "grantPermission": "İzin Ver",
+  "@grantPermission": {
+    "description": "İzin ver butonu"
+  },
+  "later": "Sonra",
+  "@later": {
+    "description": "Sonra butonu"
+  },
+  "videoAccess": "Video Erişimi",
+  "@videoAccess": {
+    "description": "Video erişimi başlığı"
+  },
+  "videoAccessDescription": "Video linklerini kaydetmek ve organize etmek için",
+  "@videoAccessDescription": {
+    "description": "Video erişimi açıklaması"
   }
 }

@@ -1201,6 +1201,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Share failed: {error}'**
   String shareFailed(String error);
+
+  /// Grant permission button
+  ///
+  /// In en, this message translates to:
+  /// **'Grant Permission'**
+  String get grantPermission;
+
+  /// Later button
+  ///
+  /// In en, this message translates to:
+  /// **'Later'**
+  String get later;
+
+  /// Video access title
+  ///
+  /// In en, this message translates to:
+  /// **'Video Access'**
+  String get videoAccess;
+
+  /// Video access description
+  ///
+  /// In en, this message translates to:
+  /// **'To save and organize video links'**
+  String get videoAccessDescription;
 }
 
 class _AppLocalizationsDelegate

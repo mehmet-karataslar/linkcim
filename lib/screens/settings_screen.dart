@@ -9,6 +9,7 @@ import 'dart:io';
 import 'package:linkcim/services/database_service.dart';
 import 'package:linkcim/services/theme_service.dart';
 import 'package:linkcim/services/locale_service.dart';
+import 'package:linkcim/services/permission_service.dart';
 
 class SettingsScreen extends StatefulWidget {
   @override
@@ -54,38 +55,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
-  // İzin kontrol fonksiyonları
+  // İzin kontrol fonksiyonları - PermissionService kullan
   Future<Map<String, bool>> _checkPermissions() async {
-    if (!Platform.isAndroid) {
-      return {'all': true}; // iOS için varsayılan olarak izinli
-    }
-
-    try {
-      final androidInfo = await DeviceInfoPlugin().androidInfo;
-      final sdkInt = androidInfo.version.sdkInt;
-
-      Map<String, bool> permissions = {};
-
-      if (sdkInt >= 33) {
-        // Android 13+ (API 33+)
-        permissions['videos'] = await Permission.videos.status.isGranted;
-        permissions['photos'] = await Permission.photos.status.isGranted;
-      } else if (sdkInt >= 30) {
-        // Android 11-12 (API 30-32)
-        permissions['manageStorage'] =
-            await Permission.manageExternalStorage.status.isGranted;
-        permissions['storage'] = await Permission.storage.status.isGranted;
-      } else {
-        // Android 10 ve altı
-        permissions['storage'] = await Permission.storage.status.isGranted;
-      }
-
-      permissions['all'] = permissions.values.every((granted) => granted);
-      return permissions;
-    } catch (e) {
-      print('İzin kontrolü hatası: $e');
-      return {'all': false};
-    }
+    return await PermissionService.checkPermissions();
   }
 
   Future<void> _requestPermissions() async {
@@ -96,28 +68,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
     }
 
     try {
-      final androidInfo = await DeviceInfoPlugin().androidInfo;
-      final sdkInt = androidInfo.version.sdkInt;
-
       _showSuccess(l10n.requestingPermissions);
 
-      bool allGranted = false;
-
-      if (sdkInt >= 33) {
-        // Android 13+ (API 33+)
-        final videoStatus = await Permission.videos.request();
-        final photosStatus = await Permission.photos.request();
-        allGranted = videoStatus.isGranted && photosStatus.isGranted;
-      } else if (sdkInt >= 30) {
-        // Android 11-12 (API 30-32)
-        final manageStatus = await Permission.manageExternalStorage.request();
-        final storageStatus = await Permission.storage.request();
-        allGranted = manageStatus.isGranted || storageStatus.isGranted;
-      } else {
-        // Android 10 ve altı
-        final storageStatus = await Permission.storage.request();
-        allGranted = storageStatus.isGranted;
-      }
+      final results = await PermissionService.requestPermissions();
+      final allGranted = results['all'] == PermissionStatus.granted;
 
       if (allGranted) {
         _showSuccess(l10n.permissionsGranted);

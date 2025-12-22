@@ -584,4 +584,17 @@ class AppLocalizationsTr extends AppLocalizations {
   String shareFailed(String error) {
     return 'Paylaşma başarısız: $error';
   }
+
+  @override
+  String get grantPermission => 'İzin Ver';
+
+  @override
+  String get later => 'Sonra';
+
+  @override
+  String get videoAccess => 'Video Erişimi';
+
+  @override
+  String get videoAccessDescription =>
+      'Video linklerini kaydetmek ve organize etmek için';
 }

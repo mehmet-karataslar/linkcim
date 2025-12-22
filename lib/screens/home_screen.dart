@@ -1,9 +1,13 @@
 // Dosya Konumu: lib/screens/home_screen.dart
 
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:provider/provider.dart';
 import 'package:linkcim/l10n/app_localizations.dart';
 import 'package:linkcim/models/saved_video.dart';
 import 'package:linkcim/services/database_service.dart';
+import 'package:linkcim/services/permission_service.dart';
+import 'package:linkcim/services/locale_service.dart';
 
 import 'package:linkcim/screens/add_video_screen.dart';
 import 'package:linkcim/screens/search_screen.dart';
@@ -22,8 +26,9 @@ class _HomeScreenState extends State<HomeScreen>
   List<SavedVideo> videos = [];
   List<SavedVideo> filteredVideos = [];
   List<String> categories = [];
-  String selectedCategory = '';
+  String selectedCategoryKey = ''; // Kategori key'i (veritabanından gelen)
   bool isLoading = true;
+  String? _lastLocale; // Son kullanılan locale'i takip et
 
   // Sistem durumu
   Map<String, dynamic> systemStatus = {};
@@ -49,8 +54,95 @@ class _HomeScreenState extends State<HomeScreen>
     super.initState();
     _initializeAnimations();
     _loadData();
+    _checkAndRequestPermissions();
 
     _animationController.forward();
+  }
+
+  // Dil değişikliğini dinle
+  void _onLocaleChanged() {
+    if (mounted) {
+      _updateCategoriesForLocale();
+    }
+  }
+
+  // İzin kontrolü ve isteme
+  Future<void> _checkAndRequestPermissions() async {
+    // Widget'ın mount olmasını bekle
+    await Future.delayed(Duration(milliseconds: 500));
+    
+    if (!mounted) return;
+
+    // Daha önce izin istenmiş mi kontrol et
+    final hasRequested = await PermissionService.hasRequestedPermissions();
+    if (hasRequested) {
+      // Daha önce istenmişse sadece kontrol et
+      final permissions = await PermissionService.checkPermissions();
+      if (!(permissions['all'] ?? false)) {
+        // İzin verilmemişse tekrar iste
+        _requestPermissions();
+      }
+      return;
+    }
+
+    // İlk açılış - izin dialog'unu göster
+    final shouldRequest = await PermissionService.showPermissionDialog(context);
+    if (shouldRequest == true) {
+      _requestPermissions();
+    }
+  }
+
+  // İzinleri iste
+  Future<void> _requestPermissions() async {
+    final results = await PermissionService.requestPermissions();
+    final allGranted = results['all'] == PermissionStatus.granted;
+
+    if (!mounted) return;
+
+    final l10n = AppLocalizations.of(context)!;
+    if (allGranted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Row(
+            children: [
+              Icon(Icons.check_circle, color: Colors.white),
+              SizedBox(width: 12),
+              Expanded(child: Text(l10n.permissionsGranted)),
+            ],
+          ),
+          backgroundColor: Colors.green,
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          margin: EdgeInsets.all(16),
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Row(
+            children: [
+              Icon(Icons.warning, color: Colors.white),
+              SizedBox(width: 12),
+              Expanded(child: Text(l10n.permissionsDenied)),
+            ],
+          ),
+          backgroundColor: Colors.orange,
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          margin: EdgeInsets.all(16),
+          action: SnackBarAction(
+            label: l10n.settings,
+            textColor: Colors.white,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => SettingsScreen()),
+              );
+            },
+          ),
+        ),
+      );
+    }
   }
 
   @override
@@ -70,7 +162,11 @@ class _HomeScreenState extends State<HomeScreen>
       setState(() {
         videos = allVideos;
         filteredVideos = allVideos;
-        selectedCategory = l10n.allCategories;
+        // İlk yüklemede "Tümü" seçili olsun
+        if (selectedCategoryKey.isEmpty) {
+          selectedCategoryKey = ''; // '' = Tümü
+        }
+        // Kategorileri lokalizasyona göre ayarla
         categories = [l10n.allCategories, ...allCategories];
         isLoading = false;
       });
@@ -84,16 +180,50 @@ class _HomeScreenState extends State<HomeScreen>
     }
   }
 
+  // Kategorileri mevcut dile göre güncelle
+  Future<void> _updateCategoriesForLocale() async {
+    if (!mounted) return;
+    
+    try {
+      final dbCategories = await _dbService.getAllCategories();
+      if (!mounted) return;
+      
+      final l10n = AppLocalizations.of(context)!;
+      setState(() {
+        categories = [l10n.allCategories, ...dbCategories];
+        // Seçili kategoriyi koru ama filtrelemeyi yeniden yap
+        _filterByCategoryKey(selectedCategoryKey);
+      });
+    } catch (e) {
+      print('Kategori güncelleme hatası: $e');
+    }
+  }
+
 
 
   void _filterByCategory(String category) {
     final l10n = AppLocalizations.of(context)!;
     setState(() {
-      selectedCategory = category;
+      // Eğer "Tümü" seçildiyse
       if (category == l10n.allCategories) {
+        selectedCategoryKey = '';
         filteredVideos = videos;
       } else {
+        // Diğer kategoriler için veritabanındaki kategori adını kullan
+        selectedCategoryKey = category;
         filteredVideos = videos.where((v) => v.category == category).toList();
+      }
+    });
+  }
+
+  // Kategori key'ine göre filtrele (dil değiştiğinde kullanılır)
+  void _filterByCategoryKey(String categoryKey) {
+    setState(() {
+      if (categoryKey.isEmpty) {
+        // Tümü seçili
+        filteredVideos = videos;
+      } else {
+        filteredVideos = videos.where((v) => v.category == categoryKey).toList();
       }
     });
   }
@@ -101,7 +231,7 @@ class _HomeScreenState extends State<HomeScreen>
   void _onSearch(String query) {
     setState(() {
       if (query.isEmpty) {
-        _filterByCategory(selectedCategory);
+        _filterByCategoryKey(selectedCategoryKey);
       } else {
         filteredVideos = videos.where((v) => v.matchesSearch(query)).toList();
       }
@@ -407,6 +537,18 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
+    // LocaleService'i dinle - dil değiştiğinde kategorileri güncelle
+    final localeService = Provider.of<LocaleService>(context, listen: true);
+    final currentLocale = localeService.currentLocale.languageCode;
+    
+    // Dil değiştiğinde kategorileri güncelle
+    if (_lastLocale != null && _lastLocale != currentLocale && categories.isNotEmpty) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _updateCategoriesForLocale();
+      });
+    }
+    _lastLocale = currentLocale;
+
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -468,7 +610,11 @@ class _HomeScreenState extends State<HomeScreen>
                   itemCount: categories.length,
                   itemBuilder: (context, index) {
                     final category = categories[index];
-                    final isSelected = category == selectedCategory;
+                    final l10n = AppLocalizations.of(context)!;
+                    // İlk kategori "Tümü" ise, selectedCategoryKey boş olmalı
+                    final isSelected = index == 0 
+                        ? selectedCategoryKey.isEmpty
+                        : category == selectedCategoryKey;
                     final theme = Theme.of(context);
 
                     return Padding(
