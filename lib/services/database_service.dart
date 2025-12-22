@@ -2,6 +2,8 @@
 
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:linkcim/models/saved_video.dart';
+import 'package:linkcim/models/video_collection.dart';
+import 'package:uuid/uuid.dart';
 
 class DatabaseService {
   static final DatabaseService _instance = DatabaseService._internal();
@@ -9,18 +11,24 @@ class DatabaseService {
   DatabaseService._internal();
 
   Box<SavedVideo>? _videoBox;
+  Box<VideoCollection>? _collectionBox;
+  final _uuid = Uuid();
 
   Future<void> initDB() async {
     // Hive'ı başlat
     await Hive.initFlutter();
 
-    // Type adapter'ı kaydet
+    // Type adapter'ları kaydet
     if (!Hive.isAdapterRegistered(0)) {
       Hive.registerAdapter(SavedVideoAdapter());
     }
+    if (!Hive.isAdapterRegistered(1)) {
+      Hive.registerAdapter(VideoCollectionAdapter());
+    }
 
-    // Box'ı aç
+    // Box'ları aç
     _videoBox = await Hive.openBox<SavedVideo>('videos');
+    _collectionBox = await Hive.openBox<VideoCollection>('collections');
 
     print('✅ Hive veritabanı başarıyla başlatıldı');
   }
@@ -30,6 +38,13 @@ class DatabaseService {
       throw Exception('Veritabani baslatilmadi! initDB() metodunu cagirin.');
     }
     return _videoBox!;
+  }
+
+  Box<VideoCollection> get collectionBox {
+    if (_collectionBox == null) {
+      throw Exception('Veritabani baslatilmadi! initDB() metodunu cagirin.');
+    }
+    return _collectionBox!;
   }
 
   // Video ekleme
@@ -153,8 +168,100 @@ class DatabaseService {
     return videoBox.length;
   }
 
+  // ==================== KOLEKSİYON METODLARI ====================
+
+  // Koleksiyon ekleme
+  Future<VideoCollection> addCollection(VideoCollection collection) async {
+    if (collection.id.isEmpty) {
+      collection.id = _uuid.v4();
+    }
+    await collectionBox.add(collection);
+    return collection;
+  }
+
+  // Tüm koleksiyonları getirme
+  Future<List<VideoCollection>> getAllCollections() async {
+    final collections = collectionBox.values.toList();
+    // Favoriler önce, sonra güncelleme tarihine göre
+    collections.sort((a, b) {
+      if (a.isFavorite != b.isFavorite) {
+        return b.isFavorite ? 1 : -1;
+      }
+      return b.updatedAt.compareTo(a.updatedAt);
+    });
+    return collections;
+  }
+
+  // Koleksiyon silme
+  Future<void> deleteCollection(VideoCollection collection) async {
+    await collection.delete();
+  }
+
+  // Koleksiyon güncelleme
+  Future<void> updateCollection(VideoCollection collection) async {
+    collection.updatedAt = DateTime.now();
+    await collection.save();
+  }
+
+  // ID'ye göre koleksiyon getirme
+  Future<VideoCollection?> getCollectionById(String id) async {
+    try {
+      return collectionBox.values.firstWhere((c) => c.id == id);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  // Koleksiyona video ekleme
+  Future<void> addVideoToCollection(String collectionId, String videoKey) async {
+    final collection = await getCollectionById(collectionId);
+    if (collection != null) {
+      collection.addVideo(videoKey);
+      await updateCollection(collection);
+    }
+  }
+
+  // Koleksiyondan video çıkarma
+  Future<void> removeVideoFromCollection(
+      String collectionId, String videoKey) async {
+    final collection = await getCollectionById(collectionId);
+    if (collection != null) {
+      collection.removeVideo(videoKey);
+      await updateCollection(collection);
+    }
+  }
+
+  // Video'nun hangi koleksiyonlarda olduğunu bulma
+  Future<List<VideoCollection>> getCollectionsForVideo(
+      String videoKey) async {
+    final allCollections = await getAllCollections();
+    return allCollections
+        .where((collection) => collection.videoIds.contains(videoKey))
+        .toList();
+  }
+
+  // Koleksiyondaki videoları getirme
+  Future<List<SavedVideo>> getVideosInCollection(
+      String collectionId) async {
+    final collection = await getCollectionById(collectionId);
+    if (collection == null) return [];
+
+    final allVideos = await getAllVideos();
+    final videoMap = <String, SavedVideo>{};
+    for (final video in allVideos) {
+      videoMap[video.key.toString()] = video;
+    }
+
+    return collection.videoIds
+        .map((key) => videoMap[key])
+        .where((video) => video != null)
+        .cast<SavedVideo>()
+        .toList();
+  }
+
   // Veritabanını kapat
   Future<void> close() async {
     await _videoBox?.close();
+    await _collectionBox?.close();
   }
 }

@@ -12,6 +12,8 @@ import 'package:linkcim/services/locale_service.dart';
 import 'package:linkcim/screens/add_video_screen.dart';
 import 'package:linkcim/screens/search_screen.dart';
 import 'package:linkcim/screens/settings_screen.dart';
+import 'package:linkcim/screens/collections_screen.dart';
+import 'package:linkcim/screens/advanced_search_screen.dart';
 
 import 'package:linkcim/widgets/video_card.dart';
 import 'package:linkcim/widgets/search_bar.dart';
@@ -563,6 +565,30 @@ class _HomeScreenState extends State<HomeScreen>
 
 
 
+
+          // Koleksiyonlar
+          IconButton(
+            icon: Icon(Icons.folder_outlined),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CollectionsScreen()),
+              ).then((_) => _loadData());
+            },
+            tooltip: AppLocalizations.of(context)!.collections,
+          ),
+
+          // Gelişmiş Arama
+          IconButton(
+            icon: Icon(Icons.tune),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AdvancedSearchScreen()),
+              ).then((_) => _loadData());
+            },
+            tooltip: AppLocalizations.of(context)!.advancedSearch,
+          ),
 
           // Arama
           IconButton(

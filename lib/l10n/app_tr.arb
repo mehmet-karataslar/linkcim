@@ -800,5 +800,231 @@
   "videoAccessDescription": "Video linklerini kaydetmek ve organize etmek için",
   "@videoAccessDescription": {
     "description": "Video erişimi açıklaması"
+  },
+  "collections": "Koleksiyonlar",
+  "@collections": {
+    "description": "Koleksiyonlar sayfa başlığı"
+  },
+  "collection": "Koleksiyon",
+  "@collection": {
+    "description": "Koleksiyon etiketi"
+  },
+  "newCollection": "Yeni Koleksiyon",
+  "@newCollection": {
+    "description": "Yeni koleksiyon butonu"
+  },
+  "collectionName": "Koleksiyon Adı",
+  "@collectionName": {
+    "description": "Koleksiyon adı etiketi"
+  },
+  "collectionDescription": "Açıklama",
+  "@collectionDescription": {
+    "description": "Koleksiyon açıklaması etiketi"
+  },
+  "addToCollection": "Koleksiyona Ekle",
+  "@addToCollection": {
+    "description": "Koleksiyona ekle butonu"
+  },
+  "removeFromCollection": "Koleksiyondan Çıkar",
+  "@removeFromCollection": {
+    "description": "Koleksiyondan çıkar butonu"
+  },
+  "collectionCreated": "Koleksiyon oluşturuldu",
+  "@collectionCreated": {
+    "description": "Koleksiyon oluşturuldu mesajı"
+  },
+  "collectionUpdated": "Koleksiyon güncellendi",
+  "@collectionUpdated": {
+    "description": "Koleksiyon güncellendi mesajı"
+  },
+  "collectionDeleted": "Koleksiyon silindi",
+  "@collectionDeleted": {
+    "description": "Koleksiyon silindi mesajı"
+  },
+  "videoAddedToCollection": "Video koleksiyona eklendi",
+  "@videoAddedToCollection": {
+    "description": "Video koleksiyona eklendi mesajı"
+  },
+  "videoRemovedFromCollection": "Video koleksiyondan çıkarıldı",
+  "@videoRemovedFromCollection": {
+    "description": "Video koleksiyondan çıkarıldı mesajı"
+  },
+  "noCollections": "Henüz koleksiyon yok",
+  "@noCollections": {
+    "description": "Koleksiyon yok mesajı"
+  },
+  "createFirstCollection": "İlk koleksiyonunuzu oluşturun",
+  "@createFirstCollection": {
+    "description": "İlk koleksiyon oluştur mesajı"
+  },
+  "videosInCollection": "{count} video",
+  "@videosInCollection": {
+    "description": "Koleksiyondaki video sayısı",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "advancedSearch": "Gelişmiş Arama",
+  "@advancedSearch": {
+    "description": "Gelişmiş arama başlığı"
+  },
+  "filterBy": "Filtrele",
+  "@filterBy": {
+    "description": "Filtrele etiketi"
+  },
+  "sortBy": "Sırala",
+  "@sortBy": {
+    "description": "Sırala etiketi"
+  },
+  "sortNewest": "En Yeni",
+  "@sortNewest": {
+    "description": "En yeni sıralama seçeneği"
+  },
+  "sortOldest": "En Eski",
+  "@sortOldest": {
+    "description": "En eski sıralama seçeneği"
+  },
+  "sortTitle": "Başlık (A-Z)",
+  "@sortTitle": {
+    "description": "Başlığa göre sıralama seçeneği"
+  },
+  "sortPlatform": "Platform",
+  "@sortPlatform": {
+    "description": "Platforma göre sıralama seçeneği"
+  },
+  "filterPlatform": "Platform",
+  "@filterPlatform": {
+    "description": "Platforma göre filtrele etiketi"
+  },
+  "filterCategory": "Kategori",
+  "@filterCategory": {
+    "description": "Kategoriye göre filtrele etiketi"
+  },
+  "filterTags": "Etiketler",
+  "@filterTags": {
+    "description": "Etiketlere göre filtrele etiketi"
+  },
+  "filterDateRange": "Tarih Aralığı",
+  "@filterDateRange": {
+    "description": "Tarih aralığına göre filtrele etiketi"
+  },
+  "fromDate": "Başlangıç Tarihi",
+  "@fromDate": {
+    "description": "Başlangıç tarihi etiketi"
+  },
+  "toDate": "Bitiş Tarihi",
+  "@toDate": {
+    "description": "Bitiş tarihi etiketi"
+  },
+  "clearFilters": "Filtreleri Temizle",
+  "@clearFilters": {
+    "description": "Filtreleri temizle butonu"
+  },
+  "applyFilters": "Filtreleri Uygula",
+  "@applyFilters": {
+    "description": "Filtreleri uygula butonu"
+  },
+  "selectMultiple": "Çoklu Seçim",
+  "@selectMultiple": {
+    "description": "Çoklu seçim etiketi"
+  },
+  "allPlatforms": "Tüm Platformlar",
+  "@allPlatforms": {
+    "description": "Tüm platformlar seçeneği"
+  },
+  "allCategories": "Tüm Kategoriler",
+  "@allCategories": {
+    "description": "Tüm kategoriler seçeneği"
+  },
+  "detailedInformation": "Detaylı Bilgiler",
+  "@detailedInformation": {
+    "description": "Detaylı bilgiler başlığı"
+  },
+  "linkDetails": "Link Detayları",
+  "@linkDetails": {
+    "description": "Link detayları başlığı"
+  },
+  "videoType": "Video Türü",
+  "@videoType": {
+    "description": "Video türü etiketi"
+  },
+  "urlLength": "URL Uzunluğu",
+  "@urlLength": {
+    "description": "URL uzunluğu etiketi"
+  },
+  "fullUrl": "Tam URL",
+  "@fullUrl": {
+    "description": "Tam URL etiketi"
+  },
+  "characters": "karakter",
+  "@characters": {
+    "description": "Karakter birimi"
+  },
+  "playInApp": "Uygulamada Oynat",
+  "@playInApp": {
+    "description": "Uygulamada oynat butonu"
+  },
+  "instagramInfo": "Instagram Bilgileri",
+  "@instagramInfo": {
+    "description": "Instagram bilgileri başlığı"
+  },
+  "loadingInstagramInfo": "Instagram bilgileri yükleniyor...",
+  "@loadingInstagramInfo": {
+    "description": "Instagram bilgileri yükleniyor mesajı"
+  },
+  "author": "Yazar",
+  "@author": {
+    "description": "Yazar etiketi"
+  },
+  "postType": "Tip",
+  "@postType": {
+    "description": "Post tipi etiketi"
+  },
+  "postId": "Post ID",
+  "@postId": {
+    "description": "Post ID etiketi"
+  },
+  "instagramReel": "Instagram Reel",
+  "@instagramReel": {
+    "description": "Instagram Reel tipi"
+  },
+  "igtv": "IGTV",
+  "@igtv": {
+    "description": "IGTV tipi"
+  },
+  "instagramPost": "Instagram Post",
+  "@instagramPost": {
+    "description": "Instagram Post tipi"
+  },
+  "youtubeVideo": "YouTube Video",
+  "@youtubeVideo": {
+    "description": "YouTube Video tipi"
+  },
+  "tiktokVideo": "TikTok Video",
+  "@tiktokVideo": {
+    "description": "TikTok Video tipi"
+  },
+  "twitterVideo": "Twitter Video",
+  "@twitterVideo": {
+    "description": "Twitter Video tipi"
+  },
+  "video": "Video",
+  "@video": {
+    "description": "Video tipi"
+  },
+  "couldNotOpen": "{platform} açılamadı",
+  "@couldNotOpen": {
+    "description": "Platform açılamadı mesajı",
+    "placeholders": {
+      "platform": {
+        "type": "String"
+      }
+    }
+  },
+  "linkOpenError": "Link açma hatası",
+  "@linkOpenError": {
+    "description": "Link açma hatası mesajı"
   }
 }

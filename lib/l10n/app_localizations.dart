@@ -200,10 +200,10 @@ abstract class AppLocalizations {
   /// **'Add your first video'**
   String get addFirstVideo;
 
-  /// All categories filter
+  /// All categories option
   ///
   /// In en, this message translates to:
-  /// **'All'**
+  /// **'All Categories'**
   String get allCategories;
 
   /// Video URL label
@@ -782,10 +782,10 @@ abstract class AppLocalizations {
   /// **'Video cannot be played'**
   String get videoPlayError;
 
-  /// Link open error
+  /// Link opening error message
   ///
   /// In en, this message translates to:
-  /// **'Link open error'**
+  /// **'Link opening error'**
   String get linkOpenError;
 
   /// Platform cannot open message
@@ -1088,13 +1088,13 @@ abstract class AppLocalizations {
   /// **'Video Title'**
   String get videoTitleFromUrl;
 
-  /// Instagram post type
+  /// Instagram Post type
   ///
   /// In en, this message translates to:
   /// **'Instagram Post'**
   String get instagramPost;
 
-  /// Instagram reel type
+  /// Instagram Reel type
   ///
   /// In en, this message translates to:
   /// **'Instagram Reel'**
@@ -1112,7 +1112,7 @@ abstract class AppLocalizations {
   /// **'Instagram Video'**
   String get instagramVideo;
 
-  /// YouTube video type
+  /// YouTube Video type
   ///
   /// In en, this message translates to:
   /// **'YouTube Video'**
@@ -1124,7 +1124,7 @@ abstract class AppLocalizations {
   /// **'YouTube Shorts'**
   String get youtubeShorts;
 
-  /// TikTok video type
+  /// TikTok Video type
   ///
   /// In en, this message translates to:
   /// **'TikTok Video'**
@@ -1225,6 +1225,294 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'To save and organize video links'**
   String get videoAccessDescription;
+
+  /// Collections page title
+  ///
+  /// In en, this message translates to:
+  /// **'Collections'**
+  String get collections;
+
+  /// Collection label
+  ///
+  /// In en, this message translates to:
+  /// **'Collection'**
+  String get collection;
+
+  /// New collection button
+  ///
+  /// In en, this message translates to:
+  /// **'New Collection'**
+  String get newCollection;
+
+  /// Collection name label
+  ///
+  /// In en, this message translates to:
+  /// **'Collection Name'**
+  String get collectionName;
+
+  /// Collection description label
+  ///
+  /// In en, this message translates to:
+  /// **'Description'**
+  String get collectionDescription;
+
+  /// Add to collection button
+  ///
+  /// In en, this message translates to:
+  /// **'Add to Collection'**
+  String get addToCollection;
+
+  /// Remove from collection button
+  ///
+  /// In en, this message translates to:
+  /// **'Remove from Collection'**
+  String get removeFromCollection;
+
+  /// Collection created message
+  ///
+  /// In en, this message translates to:
+  /// **'Collection created'**
+  String get collectionCreated;
+
+  /// Collection updated message
+  ///
+  /// In en, this message translates to:
+  /// **'Collection updated'**
+  String get collectionUpdated;
+
+  /// Collection deleted message
+  ///
+  /// In en, this message translates to:
+  /// **'Collection deleted'**
+  String get collectionDeleted;
+
+  /// Video added to collection message
+  ///
+  /// In en, this message translates to:
+  /// **'Video added to collection'**
+  String get videoAddedToCollection;
+
+  /// Video removed from collection message
+  ///
+  /// In en, this message translates to:
+  /// **'Video removed from collection'**
+  String get videoRemovedFromCollection;
+
+  /// No collections message
+  ///
+  /// In en, this message translates to:
+  /// **'No collections yet'**
+  String get noCollections;
+
+  /// Create first collection message
+  ///
+  /// In en, this message translates to:
+  /// **'Create your first collection'**
+  String get createFirstCollection;
+
+  /// Videos in collection count
+  ///
+  /// In en, this message translates to:
+  /// **'{count} videos'**
+  String videosInCollection(int count);
+
+  /// Advanced search title
+  ///
+  /// In en, this message translates to:
+  /// **'Advanced Search'**
+  String get advancedSearch;
+
+  /// Filter by label
+  ///
+  /// In en, this message translates to:
+  /// **'Filter By'**
+  String get filterBy;
+
+  /// Sort by label
+  ///
+  /// In en, this message translates to:
+  /// **'Sort By'**
+  String get sortBy;
+
+  /// Sort newest option
+  ///
+  /// In en, this message translates to:
+  /// **'Newest First'**
+  String get sortNewest;
+
+  /// Sort oldest option
+  ///
+  /// In en, this message translates to:
+  /// **'Oldest First'**
+  String get sortOldest;
+
+  /// Sort by title option
+  ///
+  /// In en, this message translates to:
+  /// **'Title (A-Z)'**
+  String get sortTitle;
+
+  /// Sort by platform option
+  ///
+  /// In en, this message translates to:
+  /// **'Platform'**
+  String get sortPlatform;
+
+  /// Filter by platform label
+  ///
+  /// In en, this message translates to:
+  /// **'Platform'**
+  String get filterPlatform;
+
+  /// Filter by category label
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get filterCategory;
+
+  /// Filter by tags label
+  ///
+  /// In en, this message translates to:
+  /// **'Tags'**
+  String get filterTags;
+
+  /// Filter by date range label
+  ///
+  /// In en, this message translates to:
+  /// **'Date Range'**
+  String get filterDateRange;
+
+  /// From date label
+  ///
+  /// In en, this message translates to:
+  /// **'From Date'**
+  String get fromDate;
+
+  /// To date label
+  ///
+  /// In en, this message translates to:
+  /// **'To Date'**
+  String get toDate;
+
+  /// Clear filters button
+  ///
+  /// In en, this message translates to:
+  /// **'Clear Filters'**
+  String get clearFilters;
+
+  /// Apply filters button
+  ///
+  /// In en, this message translates to:
+  /// **'Apply Filters'**
+  String get applyFilters;
+
+  /// Select multiple label
+  ///
+  /// In en, this message translates to:
+  /// **'Select Multiple'**
+  String get selectMultiple;
+
+  /// All platforms option
+  ///
+  /// In en, this message translates to:
+  /// **'All Platforms'**
+  String get allPlatforms;
+
+  /// Detailed information title
+  ///
+  /// In en, this message translates to:
+  /// **'Detailed Information'**
+  String get detailedInformation;
+
+  /// Link details title
+  ///
+  /// In en, this message translates to:
+  /// **'Link Details'**
+  String get linkDetails;
+
+  /// Video type label
+  ///
+  /// In en, this message translates to:
+  /// **'Video Type'**
+  String get videoType;
+
+  /// URL length label
+  ///
+  /// In en, this message translates to:
+  /// **'URL Length'**
+  String get urlLength;
+
+  /// Full URL label
+  ///
+  /// In en, this message translates to:
+  /// **'Full URL'**
+  String get fullUrl;
+
+  /// Characters unit
+  ///
+  /// In en, this message translates to:
+  /// **'characters'**
+  String get characters;
+
+  /// Play in app button
+  ///
+  /// In en, this message translates to:
+  /// **'Play in App'**
+  String get playInApp;
+
+  /// Instagram information title
+  ///
+  /// In en, this message translates to:
+  /// **'Instagram Information'**
+  String get instagramInfo;
+
+  /// Loading Instagram info message
+  ///
+  /// In en, this message translates to:
+  /// **'Loading Instagram information...'**
+  String get loadingInstagramInfo;
+
+  /// Author label
+  ///
+  /// In en, this message translates to:
+  /// **'Author'**
+  String get author;
+
+  /// Post type label
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get postType;
+
+  /// Post ID label
+  ///
+  /// In en, this message translates to:
+  /// **'Post ID'**
+  String get postId;
+
+  /// IGTV type
+  ///
+  /// In en, this message translates to:
+  /// **'IGTV'**
+  String get igtv;
+
+  /// Twitter Video type
+  ///
+  /// In en, this message translates to:
+  /// **'Twitter Video'**
+  String get twitterVideo;
+
+  /// Video type
+  ///
+  /// In en, this message translates to:
+  /// **'Video'**
+  String get video;
+
+  /// Could not open platform message
+  ///
+  /// In en, this message translates to:
+  /// **'Could not open {platform}'**
+  String couldNotOpen(String platform);
 }
 
 class _AppLocalizationsDelegate

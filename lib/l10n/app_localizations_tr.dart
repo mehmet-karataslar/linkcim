@@ -60,7 +60,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get addFirstVideo => 'İlk videonuzu ekleyin';
 
   @override
-  String get allCategories => 'Tümü';
+  String get allCategories => 'Tüm Kategoriler';
 
   @override
   String get videoUrl => 'Video Linki';
@@ -523,7 +523,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get videoTitleFromUrl => 'Video Başlığı';
 
   @override
-  String get instagramPost => 'Instagram Gönderi';
+  String get instagramPost => 'Instagram Post';
 
   @override
   String get instagramReel => 'Instagram Reel';
@@ -597,4 +597,152 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get videoAccessDescription =>
       'Video linklerini kaydetmek ve organize etmek için';
+
+  @override
+  String get collections => 'Koleksiyonlar';
+
+  @override
+  String get collection => 'Koleksiyon';
+
+  @override
+  String get newCollection => 'Yeni Koleksiyon';
+
+  @override
+  String get collectionName => 'Koleksiyon Adı';
+
+  @override
+  String get collectionDescription => 'Açıklama';
+
+  @override
+  String get addToCollection => 'Koleksiyona Ekle';
+
+  @override
+  String get removeFromCollection => 'Koleksiyondan Çıkar';
+
+  @override
+  String get collectionCreated => 'Koleksiyon oluşturuldu';
+
+  @override
+  String get collectionUpdated => 'Koleksiyon güncellendi';
+
+  @override
+  String get collectionDeleted => 'Koleksiyon silindi';
+
+  @override
+  String get videoAddedToCollection => 'Video koleksiyona eklendi';
+
+  @override
+  String get videoRemovedFromCollection => 'Video koleksiyondan çıkarıldı';
+
+  @override
+  String get noCollections => 'Henüz koleksiyon yok';
+
+  @override
+  String get createFirstCollection => 'İlk koleksiyonunuzu oluşturun';
+
+  @override
+  String videosInCollection(int count) {
+    return '$count video';
+  }
+
+  @override
+  String get advancedSearch => 'Gelişmiş Arama';
+
+  @override
+  String get filterBy => 'Filtrele';
+
+  @override
+  String get sortBy => 'Sırala';
+
+  @override
+  String get sortNewest => 'En Yeni';
+
+  @override
+  String get sortOldest => 'En Eski';
+
+  @override
+  String get sortTitle => 'Başlık (A-Z)';
+
+  @override
+  String get sortPlatform => 'Platform';
+
+  @override
+  String get filterPlatform => 'Platform';
+
+  @override
+  String get filterCategory => 'Kategori';
+
+  @override
+  String get filterTags => 'Etiketler';
+
+  @override
+  String get filterDateRange => 'Tarih Aralığı';
+
+  @override
+  String get fromDate => 'Başlangıç Tarihi';
+
+  @override
+  String get toDate => 'Bitiş Tarihi';
+
+  @override
+  String get clearFilters => 'Filtreleri Temizle';
+
+  @override
+  String get applyFilters => 'Filtreleri Uygula';
+
+  @override
+  String get selectMultiple => 'Çoklu Seçim';
+
+  @override
+  String get allPlatforms => 'Tüm Platformlar';
+
+  @override
+  String get detailedInformation => 'Detaylı Bilgiler';
+
+  @override
+  String get linkDetails => 'Link Detayları';
+
+  @override
+  String get videoType => 'Video Türü';
+
+  @override
+  String get urlLength => 'URL Uzunluğu';
+
+  @override
+  String get fullUrl => 'Tam URL';
+
+  @override
+  String get characters => 'karakter';
+
+  @override
+  String get playInApp => 'Uygulamada Oynat';
+
+  @override
+  String get instagramInfo => 'Instagram Bilgileri';
+
+  @override
+  String get loadingInstagramInfo => 'Instagram bilgileri yükleniyor...';
+
+  @override
+  String get author => 'Yazar';
+
+  @override
+  String get postType => 'Tip';
+
+  @override
+  String get postId => 'Post ID';
+
+  @override
+  String get igtv => 'IGTV';
+
+  @override
+  String get twitterVideo => 'Twitter Video';
+
+  @override
+  String get video => 'Video';
+
+  @override
+  String couldNotOpen(String platform) {
+    return '$platform açılamadı';
+  }
 }

@@ -10,6 +10,8 @@ import 'package:linkcim/l10n/app_localizations.dart';
 
 import 'package:linkcim/screens/video_preview_screen.dart';
 import 'package:linkcim/screens/add_video_screen.dart';
+import 'package:linkcim/services/database_service.dart';
+import 'package:linkcim/models/video_collection.dart';
 
 class VideoCard extends StatelessWidget {
   final SavedVideo video;
@@ -47,6 +49,112 @@ class VideoCard extends StatelessWidget {
         builder: (context) => VideoPreviewScreen(video: video),
       ),
     );
+  }
+
+  // Koleksiyona ekleme dialog'u
+  Future<void> _showAddToCollectionDialog(BuildContext context) async {
+    final l10n = AppLocalizations.of(context)!;
+    final dbService = DatabaseService();
+    final collections = await dbService.getAllCollections();
+    final videoKey = video.key.toString();
+
+    // Video'nun zaten hangi koleksiyonlarda olduğunu bul
+    final videoCollections = await dbService.getCollectionsForVideo(videoKey);
+    final videoCollectionIds = videoCollections.map((c) => c.id).toSet();
+
+    if (collections.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Önce bir koleksiyon oluşturun'),
+          action: SnackBarAction(
+            label: 'Tamam',
+            onPressed: () {},
+          ),
+        ),
+      );
+      return;
+    }
+
+    final selectedCollections = <String>{...videoCollectionIds};
+
+    final result = await showDialog<bool>(
+      context: context,
+      builder: (context) => StatefulBuilder(
+        builder: (context, setState) => AlertDialog(
+          title: Text(l10n.addToCollection),
+          content: Container(
+            width: double.maxFinite,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: collections.map((collection) {
+                  final isSelected = selectedCollections.contains(collection.id);
+                  return CheckboxListTile(
+                    title: Text(collection.name),
+                    subtitle: Text(
+                      l10n.videosInCollection(collection.videoCount),
+                      style: TextStyle(fontSize: 12),
+                    ),
+                    value: isSelected,
+                    onChanged: (value) {
+                      setState(() {
+                        if (value == true) {
+                          selectedCollections.add(collection.id);
+                        } else {
+                          selectedCollections.remove(collection.id);
+                        }
+                      });
+                    },
+                  );
+                }).toList(),
+              ),
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child: Text(l10n.cancel),
+            ),
+            ElevatedButton(
+              onPressed: () => Navigator.of(context).pop(true),
+              child: Text(l10n.save),
+            ),
+          ],
+        ),
+      ),
+    );
+
+    if (result == true) {
+      try {
+        // Eski koleksiyonlardan çıkar
+        for (final collection in videoCollections) {
+          if (!selectedCollections.contains(collection.id)) {
+            await dbService.removeVideoFromCollection(collection.id, videoKey);
+          }
+        }
+
+        // Yeni koleksiyonlara ekle
+        for (final collectionId in selectedCollections) {
+          if (!videoCollectionIds.contains(collectionId)) {
+            await dbService.addVideoToCollection(collectionId, videoKey);
+          }
+        }
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(l10n.videoAddedToCollection),
+            backgroundColor: Colors.green,
+          ),
+        );
+      } catch (e) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Hata: $e'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    }
   }
 
   // Platform ikonu ve rengi
@@ -281,7 +389,7 @@ class VideoCard extends StatelessWidget {
 
                   // Menü
                   PopupMenuButton<String>(
-                    onSelected: (value) {
+                    onSelected: (value) async {
                       switch (value) {
                         case 'edit':
                           Navigator.push(
@@ -293,6 +401,9 @@ class VideoCard extends StatelessWidget {
                           ).then((result) {
                             if (result == true && onTap != null) onTap!();
                           });
+                          break;
+                        case 'addToCollection':
+                          await _showAddToCollectionDialog(context);
                           break;
                         case 'share':
                           ShareMenu.show(context, video);
@@ -314,6 +425,16 @@ class VideoCard extends StatelessWidget {
                             Icon(Icons.edit, size: 16),
                             SizedBox(width: 8),
                             Text(l10n.edit),
+                          ],
+                        ),
+                      ),
+                      PopupMenuItem(
+                        value: 'addToCollection',
+                        child: Row(
+                          children: [
+                            Icon(Icons.folder_outlined, size: 16),
+                            SizedBox(width: 8),
+                            Text(l10n.addToCollection),
                           ],
                         ),
                       ),

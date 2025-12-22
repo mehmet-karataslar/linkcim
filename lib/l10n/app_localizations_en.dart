@@ -60,7 +60,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get addFirstVideo => 'Add your first video';
 
   @override
-  String get allCategories => 'All';
+  String get allCategories => 'All Categories';
 
   @override
   String get videoUrl => 'Video URL';
@@ -362,7 +362,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get videoPlayError => 'Video cannot be played';
 
   @override
-  String get linkOpenError => 'Link open error';
+  String get linkOpenError => 'Link opening error';
 
   @override
   String get platformCannotOpen => 'cannot be opened';
@@ -596,4 +596,152 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get videoAccessDescription => 'To save and organize video links';
+
+  @override
+  String get collections => 'Collections';
+
+  @override
+  String get collection => 'Collection';
+
+  @override
+  String get newCollection => 'New Collection';
+
+  @override
+  String get collectionName => 'Collection Name';
+
+  @override
+  String get collectionDescription => 'Description';
+
+  @override
+  String get addToCollection => 'Add to Collection';
+
+  @override
+  String get removeFromCollection => 'Remove from Collection';
+
+  @override
+  String get collectionCreated => 'Collection created';
+
+  @override
+  String get collectionUpdated => 'Collection updated';
+
+  @override
+  String get collectionDeleted => 'Collection deleted';
+
+  @override
+  String get videoAddedToCollection => 'Video added to collection';
+
+  @override
+  String get videoRemovedFromCollection => 'Video removed from collection';
+
+  @override
+  String get noCollections => 'No collections yet';
+
+  @override
+  String get createFirstCollection => 'Create your first collection';
+
+  @override
+  String videosInCollection(int count) {
+    return '$count videos';
+  }
+
+  @override
+  String get advancedSearch => 'Advanced Search';
+
+  @override
+  String get filterBy => 'Filter By';
+
+  @override
+  String get sortBy => 'Sort By';
+
+  @override
+  String get sortNewest => 'Newest First';
+
+  @override
+  String get sortOldest => 'Oldest First';
+
+  @override
+  String get sortTitle => 'Title (A-Z)';
+
+  @override
+  String get sortPlatform => 'Platform';
+
+  @override
+  String get filterPlatform => 'Platform';
+
+  @override
+  String get filterCategory => 'Category';
+
+  @override
+  String get filterTags => 'Tags';
+
+  @override
+  String get filterDateRange => 'Date Range';
+
+  @override
+  String get fromDate => 'From Date';
+
+  @override
+  String get toDate => 'To Date';
+
+  @override
+  String get clearFilters => 'Clear Filters';
+
+  @override
+  String get applyFilters => 'Apply Filters';
+
+  @override
+  String get selectMultiple => 'Select Multiple';
+
+  @override
+  String get allPlatforms => 'All Platforms';
+
+  @override
+  String get detailedInformation => 'Detailed Information';
+
+  @override
+  String get linkDetails => 'Link Details';
+
+  @override
+  String get videoType => 'Video Type';
+
+  @override
+  String get urlLength => 'URL Length';
+
+  @override
+  String get fullUrl => 'Full URL';
+
+  @override
+  String get characters => 'characters';
+
+  @override
+  String get playInApp => 'Play in App';
+
+  @override
+  String get instagramInfo => 'Instagram Information';
+
+  @override
+  String get loadingInstagramInfo => 'Loading Instagram information...';
+
+  @override
+  String get author => 'Author';
+
+  @override
+  String get postType => 'Type';
+
+  @override
+  String get postId => 'Post ID';
+
+  @override
+  String get igtv => 'IGTV';
+
+  @override
+  String get twitterVideo => 'Twitter Video';
+
+  @override
+  String get video => 'Video';
+
+  @override
+  String couldNotOpen(String platform) {
+    return 'Could not open $platform';
+  }
 }

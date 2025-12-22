@@ -23,26 +23,51 @@ class PermissionService {
       final sdkInt = androidInfo.version.sdkInt;
 
       Map<String, bool> permissions = {};
+      bool allGranted = false;
 
       if (sdkInt >= 33) {
-        // Android 13+ (API 33+)
-        permissions['videos'] = await Permission.videos.status.isGranted;
-        permissions['photos'] = await Permission.photos.status.isGranted;
+        // Android 13+ (API 33+) - Sadece video izni yeterli
+        final videoStatus = await Permission.videos.status;
+        final isGranted = videoStatus.isGranted;
+        permissions['videos'] = isGranted;
+        // Android 13+ için sadece video izni yeterli, photos gereksiz
+        allGranted = isGranted;
+        print('🔍 Android 13+ İzin Durumu: videos=$videoStatus, isGranted=$isGranted');
+        
+        // Eğer izin verilmemişse ama kısıtlı izin varsa kontrol et
+        if (!isGranted && videoStatus == PermissionStatus.limited) {
+          print('⚠️ Video izni kısıtlı (limited) - kabul ediliyor');
+          allGranted = true;
+          permissions['videos'] = true;
+        }
       } else if (sdkInt >= 30) {
         // Android 11-12 (API 30-32)
-        permissions['manageStorage'] =
-            await Permission.manageExternalStorage.status.isGranted;
-        permissions['storage'] = await Permission.storage.status.isGranted;
+        final manageStatus = await Permission.manageExternalStorage.status;
+        final storageStatus = await Permission.storage.status;
+        final manageGranted = manageStatus.isGranted;
+        final storageGranted = storageStatus.isGranted;
+        permissions['manageStorage'] = manageGranted;
+        permissions['storage'] = storageGranted;
+        // Herhangi biri verilmişse yeterli
+        allGranted = manageGranted || storageGranted;
+        print('🔍 Android 11-12 İzin Durumu: manageStorage=$manageStatus ($manageGranted), storage=$storageStatus ($storageGranted)');
       } else {
         // Android 10 ve altı
-        permissions['storage'] = await Permission.storage.status.isGranted;
+        final storageStatus = await Permission.storage.status;
+        final isGranted = storageStatus.isGranted;
+        permissions['storage'] = isGranted;
+        allGranted = isGranted;
+        print('🔍 Android 10- İzin Durumu: storage=$storageStatus, isGranted=$isGranted');
       }
+      
+      print('✅ İzin Kontrol Sonucu: allGranted=$allGranted, permissions=$permissions');
 
-      permissions['all'] = permissions.values.any((granted) => granted);
+      permissions['all'] = allGranted;
       permissions['platform'] = true;
       return permissions;
-    } catch (e) {
-      print('İzin kontrolü hatası: $e');
+    } catch (e, stackTrace) {
+      print('❌ İzin kontrolü hatası: $e');
+      print('Stack trace: $stackTrace');
       return {'all': false, 'platform': true};
     }
   }
@@ -60,14 +85,15 @@ class PermissionService {
       Map<String, PermissionStatus> results = {};
 
       if (sdkInt >= 33) {
-        // Android 13+ (API 33+)
+        // Android 13+ (API 33+) - Sadece video izni yeterli
+        print('📱 Android 13+ için video izni isteniyor...');
         final videoStatus = await Permission.videos.request();
-        final photosStatus = await Permission.photos.request();
         results['videos'] = videoStatus;
-        results['photos'] = photosStatus;
-        results['all'] = videoStatus.isGranted && photosStatus.isGranted
+        // Android 13+ için sadece video izni yeterli
+        results['all'] = videoStatus.isGranted
             ? PermissionStatus.granted
             : PermissionStatus.denied;
+        print('📱 Video izni sonucu: ${videoStatus.toString()}, granted: ${videoStatus.isGranted}');
       } else if (sdkInt >= 30) {
         // Android 11-12 (API 30-32)
         final manageStatus = await Permission.manageExternalStorage.request();
@@ -85,7 +111,11 @@ class PermissionService {
       }
 
       // İzin durumunu kaydet
-      await _savePermissionStatus(results['all'] == PermissionStatus.granted);
+      final granted = results['all'] == PermissionStatus.granted;
+      await _savePermissionStatus(granted);
+      
+      print('💾 İzin durumu kaydedildi: granted=$granted');
+      print('📊 İzin sonuçları: $results');
 
       return results;
     } catch (e) {

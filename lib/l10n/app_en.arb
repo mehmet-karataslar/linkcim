@@ -800,5 +800,231 @@
   "videoAccessDescription": "To save and organize video links",
   "@videoAccessDescription": {
     "description": "Video access description"
+  },
+  "collections": "Collections",
+  "@collections": {
+    "description": "Collections page title"
+  },
+  "collection": "Collection",
+  "@collection": {
+    "description": "Collection label"
+  },
+  "newCollection": "New Collection",
+  "@newCollection": {
+    "description": "New collection button"
+  },
+  "collectionName": "Collection Name",
+  "@collectionName": {
+    "description": "Collection name label"
+  },
+  "collectionDescription": "Description",
+  "@collectionDescription": {
+    "description": "Collection description label"
+  },
+  "addToCollection": "Add to Collection",
+  "@addToCollection": {
+    "description": "Add to collection button"
+  },
+  "removeFromCollection": "Remove from Collection",
+  "@removeFromCollection": {
+    "description": "Remove from collection button"
+  },
+  "collectionCreated": "Collection created",
+  "@collectionCreated": {
+    "description": "Collection created message"
+  },
+  "collectionUpdated": "Collection updated",
+  "@collectionUpdated": {
+    "description": "Collection updated message"
+  },
+  "collectionDeleted": "Collection deleted",
+  "@collectionDeleted": {
+    "description": "Collection deleted message"
+  },
+  "videoAddedToCollection": "Video added to collection",
+  "@videoAddedToCollection": {
+    "description": "Video added to collection message"
+  },
+  "videoRemovedFromCollection": "Video removed from collection",
+  "@videoRemovedFromCollection": {
+    "description": "Video removed from collection message"
+  },
+  "noCollections": "No collections yet",
+  "@noCollections": {
+    "description": "No collections message"
+  },
+  "createFirstCollection": "Create your first collection",
+  "@createFirstCollection": {
+    "description": "Create first collection message"
+  },
+  "videosInCollection": "{count} videos",
+  "@videosInCollection": {
+    "description": "Videos in collection count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "advancedSearch": "Advanced Search",
+  "@advancedSearch": {
+    "description": "Advanced search title"
+  },
+  "filterBy": "Filter By",
+  "@filterBy": {
+    "description": "Filter by label"
+  },
+  "sortBy": "Sort By",
+  "@sortBy": {
+    "description": "Sort by label"
+  },
+  "sortNewest": "Newest First",
+  "@sortNewest": {
+    "description": "Sort newest option"
+  },
+  "sortOldest": "Oldest First",
+  "@sortOldest": {
+    "description": "Sort oldest option"
+  },
+  "sortTitle": "Title (A-Z)",
+  "@sortTitle": {
+    "description": "Sort by title option"
+  },
+  "sortPlatform": "Platform",
+  "@sortPlatform": {
+    "description": "Sort by platform option"
+  },
+  "filterPlatform": "Platform",
+  "@filterPlatform": {
+    "description": "Filter by platform label"
+  },
+  "filterCategory": "Category",
+  "@filterCategory": {
+    "description": "Filter by category label"
+  },
+  "filterTags": "Tags",
+  "@filterTags": {
+    "description": "Filter by tags label"
+  },
+  "filterDateRange": "Date Range",
+  "@filterDateRange": {
+    "description": "Filter by date range label"
+  },
+  "fromDate": "From Date",
+  "@fromDate": {
+    "description": "From date label"
+  },
+  "toDate": "To Date",
+  "@toDate": {
+    "description": "To date label"
+  },
+  "clearFilters": "Clear Filters",
+  "@clearFilters": {
+    "description": "Clear filters button"
+  },
+  "applyFilters": "Apply Filters",
+  "@applyFilters": {
+    "description": "Apply filters button"
+  },
+  "selectMultiple": "Select Multiple",
+  "@selectMultiple": {
+    "description": "Select multiple label"
+  },
+  "allPlatforms": "All Platforms",
+  "@allPlatforms": {
+    "description": "All platforms option"
+  },
+  "allCategories": "All Categories",
+  "@allCategories": {
+    "description": "All categories option"
+  },
+  "detailedInformation": "Detailed Information",
+  "@detailedInformation": {
+    "description": "Detailed information title"
+  },
+  "linkDetails": "Link Details",
+  "@linkDetails": {
+    "description": "Link details title"
+  },
+  "videoType": "Video Type",
+  "@videoType": {
+    "description": "Video type label"
+  },
+  "urlLength": "URL Length",
+  "@urlLength": {
+    "description": "URL length label"
+  },
+  "fullUrl": "Full URL",
+  "@fullUrl": {
+    "description": "Full URL label"
+  },
+  "characters": "characters",
+  "@characters": {
+    "description": "Characters unit"
+  },
+  "playInApp": "Play in App",
+  "@playInApp": {
+    "description": "Play in app button"
+  },
+  "instagramInfo": "Instagram Information",
+  "@instagramInfo": {
+    "description": "Instagram information title"
+  },
+  "loadingInstagramInfo": "Loading Instagram information...",
+  "@loadingInstagramInfo": {
+    "description": "Loading Instagram info message"
+  },
+  "author": "Author",
+  "@author": {
+    "description": "Author label"
+  },
+  "postType": "Type",
+  "@postType": {
+    "description": "Post type label"
+  },
+  "postId": "Post ID",
+  "@postId": {
+    "description": "Post ID label"
+  },
+  "instagramReel": "Instagram Reel",
+  "@instagramReel": {
+    "description": "Instagram Reel type"
+  },
+  "igtv": "IGTV",
+  "@igtv": {
+    "description": "IGTV type"
+  },
+  "instagramPost": "Instagram Post",
+  "@instagramPost": {
+    "description": "Instagram Post type"
+  },
+  "youtubeVideo": "YouTube Video",
+  "@youtubeVideo": {
+    "description": "YouTube Video type"
+  },
+  "tiktokVideo": "TikTok Video",
+  "@tiktokVideo": {
+    "description": "TikTok Video type"
+  },
+  "twitterVideo": "Twitter Video",
+  "@twitterVideo": {
+    "description": "Twitter Video type"
+  },
+  "video": "Video",
+  "@video": {
+    "description": "Video type"
+  },
+  "couldNotOpen": "Could not open {platform}",
+  "@couldNotOpen": {
+    "description": "Could not open platform message",
+    "placeholders": {
+      "platform": {
+        "type": "String"
+      }
+    }
+  },
+  "linkOpenError": "Link opening error",
+  "@linkOpenError": {
+    "description": "Link opening error message"
   }
 }
