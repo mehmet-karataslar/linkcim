@@ -202,7 +202,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get clearDataError => 'Veri silinirken hata oluştu';
 
   @override
-  String get appVersion => 'Uygulama Sürümü';
+  String get appVersion => 'Uygulama Versiyonu';
 
   @override
   String get developedWith => 'Flutter ile geliştirilmiştir.';
@@ -308,6 +308,18 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get openInPlatform => 'Platformda Aç';
+
+  @override
+  String get openInInstagram => 'Instagram\'da Aç';
+
+  @override
+  String get openInYouTube => 'YouTube\'de Aç';
+
+  @override
+  String get openInTikTok => 'TikTok\'ta Aç';
+
+  @override
+  String get openInTwitter => 'Twitter\'da Aç';
 
   @override
   String get videoInfo => 'Video Bilgileri';
@@ -745,4 +757,41 @@ class AppLocalizationsTr extends AppLocalizations {
   String couldNotOpen(String platform) {
     return '$platform açılamadı';
   }
+
+  @override
+  String get platform => 'Platform';
+
+  @override
+  String get appDescription =>
+      'Video organizasyon uygulaması. Instagram, YouTube, TikTok ve Twitter\'dan videoları organize edin.';
+
+  @override
+  String get technicalInformation => 'Teknik Bilgiler';
+
+  @override
+  String get framework => 'Framework';
+
+  @override
+  String get systemVersion => 'Sistem Versiyonu';
+
+  @override
+  String get packageName => 'Paket Adı';
+
+  @override
+  String get developer => 'Geliştirici';
+
+  @override
+  String get developerName => 'Geliştirici';
+
+  @override
+  String get profession => 'Meslek';
+
+  @override
+  String get visitWebsite => 'Web Sitemi Ziyaret Et';
+
+  @override
+  String get close => 'Kapat';
+
+  @override
+  String get computerEngineer => 'Bilgisayar Mühendisi';
 }

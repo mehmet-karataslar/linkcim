@@ -402,6 +402,22 @@
   "@openInPlatform": {
     "description": "Platformda aç butonu"
   },
+  "openInInstagram": "Instagram'da Aç",
+  "@openInInstagram": {
+    "description": "Instagram'da aç butonu"
+  },
+  "openInYouTube": "YouTube'de Aç",
+  "@openInYouTube": {
+    "description": "YouTube'de aç butonu"
+  },
+  "openInTikTok": "TikTok'ta Aç",
+  "@openInTikTok": {
+    "description": "TikTok'ta aç butonu"
+  },
+  "openInTwitter": "Twitter'da Aç",
+  "@openInTwitter": {
+    "description": "Twitter'da aç butonu"
+  },
   "videoInfo": "Video Bilgileri",
   "@videoInfo": {
     "description": "Video bilgileri başlığı"
@@ -1026,5 +1042,57 @@
   "linkOpenError": "Link açma hatası",
   "@linkOpenError": {
     "description": "Link açma hatası mesajı"
+  },
+  "platform": "Platform",
+  "@platform": {
+    "description": "Platform etiketi"
+  },
+  "appDescription": "Video organizasyon uygulaması. Instagram, YouTube, TikTok ve Twitter'dan videoları organize edin.",
+  "@appDescription": {
+    "description": "Uygulama açıklaması"
+  },
+  "technicalInformation": "Teknik Bilgiler",
+  "@technicalInformation": {
+    "description": "Teknik bilgiler başlığı"
+  },
+  "framework": "Framework",
+  "@framework": {
+    "description": "Framework etiketi"
+  },
+  "systemVersion": "Sistem Versiyonu",
+  "@systemVersion": {
+    "description": "Sistem versiyonu etiketi"
+  },
+  "packageName": "Paket Adı",
+  "@packageName": {
+    "description": "Paket adı etiketi"
+  },
+  "appVersion": "Uygulama Versiyonu",
+  "@appVersion": {
+    "description": "Uygulama versiyonu etiketi"
+  },
+  "developer": "Geliştirici",
+  "@developer": {
+    "description": "Geliştirici başlığı"
+  },
+  "developerName": "Geliştirici",
+  "@developerName": {
+    "description": "Geliştirici adı etiketi"
+  },
+  "profession": "Meslek",
+  "@profession": {
+    "description": "Meslek etiketi"
+  },
+  "visitWebsite": "Web Sitemi Ziyaret Et",
+  "@visitWebsite": {
+    "description": "Web sitesi ziyaret butonu"
+  },
+  "close": "Kapat",
+  "@close": {
+    "description": "Kapat butonu"
+  },
+  "computerEngineer": "Bilgisayar Mühendisi",
+  "@computerEngineer": {
+    "description": "Bilgisayar Mühendisi mesleği"
   }
 }

@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:linkcim/l10n/app_localizations.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'dart:io';
 import 'package:linkcim/services/database_service.dart';
 import 'package:linkcim/services/theme_service.dart';
@@ -40,18 +42,209 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Future<void> _showAboutDialog() async {
     final l10n = AppLocalizations.of(context)!;
-    showAboutDialog(
+    final theme = Theme.of(context);
+    final packageInfo = await PackageInfo.fromPlatform();
+    final deviceInfo = DeviceInfoPlugin();
+    
+    String platformInfo = '';
+    String platformVersion = '';
+    
+    if (Platform.isAndroid) {
+      final androidInfo = await deviceInfo.androidInfo;
+      platformInfo = 'Android';
+      platformVersion = '${androidInfo.version.release} (SDK ${androidInfo.version.sdkInt})';
+    } else if (Platform.isIOS) {
+      final iosInfo = await deviceInfo.iosInfo;
+      platformInfo = 'iOS';
+      platformVersion = '${iosInfo.systemVersion}';
+    } else if (Platform.isWindows) {
+      platformInfo = 'Windows';
+      platformVersion = 'Desktop';
+    } else if (Platform.isLinux) {
+      platformInfo = 'Linux';
+      platformVersion = 'Desktop';
+    } else if (Platform.isMacOS) {
+      final macInfo = await deviceInfo.macOsInfo;
+      platformInfo = 'macOS';
+      platformVersion = macInfo.osRelease;
+    } else {
+      platformInfo = 'Unknown';
+      platformVersion = 'Unknown';
+    }
+
+    showDialog(
       context: context,
-      applicationName: l10n.appTitle,
-      applicationVersion: '1.0.0',
-      applicationIcon: Icon(Icons.video_library, size: 48),
-      children: [
-        Text(l10n.appInfo),
-        SizedBox(height: 8),
-        Text(l10n.organizeVideos),
-        SizedBox(height: 8),
-        Text(l10n.developedWith),
-      ],
+      builder: (context) => AlertDialog(
+        title: Row(
+          children: [
+            Container(
+              padding: EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: theme.colorScheme.primaryContainer,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Image.asset(
+                'assets/icons/iconumuz.png',
+                width: 32,
+                height: 32,
+                errorBuilder: (context, error, stackTrace) {
+                  return Image.asset(
+                    'assets/icons/icon.png',
+                    width: 32,
+                    height: 32,
+                  );
+                },
+              ),
+            ),
+            SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    l10n.appTitle,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    'v${packageInfo.version} (${packageInfo.buildNumber})',
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: theme.colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        content: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Uygulama Açıklaması
+              Container(
+                padding: EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.surfaceVariant,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      l10n.appDescription ?? 'Video organizasyon uygulaması',
+                      style: TextStyle(fontSize: 14),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 16),
+              
+              // Teknik Bilgiler
+              Text(
+                l10n.technicalInformation ?? 'Teknik Bilgiler',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: theme.colorScheme.primary,
+                ),
+              ),
+              SizedBox(height: 12),
+              
+              _buildInfoRow(Icons.code, l10n.framework ?? 'Framework', 'Flutter'),
+              _buildInfoRow(Icons.phone_android, l10n.platform ?? 'Platform', platformInfo),
+              _buildInfoRow(Icons.settings_system_daydream, l10n.systemVersion ?? 'Sistem Versiyonu', platformVersion),
+              _buildInfoRow(Icons.storage, l10n.packageName ?? 'Paket Adı', packageInfo.packageName),
+              _buildInfoRow(Icons.update, l10n.appVersion ?? 'Uygulama Versiyonu', '${packageInfo.version}+${packageInfo.buildNumber}'),
+              
+              SizedBox(height: 16),
+              Divider(),
+              SizedBox(height: 16),
+              
+              // Geliştirici Bilgileri
+              Text(
+                l10n.developer ?? 'Geliştirici',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: theme.colorScheme.primary,
+                ),
+              ),
+              SizedBox(height: 12),
+              
+              _buildInfoRow(Icons.person, l10n.developerName ?? 'Geliştirici', 'Mehmet Karataş'),
+              _buildInfoRow(Icons.work, l10n.profession ?? 'Meslek', l10n.computerEngineer),
+              
+              SizedBox(height: 16),
+              
+              // Web Sayfası Butonu
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton.icon(
+                  onPressed: () async {
+                    final url = Uri.parse('https://www.benmuhendisiniz.com/');
+                    if (await canLaunchUrl(url)) {
+                      await launchUrl(url, mode: LaunchMode.externalApplication);
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(l10n.linkOpenError ?? 'Link açılamadı'),
+                          backgroundColor: Colors.red,
+                        ),
+                      );
+                    }
+                  },
+                  icon: Icon(Icons.language),
+                  label: Text(l10n.visitWebsite ?? 'Web Sitemi Ziyaret Et'),
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(vertical: 12),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: Text(l10n.close ?? 'Kapat'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildInfoRow(IconData icon, String label, String value) {
+    final theme = Theme.of(context);
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 6),
+      child: Row(
+        children: [
+          Icon(icon, size: 18, color: theme.colorScheme.onSurfaceVariant),
+          SizedBox(width: 12),
+          Expanded(
+            child: Text(
+              label,
+              style: TextStyle(
+                fontSize: 13,
+                color: theme.colorScheme.onSurfaceVariant,
+              ),
+            ),
+          ),
+          Text(
+            value,
+            style: TextStyle(
+              fontSize: 13,
+              fontWeight: FontWeight.w600,
+              color: theme.colorScheme.onSurface,
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -379,10 +572,44 @@ class _SettingsScreenState extends State<SettingsScreen> {
           // Uygulama bilgileri
           _buildSection(l10n.about, [
             ListTile(
-              leading: Icon(Icons.info, color: theme.colorScheme.primary),
+              leading: Container(
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.primaryContainer,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Icon(Icons.info, color: theme.colorScheme.onPrimaryContainer, size: 20),
+              ),
               title: Text(l10n.about),
               subtitle: Text(l10n.appInformation),
+              trailing: Icon(Icons.chevron_right),
               onTap: _showAboutDialog,
+            ),
+            ListTile(
+              leading: Container(
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: theme.colorScheme.secondaryContainer,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Icon(Icons.language, color: theme.colorScheme.onSecondaryContainer, size: 20),
+              ),
+              title: Text(l10n.visitWebsite),
+              subtitle: Text('www.benmuhendisiniz.com'),
+              trailing: Icon(Icons.open_in_new, size: 18),
+              onTap: () async {
+                final url = Uri.parse('https://www.benmuhendisiniz.com/');
+                if (await canLaunchUrl(url)) {
+                  await launchUrl(url, mode: LaunchMode.externalApplication);
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(l10n.linkOpenError),
+                      backgroundColor: Colors.red,
+                    ),
+                  );
+                }
+              },
             ),
           ]),
         ],

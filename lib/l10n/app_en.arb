@@ -402,6 +402,22 @@
   "@openInPlatform": {
     "description": "Open in platform button"
   },
+  "openInInstagram": "Open in Instagram",
+  "@openInInstagram": {
+    "description": "Open in Instagram button"
+  },
+  "openInYouTube": "Open in YouTube",
+  "@openInYouTube": {
+    "description": "Open in YouTube button"
+  },
+  "openInTikTok": "Open in TikTok",
+  "@openInTikTok": {
+    "description": "Open in TikTok button"
+  },
+  "openInTwitter": "Open in Twitter",
+  "@openInTwitter": {
+    "description": "Open in Twitter button"
+  },
   "videoInfo": "Video Information",
   "@videoInfo": {
     "description": "Video information title"
@@ -1026,5 +1042,57 @@
   "linkOpenError": "Link opening error",
   "@linkOpenError": {
     "description": "Link opening error message"
+  },
+  "platform": "Platform",
+  "@platform": {
+    "description": "Platform label"
+  },
+  "appDescription": "Video organization app. Organize videos from Instagram, YouTube, TikTok, and Twitter.",
+  "@appDescription": {
+    "description": "App description"
+  },
+  "technicalInformation": "Technical Information",
+  "@technicalInformation": {
+    "description": "Technical information title"
+  },
+  "framework": "Framework",
+  "@framework": {
+    "description": "Framework label"
+  },
+  "systemVersion": "System Version",
+  "@systemVersion": {
+    "description": "System version label"
+  },
+  "packageName": "Package Name",
+  "@packageName": {
+    "description": "Package name label"
+  },
+  "appVersion": "App Version",
+  "@appVersion": {
+    "description": "App version label"
+  },
+  "developer": "Developer",
+  "@developer": {
+    "description": "Developer title"
+  },
+  "developerName": "Developer",
+  "@developerName": {
+    "description": "Developer name label"
+  },
+  "profession": "Profession",
+  "@profession": {
+    "description": "Profession label"
+  },
+  "visitWebsite": "Visit My Website",
+  "@visitWebsite": {
+    "description": "Visit website button"
+  },
+  "close": "Close",
+  "@close": {
+    "description": "Close button"
+  },
+  "computerEngineer": "Computer Engineer",
+  "@computerEngineer": {
+    "description": "Computer Engineer profession"
   }
 }

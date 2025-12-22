@@ -298,7 +298,8 @@ class _AdvancedSearchScreenState extends State<AdvancedSearchScreen> {
 
           // Filtreler
           Container(
-            height: 120,
+            height: 60,
+            padding: EdgeInsets.symmetric(vertical: 8),
             child: ListView(
               scrollDirection: Axis.horizontal,
               padding: EdgeInsets.symmetric(horizontal: 16),
@@ -307,11 +308,13 @@ class _AdvancedSearchScreenState extends State<AdvancedSearchScreen> {
                   label: l10n.filterPlatform,
                   value: selectedPlatform.isEmpty ? l10n.allPlatforms : selectedPlatform,
                   onTap: () => _showPlatformFilter(),
+                  isActive: selectedPlatform.isNotEmpty,
                 ),
                 _buildFilterChip(
                   label: l10n.filterCategory,
                   value: selectedCategory.isEmpty ? l10n.allCategories : selectedCategory,
                   onTap: () => _showCategoryFilter(),
+                  isActive: selectedCategory.isNotEmpty,
                 ),
                 _buildFilterChip(
                   label: l10n.filterTags,
@@ -319,6 +322,7 @@ class _AdvancedSearchScreenState extends State<AdvancedSearchScreen> {
                       ? l10n.filterTags
                       : '${selectedTags.length} ${l10n.tags}',
                   onTap: _selectTags,
+                  isActive: selectedTags.isNotEmpty,
                 ),
                 _buildFilterChip(
                   label: l10n.filterDateRange,
@@ -326,11 +330,13 @@ class _AdvancedSearchScreenState extends State<AdvancedSearchScreen> {
                       ? '${fromDate != null ? _formatDate(fromDate!) : ''} - ${toDate != null ? _formatDate(toDate!) : ''}'
                       : l10n.filterDateRange,
                   onTap: () => _showDateRangeFilter(),
+                  isActive: fromDate != null || toDate != null,
                 ),
                 _buildFilterChip(
                   label: l10n.sortBy,
                   value: _getSortLabel(),
                   onTap: () => _showSortOptions(),
+                  isActive: sortBy != 'newest',
                 ),
               ],
             ),
@@ -394,45 +400,79 @@ class _AdvancedSearchScreenState extends State<AdvancedSearchScreen> {
     required String label,
     required String value,
     required VoidCallback onTap,
+    bool isActive = false,
   }) {
     final theme = Theme.of(context);
     return Padding(
       padding: EdgeInsets.only(right: 8),
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(16),
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
           decoration: BoxDecoration(
-            color: theme.colorScheme.surfaceVariant,
-            borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: theme.colorScheme.outline),
+            color: isActive 
+                ? theme.colorScheme.primaryContainer 
+                : theme.colorScheme.surfaceVariant,
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(
+              color: isActive 
+                  ? theme.colorScheme.primary 
+                  : theme.colorScheme.outline.withOpacity(0.3),
+              width: isActive ? 1.5 : 1,
+            ),
           ),
-          child: Column(
+          child: Row(
             mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                label,
-                style: TextStyle(
-                  fontSize: 10,
-                  color: theme.colorScheme.onSurfaceVariant,
+              Icon(
+                _getFilterIcon(label),
+                size: 16,
+                color: isActive 
+                    ? theme.colorScheme.onPrimaryContainer 
+                    : theme.colorScheme.onSurfaceVariant,
+              ),
+              SizedBox(width: 6),
+              Flexible(
+                child: Text(
+                  value.length > 15 ? '${value.substring(0, 15)}...' : value,
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: isActive ? FontWeight.w600 : FontWeight.w500,
+                    color: isActive 
+                        ? theme.colorScheme.onPrimaryContainer 
+                        : theme.colorScheme.onSurface,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
-              SizedBox(height: 2),
-              Text(
-                value,
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
-                  color: theme.colorScheme.onSurface,
+              if (isActive) ...[
+                SizedBox(width: 4),
+                Container(
+                  width: 6,
+                  height: 6,
+                  decoration: BoxDecoration(
+                    color: theme.colorScheme.primary,
+                    shape: BoxShape.circle,
+                  ),
                 ),
-              ),
+              ],
             ],
           ),
         ),
       ),
     );
+  }
+
+  IconData _getFilterIcon(String label) {
+    final l10n = AppLocalizations.of(context)!;
+    if (label == l10n.filterPlatform) return Icons.devices;
+    if (label == l10n.filterCategory) return Icons.category;
+    if (label == l10n.filterTags) return Icons.label;
+    if (label == l10n.filterDateRange) return Icons.calendar_today;
+    if (label == l10n.sortBy) return Icons.sort;
+    return Icons.filter_list;
   }
 
   bool _hasActiveFilters() {

@@ -1,14 +1,14 @@
-# 📱 Linkcim v2.0.3
+# 📱 Linkcim v1.0.0
 
 <div align="center">
 
 ![Linkcim Logo](assets/icons/icon.png)
 
-**🚀 Instagram, YouTube, TikTok, Twitter(X) videolarını indir, kategorize et ve AI ile organize et!**
+**🚀 Instagram, YouTube, TikTok, Twitter(X) videolarını indir, kategorize et ve organize et!**
 
 [![Flutter](https://img.shields.io/badge/Flutter-3.0+-blue.svg)](https://flutter.dev/)
 [![Platform](https://img.shields.io/badge/Platform-Android-green.svg)](https://developer.android.com/)
-[![Version](https://img.shields.io/badge/Version-2.0.3-orange.svg)](https://github.com/mehmetkaratslar/linkcim/releases)
+[![Version](https://img.shields.io/badge/Version-1.0.0-orange.svg)](https://github.com/mehmetkaratslar/linkcim/releases)
 
 
 </div>
@@ -68,8 +68,8 @@
 
 ### 📱 **Android APK Kurulumu**
 
-1. **GitHub Releases**'den en son APK'yı indirin en güncel versiyon Linkcim v2.0.3'dir:
-   [https://github.com/mehmetkaratslar/linkcim/releases/latest](https://github.com/mehmetkaratslar/linkcim/releases/tag/v2.0.3)
+1. **GitHub Releases**'den en son APK'yı indirin en güncel versiyon Linkcim v1.0.0'dir:
+   [https://github.com/mehmetkaratslar/linkcim/releases/latest](https://github.com/mehmetkaratslar/linkcim/releases/tag/v1.0.0)
    
 2. **APK'yı telefonunuza yükleyin**:
    - APK dosyasını telefonunuza alın
@@ -116,20 +116,22 @@ flutter run
 - **Gizlilik**: Kişisel bilgileriniz hiçbir yere gönderilmez
 - **Açık Kaynak**: Kod tamamen açık ve incelenebilir
 
-## 🌟 Öne Çıkan Yenilikler v2.0
+## 🌟 Öne Çıkan Özellikler v1.0
 
-### ✨ **Yeni Özellikler**
-- 🎨 **Modern UI Tasarımı** - Tamamen yenilenen arayüz
+### ✨ **Temel Özellikler**
+- 🎨 **Modern UI Tasarımı** - Material Design 3 ile şık arayüz
 - 🌍 **Çoklu Dil Desteği** - Türkçe ve İngilizce
 - 🌓 **Tema Desteği** - Açık, koyu ve sistem teması
-- 🖼️ **Gerçek Thumbnail'lar** - Video kapakları artık görünüyor
-- 📱 **Yeni Platformlar** - Facebook, Vimeo, Reddit desteği
+- 🖼️ **Gerçek Thumbnail'lar** - Video kapakları görüntüleniyor
+- 📱 **Çoklu Platform Desteği** - Instagram, YouTube, TikTok, Twitter, Facebook, Vimeo, Reddit
+- 📁 **Video Koleksiyonları** - Videoları özel koleksiyonlara organize edin
+- 🔍 **Gelişmiş Arama** - Platform, kategori, etiket ve tarih filtreleri ile güçlü arama
 
-### 🔧 **İyileştirmeler**
-- ⚡ **Performans Optimizasyonu** - %40 daha hızlı
-- 🎯 **Basitleştirilmiş Arayüz** - Daha kolay kullanım
-- 🔍 **Gelişmiş Arama** - Daha akıllı arama algoritması
+### 🔧 **Teknik Özellikler**
+- ⚡ **Yüksek Performans** - Hive veritabanı ile hızlı çalışma
+- 🎯 **Kullanıcı Dostu** - Basit ve sezgisel arayüz
 - 📱 **Responsive Tasarım** - Tüm ekranlarda mükemmel görünüm
+- 🔒 **Güvenli Depolama** - Tüm veriler yerel olarak saklanır
 
 ## 🤝 Katkıda Bulunma
 

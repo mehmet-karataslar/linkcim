@@ -202,7 +202,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get clearDataError => 'Error occurred while clearing data';
 
   @override
-  String get appVersion => 'Application Version';
+  String get appVersion => 'App Version';
 
   @override
   String get developedWith => 'Developed with Flutter.';
@@ -309,6 +309,18 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get openInPlatform => 'Open in Platform';
+
+  @override
+  String get openInInstagram => 'Open in Instagram';
+
+  @override
+  String get openInYouTube => 'Open in YouTube';
+
+  @override
+  String get openInTikTok => 'Open in TikTok';
+
+  @override
+  String get openInTwitter => 'Open in Twitter';
 
   @override
   String get videoInfo => 'Video Information';
@@ -744,4 +756,41 @@ class AppLocalizationsEn extends AppLocalizations {
   String couldNotOpen(String platform) {
     return 'Could not open $platform';
   }
+
+  @override
+  String get platform => 'Platform';
+
+  @override
+  String get appDescription =>
+      'Video organization app. Organize videos from Instagram, YouTube, TikTok, and Twitter.';
+
+  @override
+  String get technicalInformation => 'Technical Information';
+
+  @override
+  String get framework => 'Framework';
+
+  @override
+  String get systemVersion => 'System Version';
+
+  @override
+  String get packageName => 'Package Name';
+
+  @override
+  String get developer => 'Developer';
+
+  @override
+  String get developerName => 'Developer';
+
+  @override
+  String get profession => 'Profession';
+
+  @override
+  String get visitWebsite => 'Visit My Website';
+
+  @override
+  String get close => 'Close';
+
+  @override
+  String get computerEngineer => 'Computer Engineer';
 }

@@ -48,45 +48,48 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
   }
 
   Future<void> _openInPlatform() async {
+    final l10n = AppLocalizations.of(context)!;
     try {
       final uri = Uri.parse(widget.video.videoUrl);
       if (await canLaunchUrl(uri)) {
         await launchUrl(uri, mode: LaunchMode.externalApplication);
       } else {
-        _showError('${_getPlatformName()} açılamadı');
+        _showError(l10n.couldNotOpen(_getPlatformName(context)));
       }
     } catch (e) {
-      _showError('Link açma hatası: $e');
+      _showError('${l10n.linkOpenError}: $e');
     }
   }
 
-  String _getPlatformName() {
+  String _getPlatformName(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     switch (widget.video.platform.toLowerCase()) {
       case 'instagram':
-        return 'Instagram';
+        return l10n.platformInstagram;
       case 'youtube':
-        return 'YouTube';
+        return l10n.platformYouTube;
       case 'tiktok':
-        return 'TikTok';
+        return l10n.platformTikTok;
       case 'twitter':
-        return 'Twitter';
+        return l10n.platformTwitter;
       default:
-        return 'Platform';
+        return l10n.platformGeneral;
     }
   }
 
-  String _getPlatformActionText() {
+  String _getPlatformActionText(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     switch (widget.video.platform.toLowerCase()) {
       case 'instagram':
-        return 'Instagram\'da Aç';
+        return l10n.openInInstagram;
       case 'youtube':
-        return 'YouTube\'de Aç';
+        return l10n.openInYouTube;
       case 'tiktok':
-        return 'TikTok\'ta Aç';
+        return l10n.openInTikTok;
       case 'twitter':
-        return 'Twitter\'da Aç';
+        return l10n.openInTwitter;
       default:
-        return 'Platformda Aç';
+        return l10n.openInPlatform;
     }
   }
 
@@ -113,45 +116,72 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
   }
 
   void _showError(String message) {
+    final theme = Theme.of(context);
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message), backgroundColor: Colors.red),
+      SnackBar(
+        content: Row(
+          children: [
+            Icon(Icons.error_outline, color: theme.colorScheme.onError),
+            SizedBox(width: 8),
+            Expanded(child: Text(message)),
+          ],
+        ),
+        backgroundColor: theme.colorScheme.error,
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      ),
     );
   }
 
   void _showSuccess(String message) {
+    final theme = Theme.of(context);
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message), backgroundColor: Colors.green),
+      SnackBar(
+        content: Row(
+          children: [
+            Icon(Icons.check_circle_outline, color: theme.colorScheme.onPrimary),
+            SizedBox(width: 8),
+            Expanded(child: Text(message)),
+          ],
+        ),
+        backgroundColor: theme.colorScheme.primary,
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      ),
     );
   }
 
-  Color _getPlatformColor() {
+  Color _getPlatformColor(BuildContext context) {
+    final theme = Theme.of(context);
     switch (widget.video.platform.toLowerCase()) {
       case 'instagram':
         return Colors.purple;
       case 'youtube':
         return Colors.red;
       case 'tiktok':
-        return Colors.black;
+        return theme.brightness == Brightness.dark ? Colors.white : Colors.black;
       case 'twitter':
-        return Colors.blue;
+        return theme.colorScheme.primary;
       default:
-        return Colors.grey;
+        return theme.colorScheme.onSurfaceVariant;
     }
   }
 
-  String _getVideoType() {
+  String _getVideoType(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final url = widget.video.videoUrl.toLowerCase();
-    if (url.contains('/reel/')) return 'Instagram Reel';
-    if (url.contains('/tv/')) return 'IGTV';
-    if (url.contains('/p/')) return 'Instagram Post';
-    if (url.contains('youtube.com')) return 'YouTube Video';
-    if (url.contains('tiktok.com')) return 'TikTok Video';
-    if (url.contains('twitter.com')) return 'Twitter Video';
-    return 'Video';
+    if (url.contains('/reel/')) return l10n.instagramReel;
+    if (url.contains('/tv/')) return l10n.igtv;
+    if (url.contains('/p/')) return l10n.instagramPost;
+    if (url.contains('youtube.com')) return l10n.youtubeVideo;
+    if (url.contains('tiktok.com')) return l10n.tiktokVideo;
+    if (url.contains('twitter.com')) return l10n.twitterVideo;
+    return l10n.video;
   }
 
   Widget _buildDetailRow(
-      String label, String value, IconData icon, Color color) {
+      BuildContext context, String label, String value, IconData icon, Color color) {
+    final theme = Theme.of(context);
     return Row(
       children: [
         Container(
@@ -171,7 +201,7 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
                 label,
                 style: TextStyle(
                   fontSize: 12,
-                  color: Colors.grey[600],
+                  color: theme.colorScheme.onSurfaceVariant,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -181,7 +211,7 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
-                  color: Colors.grey[800],
+                  color: theme.colorScheme.onSurface,
                 ),
               ),
             ],
@@ -195,19 +225,22 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
+    
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.preview),
+        title: Text(l10n.preview),
         actions: [
           IconButton(
             icon: Icon(Icons.edit),
             onPressed: _editVideo,
-            tooltip: 'Düzenle',
+            tooltip: l10n.edit,
           ),
           IconButton(
             icon: Icon(Icons.share),
             onPressed: () => ShareMenu.show(context, widget.video),
-            tooltip: 'Paylaş',
+            tooltip: l10n.share,
           ),
         ],
       ),
@@ -228,8 +261,7 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
             // Video başlığı
             Text(
               widget.video.title,
-              style: TextStyle(
-                fontSize: 20,
+              style: theme.textTheme.headlineSmall?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -247,7 +279,7 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
                 Text(
                   widget.video.platform.toUpperCase(),
                   style: TextStyle(
-                    color: Colors.blue[700],
+                    color: theme.colorScheme.primary,
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
                   ),
@@ -257,7 +289,7 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
                   child: Text(
                     widget.video.authorDisplay,
                     style: TextStyle(
-                      color: Colors.grey[700],
+                      color: theme.colorScheme.onSurfaceVariant,
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
                     ),
@@ -272,21 +304,21 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
             // Meta bilgiler
             Row(
               children: [
-                Icon(Icons.category, size: 16, color: Colors.grey[600]),
+                Icon(Icons.category, size: 16, color: theme.colorScheme.onSurfaceVariant),
                 SizedBox(width: 4),
                 Text(
                   widget.video.category,
                   style: TextStyle(
-                    color: Colors.grey[600],
+                    color: theme.colorScheme.onSurfaceVariant,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
                 SizedBox(width: 16),
-                Icon(Icons.access_time, size: 16, color: Colors.grey[600]),
+                Icon(Icons.access_time, size: 16, color: theme.colorScheme.onSurfaceVariant),
                 SizedBox(width: 4),
                 Text(
                   widget.video.formattedDate,
-                  style: TextStyle(color: Colors.grey[600]),
+                  style: TextStyle(color: theme.colorScheme.onSurfaceVariant),
                 ),
               ],
             ),
@@ -296,9 +328,8 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
             // Video açıklaması
             if (widget.video.description.isNotEmpty) ...[
               Text(
-                'Açıklama',
-                style: TextStyle(
-                  fontSize: 16,
+                l10n.videoDescription,
+                style: theme.textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -307,12 +338,12 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
                 width: double.infinity,
                 padding: EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: Colors.grey[100],
+                  color: theme.colorScheme.surfaceVariant,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(
                   widget.video.description,
-                  style: TextStyle(fontSize: 14),
+                  style: theme.textTheme.bodyMedium,
                 ),
               ),
               SizedBox(height: 16),
@@ -321,9 +352,8 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
             // Etiketler
             if (widget.video.tags.isNotEmpty) ...[
               Text(
-                'Etiketler',
-                style: TextStyle(
-                  fontSize: 16,
+                l10n.tags,
+                style: theme.textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -344,9 +374,8 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
             // Instagram meta bilgileri
             if (metaData != null && metaData!['success'] == true) ...[
               Text(
-                'Instagram Bilgileri',
-                style: TextStyle(
-                  fontSize: 16,
+                l10n.instagramInfo,
+                style: theme.textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -355,19 +384,19 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
                 width: double.infinity,
                 padding: EdgeInsets.all(12),
                 decoration: BoxDecoration(
-                  color: Colors.blue[50],
+                  color: theme.colorScheme.primaryContainer,
                   borderRadius: BorderRadius.circular(8),
-                  border: Border.all(color: Colors.blue[200]!),
+                  border: Border.all(color: theme.colorScheme.primary.withOpacity(0.3)),
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     if (metaData!['author'] != null)
-                      Text('Yazar: ${metaData!['author']}'),
+                      Text('${l10n.author}: ${metaData!['author']}'),
                     if (metaData!['postType'] != null)
-                      Text('Tip: ${metaData!['postType']}'),
+                      Text('${l10n.postType}: ${metaData!['postType']}'),
                     if (metaData!['postId'] != null)
-                      Text('Post ID: ${metaData!['postId']}'),
+                      Text('${l10n.postId}: ${metaData!['postId']}'),
                   ],
                 ),
               ),
@@ -381,7 +410,7 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
                   children: [
                     CircularProgressIndicator(),
                     SizedBox(height: 8),
-                    Text('Instagram bilgileri yükleniyor...'),
+                    Text(l10n.loadingInstagramInfo),
                   ],
                 ),
               ),
@@ -395,10 +424,8 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
                   child: ElevatedButton.icon(
                     onPressed: _openVideoPlayer,
                     icon: Icon(Icons.play_arrow),
-                    label: Text('Uygulamada Oynat'),
+                    label: Text(l10n.playInApp),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      foregroundColor: Colors.white,
                       padding: EdgeInsets.symmetric(vertical: 12),
                     ),
                   ),
@@ -408,7 +435,7 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
                   child: OutlinedButton.icon(
                     onPressed: _openInPlatform,
                     icon: Icon(Icons.open_in_new),
-                    label: Text(_getPlatformActionText()),
+                    label: Text(_getPlatformActionText(context)),
                     style: OutlinedButton.styleFrom(
                       padding: EdgeInsets.symmetric(vertical: 12),
                     ),
@@ -419,10 +446,6 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
 
             SizedBox(height: 12),
 
-
-
-            SizedBox(height: 12),
-
             // Paylaşma butonları
             Row(
               children: [
@@ -430,17 +453,15 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
                   child: OutlinedButton.icon(
                     onPressed: () async {
                       try {
-                        final l10n = AppLocalizations.of(context)!;
                         await ShareService.copyLinkToClipboard(
                             widget.video.videoUrl, l10n);
                         _showSuccess(l10n.linkCopied);
                       } catch (e) {
-                        final l10n = AppLocalizations.of(context)!;
                         _showError(l10n.copyError);
                       }
                     },
                     icon: Icon(Icons.copy),
-                    label: Text(AppLocalizations.of(context)!.copyLink),
+                    label: Text(l10n.copyLink),
                   ),
                 ),
                 SizedBox(width: 8),
@@ -448,7 +469,7 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
                   child: OutlinedButton.icon(
                     onPressed: () => ShareMenu.show(context, widget.video),
                     icon: Icon(Icons.share),
-                    label: Text('Paylaş'),
+                    label: Text(l10n.share),
                   ),
                 ),
               ],
@@ -460,16 +481,12 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
             Container(
               width: double.infinity,
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Colors.grey[50]!, Colors.grey[100]!],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
+                color: theme.colorScheme.surfaceVariant,
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: Colors.grey[300]!),
+                border: Border.all(color: theme.colorScheme.outline.withOpacity(0.2)),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.05),
+                    color: theme.shadowColor.withOpacity(0.1),
                     blurRadius: 8,
                     offset: Offset(0, 2),
                   ),
@@ -483,7 +500,7 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
                     width: double.infinity,
                     padding: EdgeInsets.all(16),
                     decoration: BoxDecoration(
-                      color: Colors.blue[600],
+                      color: theme.colorScheme.primary,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(12),
                         topRight: Radius.circular(12),
@@ -491,12 +508,12 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
                     ),
                     child: Row(
                       children: [
-                        Icon(Icons.link, color: Colors.white, size: 20),
+                        Icon(Icons.link, color: theme.colorScheme.onPrimary, size: 20),
                         SizedBox(width: 8),
                         Text(
-                          'Link Detayları',
+                          l10n.linkDetails,
                           style: TextStyle(
-                            color: Colors.white,
+                            color: theme.colorScheme.onPrimary,
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
@@ -513,30 +530,33 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
                       children: [
                         // Platform Bilgisi
                         _buildDetailRow(
-                          'Platform',
-                          _getPlatformName(),
+                          context,
+                          l10n.platform,
+                          _getPlatformName(context),
                           Icons.public,
-                          _getPlatformColor(),
+                          _getPlatformColor(context),
                         ),
 
                         SizedBox(height: 12),
 
                         // Video Türü
                         _buildDetailRow(
-                          'Video Türü',
-                          _getVideoType(),
+                          context,
+                          l10n.videoType,
+                          _getVideoType(context),
                           Icons.video_library,
-                          Colors.purple,
+                          theme.colorScheme.secondary,
                         ),
 
                         SizedBox(height: 12),
 
                         // URL Detayı
                         _buildDetailRow(
-                          'URL Uzunluğu',
-                          '${widget.video.videoUrl.length} karakter',
+                          context,
+                          l10n.urlLength,
+                          '${widget.video.videoUrl.length} ${l10n.characters}',
                           Icons.text_fields,
-                          Colors.orange,
+                          theme.colorScheme.tertiary,
                         ),
 
                         SizedBox(height: 16),
@@ -546,19 +566,19 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
                           width: double.infinity,
                           padding: EdgeInsets.all(12),
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: theme.colorScheme.surface,
                             borderRadius: BorderRadius.circular(8),
-                            border: Border.all(color: Colors.grey[300]!),
+                            border: Border.all(color: theme.colorScheme.outline.withOpacity(0.2)),
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Tam URL:',
+                                '${l10n.fullUrl}:',
                                 style: TextStyle(
                                   fontWeight: FontWeight.w600,
                                   fontSize: 13,
-                                  color: Colors.grey[700],
+                                  color: theme.colorScheme.onSurfaceVariant,
                                 ),
                               ),
                               SizedBox(height: 6),
@@ -566,7 +586,7 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
                                 widget.video.videoUrl,
                                 style: TextStyle(
                                   fontSize: 12,
-                                  color: Colors.blue[700],
+                                  color: theme.colorScheme.primary,
                                   height: 1.4,
                                 ),
                               ),
@@ -582,20 +602,16 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
                           child: ElevatedButton.icon(
                             onPressed: () async {
                               try {
-                                final l10n = AppLocalizations.of(context)!;
                                 await ShareService.copyLinkToClipboard(
                                     widget.video.videoUrl, l10n);
                                 _showSuccess(l10n.linkCopied);
                               } catch (e) {
-                                final l10n = AppLocalizations.of(context)!;
                                 _showError(l10n.copyError);
                               }
                             },
                             icon: Icon(Icons.copy, size: 18),
-                            label: Text(AppLocalizations.of(context)!.copyLink),
+                            label: Text(l10n.copyLink),
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.grey[700],
-                              foregroundColor: Colors.white,
                               padding: EdgeInsets.symmetric(vertical: 12),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),

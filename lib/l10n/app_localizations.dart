@@ -476,10 +476,10 @@ abstract class AppLocalizations {
   /// **'Error occurred while clearing data'**
   String get clearDataError;
 
-  /// Application version label
+  /// App version label
   ///
   /// In en, this message translates to:
-  /// **'Application Version'**
+  /// **'App Version'**
   String get appVersion;
 
   /// Development info
@@ -679,6 +679,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Open in Platform'**
   String get openInPlatform;
+
+  /// Open in Instagram button
+  ///
+  /// In en, this message translates to:
+  /// **'Open in Instagram'**
+  String get openInInstagram;
+
+  /// Open in YouTube button
+  ///
+  /// In en, this message translates to:
+  /// **'Open in YouTube'**
+  String get openInYouTube;
+
+  /// Open in TikTok button
+  ///
+  /// In en, this message translates to:
+  /// **'Open in TikTok'**
+  String get openInTikTok;
+
+  /// Open in Twitter button
+  ///
+  /// In en, this message translates to:
+  /// **'Open in Twitter'**
+  String get openInTwitter;
 
   /// Video information title
   ///
@@ -1513,6 +1537,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Could not open {platform}'**
   String couldNotOpen(String platform);
+
+  /// Platform label
+  ///
+  /// In en, this message translates to:
+  /// **'Platform'**
+  String get platform;
+
+  /// App description
+  ///
+  /// In en, this message translates to:
+  /// **'Video organization app. Organize videos from Instagram, YouTube, TikTok, and Twitter.'**
+  String get appDescription;
+
+  /// Technical information title
+  ///
+  /// In en, this message translates to:
+  /// **'Technical Information'**
+  String get technicalInformation;
+
+  /// Framework label
+  ///
+  /// In en, this message translates to:
+  /// **'Framework'**
+  String get framework;
+
+  /// System version label
+  ///
+  /// In en, this message translates to:
+  /// **'System Version'**
+  String get systemVersion;
+
+  /// Package name label
+  ///
+  /// In en, this message translates to:
+  /// **'Package Name'**
+  String get packageName;
+
+  /// Developer title
+  ///
+  /// In en, this message translates to:
+  /// **'Developer'**
+  String get developer;
+
+  /// Developer name label
+  ///
+  /// In en, this message translates to:
+  /// **'Developer'**
+  String get developerName;
+
+  /// Profession label
+  ///
+  /// In en, this message translates to:
+  /// **'Profession'**
+  String get profession;
+
+  /// Visit website button
+  ///
+  /// In en, this message translates to:
+  /// **'Visit My Website'**
+  String get visitWebsite;
+
+  /// Close button
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
+  /// Computer Engineer profession
+  ///
+  /// In en, this message translates to:
+  /// **'Computer Engineer'**
+  String get computerEngineer;
 }
 
 class _AppLocalizationsDelegate

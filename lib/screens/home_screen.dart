@@ -555,7 +555,18 @@ class _HomeScreenState extends State<HomeScreen>
       appBar: AppBar(
         title: Row(
           children: [
-            Icon(Icons.rocket_launch, size: 24),
+            Image.asset(
+              'assets/icons/iconumuz.png',
+              width: 24,
+              height: 24,
+              errorBuilder: (context, error, stackTrace) {
+                return Image.asset(
+                  'assets/icons/icon.png',
+                  width: 24,
+                  height: 24,
+                );
+              },
+            ),
             SizedBox(width: 8),
             Text(AppLocalizations.of(context)!.appTitle),
           ],
@@ -732,10 +743,17 @@ class _HomeScreenState extends State<HomeScreen>
                 color: theme.colorScheme.primaryContainer,
                 shape: BoxShape.circle,
               ),
-              child: Icon(
-                Icons.rocket_launch,
-                size: 48,
-                color: theme.colorScheme.onPrimaryContainer,
+              child: Image.asset(
+                'assets/icons/iconumuz.png',
+                width: 48,
+                height: 48,
+                errorBuilder: (context, error, stackTrace) {
+                  return Image.asset(
+                    'assets/icons/icon.png',
+                    width: 48,
+                    height: 48,
+                  );
+                },
               ),
             ),
             SizedBox(height: 20),
