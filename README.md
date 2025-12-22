@@ -4,79 +4,134 @@
 
 ![Linkcim Logo](assets/icons/icon.png)
 
-**🚀 Instagram, YouTube, TikTok, Twitter(X) videolarını indir, kategorize et ve organize et!**
+**🎬 Modern Video Organizasyon Uygulaması**
+
+*Instagram, YouTube, TikTok, Twitter ve daha fazlası için güçlü video yönetim çözümü*
 
 [![Flutter](https://img.shields.io/badge/Flutter-3.0+-blue.svg)](https://flutter.dev/)
 [![Platform](https://img.shields.io/badge/Platform-Android-green.svg)](https://developer.android.com/)
 [![Version](https://img.shields.io/badge/Version-1.0.0-orange.svg)](https://github.com/mehmetkaratslar/linkcim/releases)
-
+[![License](https://img.shields.io/badge/License-Open%20Source-brightgreen.svg)](LICENSE)
 
 </div>
 
-## ✨ Özellikler
+---
 
-### 🤖 **AI Destekli Analiz Sistemi**
-- **Akıllı Video Analizi**: OpenAI GPT ile otomatik başlık, kategori ve etiket önerileri
-- **Platform Metadata**: Instagram, YouTube, TikTok, Twitter(X) için otomatik bilgi çekme
-- **Kullanıcı Başına 10 Ücretsiz Analiz**: Kendi API key'inizi ekleyerek sınırsız kullanım
+## 🌟 Neden Linkcim?
 
-### 📥 **İndirme Sistemi**
-- **Çoklu Platform Desteği**: Instagram, YouTube, TikTok, Twitter(X)
-- **Yüksek Kalite İndirme**: En iyi kalitede video indirme
-- **Otomatik Galeri Kaydı**: İndirilen videolar otomatik olarak galerinize kaydedilir
-- **İndirme Progress**: Gerçek zamanlı indirme durumu gösterimi
+Linkcim, sosyal medya videolarınızı organize etmek, kategorize etmek ve kolayca erişmek için tasarlanmış modern bir uygulamadır. Yüzlerce video linkini kaybetmek yerine, hepsini tek bir yerde toplayın ve istediğiniz zaman bulun.
 
-### 🎨 **Modern UI/UX Tasarımı**
-- **Material Design 3**: Modern ve şık arayüz
-- **Gradient Butonlar**: Renkli ve çekici buton tasarımları
-- **Kart Tabanlı Düzen**: Temiz ve organize görünüm
-- **Responsive Tasarım**: Tüm ekran boyutlarında mükemmel görünüm
+### ✨ Temel Özellikler
 
-### 🔍 **Gelişmiş Arama ve Organizasyon**
-- **Arama**: Başlık, yazar, platform, etiket araması
-- **Kategori Sistemi**: Videolarınızı kategorilere ayırın
-- **Etiket Sistemi**: Özel etiketlerle videolarınızı organize edin
-- **Video Önizleme**: Gerçek video thumbnail'ları
-- **Platform Metadata**: Instagram, YouTube, TikTok, Twitter için otomatik bilgi çekme
+- 📱 **7 Farklı Platform Desteği** - Instagram, YouTube, TikTok, Twitter, Facebook, Vimeo, Reddit
+- 📁 **Video Koleksiyonları** - Videolarınızı özel koleksiyonlara organize edin
+- 🔍 **Gelişmiş Arama & Filtreleme** - Platform, kategori, etiket ve tarih filtreleri ile güçlü arama
+- 🎨 **Modern Material Design 3** - Şık ve kullanıcı dostu arayüz
+- 🌍 **Çoklu Dil Desteği** - Türkçe ve İngilizce
+- 🌓 **Tema Desteği** - Açık, koyu ve sistem teması
+- 🔒 **Güvenli Yerel Depolama** - Tüm verileriniz cihazınızda güvenle saklanır
 
-### 📱 **Kullanıcı Dostu Özellikler**
-- **Video Paylaşma**: Sosyal medyada kolayca paylaşın
-- **Video Çalma**: Uygulama içinde video oynatma
-- **Offline Çalışma**: İnternet olmadan videolarınıza erişin
-- **Çoklu Dil Desteği**: Türkçe ve İngilizce
-- **Tema Desteği**: Açık, koyu ve sistem teması
+---
+
+## 🚀 Özellikler
+
+### 📁 Video Koleksiyonları
+
+Videolarınızı özel koleksiyonlara organize edin. İstediğiniz kadar koleksiyon oluşturun ve videolarınızı kategorize edin.
+
+- ✅ Sınırsız koleksiyon oluşturma
+- ✅ Videoları birden fazla koleksiyona ekleme
+- ✅ Koleksiyonları düzenleme ve silme
+- ✅ Favori koleksiyonlar işaretleme
+- ✅ Koleksiyon bazlı hızlı erişim
+
+### 🔍 Gelişmiş Arama ve Filtreleme
+
+Güçlü arama sistemi ile videolarınızı anında bulun.
+
+**Arama Özellikleri:**
+- 📝 Metin araması (başlık, açıklama, yazar)
+- 🎯 Platform filtresi (Instagram, YouTube, TikTok, vb.)
+- 📂 Kategori filtresi
+- 🏷️ Çoklu etiket filtresi
+- 📅 Tarih aralığı filtresi
+
+**Sıralama Seçenekleri:**
+- ⏰ En yeni / En eski
+- 🔤 Başlık (A-Z)
+- 📱 Platform bazlı
+
+### 🎨 Modern Kullanıcı Arayüzü
+
+- **Material Design 3** ile modern ve şık tasarım
+- **Responsive Layout** - Tüm ekran boyutlarında mükemmel görünüm
+- **Smooth Animations** - Akıcı geçişler ve animasyonlar
+- **Dark Mode** - Göz dostu koyu tema desteği
+- **Custom Icons** - Özel ikonlar ve görseller
+
+### 📱 Platform Metadata
+
+Videolarınızı eklerken otomatik olarak platform bilgileri çekilir:
+
+- 📺 **YouTube** - Video başlığı, kanal adı, thumbnail
+- 📷 **Instagram** - Post bilgileri, kullanıcı adı
+- 🎵 **TikTok** - Video detayları ve metadata
+- 🐦 **Twitter** - Tweet bilgileri
+- 📘 **Facebook** - Post metadata
+- 🎬 **Vimeo** - Video detayları
+- 🔴 **Reddit** - Post bilgileri
+
+### 🏷️ Etiket ve Kategori Sistemi
+
+- ✅ Özel kategoriler oluşturma
+- ✅ Çoklu etiket ekleme (video başına 10 etiket)
+- ✅ Etiket bazlı filtreleme
+- ✅ Kategori bazlı organizasyon
+
+### 🌍 Çoklu Dil Desteği
+
+- 🇹🇷 Türkçe
+- 🇬🇧 İngilizce
+- 🔄 Uygulama içinden dil değiştirme
+
+### 🌓 Tema Desteği
+
+- ☀️ Açık Tema
+- 🌙 Koyu Tema
+- ⚙️ Sistem Teması (otomatik)
+
+---
 
 ## 📸 Ekran Görüntüleri
 
-<!-- Merkezde, yan yana, küçük görseller -->
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/56a92ce1-ec76-43df-abff-f1bba201ed2f" alt="Ana Sayfa"   width="140" />
+  <img src="https://github.com/user-attachments/assets/56a92ce1-ec76-43df-abff-f1bba201ed2f" alt="Ana Sayfa" width="200" />
   &nbsp;&nbsp;
-  <img src="https://github.com/user-attachments/assets/dd7cc2a6-4c2e-4e6d-8954-5aaec7e45bc7" alt="Video Ekleme" width="140" />
+  <img src="https://github.com/user-attachments/assets/dd7cc2a6-4c2e-4e6d-8954-5aaec7e45bc7" alt="Video Ekleme" width="200" />
   &nbsp;&nbsp;
-  <img src="https://github.com/user-attachments/assets/d52a3f39-ba79-4e79-851b-4a1f096d5154" alt="İndirme Geçmişi" width="140" />
+  <img src="https://github.com/user-attachments/assets/d52a3f39-ba79-4e79-851b-4a1f096d5154" alt="Koleksiyonlar" width="200" />
 </p>
 
 <p align="center">
-  <b>Ana&nbsp;Sayfa</b>&nbsp;&nbsp;&nbsp;&nbsp;
-  <b>Video&nbsp;Ekleme</b>&nbsp;&nbsp;&nbsp;&nbsp;
-  <b>İndirme&nbsp;Geçmişi</b>
+  <b>Ana Sayfa</b> &nbsp;&nbsp;&nbsp;&nbsp; <b>Video Ekleme</b> &nbsp;&nbsp;&nbsp;&nbsp; <b>Koleksiyonlar</b>
 </p>
 
+---
 
 ## 🚀 Kurulum
 
-### 📱 **Android APK Kurulumu**
+### 📱 Android APK Kurulumu
 
-1. **GitHub Releases**'den en son APK'yı indirin en güncel versiyon Linkcim v1.0.0'dir:
-   [https://github.com/mehmetkaratslar/linkcim/releases/latest](https://github.com/mehmetkaratslar/linkcim/releases/tag/v1.0.0)
-   
-2. **APK'yı telefonunuza yükleyin**:
-   - APK dosyasını telefonunuza alın
+1. **GitHub Releases**'den en son APK'yı indirin:
+   - [📥 Latest Release](https://github.com/mehmetkaratslar/linkcim/releases/latest)
+   - En güncel versiyon: **Linkcim v1.0.0**
+
+2. **APK'yı yükleyin:**
+   - APK dosyasını cihazınıza indirin
    - Ayarlar > Güvenlik > Bilinmeyen Kaynaklardan yüklemeye izin verin
-   - APK dosyasına tıklayıp yükleyin
+   - APK dosyasına tıklayarak yükleyin
 
-### 🛠️ **Geliştirici Kurulumu**
+### 🛠️ Geliştirici Kurulumu
 
 ```bash
 # Repository'yi klonlayın
@@ -88,76 +143,120 @@ cd linkcim
 # Bağımlılıkları yükleyin
 flutter pub get
 
+# Hive adapter'ları generate edin
+flutter pub run build_runner build --delete-conflicting-outputs
+
 # Uygulamayı çalıştırın
 flutter run
 ```
 
-## 🎯 Kullanım
+---
 
-### 1. **Video Ekleme**
-- Ana sayfada "+" butonuna tıklayın
-- Video URL'sini yapıştırın (Instagram, YouTube, TikTok, Twitter)
-- Başlık, kategori ve etiketleri girin
-- **Kaydet** butonuna tıklayın
+## 🎯 Kullanım Kılavuzu
 
-### 2. **Video Arama**
-- Ana sayfada arama çubuğunu kullanın
-- Başlık, yazar, platform veya etiket ile arama yapın
-- Kategori filtrelerini kullanarak sonuçları daraltın
+### 1️⃣ Video Ekleme
 
-### 3. **Video İzleme ve Paylaşma**
-- Video kartına tıklayarak videoyu görüntüleyin
-- **Oynat** butonuyla videoyu izleyin
-- **Paylaş** butonuyla sosyal medyada paylaşın
+1. Ana sayfada **"+"** butonuna tıklayın
+2. Video URL'sini yapıştırın (desteklenen platformlardan biri)
+3. Başlık, kategori ve etiketleri girin (veya otomatik doldurulmasını bekleyin)
+4. **Kaydet** butonuna tıklayın
+
+### 2️⃣ Video Koleksiyonları
+
+1. Ana sayfada **📁 Koleksiyonlar** butonuna tıklayın
+2. **"+"** butonu ile yeni koleksiyon oluşturun
+3. Video kartı menüsünden **"Koleksiyona Ekle"** seçeneğini kullanın
+4. Videolarınızı istediğiniz koleksiyonlara ekleyin
+
+### 3️⃣ Gelişmiş Arama
+
+1. Ana sayfada **⚙️ Gelişmiş Arama** butonuna tıklayın
+2. Metin araması yapın veya filtreleri kullanın:
+   - Platform seçin
+   - Kategori seçin
+   - Etiket seçin
+   - Tarih aralığı belirleyin
+3. Sıralama seçeneğini belirleyin
+4. Sonuçları görüntüleyin
+
+### 4️⃣ Video Organizasyonu
+
+- **Kategoriler**: Videolarınızı kategorilere ayırın
+- **Etiketler**: Her videoya birden fazla etiket ekleyin
+- **Koleksiyonlar**: Özel koleksiyonlar oluşturun
+- **Arama**: Güçlü arama ile hızlıca bulun
+
+---
 
 ## 🛡️ Güvenlik ve Gizlilik
 
-- **Yerel Depolama**: Tüm verileriniz cihazınızda güvenle saklanır
-- **Gizlilik**: Kişisel bilgileriniz hiçbir yere gönderilmez
-- **Açık Kaynak**: Kod tamamen açık ve incelenebilir
+- 🔒 **Yerel Depolama**: Tüm verileriniz cihazınızda güvenle saklanır
+- 🚫 **Veri Paylaşımı Yok**: Kişisel bilgileriniz hiçbir yere gönderilmez
+- 🔓 **Açık Kaynak**: Kod tamamen açık ve incelenebilir
+- ✅ **İzin Yönetimi**: Sadece gerekli izinler istenir
 
-## 🌟 Öne Çıkan Özellikler v1.0
+---
 
-### ✨ **Temel Özellikler**
-- 🎨 **Modern UI Tasarımı** - Material Design 3 ile şık arayüz
-- 🌍 **Çoklu Dil Desteği** - Türkçe ve İngilizce
-- 🌓 **Tema Desteği** - Açık, koyu ve sistem teması
-- 🖼️ **Gerçek Thumbnail'lar** - Video kapakları görüntüleniyor
-- 📱 **Çoklu Platform Desteği** - Instagram, YouTube, TikTok, Twitter, Facebook, Vimeo, Reddit
-- 📁 **Video Koleksiyonları** - Videoları özel koleksiyonlara organize edin
-- 🔍 **Gelişmiş Arama** - Platform, kategori, etiket ve tarih filtreleri ile güçlü arama
+## 🛠️ Teknik Detaylar
 
-### 🔧 **Teknik Özellikler**
-- ⚡ **Yüksek Performans** - Hive veritabanı ile hızlı çalışma
-- 🎯 **Kullanıcı Dostu** - Basit ve sezgisel arayüz
-- 📱 **Responsive Tasarım** - Tüm ekranlarda mükemmel görünüm
-- 🔒 **Güvenli Depolama** - Tüm veriler yerel olarak saklanır
+### Kullanılan Teknolojiler
+
+- **Framework**: Flutter 3.0+
+- **Dart SDK**: 3.0.0+
+- **Veritabanı**: Hive (NoSQL)
+- **State Management**: Provider
+- **UI**: Material Design 3
+
+### Platform Desteği
+
+- ✅ Android
+- ✅ iOS (yakında)
+- ✅ Web (yakında)
+- ✅ Windows (yakında)
+
+### Performans
+
+- ⚡ Hive veritabanı ile hızlı veri erişimi
+- 🎯 Lazy loading ile optimize edilmiş liste görünümü
+- 💾 Efficient caching mekanizması
+- 🚀 Smooth animations ve transitions
+
+---
 
 ## 🤝 Katkıda Bulunma
 
-Katkılarınızı memnuniyetle karşılıyoruz! 
+Katkılarınızı memnuniyetle karşılıyoruz! 🎉
 
-1. Repository'yi fork edin
-2. Feature branch oluşturun (`git checkout -b feature/amazing-feature`)
-3. Değişikliklerinizi commit edin (`git commit -m 'Add amazing feature'`)
-4. Branch'inizi push edin (`git push origin feature/amazing-feature`)
-5. Pull Request oluşturun
+1. ⭐ Repository'yi yıldızlayın
+2. 🍴 Repository'yi fork edin
+3. 🌿 Feature branch oluşturun (`git checkout -b feature/amazing-feature`)
+4. 💾 Değişikliklerinizi commit edin (`git commit -m 'Add amazing feature'`)
+5. 📤 Branch'inizi push edin (`git push origin feature/amazing-feature`)
+6. 🔄 Pull Request oluşturun
 
+---
 
 ## 📞 İletişim
 
-- **Geliştirici**: Mehmet Karatslar
-- **GitHub**: [@mehmetkaratslar](https://github.com/mehmetkaratslar)
-- **Email**: [İletişim](mailto:mehmetkarataslar@gmail.com)
+<div align="center">
 
+**Geliştirici**: Mehmet Karataş  
+**Meslek**: Bilgisayar Mühendisi
 
+🌐 [Web Sitem](https://www.benmuhendisiniz.com/)  
+📧 [Email](mailto:mehmetkarataslar@gmail.com)  
+💼 [GitHub](https://github.com/mehmetkaratslar)
+
+</div>
 
 ---
 
 <div align="center">
 
-**⭐ Projeyi beğendiyseniz yıldız vermeyi unutmayın!**
+### ⭐ Projeyi beğendiyseniz yıldız vermeyi unutmayın!
 
-**🚀 Linkcim ile videolarınızı organize edin!**
+**🚀 Linkcim ile videolarınızı organize edin ve kaybetmeyin!**
+
+Made with ❤️ by [Mehmet Karataş](https://www.benmuhendisiniz.com/)
 
 </div>
