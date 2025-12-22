@@ -104,17 +104,21 @@ Videolarınızı eklerken otomatik olarak platform bilgileri çekilir:
 
 ## 📸 Ekran Görüntüleri
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/56a92ce1-ec76-43df-abff-f1bba201ed2f" alt="Ana Sayfa" width="200" />
-  &nbsp;&nbsp;
-  <img src="https://github.com/user-attachments/assets/dd7cc2a6-4c2e-4e6d-8954-5aaec7e45bc7" alt="Video Ekleme" width="200" />
-  &nbsp;&nbsp;
-  <img src="https://github.com/user-attachments/assets/d52a3f39-ba79-4e79-851b-4a1f096d5154" alt="Koleksiyonlar" width="200" />
-</p>
+<div align="center">
 
-<p align="center">
-  <b>Ana Sayfa</b> &nbsp;&nbsp;&nbsp;&nbsp; <b>Video Ekleme</b> &nbsp;&nbsp;&nbsp;&nbsp; <b>Koleksiyonlar</b>
-</p>
+### Ana Sayfa
+<img src="assets/images/AnaSayfa.jpeg" alt="Ana Sayfa" width="300" />
+
+### Detay Sayfası
+<img src="assets/images/DetaySayfası.jpeg" alt="Detay Sayfası" width="300" />
+
+### Gelişmiş Arama
+<img src="assets/images/GelişmişSekme.jpeg" alt="Gelişmiş Arama" width="300" />
+
+### Ayarlar Sekmesi
+<img src="assets/images/ayarlaSekmesi.jpeg" alt="Ayarlar Sekmesi" width="300" />
+
+</div>
 
 ---
 
