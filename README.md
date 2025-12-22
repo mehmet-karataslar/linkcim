@@ -127,11 +127,12 @@ Videolarınızı eklerken otomatik olarak platform bilgileri çekilir:
 ### 📱 Android APK Kurulumu
 
 1. **GitHub Releases**'den en son APK'yı indirin:
+   - [📥 v1.0.0 Release](https://github.com/mehmetkaratslar/linkcim/releases/tag/v1.0.0)
    - [📥 Latest Release](https://github.com/mehmetkaratslar/linkcim/releases/latest)
    - En güncel versiyon: **Linkcim v1.0.0**
 
 2. **APK'yı yükleyin:**
-   - APK dosyasını cihazınıza indirin
+   - `linkcim-v1.0.0.apk` dosyasını cihazınıza indirin
    - Ayarlar > Güvenlik > Bilinmeyen Kaynaklardan yüklemeye izin verin
    - APK dosyasına tıklayarak yükleyin
 
