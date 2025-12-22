@@ -109,7 +109,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                   ),
                   Text(
-                    'v${packageInfo.version} (${packageInfo.buildNumber})',
+                    'v1.0.0',
                     style: TextStyle(
                       fontSize: 12,
                       color: theme.colorScheme.onSurfaceVariant,
@@ -159,7 +159,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               _buildInfoRow(Icons.phone_android, l10n.platform ?? 'Platform', platformInfo),
               _buildInfoRow(Icons.settings_system_daydream, l10n.systemVersion ?? 'Sistem Versiyonu', platformVersion),
               _buildInfoRow(Icons.storage, l10n.packageName ?? 'Paket Adı', packageInfo.packageName),
-              _buildInfoRow(Icons.update, l10n.appVersion ?? 'Uygulama Versiyonu', '${packageInfo.version}+${packageInfo.buildNumber}'),
+              _buildInfoRow(Icons.update, l10n.appVersion ?? 'Uygulama Versiyonu', '1.0.0+1'),
               
               SizedBox(height: 16),
               Divider(),
