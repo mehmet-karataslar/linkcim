@@ -11,6 +11,7 @@ import 'package:linkcim/l10n/app_localizations.dart';
 import 'package:linkcim/screens/video_preview_screen.dart';
 import 'package:linkcim/screens/add_video_screen.dart';
 import 'package:linkcim/services/database_service.dart';
+import 'package:linkcim/services/analytics_service.dart';
 import 'package:linkcim/models/video_collection.dart';
 
 class VideoCard extends StatelessWidget {
@@ -32,6 +33,13 @@ class VideoCard extends StatelessWidget {
   // Video açma
   Future<void> _openVideo() async {
     try {
+      // Analytics: Video açıldı
+      AnalyticsService().logVideoPlayed(
+        platform: video.platform,
+        category: video.category,
+        videoId: video.key.toString(),
+      );
+      
       final uri = Uri.parse(video.videoUrl);
       if (await canLaunchUrl(uri)) {
         await launchUrl(uri, mode: LaunchMode.externalApplication);
@@ -43,6 +51,16 @@ class VideoCard extends StatelessWidget {
 
   // Önizleme açma
   void _openPreview(BuildContext context) {
+    // Analytics: Video önizleme açıldı
+    AnalyticsService().logButtonClick(
+      buttonName: 'video_preview',
+      screenName: 'home_screen',
+      parameters: {
+        'platform': video.platform,
+        'category': video.category,
+      },
+    );
+    
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -390,6 +408,16 @@ class VideoCard extends StatelessWidget {
                   // Menü
                   PopupMenuButton<String>(
                     onSelected: (value) async {
+                      // Analytics: Video menü işlemi
+                      AnalyticsService().logButtonClick(
+                        buttonName: 'video_menu_$value',
+                        screenName: 'home_screen',
+                        parameters: {
+                          'platform': video.platform,
+                          'category': video.category,
+                        },
+                      );
+                      
                       switch (value) {
                         case 'edit':
                           Navigator.push(

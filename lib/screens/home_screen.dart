@@ -8,6 +8,7 @@ import 'package:linkcim/models/saved_video.dart';
 import 'package:linkcim/services/database_service.dart';
 import 'package:linkcim/services/permission_service.dart';
 import 'package:linkcim/services/locale_service.dart';
+import 'package:linkcim/services/analytics_service.dart';
 
 import 'package:linkcim/screens/add_video_screen.dart';
 import 'package:linkcim/screens/search_screen.dart';
@@ -59,6 +60,11 @@ class _HomeScreenState extends State<HomeScreen>
     _checkAndRequestPermissions();
 
     _animationController.forward();
+    
+    // Analytics: Ana sayfa görüntüleme
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      AnalyticsService().logScreenView(screenName: 'home_screen');
+    });
   }
 
   // Dil değişikliğini dinle
@@ -210,10 +216,20 @@ class _HomeScreenState extends State<HomeScreen>
       if (category == l10n.allCategories) {
         selectedCategoryKey = '';
         filteredVideos = videos;
+        // Analytics: Tüm kategoriler seçildi
+        AnalyticsService().logCategorySelected(
+          categoryName: 'all',
+          videoCount: videos.length,
+        );
       } else {
         // Diğer kategoriler için veritabanındaki kategori adını kullan
         selectedCategoryKey = category;
         filteredVideos = videos.where((v) => v.category == category).toList();
+        // Analytics: Kategori seçildi
+        AnalyticsService().logCategorySelected(
+          categoryName: category,
+          videoCount: filteredVideos.length,
+        );
       }
     });
   }
@@ -236,6 +252,12 @@ class _HomeScreenState extends State<HomeScreen>
         _filterByCategoryKey(selectedCategoryKey);
       } else {
         filteredVideos = videos.where((v) => v.matchesSearch(query)).toList();
+        // Analytics: Arama yapıldı
+        AnalyticsService().logSearch(
+          searchQuery: query,
+          resultCount: filteredVideos.length,
+          searchType: 'home_search',
+        );
       }
     });
   }
@@ -300,6 +322,11 @@ class _HomeScreenState extends State<HomeScreen>
     if (confirm == true) {
       try {
         await _dbService.deleteVideo(video);
+        // Analytics: Video silindi
+        AnalyticsService().logVideoDeleted(
+          platform: video.platform,
+          category: video.category,
+        );
         _showSuccess(l10n.videoDeleted);
         _loadData();
       } catch (e) {
@@ -581,6 +608,10 @@ class _HomeScreenState extends State<HomeScreen>
           IconButton(
             icon: Icon(Icons.folder_outlined),
             onPressed: () {
+              AnalyticsService().logButtonClick(
+                buttonName: 'collections_button',
+                screenName: 'home_screen',
+              );
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => CollectionsScreen()),
@@ -593,6 +624,10 @@ class _HomeScreenState extends State<HomeScreen>
           IconButton(
             icon: Icon(Icons.tune),
             onPressed: () {
+              AnalyticsService().logButtonClick(
+                buttonName: 'advanced_search_button',
+                screenName: 'home_screen',
+              );
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => AdvancedSearchScreen()),
@@ -605,6 +640,10 @@ class _HomeScreenState extends State<HomeScreen>
           IconButton(
             icon: Icon(Icons.search),
             onPressed: () {
+              AnalyticsService().logButtonClick(
+                buttonName: 'search_button',
+                screenName: 'home_screen',
+              );
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => SearchScreen()),
@@ -616,6 +655,10 @@ class _HomeScreenState extends State<HomeScreen>
           IconButton(
             icon: Icon(Icons.settings),
             onPressed: () {
+              AnalyticsService().logButtonClick(
+                buttonName: 'settings_button',
+                screenName: 'home_screen',
+              );
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => SettingsScreen()),
@@ -711,6 +754,10 @@ class _HomeScreenState extends State<HomeScreen>
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
+          AnalyticsService().logButtonClick(
+            buttonName: 'add_video_fab',
+            screenName: 'home_screen',
+          );
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => AddVideoScreen()),

@@ -6,6 +6,7 @@ plugins {
     id("kotlin-android")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
+    id("com.google.gms.google-services")
 }
 
 // Keystore bilgilerini yükle
@@ -61,13 +62,12 @@ android {
 
     buildTypes {
         release {
-            // Release build için keystore kullan (eğer geçerli keystore varsa)
-            // Geçici olarak keystore olmadan build için signing config kullanılmıyor
-            // signingConfig = signingConfigs.getByName("debug") // Debug signing kullan
+            // Release build için keystore kullan
+            signingConfig = signingConfigs.getByName("release")
             
-            // ProGuard/R8 devre dışı (keystore sorunları için)
-            isMinifyEnabled = false
-            isShrinkResources = false
+            // ProGuard/R8 - Play Store için optimize edilmiş
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"

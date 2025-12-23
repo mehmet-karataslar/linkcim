@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:linkcim/l10n/app_localizations.dart';
 import 'package:linkcim/models/saved_video.dart';
 import 'package:linkcim/services/database_service.dart';
+import 'package:linkcim/services/analytics_service.dart';
 import 'package:linkcim/widgets/video_card.dart';
 import 'package:linkcim/screens/add_video_screen.dart';
 
@@ -37,6 +38,11 @@ class _AdvancedSearchScreenState extends State<AdvancedSearchScreen> {
   void initState() {
     super.initState();
     _loadData();
+    
+    // Analytics: Gelişmiş arama sayfası görüntüleme
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      AnalyticsService().logScreenView(screenName: 'advanced_search_screen');
+    });
   }
 
   Future<void> _loadData() async {
@@ -65,7 +71,8 @@ class _AdvancedSearchScreenState extends State<AdvancedSearchScreen> {
     List<SavedVideo> results = List.from(allVideos);
 
     // Metin araması
-    final query = _searchController.text.trim().toLowerCase();
+    final searchQuery = _searchController.text.trim();
+    final query = searchQuery.toLowerCase();
     if (query.isNotEmpty) {
       results = results.where((video) => video.matchesSearch(query)).toList();
     }
@@ -117,6 +124,28 @@ class _AdvancedSearchScreenState extends State<AdvancedSearchScreen> {
     setState(() {
       filteredVideos = results;
     });
+    
+    // Analytics: Gelişmiş arama filtresi uygulandı
+    if (searchQuery.isNotEmpty || selectedPlatform.isNotEmpty || 
+        selectedCategory.isNotEmpty || selectedTags.isNotEmpty ||
+        fromDate != null || toDate != null) {
+      AnalyticsService().logSearch(
+        searchQuery: searchQuery.isNotEmpty ? searchQuery : 'advanced_filter',
+        resultCount: results.length,
+        searchType: 'advanced_search',
+      );
+      AnalyticsService().logCustomEvent(
+        eventName: 'advanced_filter_applied',
+        parameters: {
+          'has_platform_filter': selectedPlatform.isNotEmpty,
+          'has_category_filter': selectedCategory.isNotEmpty,
+          'has_tag_filter': selectedTags.isNotEmpty,
+          'has_date_filter': fromDate != null || toDate != null,
+          'sort_by': sortBy,
+          'result_count': results.length,
+        },
+      );
+    }
   }
 
   void _clearFilters() {
@@ -235,6 +264,11 @@ class _AdvancedSearchScreenState extends State<AdvancedSearchScreen> {
     if (confirm == true) {
       try {
         await _dbService.deleteVideo(video);
+        // Analytics: Video silindi
+        AnalyticsService().logVideoDeleted(
+          platform: video.platform,
+          category: video.category,
+        );
         _loadData();
       } catch (e) {
         // Hata göster

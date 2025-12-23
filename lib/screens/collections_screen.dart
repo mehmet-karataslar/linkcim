@@ -5,6 +5,7 @@ import 'package:linkcim/l10n/app_localizations.dart';
 import 'package:linkcim/models/video_collection.dart';
 import 'package:linkcim/models/saved_video.dart';
 import 'package:linkcim/services/database_service.dart';
+import 'package:linkcim/services/analytics_service.dart';
 import 'package:linkcim/widgets/video_card.dart';
 import 'package:uuid/uuid.dart';
 
@@ -22,6 +23,11 @@ class _CollectionsScreenState extends State<CollectionsScreen> {
   void initState() {
     super.initState();
     _loadCollections();
+    
+    // Analytics: Koleksiyonlar sayfası görüntüleme
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      AnalyticsService().logScreenView(screenName: 'collections_screen');
+    });
   }
 
   Future<void> _loadCollections() async {
@@ -111,6 +117,11 @@ class _CollectionsScreenState extends State<CollectionsScreen> {
           description: result['description'] ?? '',
         );
         await _dbService.addCollection(collection);
+        // Analytics: Koleksiyon oluşturuldu
+        AnalyticsService().logCollectionCreated(
+          collectionName: result['name']!,
+          videoCount: 0,
+        );
         _showSuccess(l10n.collectionCreated);
         _loadCollections();
       } catch (e) {

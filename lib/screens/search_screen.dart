@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:linkcim/l10n/app_localizations.dart';
 import 'package:linkcim/models/saved_video.dart';
 import 'package:linkcim/services/database_service.dart';
+import 'package:linkcim/services/analytics_service.dart';
 import 'package:linkcim/widgets/video_card.dart';
 import 'package:linkcim/screens/add_video_screen.dart';
 
@@ -23,6 +24,11 @@ class _SearchScreenState extends State<SearchScreen> {
   void initState() {
     super.initState();
     _performSearch();
+    
+    // Analytics: Arama sayfası görüntüleme
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      AnalyticsService().logScreenView(screenName: 'search_screen');
+    });
   }
 
   Future<void> _performSearch() async {
@@ -38,6 +44,12 @@ class _SearchScreenState extends State<SearchScreen> {
       } else {
         // Text araması yap
         results = await _dbService.searchVideos(query);
+        // Analytics: Arama yapıldı
+        AnalyticsService().logSearch(
+          searchQuery: query,
+          resultCount: results.length,
+          searchType: 'search_screen',
+        );
       }
 
       setState(() {
@@ -87,6 +99,11 @@ class _SearchScreenState extends State<SearchScreen> {
     if (confirm == true) {
       try {
         await _dbService.deleteVideo(video);
+        // Analytics: Video silindi
+        AnalyticsService().logVideoDeleted(
+          platform: video.platform,
+          category: video.category,
+        );
         _showSuccess(l10n.videoDeleted);
         _performSearch();
       } catch (e) {

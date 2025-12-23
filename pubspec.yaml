@@ -76,6 +76,10 @@ dependencies:
   # Video thumbnail oluşturma - Güçlendirilmiş
   video_thumbnail: ^0.5.3
 
+  # Firebase Analytics - Kullanıcı analitiği için
+  firebase_core: ^3.6.0
+  firebase_analytics: ^11.3.3
+
   # Network optimizasyonu (opsiyonel)
   # dio_cache_interceptor: ^3.5.0
   # dio_certificate_pinning: ^4.1.0

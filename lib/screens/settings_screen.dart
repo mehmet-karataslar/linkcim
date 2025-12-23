@@ -12,6 +12,7 @@ import 'package:linkcim/services/database_service.dart';
 import 'package:linkcim/services/theme_service.dart';
 import 'package:linkcim/services/locale_service.dart';
 import 'package:linkcim/services/permission_service.dart';
+import 'package:linkcim/services/analytics_service.dart';
 
 class SettingsScreen extends StatefulWidget {
   @override
@@ -24,6 +25,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   void initState() {
     super.initState();
+    
+    // Analytics: Ayarlar sayfası görüntüleme
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      AnalyticsService().logScreenView(screenName: 'settings_screen');
+    });
   }
 
 
@@ -84,7 +90,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Image.asset(
-                'assets/icons/iconumuz.png',
+                'assets/icons/icon.png',
                 width: 32,
                 height: 32,
                 errorBuilder: (context, error, stackTrace) {
@@ -458,7 +464,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ],
                 onChanged: (Locale? newLocale) {
                   if (newLocale != null) {
+                    final oldLocale = localeService.currentLocale.languageCode;
                     localeService.setLocale(newLocale);
+                    // Analytics: Dil değişikliği
+                    AnalyticsService().logLanguageChanged(newLocale.languageCode);
+                    AnalyticsService().logSettingChanged(
+                      settingName: 'language',
+                      oldValue: oldLocale,
+                      newValue: newLocale.languageCode,
+                    );
                   }
                 },
               ),
@@ -492,7 +506,20 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ],
                 onChanged: (ThemeMode? newMode) {
                   if (newMode != null) {
+                    final oldMode = themeService.themeMode.toString();
                     themeService.setThemeMode(newMode);
+                    // Analytics: Tema değişikliği
+                    final modeString = newMode == ThemeMode.light 
+                        ? 'light' 
+                        : newMode == ThemeMode.dark 
+                            ? 'dark' 
+                            : 'system';
+                    AnalyticsService().logThemeChanged(modeString);
+                    AnalyticsService().logSettingChanged(
+                      settingName: 'theme',
+                      oldValue: oldMode,
+                      newValue: modeString,
+                    );
                   }
                 },
               ),
@@ -526,7 +553,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         trailing: allGranted
                             ? Icon(Icons.check_circle, color: theme.colorScheme.primary)
                             : Icon(Icons.warning, color: theme.colorScheme.error),
-                        onTap: _showPermissionInfo,
+                        onTap: () {
+                          AnalyticsService().logButtonClick(
+                            buttonName: 'permission_info',
+                            screenName: 'settings_screen',
+                          );
+                          _showPermissionInfo();
+                        },
                       ),
                       if (!allGranted)
                         ListTile(
@@ -534,14 +567,26 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           title: Text(l10n.managePermissions),
                           subtitle:
                               Text(l10n.permissionsMissing),
-                          onTap: _requestPermissions,
+                          onTap: () {
+                            AnalyticsService().logButtonClick(
+                              buttonName: 'request_permissions',
+                              screenName: 'settings_screen',
+                            );
+                            _requestPermissions();
+                          },
                         ),
                       ListTile(
                         leading: Icon(Icons.open_in_new, color: theme.colorScheme.onSurfaceVariant),
                         title: Text(l10n.systemSettings),
                         subtitle:
                             Text(l10n.manualEditPermissions),
-                        onTap: openAppSettings,
+                        onTap: () {
+                          AnalyticsService().logButtonClick(
+                            buttonName: 'open_app_settings',
+                            screenName: 'settings_screen',
+                          );
+                          openAppSettings();
+                        },
                       ),
                     ],
                   );
@@ -563,7 +608,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
               leading: Icon(Icons.delete_forever, color: theme.colorScheme.error),
               title: Text(l10n.clearAllData),
               subtitle: Text(l10n.carefulUse),
-              onTap: _confirmClearData,
+              onTap: () {
+                AnalyticsService().logButtonClick(
+                  buttonName: 'clear_all_data',
+                  screenName: 'settings_screen',
+                );
+                _confirmClearData();
+              },
             ),
           ]),
 
@@ -583,7 +634,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
               title: Text(l10n.about),
               subtitle: Text(l10n.appInformation),
               trailing: Icon(Icons.chevron_right),
-              onTap: _showAboutDialog,
+              onTap: () {
+                AnalyticsService().logButtonClick(
+                  buttonName: 'about',
+                  screenName: 'settings_screen',
+                );
+                _showAboutDialog();
+              },
             ),
             ListTile(
               leading: Container(
@@ -598,6 +655,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
               subtitle: Text('www.benmuhendisiniz.com'),
               trailing: Icon(Icons.open_in_new, size: 18),
               onTap: () async {
+                AnalyticsService().logButtonClick(
+                  buttonName: 'visit_website',
+                  screenName: 'settings_screen',
+                );
                 final url = Uri.parse('https://www.benmuhendisiniz.com/');
                 if (await canLaunchUrl(url)) {
                   await launchUrl(url, mode: LaunchMode.externalApplication);

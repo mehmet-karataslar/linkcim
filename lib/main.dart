@@ -1,12 +1,13 @@
 // Dosya Konumu: lib/main.dart
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:linkcim/services/database_service.dart';
 import 'package:linkcim/services/theme_service.dart' hide AppTheme;
 import 'package:linkcim/services/locale_service.dart';
+import 'package:linkcim/services/analytics_service.dart';
 import 'package:linkcim/screens/home_screen.dart';
 import 'package:linkcim/l10n/app_localizations.dart';
 import 'package:linkcim/config/app_theme.dart';
@@ -14,6 +15,17 @@ import 'package:linkcim/config/app_theme.dart';
 void main() async {
   // Flutter framework'ü başlat
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Firebase'i başlat
+  try {
+    await Firebase.initializeApp();
+    print('✅ Firebase başarıyla başlatıldı');
+    
+    // Analytics servisini başlat
+    await AnalyticsService().initialize();
+  } catch (e) {
+    print('❌ Firebase başlatma hatası: $e');
+  }
 
   // Veritabanını başlat
   try {

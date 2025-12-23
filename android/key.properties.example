@@ -1,0 +1,9 @@
+# Keystore bilgileri
+# Bu dosyayı kopyalayıp key.properties olarak kaydedin ve değerleri doldurun
+# key.properties dosyası .gitignore'da olduğu için güvenlidir
+
+storePassword=MehKar21.?
+keyPassword=MehKar21.?
+keyAlias=upload
+storeFile=../upload-keystore.jks
+

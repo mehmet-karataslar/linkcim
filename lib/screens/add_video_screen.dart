@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:linkcim/l10n/app_localizations.dart';
 import 'package:linkcim/models/saved_video.dart';
 import 'package:linkcim/services/database_service.dart';
+import 'package:linkcim/services/analytics_service.dart';
 import 'package:linkcim/utils/constants.dart';
 
 class AddVideoScreen extends StatefulWidget {
@@ -49,6 +50,13 @@ class _AddVideoScreenState extends State<AddVideoScreen>
     }
 
     _animationController.forward();
+    
+    // Analytics: Video ekleme/düzenleme sayfası görüntüleme
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      AnalyticsService().logScreenView(
+        screenName: isEditing ? 'edit_video_screen' : 'add_video_screen',
+      );
+    });
   }
 
   @override
@@ -107,8 +115,18 @@ class _AddVideoScreenState extends State<AddVideoScreen>
         widget.video!.tags = tags;
 
         await _dbService.updateVideo(widget.video!);
+        // Analytics: Video güncellendi
+        AnalyticsService().logCustomEvent(
+          eventName: 'video_updated',
+          parameters: {
+            'platform': widget.video!.platform,
+            'category': widget.video!.category,
+            'has_tags': widget.video!.tags.isNotEmpty,
+          },
+        );
         _showSuccess(l10n.videoUpdated);
       } else {
+        final platform = AppConstants.detectPlatform(_urlController.text.trim());
         final video = SavedVideo.create(
           videoUrl: _urlController.text.trim(),
           title: _titleController.text.trim(),
@@ -117,10 +135,15 @@ class _AddVideoScreenState extends State<AddVideoScreen>
           tags: tags,
           authorName: '',
           authorUsername: '',
-          platform: AppConstants.detectPlatform(_urlController.text.trim()),
+          platform: platform,
         );
 
         await _dbService.addVideo(video);
+        // Analytics: Video eklendi
+        AnalyticsService().logVideoAdded(
+          platform: platform,
+          category: _categoryController.text.trim(),
+        );
         _showSuccess(l10n.videoSaved);
       }
 

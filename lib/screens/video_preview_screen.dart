@@ -10,6 +10,7 @@ import 'package:linkcim/screens/video_player_screen.dart';
 import 'package:linkcim/screens/add_video_screen.dart';
 import 'package:linkcim/services/share_service.dart';
 import 'package:linkcim/services/instagram_service.dart';
+import 'package:linkcim/services/analytics_service.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 
@@ -30,6 +31,16 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
   void initState() {
     super.initState();
     _loadVideoMetadata();
+    
+    // Analytics: Video önizleme sayfası görüntüleme
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      AnalyticsService().logScreenView(screenName: 'video_preview_screen');
+      AnalyticsService().logVideoPlayed(
+        platform: widget.video.platform,
+        category: widget.video.category,
+        videoId: widget.video.key.toString(),
+      );
+    });
   }
 
   Future<void> _loadVideoMetadata() async {
@@ -50,9 +61,24 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
   Future<void> _openInPlatform() async {
     final l10n = AppLocalizations.of(context)!;
     try {
+      // Analytics: Platform'da aç butonu
+      AnalyticsService().logButtonClick(
+        buttonName: 'open_in_platform',
+        screenName: 'video_preview_screen',
+        parameters: {
+          'platform': widget.video.platform,
+        },
+      );
+      
       final uri = Uri.parse(widget.video.videoUrl);
       if (await canLaunchUrl(uri)) {
         await launchUrl(uri, mode: LaunchMode.externalApplication);
+        // Analytics: Video platform'da açıldı
+        AnalyticsService().logVideoPlayed(
+          platform: widget.video.platform,
+          category: widget.video.category,
+          videoId: widget.video.key.toString(),
+        );
       } else {
         _showError(l10n.couldNotOpen(_getPlatformName(context)));
       }
@@ -94,6 +120,15 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
   }
 
   void _openVideoPlayer() {
+    // Analytics: Video oynatıcı açıldı
+    AnalyticsService().logButtonClick(
+      buttonName: 'open_video_player',
+      screenName: 'video_preview_screen',
+      parameters: {
+        'platform': widget.video.platform,
+      },
+    );
+    
     Navigator.push(
       context,
       MaterialPageRoute(
