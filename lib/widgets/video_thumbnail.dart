@@ -7,7 +7,7 @@ import 'package:linkcim/l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-class VideoThumbnail extends StatelessWidget {
+class VideoThumbnail extends StatefulWidget {
   final String videoUrl;
   final double? width;
   final double? height;
@@ -28,12 +28,65 @@ class VideoThumbnail extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<VideoThumbnail> createState() => _VideoThumbnailState();
+}
+
+class _VideoThumbnailState extends State<VideoThumbnail> {
+  String? _backendThumbnailUrl;
+  bool _isLoadingThumbnail = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadBackendThumbnail();
+  }
+
+  Future<void> _loadBackendThumbnail() async {
+    final platform = _getPlatformFromUrl(widget.videoUrl);
+    
+    // Custom thumbnail varsa backend'den yükleme
+    if (widget.customThumbnailUrl != null && widget.customThumbnailUrl!.isNotEmpty) {
+      return;
+    }
+
+    // YouTube için backend'e gerek yok
+    if (platform == 'youtube') {
+      return;
+    }
+
+    // Diğer platformlar için backend'den thumbnail yükle
+    setState(() {
+      _isLoadingThumbnail = true;
+    });
+
+    try {
+      final thumbnailUrl = await _getBackendThumbnail(widget.videoUrl);
+      if (thumbnailUrl != null && mounted) {
+        setState(() {
+          _backendThumbnailUrl = thumbnailUrl;
+          _isLoadingThumbnail = false;
+        });
+      } else if (mounted) {
+        setState(() {
+          _isLoadingThumbnail = false;
+        });
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          _isLoadingThumbnail = false;
+        });
+      }
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: widget.onTap,
       child: Container(
-        width: width,
-        height: height,
+        width: widget.width,
+        height: widget.height,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
           color: Colors.grey[300],
@@ -47,10 +100,10 @@ class VideoThumbnail extends StatelessWidget {
               _buildSmartThumbnailImage(),
 
               // Play button overlay
-              if (showPlayButton) _buildPlayButtonOverlay(),
+              if (widget.showPlayButton) _buildPlayButtonOverlay(),
 
               // Post type badge
-              _buildPostTypeBadge(UrlUtils.getPostType(videoUrl)),
+              _buildPostTypeBadge(UrlUtils.getPostType(widget.videoUrl)),
 
               // Gradient overlay for better text visibility
               Container(
@@ -73,30 +126,39 @@ class VideoThumbnail extends StatelessWidget {
   }
 
   Widget _buildSmartThumbnailImage() {
-    final platform = _getPlatformFromUrl(videoUrl);
+    final platform = _getPlatformFromUrl(widget.videoUrl);
 
     // Önce custom thumbnail varsa onu kullan
-    if (customThumbnailUrl != null && customThumbnailUrl!.isNotEmpty) {
-      return _buildCachedImage(customThumbnailUrl!, platform);
+    if (widget.customThumbnailUrl != null && widget.customThumbnailUrl!.isNotEmpty) {
+      return _buildCachedImage(widget.customThumbnailUrl!, platform);
     }
 
     // YouTube için direkt URL kullan
     if (platform == 'youtube') {
-      final directUrl = UrlUtils.getThumbnailUrl(videoUrl);
+      final directUrl = UrlUtils.getThumbnailUrl(widget.videoUrl);
       if (directUrl.isNotEmpty) {
         return _buildCachedImage(directUrl, platform);
       }
     }
 
-    // Diğer platformlar için hızlı fallback - direkt placeholder göster
-    // Backend thumbnail'ı arka planda deneyebiliriz ama UI'da beklemeyelim
+    // Backend'den yüklenen thumbnail varsa onu kullan
+    if (_backendThumbnailUrl != null && _backendThumbnailUrl!.isNotEmpty) {
+      return _buildCachedImage(_backendThumbnailUrl!, platform);
+    }
+
+    // Yükleniyor veya placeholder göster
+    if (_isLoadingThumbnail) {
+      return _buildLoadingPlaceholder(platform);
+    }
+
+    // Son çare: placeholder göster
     return _buildPlatformPlaceholder(platform);
   }
 
   Widget _buildCachedImage(String imageUrl, String platform) {
     return CachedNetworkImage(
       imageUrl: imageUrl,
-      fit: fit,
+      fit: widget.fit,
       placeholder: (context, url) => _buildLoadingPlaceholder(platform),
       errorWidget: (context, url, error) {
         print('❌ Thumbnail yüklenemedi: $imageUrl');
@@ -138,12 +200,12 @@ class VideoThumbnail extends StatelessWidget {
   }
 
   Widget _buildThumbnailImage(String thumbnailUrl) {
-    final platform = _getPlatformFromUrl(videoUrl);
+    final platform = _getPlatformFromUrl(widget.videoUrl);
 
     if (thumbnailUrl.isNotEmpty) {
       return CachedNetworkImage(
         imageUrl: thumbnailUrl,
-        fit: fit,
+        fit: widget.fit,
         placeholder: (context, url) => _buildLoadingPlaceholder(platform),
         errorWidget: (context, url, error) {
           print('❌ Thumbnail yüklenemedi: $thumbnailUrl');

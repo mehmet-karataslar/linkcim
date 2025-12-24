@@ -104,6 +104,18 @@
   "@english": {
     "description": "English language option"
   },
+  "german": "German",
+  "@german": {
+    "description": "German language option"
+  },
+  "russian": "Russian",
+  "@russian": {
+    "description": "Russian language option"
+  },
+  "french": "French",
+  "@french": {
+    "description": "French language option"
+  },
   "theme": "Theme",
   "@theme": {
     "description": "Theme selection label"
@@ -119,6 +131,10 @@
   "systemTheme": "System Theme",
   "@systemTheme": {
     "description": "System theme option"
+  },
+  "colorScheme": "Color Scheme",
+  "@colorScheme": {
+    "description": "Color scheme selection label"
   },
   "permissions": "Permissions",
   "@permissions": {

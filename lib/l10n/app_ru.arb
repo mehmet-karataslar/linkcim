@@ -1,0 +1,71 @@
+{
+  "@@locale": "ru",
+  "appTitle": "Linkcim",
+  "@appTitle": {
+    "description": "Application title"
+  },
+  "home": "Главная",
+  "@home": {
+    "description": "Home page title"
+  },
+  "addVideo": "Добавить видео",
+  "@addVideo": {
+    "description": "Add video button"
+  },
+  "editVideo": "Редактировать видео",
+  "@editVideo": {
+    "description": "Edit video title"
+  },
+  "search": "Поиск",
+  "@search": {
+    "description": "Search button"
+  },
+  "settings": "Настройки",
+  "@settings": {
+    "description": "Settings page title"
+  },
+  "language": "Язык",
+  "@language": {
+    "description": "Language selection label"
+  },
+  "turkish": "Турецкий",
+  "@turkish": {
+    "description": "Turkish language option"
+  },
+  "english": "Английский",
+  "@english": {
+    "description": "English language option"
+  },
+  "german": "Немецкий",
+  "@german": {
+    "description": "German language option"
+  },
+  "russian": "Русский",
+  "@russian": {
+    "description": "Russian language option"
+  },
+  "french": "Французский",
+  "@french": {
+    "description": "French language option"
+  },
+  "theme": "Тема",
+  "@theme": {
+    "description": "Theme selection label"
+  },
+  "lightTheme": "Светлая",
+  "@lightTheme": {
+    "description": "Light theme option"
+  },
+  "darkTheme": "Тёмная",
+  "@darkTheme": {
+    "description": "Dark theme option"
+  },
+  "systemTheme": "Системная",
+  "@systemTheme": {
+    "description": "System theme option"
+  },
+  "colorScheme": "Цветовая схема",
+  "@colorScheme": {
+    "description": "Color scheme selection label"
+  }
+}

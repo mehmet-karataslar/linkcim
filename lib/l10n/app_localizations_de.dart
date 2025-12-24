@@ -4,9 +4,9 @@ import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for English (`en`).
-class AppLocalizationsEn extends AppLocalizations {
-  AppLocalizationsEn([String locale = 'en']) : super(locale);
+/// The translations for German (`de`).
+class AppLocalizationsDe extends AppLocalizations {
+  AppLocalizationsDe([String locale = 'de']) : super(locale);
 
   @override
   String get appTitle => 'Linkcim';
@@ -15,16 +15,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get home => 'Home';
 
   @override
-  String get addVideo => 'Add Video';
+  String get addVideo => 'Video hinzufügen';
 
   @override
-  String get editVideo => 'Edit Video';
+  String get editVideo => 'Video bearbeiten';
 
   @override
-  String get search => 'Search';
+  String get search => 'Suchen';
 
   @override
-  String get settings => 'Settings';
+  String get settings => 'Einstellungen';
 
   @override
   String get videoTitle => 'Video Title';
@@ -78,37 +78,37 @@ class AppLocalizationsEn extends AppLocalizations {
   String get optional => 'Optional';
 
   @override
-  String get language => 'Language';
+  String get language => 'Sprache';
 
   @override
-  String get turkish => 'Turkish';
+  String get turkish => 'Türkisch';
 
   @override
-  String get english => 'English';
+  String get english => 'Englisch';
 
   @override
-  String get german => 'German';
+  String get german => 'Deutsch';
 
   @override
-  String get russian => 'Russian';
+  String get russian => 'Russisch';
 
   @override
-  String get french => 'French';
+  String get french => 'Französisch';
 
   @override
-  String get theme => 'Theme';
+  String get theme => 'Design';
 
   @override
-  String get lightTheme => 'Light Theme';
+  String get lightTheme => 'Hell';
 
   @override
-  String get darkTheme => 'Dark Theme';
+  String get darkTheme => 'Dunkel';
 
   @override
-  String get systemTheme => 'System Theme';
+  String get systemTheme => 'System';
 
   @override
-  String get colorScheme => 'Color Scheme';
+  String get colorScheme => 'Farbschema';
 
   @override
   String get permissions => 'Permissions';

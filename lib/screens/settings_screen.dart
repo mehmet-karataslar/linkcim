@@ -10,6 +10,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'dart:io';
 import 'package:linkcim/services/database_service.dart';
 import 'package:linkcim/services/theme_service.dart';
+import 'package:linkcim/config/app_theme.dart' show ColorSchemeType, AppTheme;
 import 'package:linkcim/services/locale_service.dart';
 import 'package:linkcim/services/permission_service.dart';
 import 'package:linkcim/services/analytics_service.dart';
@@ -405,6 +406,23 @@ class _SettingsScreenState extends State<SettingsScreen> {
     }
   }
 
+  String _getLanguageName(String languageCode, AppLocalizations l10n) {
+    switch (languageCode) {
+      case 'tr':
+        return l10n.turkish;
+      case 'en':
+        return l10n.english;
+      case 'de':
+        return l10n.german;
+      case 'ru':
+        return l10n.russian;
+      case 'fr':
+        return l10n.french;
+      default:
+        return l10n.english;
+    }
+  }
+
   Widget _buildSection(String title, List<Widget> children) {
     final theme = Theme.of(context);
     return Column(
@@ -445,11 +463,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ListTile(
               leading: Icon(Icons.language, color: theme.colorScheme.primary),
               title: Text(l10n.language),
-              subtitle: Text(
-                localeService.currentLocale.languageCode == 'tr' 
-                    ? l10n.turkish 
-                    : l10n.english,
-              ),
+              subtitle: _getLanguageName(localeService.currentLocale.languageCode, l10n),
               trailing: DropdownButton<Locale>(
                 value: localeService.currentLocale,
                 items: [
@@ -460,6 +474,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   DropdownMenuItem(
                     value: Locale('en', ''),
                     child: Text(l10n.english),
+                  ),
+                  DropdownMenuItem(
+                    value: Locale('de', ''),
+                    child: Text(l10n.german),
+                  ),
+                  DropdownMenuItem(
+                    value: Locale('ru', ''),
+                    child: Text(l10n.russian),
+                  ),
+                  DropdownMenuItem(
+                    value: Locale('fr', ''),
+                    child: Text(l10n.french),
                   ),
                 ],
                 onChanged: (Locale? newLocale) {
@@ -479,7 +505,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             // Tema Seçimi
             ListTile(
-              leading: Icon(Icons.palette, color: theme.colorScheme.primary),
+              leading: Icon(Icons.brightness_6, color: theme.colorScheme.primary),
               title: Text(l10n.theme),
               subtitle: Text(
                 themeService.themeMode == ThemeMode.light
@@ -519,6 +545,58 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       settingName: 'theme',
                       oldValue: oldMode,
                       newValue: modeString,
+                    );
+                  }
+                },
+              ),
+            ),
+            // Renk Şeması Seçimi
+            ListTile(
+              leading: Icon(Icons.palette, color: theme.colorScheme.primary),
+              title: Text(l10n.colorScheme),
+              subtitle: Text(
+                localeService.currentLocale.languageCode == 'tr'
+                    ? AppTheme.getColorSchemeName(themeService.colorScheme)
+                    : AppTheme.getColorSchemeNameEn(themeService.colorScheme),
+              ),
+              trailing: DropdownButton<ColorSchemeType>(
+                value: themeService.colorScheme,
+                items: ColorSchemeType.values.map((scheme) {
+                  return DropdownMenuItem(
+                    value: scheme,
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 20,
+                          height: 20,
+                          decoration: BoxDecoration(
+                            color: AppTheme.getColorSchemePreview(scheme),
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: theme.colorScheme.outline,
+                              width: 1,
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 12),
+                        Text(
+                          localeService.currentLocale.languageCode == 'tr'
+                              ? AppTheme.getColorSchemeName(scheme)
+                              : AppTheme.getColorSchemeNameEn(scheme),
+                        ),
+                      ],
+                    ),
+                  );
+                }).toList(),
+                onChanged: (ColorSchemeType? newScheme) {
+                  if (newScheme != null) {
+                    final oldScheme = themeService.colorScheme.toString();
+                    themeService.setColorScheme(newScheme);
+                    // Analytics: Renk şeması değişikliği
+                    AnalyticsService().logSettingChanged(
+                      settingName: 'color_scheme',
+                      oldValue: oldScheme,
+                      newValue: newScheme.toString(),
                     );
                   }
                 },

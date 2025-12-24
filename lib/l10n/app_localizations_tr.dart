@@ -87,6 +87,15 @@ class AppLocalizationsTr extends AppLocalizations {
   String get english => 'İngilizce';
 
   @override
+  String get german => 'Almanca';
+
+  @override
+  String get russian => 'Rusça';
+
+  @override
+  String get french => 'Fransızca';
+
+  @override
   String get theme => 'Tema';
 
   @override
@@ -97,6 +106,9 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get systemTheme => 'Sistem Teması';
+
+  @override
+  String get colorScheme => 'Renk Şeması';
 
   @override
   String get permissions => 'İzinler';

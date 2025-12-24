@@ -104,6 +104,18 @@
   "@english": {
     "description": "İngilizce dil seçeneği"
   },
+  "german": "Almanca",
+  "@german": {
+    "description": "Almanca dil seçeneği"
+  },
+  "russian": "Rusça",
+  "@russian": {
+    "description": "Rusça dil seçeneği"
+  },
+  "french": "Fransızca",
+  "@french": {
+    "description": "Fransızca dil seçeneği"
+  },
   "theme": "Tema",
   "@theme": {
     "description": "Tema seçimi etiketi"
@@ -119,6 +131,10 @@
   "systemTheme": "Sistem Teması",
   "@systemTheme": {
     "description": "Sistem teması seçeneği"
+  },
+  "colorScheme": "Renk Şeması",
+  "@colorScheme": {
+    "description": "Renk şeması seçimi etiketi"
   },
   "permissions": "İzinler",
   "@permissions": {

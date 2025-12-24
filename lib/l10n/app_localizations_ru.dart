@@ -4,27 +4,27 @@ import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for English (`en`).
-class AppLocalizationsEn extends AppLocalizations {
-  AppLocalizationsEn([String locale = 'en']) : super(locale);
+/// The translations for Russian (`ru`).
+class AppLocalizationsRu extends AppLocalizations {
+  AppLocalizationsRu([String locale = 'ru']) : super(locale);
 
   @override
   String get appTitle => 'Linkcim';
 
   @override
-  String get home => 'Home';
+  String get home => 'Главная';
 
   @override
-  String get addVideo => 'Add Video';
+  String get addVideo => 'Добавить видео';
 
   @override
-  String get editVideo => 'Edit Video';
+  String get editVideo => 'Редактировать видео';
 
   @override
-  String get search => 'Search';
+  String get search => 'Поиск';
 
   @override
-  String get settings => 'Settings';
+  String get settings => 'Настройки';
 
   @override
   String get videoTitle => 'Video Title';
@@ -78,37 +78,37 @@ class AppLocalizationsEn extends AppLocalizations {
   String get optional => 'Optional';
 
   @override
-  String get language => 'Language';
+  String get language => 'Язык';
 
   @override
-  String get turkish => 'Turkish';
+  String get turkish => 'Турецкий';
 
   @override
-  String get english => 'English';
+  String get english => 'Английский';
 
   @override
-  String get german => 'German';
+  String get german => 'Немецкий';
 
   @override
-  String get russian => 'Russian';
+  String get russian => 'Русский';
 
   @override
-  String get french => 'French';
+  String get french => 'Французский';
 
   @override
-  String get theme => 'Theme';
+  String get theme => 'Тема';
 
   @override
-  String get lightTheme => 'Light Theme';
+  String get lightTheme => 'Светлая';
 
   @override
-  String get darkTheme => 'Dark Theme';
+  String get darkTheme => 'Тёмная';
 
   @override
-  String get systemTheme => 'System Theme';
+  String get systemTheme => 'Системная';
 
   @override
-  String get colorScheme => 'Color Scheme';
+  String get colorScheme => 'Цветовая схема';
 
   @override
   String get permissions => 'Permissions';

@@ -1,0 +1,71 @@
+{
+  "@@locale": "de",
+  "appTitle": "Linkcim",
+  "@appTitle": {
+    "description": "Application title"
+  },
+  "home": "Home",
+  "@home": {
+    "description": "Home page title"
+  },
+  "addVideo": "Video hinzufügen",
+  "@addVideo": {
+    "description": "Add video button"
+  },
+  "editVideo": "Video bearbeiten",
+  "@editVideo": {
+    "description": "Edit video title"
+  },
+  "search": "Suchen",
+  "@search": {
+    "description": "Search button"
+  },
+  "settings": "Einstellungen",
+  "@settings": {
+    "description": "Settings page title"
+  },
+  "language": "Sprache",
+  "@language": {
+    "description": "Language selection label"
+  },
+  "turkish": "Türkisch",
+  "@turkish": {
+    "description": "Turkish language option"
+  },
+  "english": "Englisch",
+  "@english": {
+    "description": "English language option"
+  },
+  "german": "Deutsch",
+  "@german": {
+    "description": "German language option"
+  },
+  "russian": "Russisch",
+  "@russian": {
+    "description": "Russian language option"
+  },
+  "french": "Französisch",
+  "@french": {
+    "description": "French language option"
+  },
+  "theme": "Design",
+  "@theme": {
+    "description": "Theme selection label"
+  },
+  "lightTheme": "Hell",
+  "@lightTheme": {
+    "description": "Light theme option"
+  },
+  "darkTheme": "Dunkel",
+  "@darkTheme": {
+    "description": "Dark theme option"
+  },
+  "systemTheme": "System",
+  "@systemTheme": {
+    "description": "System theme option"
+  },
+  "colorScheme": "Farbschema",
+  "@colorScheme": {
+    "description": "Color scheme selection label"
+  }
+}

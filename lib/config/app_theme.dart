@@ -3,53 +3,181 @@
 
 import 'package:flutter/material.dart';
 
+// Renk şeması enum'ı
+enum ColorSchemeType {
+  blue,    // Varsayılan mavi
+  green,   // Yeşil
+  purple,  // Mor
+  orange,  // Turuncu
+  teal,    // Teal
+  red,     // Kırmızı
+  pink,    // Pembe
+}
+
 class AppTheme {
-  // Renk paleti - Icon'dan esinlenilmiş renkler
-  // Icon: Derin mavi arka plan, turuncu hashtag badge, beyaz doküman, koyu gri detaylar
-  
-  // Light Theme - Icon renklerine uygun
-  static const Color lightPrimary = Color(0xFF2563EB); // Icon'daki derin mavi (Blue-600)
-  static const Color lightSecondary = Color(0xFF3B82F6); // Açık mavi (Blue-500)
-  static const Color lightTertiary = Color(0xFFF97316); // Icon'daki turuncu hashtag (Orange-500)
-  static const Color lightAccent = Color(0xFFFB923C); // Açık turuncu (Orange-400)
-  static const Color lightBackground = Color(0xFFF9FAFB); // Hafif gri arka plan
-  static const Color lightSurface = Color(0xFFFFFFFF); // Icon'daki beyaz doküman
-  static const Color lightSurfaceVariant = Color(0xFFF3F4F6); // Hafif gri
-  static const Color lightOnSurface = Color(0xFF1F2937); // Icon'daki koyu gri metin
-  static const Color lightOnSurfaceVariant = Color(0xFF4B5563); // Orta gri
-  static const Color lightOutline = Color(0xFFE5E7EB); // Açık gri çizgiler
-  static const Color lightError = Color(0xFFEF4444);
-  static const Color lightSuccess = Color(0xFF10B981);
+  // Renk şemaları - Her şema için primary renkler
+  static Color _getPrimaryColor(ColorSchemeType scheme, Brightness brightness) {
+    switch (scheme) {
+      case ColorSchemeType.blue:
+        return brightness == Brightness.light 
+            ? Color(0xFF2563EB) // Blue-600
+            : Color(0xFF3B82F6); // Blue-500
+      case ColorSchemeType.green:
+        return brightness == Brightness.light
+            ? Color(0xFF16A34A) // Green-600
+            : Color(0xFF22C55E); // Green-500
+      case ColorSchemeType.purple:
+        return brightness == Brightness.light
+            ? Color(0xFF9333EA) // Purple-600
+            : Color(0xFFA855F7); // Purple-500
+      case ColorSchemeType.orange:
+        return brightness == Brightness.light
+            ? Color(0xFFEA580C) // Orange-600
+            : Color(0xFFF97316); // Orange-500
+      case ColorSchemeType.teal:
+        return brightness == Brightness.light
+            ? Color(0xFF0D9488) // Teal-600
+            : Color(0xFF14B8A6); // Teal-500
+      case ColorSchemeType.red:
+        return brightness == Brightness.light
+            ? Color(0xFFDC2626) // Red-600
+            : Color(0xFFEF4444); // Red-500
+      case ColorSchemeType.pink:
+        return brightness == Brightness.light
+            ? Color(0xFFDB2777) // Pink-600
+            : Color(0xFFEC4899); // Pink-500
+    }
+  }
 
-  // Dark Theme - Icon renklerine uygun dark versiyonları
-  static const Color darkPrimary = Color(0xFF3B82F6); // Açık mavi (Blue-500)
-  static const Color darkSecondary = Color(0xFF60A5FA); // Daha açık mavi (Blue-400)
-  static const Color darkTertiary = Color(0xFFFB923C); // Icon'daki turuncu (Orange-400)
-  static const Color darkAccent = Color(0xFFFDBA74); // Açık turuncu (Orange-300)
-  static const Color darkBackground = Color(0xFF111827); // Koyu arka plan
-  static const Color darkSurface = Color(0xFF1F2937); // Koyu yüzey
-  static const Color darkSurfaceVariant = Color(0xFF374151); // Orta koyu gri
-  static const Color darkOnSurface = Color(0xFFF9FAFB); // Açık metin
-  static const Color darkOnSurfaceVariant = Color(0xFFD1D5DB); // Orta açık gri
-  static const Color darkOutline = Color(0xFF4B5563); // Koyu gri çizgiler
-  static const Color darkError = Color(0xFFF87171);
-  static const Color darkSuccess = Color(0xFF34D399);
+  // Secondary renkler
+  static Color _getSecondaryColor(ColorSchemeType scheme, Brightness brightness) {
+    switch (scheme) {
+      case ColorSchemeType.blue:
+        return brightness == Brightness.light 
+            ? Color(0xFF3B82F6) // Blue-500
+            : Color(0xFF60A5FA); // Blue-400
+      case ColorSchemeType.green:
+        return brightness == Brightness.light
+            ? Color(0xFF22C55E) // Green-500
+            : Color(0xFF4ADE80); // Green-400
+      case ColorSchemeType.purple:
+        return brightness == Brightness.light
+            ? Color(0xFFA855F7) // Purple-500
+            : Color(0xFFC084FC); // Purple-400
+      case ColorSchemeType.orange:
+        return brightness == Brightness.light
+            ? Color(0xFFF97316) // Orange-500
+            : Color(0xFFFB923C); // Orange-400
+      case ColorSchemeType.teal:
+        return brightness == Brightness.light
+            ? Color(0xFF14B8A6) // Teal-500
+            : Color(0xFF2DD4BF); // Teal-400
+      case ColorSchemeType.red:
+        return brightness == Brightness.light
+            ? Color(0xFFEF4444) // Red-500
+            : Color(0xFFF87171); // Red-400
+      case ColorSchemeType.pink:
+        return brightness == Brightness.light
+            ? Color(0xFFEC4899) // Pink-500
+            : Color(0xFFF472B6); // Pink-400
+    }
+  }
 
-  // Light Theme
-  static ThemeData get lightTheme {
+  // Tertiary (Accent) renkler - Turuncu tonları
+  static Color _getTertiaryColor(ColorSchemeType scheme, Brightness brightness) {
+    // Tüm şemalar için turuncu accent kullanıyoruz
+    return brightness == Brightness.light
+        ? Color(0xFFF97316) // Orange-500
+        : Color(0xFFFB923C); // Orange-400
+  }
+
+  // Background renklerini renk şemasına göre oluştur
+  static Color _getBackgroundColor(ColorSchemeType scheme, Brightness brightness) {
+    final primary = _getPrimaryColor(scheme, brightness);
+    
+    if (brightness == Brightness.light) {
+      // Light mode için primary color'dan çok açık bir ton
+      return Color.alphaBlend(
+        primary.withOpacity(0.03),
+        Color(0xFFFAFAFA), // Base açık gri
+      );
+    } else {
+      // Dark mode için primary color'dan koyu bir ton
+      return Color.alphaBlend(
+        primary.withOpacity(0.08),
+        Color(0xFF0F1419), // Base koyu gri
+      );
+    }
+  }
+
+  static Color _getSurfaceColor(ColorSchemeType scheme, Brightness brightness) {
+    final primary = _getPrimaryColor(scheme, brightness);
+    
+    if (brightness == Brightness.light) {
+      return Color.alphaBlend(
+        primary.withOpacity(0.02),
+        Color(0xFFFFFFFF),
+      );
+    } else {
+      return Color.alphaBlend(
+        primary.withOpacity(0.10),
+        Color(0xFF1A1F2E),
+      );
+    }
+  }
+
+  static Color _getSurfaceVariantColor(ColorSchemeType scheme, Brightness brightness) {
+    final primary = _getPrimaryColor(scheme, brightness);
+    
+    if (brightness == Brightness.light) {
+      return Color.alphaBlend(
+        primary.withOpacity(0.04),
+        Color(0xFFF5F5F5),
+      );
+    } else {
+      return Color.alphaBlend(
+        primary.withOpacity(0.12),
+        Color(0xFF252938),
+      );
+    }
+  }
+
+  // Light Theme - Renk şemasına göre
+  static ThemeData getLightTheme(ColorSchemeType colorScheme) {
+    final primary = _getPrimaryColor(colorScheme, Brightness.light);
+    final secondary = _getSecondaryColor(colorScheme, Brightness.light);
+    final tertiary = _getTertiaryColor(colorScheme, Brightness.light);
+    
+    // Dinamik arka plan renkleri
+    final lightBackground = _getBackgroundColor(colorScheme, Brightness.light);
+    final lightSurface = _getSurfaceColor(colorScheme, Brightness.light);
+    final lightSurfaceVariant = _getSurfaceVariantColor(colorScheme, Brightness.light);
+    
+    final lightOnSurface = Color(0xFF1F2937);
+    final lightOnSurfaceVariant = Color(0xFF4B5563);
+    final lightOutline = Color(0xFFE5E7EB);
+    final lightError = Color(0xFFEF4444);
+
+    // ColorScheme.fromSeed ile otomatik renk üretimi
+    final baseColorScheme = ColorScheme.fromSeed(
+      seedColor: primary,
+      brightness: Brightness.light,
+    );
+
     return ThemeData(
       // Ana renkler
-      primarySwatch: Colors.blue,
-      primaryColor: lightPrimary,
+      primarySwatch: _colorToMaterialColor(primary),
+      primaryColor: primary,
       colorScheme: ColorScheme.fromSeed(
-        seedColor: lightPrimary,
+        seedColor: primary,
         brightness: Brightness.light,
-        primary: lightPrimary, // Icon'daki derin mavi
-        secondary: lightSecondary, // Açık mavi
-        tertiary: lightTertiary, // Icon'daki turuncu hashtag
-        surface: lightSurface, // Icon'daki beyaz doküman
+        primary: primary,
+        secondary: secondary,
+        tertiary: tertiary,
+        surface: lightSurface,
+        background: lightBackground,
         surfaceVariant: lightSurfaceVariant,
-        onSurface: lightOnSurface, // Icon'daki koyu gri metin
+        onSurface: lightOnSurface,
         onSurfaceVariant: lightOnSurfaceVariant,
         outline: lightOutline,
         error: lightError,
@@ -71,9 +199,9 @@ class AppTheme {
         iconTheme: IconThemeData(color: lightOnSurface),
       ),
 
-      // Floating Action Button teması - Icon'daki turuncu renk
+      // Floating Action Button teması - Tertiary renk
       floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: lightTertiary, // Icon'daki turuncu hashtag rengi
+        backgroundColor: tertiary,
         foregroundColor: Colors.white,
         elevation: 8,
         shape: RoundedRectangleBorder(
@@ -107,7 +235,7 @@ class AppTheme {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
-          borderSide: BorderSide(color: lightPrimary, width: 2),
+          borderSide: BorderSide(color: primary, width: 2),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
@@ -132,7 +260,7 @@ class AppTheme {
           fontWeight: FontWeight.w600,
         ),
         secondaryLabelStyle: TextStyle(
-          color: lightPrimary,
+          color: primary,
           fontWeight: FontWeight.w600,
         ),
         brightness: Brightness.light,
@@ -145,7 +273,7 @@ class AppTheme {
       // Button temaları
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: lightPrimary,
+          backgroundColor: primary,
           foregroundColor: Colors.white,
           padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
           shape: RoundedRectangleBorder(
@@ -158,18 +286,18 @@ class AppTheme {
 
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          foregroundColor: lightPrimary,
+          foregroundColor: primary,
           padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
-          side: BorderSide(color: lightPrimary, width: 2),
+          side: BorderSide(color: primary, width: 2),
         ),
       ),
 
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
-          foregroundColor: lightPrimary,
+          foregroundColor: primary,
           padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
@@ -270,19 +398,34 @@ class AppTheme {
     );
   }
 
-  // Dark Theme
-  static ThemeData get darkTheme {
+  // Dark Theme - Renk şemasına göre
+  static ThemeData getDarkTheme(ColorSchemeType colorScheme) {
+    final primary = _getPrimaryColor(colorScheme, Brightness.dark);
+    final secondary = _getSecondaryColor(colorScheme, Brightness.dark);
+    final tertiary = _getTertiaryColor(colorScheme, Brightness.dark);
+    
+    // Dinamik arka plan renkleri
+    final darkBackground = _getBackgroundColor(colorScheme, Brightness.dark);
+    final darkSurface = _getSurfaceColor(colorScheme, Brightness.dark);
+    final darkSurfaceVariant = _getSurfaceVariantColor(colorScheme, Brightness.dark);
+    
+    final darkOnSurface = Color(0xFFF9FAFB);
+    final darkOnSurfaceVariant = Color(0xFFD1D5DB);
+    final darkOutline = Color(0xFF4B5563);
+    final darkError = Color(0xFFF87171);
+
     return ThemeData(
       // Ana renkler
-      primarySwatch: Colors.blue,
-      primaryColor: darkPrimary,
+      primarySwatch: _colorToMaterialColor(primary),
+      primaryColor: primary,
       colorScheme: ColorScheme.fromSeed(
-        seedColor: lightPrimary, // Icon'daki mavi
+        seedColor: primary,
         brightness: Brightness.dark,
-        primary: darkPrimary, // Açık mavi
-        secondary: darkSecondary, // Daha açık mavi
-        tertiary: darkTertiary, // Icon'daki turuncu
+        primary: primary,
+        secondary: secondary,
+        tertiary: tertiary,
         surface: darkSurface,
+        background: darkBackground,
         surfaceVariant: darkSurfaceVariant,
         onSurface: darkOnSurface,
         onSurfaceVariant: darkOnSurfaceVariant,
@@ -306,9 +449,9 @@ class AppTheme {
         iconTheme: IconThemeData(color: darkOnSurface),
       ),
 
-      // Floating Action Button teması - Icon'daki turuncu renk
+      // Floating Action Button teması - Tertiary renk
       floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: darkTertiary, // Icon'daki turuncu hashtag rengi
+        backgroundColor: tertiary,
         foregroundColor: Colors.white,
         elevation: 8,
         shape: RoundedRectangleBorder(
@@ -342,7 +485,7 @@ class AppTheme {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
-          borderSide: BorderSide(color: darkPrimary, width: 2),
+          borderSide: BorderSide(color: primary, width: 2),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
@@ -367,7 +510,7 @@ class AppTheme {
           fontWeight: FontWeight.w600,
         ),
         secondaryLabelStyle: TextStyle(
-          color: darkPrimary,
+          color: primary,
           fontWeight: FontWeight.w600,
         ),
         brightness: Brightness.dark,
@@ -380,7 +523,7 @@ class AppTheme {
       // Button temaları
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: darkPrimary,
+          backgroundColor: primary,
           foregroundColor: Colors.white,
           padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
           shape: RoundedRectangleBorder(
@@ -393,18 +536,18 @@ class AppTheme {
 
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          foregroundColor: darkPrimary,
+          foregroundColor: primary,
           padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
-          side: BorderSide(color: darkPrimary, width: 2),
+          side: BorderSide(color: primary, width: 2),
         ),
       ),
 
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
-          foregroundColor: darkPrimary,
+          foregroundColor: primary,
           padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
@@ -505,20 +648,70 @@ class AppTheme {
     );
   }
 
-  // Gradient renkler - Icon renklerine uygun
-  static List<Color> get primaryGradient => [lightPrimary, lightSecondary];
-  static List<Color> get darkPrimaryGradient => [darkPrimary, darkSecondary];
-  static List<Color> get accentGradient => [lightTertiary, lightAccent]; // Icon'daki turuncu gradient
-  static List<Color> get darkAccentGradient => [darkTertiary, darkAccent];
-  
-  // Shadow renkleri
-  static Color get lightShadow => Colors.black.withOpacity(0.05);
-  static Color get darkShadow => Colors.black.withOpacity(0.3);
-  
-  // Icon renk referansları
-  static const Color iconBlue = lightPrimary; // Icon'daki derin mavi arka plan
-  static const Color iconOrange = lightTertiary; // Icon'daki turuncu hashtag badge
-  static const Color iconWhite = lightSurface; // Icon'daki beyaz doküman
-  static const Color iconDarkGray = lightOnSurface; // Icon'daki koyu gri detaylar
-}
+  // Geriye uyumluluk için varsayılan temalar
+  static ThemeData get lightTheme => getLightTheme(ColorSchemeType.blue);
+  static ThemeData get darkTheme => getDarkTheme(ColorSchemeType.blue);
 
+  // MaterialColor oluşturma helper
+  static MaterialColor _colorToMaterialColor(Color color) {
+    final int r = color.red, g = color.green, b = color.blue;
+    final Map<int, Color> shades = {
+      50: Color.fromRGBO(r, g, b, .1),
+      100: Color.fromRGBO(r, g, b, .2),
+      200: Color.fromRGBO(r, g, b, .3),
+      300: Color.fromRGBO(r, g, b, .4),
+      400: Color.fromRGBO(r, g, b, .5),
+      500: Color.fromRGBO(r, g, b, .6),
+      600: Color.fromRGBO(r, g, b, .7),
+      700: Color.fromRGBO(r, g, b, .8),
+      800: Color.fromRGBO(r, g, b, .9),
+      900: Color.fromRGBO(r, g, b, 1),
+    };
+    return MaterialColor(color.value, shades);
+  }
+
+  // Renk şeması için isim
+  static String getColorSchemeName(ColorSchemeType scheme) {
+    switch (scheme) {
+      case ColorSchemeType.blue:
+        return 'Mavi';
+      case ColorSchemeType.green:
+        return 'Yeşil';
+      case ColorSchemeType.purple:
+        return 'Mor';
+      case ColorSchemeType.orange:
+        return 'Turuncu';
+      case ColorSchemeType.teal:
+        return 'Teal';
+      case ColorSchemeType.red:
+        return 'Kırmızı';
+      case ColorSchemeType.pink:
+        return 'Pembe';
+    }
+  }
+
+  // Renk şeması için İngilizce isim
+  static String getColorSchemeNameEn(ColorSchemeType scheme) {
+    switch (scheme) {
+      case ColorSchemeType.blue:
+        return 'Blue';
+      case ColorSchemeType.green:
+        return 'Green';
+      case ColorSchemeType.purple:
+        return 'Purple';
+      case ColorSchemeType.orange:
+        return 'Orange';
+      case ColorSchemeType.teal:
+        return 'Teal';
+      case ColorSchemeType.red:
+        return 'Red';
+      case ColorSchemeType.pink:
+        return 'Pink';
+    }
+  }
+
+  // Renk şeması için renk örneği
+  static Color getColorSchemePreview(ColorSchemeType scheme) {
+    return _getPrimaryColor(scheme, Brightness.light);
+  }
+}

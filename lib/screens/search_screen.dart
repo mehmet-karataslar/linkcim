@@ -1,5 +1,6 @@
 // Dosya Konumu: lib/screens/search_screen.dart
 
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:linkcim/l10n/app_localizations.dart';
 import 'package:linkcim/models/saved_video.dart';
@@ -19,6 +20,9 @@ class _SearchScreenState extends State<SearchScreen> {
 
   List<SavedVideo> searchResults = [];
   bool isLoading = false;
+  
+  // Debounce için timer
+  Timer? _debounceTimer;
 
   @override
   void initState() {
@@ -29,6 +33,13 @@ class _SearchScreenState extends State<SearchScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       AnalyticsService().logScreenView(screenName: 'search_screen');
     });
+  }
+
+  @override
+  void dispose() {
+    _debounceTimer?.cancel();
+    _searchController.dispose();
+    super.dispose();
   }
 
   Future<void> _performSearch() async {
@@ -64,14 +75,30 @@ class _SearchScreenState extends State<SearchScreen> {
   }
 
   void _showError(String message) {
+    final theme = Theme.of(context);
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message), backgroundColor: Colors.red),
+      SnackBar(
+        content: Text(message),
+        backgroundColor: theme.colorScheme.errorContainer,
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+      ),
     );
   }
 
   void _showSuccess(String message) {
+    final theme = Theme.of(context);
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(message), backgroundColor: Colors.green),
+      SnackBar(
+        content: Text(message),
+        backgroundColor: theme.colorScheme.primaryContainer,
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+      ),
     );
   }
 
@@ -140,12 +167,12 @@ class _SearchScreenState extends State<SearchScreen> {
                 icon: Container(
                   padding: EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: Colors.red[100],
+                    color: theme.colorScheme.errorContainer,
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Icon(
                     Icons.clear_all_rounded,
-                    color: Colors.red[700],
+                    color: theme.colorScheme.onErrorContainer,
                     size: 20,
                   ),
                 ),
@@ -161,7 +188,7 @@ class _SearchScreenState extends State<SearchScreen> {
           preferredSize: Size.fromHeight(1),
           child: Container(
             height: 1,
-            color: Colors.grey[200],
+            color: theme.colorScheme.outline.withOpacity(0.2),
           ),
         ),
       ),
@@ -171,11 +198,11 @@ class _SearchScreenState extends State<SearchScreen> {
           Container(
             margin: EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: theme.colorScheme.surface,
               borderRadius: BorderRadius.circular(16),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.08),
+                  color: theme.colorScheme.shadow.withOpacity(0.08),
                   blurRadius: 10,
                   offset: Offset(0, 2),
                 ),
@@ -183,9 +210,13 @@ class _SearchScreenState extends State<SearchScreen> {
             ),
             child: TextField(
               controller: _searchController,
+              style: TextStyle(color: theme.colorScheme.onSurface),
               decoration: InputDecoration(
                 hintText: l10n.searchPlaceholder,
-                hintStyle: TextStyle(color: theme.colorScheme.onSurfaceVariant),
+                hintStyle: TextStyle(
+                  color: theme.colorScheme.onSurfaceVariant,
+                  fontSize: 16,
+                ),
                 border: InputBorder.none,
                 contentPadding:
                     EdgeInsets.symmetric(horizontal: 20, vertical: 16),
@@ -206,11 +237,11 @@ class _SearchScreenState extends State<SearchScreen> {
                           icon: Container(
                             padding: EdgeInsets.all(4),
                             decoration: BoxDecoration(
-                              color: Colors.grey[100],
+                              color: theme.colorScheme.surfaceVariant,
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: Icon(Icons.clear_rounded,
-                                color: Colors.grey[600], size: 16),
+                                color: theme.colorScheme.onSurfaceVariant, size: 16),
                           ),
                           onPressed: () {
                             _searchController.clear();
@@ -220,7 +251,18 @@ class _SearchScreenState extends State<SearchScreen> {
                       )
                     : null,
               ),
-              onChanged: (_) => _performSearch(),
+              onChanged: (value) {
+                setState(() {}); // Suffix icon'u güncelle
+                // Debounce ile arama yap
+                _debounceTimer?.cancel();
+                _debounceTimer = Timer(Duration(milliseconds: 300), () {
+                  _performSearch();
+                });
+              },
+              onSubmitted: (_) {
+                _debounceTimer?.cancel();
+                _performSearch();
+              },
             ),
           ),
 
@@ -229,28 +271,31 @@ class _SearchScreenState extends State<SearchScreen> {
             margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             padding: EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: theme.colorScheme.surface,
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: Colors.grey[200]!),
+              border: Border.all(
+                color: theme.colorScheme.outline.withOpacity(0.2),
+                width: 1,
+              ),
             ),
             child: Row(
               children: [
                 Container(
                   padding: EdgeInsets.all(6),
                   decoration: BoxDecoration(
-                    color: Colors.blue[50],
+                    color: theme.colorScheme.primaryContainer,
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Icon(Icons.video_library_outlined,
-                      color: Colors.blue[600], size: 16),
+                      color: theme.colorScheme.primary, size: 18),
                 ),
-                SizedBox(width: 8),
+                SizedBox(width: 12),
                 Text(
                   l10n.videosFound(searchResults.length),
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                     color: theme.colorScheme.onSurface,
-                    fontSize: 14,
+                    fontSize: 15,
                   ),
                 ),
               ],
@@ -260,7 +305,11 @@ class _SearchScreenState extends State<SearchScreen> {
           // Sonuçlar
           Expanded(
             child: isLoading
-                ? Center(child: CircularProgressIndicator())
+                ? Center(
+                    child: CircularProgressIndicator(
+                      color: theme.colorScheme.primary,
+                    ),
+                  )
                 : searchResults.isEmpty
                     ? _buildEmptyState(context)
                     : ListView.builder(
@@ -304,11 +353,11 @@ class _SearchScreenState extends State<SearchScreen> {
         margin: EdgeInsets.all(40),
         padding: EdgeInsets.all(32),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: theme.colorScheme.surface,
           borderRadius: BorderRadius.circular(20),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.05),
+              color: theme.colorScheme.shadow.withOpacity(0.05),
               blurRadius: 10,
               offset: Offset(0, 2),
             ),
@@ -320,20 +369,20 @@ class _SearchScreenState extends State<SearchScreen> {
             Container(
               padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Colors.grey[100],
+                color: theme.colorScheme.surfaceVariant,
                 shape: BoxShape.circle,
               ),
               child: Icon(
                 Icons.search_off_rounded,
                 size: 60,
-                color: Colors.grey[400],
+                color: theme.colorScheme.onSurfaceVariant,
               ),
             ),
             SizedBox(height: 24),
             Text(
               l10n.noVideoFound,
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 22,
                 fontWeight: FontWeight.bold,
                 color: theme.colorScheme.onSurface,
               ),
@@ -343,13 +392,13 @@ class _SearchScreenState extends State<SearchScreen> {
               l10n.noVideoMatch,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 14,
+                fontSize: 15,
                 color: theme.colorScheme.onSurfaceVariant,
                 height: 1.5,
               ),
             ),
             SizedBox(height: 24),
-            Container(
+            SizedBox(
               width: double.infinity,
               child: ElevatedButton.icon(
                 onPressed: () {
@@ -357,7 +406,16 @@ class _SearchScreenState extends State<SearchScreen> {
                   _performSearch();
                 },
                 icon: Icon(Icons.refresh_rounded),
-                label: Text(l10n.clearSearch),
+                label: Text(
+                  l10n.clearSearch,
+                  style: TextStyle(fontSize: 16),
+                ),
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(vertical: 14),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
               ),
             ),
           ],

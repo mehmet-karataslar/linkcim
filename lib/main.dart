@@ -63,13 +63,16 @@ class LinkciApp extends StatelessWidget {
             supportedLocales: const [
               Locale('tr', ''), // Türkçe
               Locale('en', ''), // İngilizce
+              Locale('de', ''), // Almanca
+              Locale('ru', ''), // Rusça
+              Locale('fr', ''), // Fransızca
             ],
             locale: localeService.currentLocale,
 
-            // Tema ayarları
+            // Tema ayarları - Renk şemasına göre
             themeMode: themeService.themeMode,
-            theme: AppTheme.lightTheme,
-            darkTheme: AppTheme.darkTheme,
+            theme: themeService.getLightTheme(),
+            darkTheme: themeService.getDarkTheme(),
 
             // Başlangıç sayfası - Direkt ana ekran
             home: HomeScreen(),

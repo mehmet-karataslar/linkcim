@@ -17,10 +17,19 @@ class LocaleService extends ChangeNotifier {
     try {
       // WidgetsBinding üzerinden sistem dilini al
       final systemLocale = WidgetsBinding.instance.platformDispatcher.locale;
-      // Eğer cihaz dili Türkçe ise Türkçe, değilse İngilizce
-      if (systemLocale.languageCode == 'tr') {
+      final languageCode = systemLocale.languageCode;
+      
+      // Desteklenen dilleri kontrol et
+      if (languageCode == 'tr') {
         return const Locale('tr');
+      } else if (languageCode == 'de') {
+        return const Locale('de');
+      } else if (languageCode == 'ru') {
+        return const Locale('ru');
+      } else if (languageCode == 'fr') {
+        return const Locale('fr');
       } else {
+        // Varsayılan olarak İngilizce
         return const Locale('en');
       }
     } catch (e) {
