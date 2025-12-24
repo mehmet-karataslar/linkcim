@@ -116,6 +116,10 @@
   "@french": {
     "description": "Fransızca dil seçeneği"
   },
+  "chinese": "Çince",
+  "@chinese": {
+    "description": "Çince dil seçeneği"
+  },
   "theme": "Tema",
   "@theme": {
     "description": "Tema seçimi etiketi"

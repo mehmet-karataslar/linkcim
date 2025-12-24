@@ -418,6 +418,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
         return l10n.russian;
       case 'fr':
         return l10n.french;
+      case 'zh':
+        return l10n.chinese;
       default:
         return l10n.english;
     }
@@ -463,7 +465,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ListTile(
               leading: Icon(Icons.language, color: theme.colorScheme.primary),
               title: Text(l10n.language),
-              subtitle: _getLanguageName(localeService.currentLocale.languageCode, l10n),
+              subtitle: Text(_getLanguageName(localeService.currentLocale.languageCode, l10n)),
               trailing: DropdownButton<Locale>(
                 value: localeService.currentLocale,
                 items: [
@@ -486,6 +488,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   DropdownMenuItem(
                     value: Locale('fr', ''),
                     child: Text(l10n.french),
+                  ),
+                  DropdownMenuItem(
+                    value: Locale('zh', ''),
+                    child: Text(l10n.chinese),
                   ),
                 ],
                 onChanged: (Locale? newLocale) {

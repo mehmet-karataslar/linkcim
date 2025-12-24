@@ -1,350 +1,346 @@
 {
-  "@@locale": "en",
+  "@@locale": "zh",
   "appTitle": "Linkcim",
   "@appTitle": {
     "description": "Application title"
   },
-  "home": "Home",
+  "home": "主页",
   "@home": {
     "description": "Home page title"
   },
-  "addVideo": "Add Video",
+  "addVideo": "添加视频",
   "@addVideo": {
     "description": "Add video button"
   },
-  "editVideo": "Edit Video",
+  "editVideo": "编辑视频",
   "@editVideo": {
     "description": "Edit video title"
   },
-  "search": "Search",
+  "search": "搜索",
   "@search": {
     "description": "Search button"
   },
-  "settings": "Settings",
+  "settings": "设置",
   "@settings": {
     "description": "Settings page title"
   },
-  "videoTitle": "Video Title",
+  "videoTitle": "视频标题",
   "@videoTitle": {
     "description": "Video title label"
   },
-  "videoDescription": "Video Description",
+  "videoDescription": "视频描述",
   "@videoDescription": {
     "description": "Video description label"
   },
-  "category": "Category",
+  "category": "类别",
   "@category": {
     "description": "Category label"
   },
-  "tags": "Tags",
+  "tags": "标签",
   "@tags": {
     "description": "Tags label"
   },
-  "save": "Save",
+  "save": "保存",
   "@save": {
     "description": "Save button"
   },
-  "update": "Update",
+  "update": "更新",
   "@update": {
     "description": "Update button"
   },
-  "cancel": "Cancel",
+  "cancel": "取消",
   "@cancel": {
     "description": "Cancel button"
   },
-  "delete": "Delete",
+  "delete": "删除",
   "@delete": {
     "description": "Delete button"
   },
-  "edit": "Edit",
+  "edit": "编辑",
   "@edit": {
     "description": "Edit button"
   },
-  "noVideos": "No videos added yet",
+  "noVideos": "尚未添加视频",
   "@noVideos": {
     "description": "No videos message"
   },
-  "addFirstVideo": "Add your first video",
+  "addFirstVideo": "添加您的第一个视频",
   "@addFirstVideo": {
     "description": "Add first video message"
   },
-  "allCategories": "All",
+  "allCategories": "所有类别",
   "@allCategories": {
-    "description": "All categories filter"
+    "description": "All categories option"
   },
-  "videoUrl": "Video URL",
+  "videoUrl": "视频网址",
   "@videoUrl": {
     "description": "Video URL label"
   },
-  "enterVideoUrl": "Enter video URL",
+  "enterVideoUrl": "输入视频网址",
   "@enterVideoUrl": {
     "description": "Video URL input placeholder"
   },
-  "invalidUrl": "Please enter a valid video URL",
+  "invalidUrl": "请输入有效的视频网址",
   "@invalidUrl": {
     "description": "Invalid URL error"
   },
-  "required": "Required",
+  "required": "必填",
   "@required": {
     "description": "Required field label"
   },
-  "optional": "Optional",
+  "optional": "可选",
   "@optional": {
     "description": "Optional field label"
   },
-  "language": "Language",
+  "language": "语言",
   "@language": {
     "description": "Language selection label"
   },
-  "turkish": "Turkish",
+  "turkish": "土耳其语",
   "@turkish": {
     "description": "Turkish language option"
   },
-  "english": "English",
+  "english": "英语",
   "@english": {
     "description": "English language option"
   },
-  "german": "German",
+  "german": "德语",
   "@german": {
     "description": "German language option"
   },
-  "russian": "Russian",
+  "russian": "俄语",
   "@russian": {
     "description": "Russian language option"
   },
-  "french": "French",
+  "french": "法语",
   "@french": {
     "description": "French language option"
   },
-  "chinese": "Chinese",
+  "chinese": "中文",
   "@chinese": {
     "description": "Chinese language option"
   },
-  "theme": "Theme",
+  "theme": "主题",
   "@theme": {
     "description": "Theme selection label"
   },
-  "lightTheme": "Light Theme",
+  "lightTheme": "浅色",
   "@lightTheme": {
     "description": "Light theme option"
   },
-  "darkTheme": "Dark Theme",
+  "darkTheme": "深色",
   "@darkTheme": {
     "description": "Dark theme option"
   },
-  "systemTheme": "System Theme",
+  "systemTheme": "系统",
   "@systemTheme": {
     "description": "System theme option"
   },
-  "colorScheme": "Color Scheme",
+  "colorScheme": "配色方案",
   "@colorScheme": {
     "description": "Color scheme selection label"
   },
-  "permissions": "Permissions",
+  "permissions": "权限",
   "@permissions": {
     "description": "Permissions section"
   },
-  "storagePermissions": "Storage Permissions",
+  "storagePermissions": "存储权限",
   "@storagePermissions": {
     "description": "Storage permissions title"
   },
-  "managePermissions": "Manage Permissions",
+  "managePermissions": "管理权限",
   "@managePermissions": {
     "description": "Manage permissions button"
   },
-  "systemSettings": "System Settings",
+  "systemSettings": "系统设置",
   "@systemSettings": {
     "description": "System settings button"
   },
-  "dataManagement": "Data Management",
+  "dataManagement": "数据管理",
   "@dataManagement": {
     "description": "Data management section"
   },
-  "clearAllData": "Clear All Data",
+  "clearAllData": "清除所有数据",
   "@clearAllData": {
     "description": "Clear all data button"
   },
-  "clearDataWarning": "This action will delete all your videos and cannot be undone. Are you sure you want to continue?",
+  "clearDataWarning": "此操作将删除您的所有视频且无法撤销。您确定要继续吗？",
   "@clearDataWarning": {
     "description": "Clear data warning"
   },
-  "about": "About",
+  "about": "关于",
   "@about": {
     "description": "About button"
   },
-  "appInfo": "Smart Video Recording and Categorization Application",
+  "appInfo": "智能视频录制和分类应用",
   "@appInfo": {
     "description": "Application description"
   },
-  "addTag": "Add Tag",
+  "addTag": "添加标签",
   "@addTag": {
     "description": "Add tag label"
   },
-  "enterTag": "Enter tag and press Enter",
+  "enterTag": "输入标签并按 Enter",
   "@enterTag": {
     "description": "Tag input placeholder"
   },
-  "newVideo": "Add New Video",
-  "@newVideo": {
-    "description": "New video title"
-  },
-  "editVideoInfo": "Edit Video Information",
-  "@editVideoInfo": {
-    "description": "Edit video title"
-  },
-  "videoInfoDescription": "Enter video information and add to your collection",
-  "@videoInfoDescription": {
-    "description": "Add video description"
-  },
-  "selectCategory": "Select video category",
-  "@selectCategory": {
-    "description": "Category selection placeholder"
-  },
-  "videoSaved": "Video saved successfully",
-  "@videoSaved": {
-    "description": "Video saved message"
-  },
-  "videoUpdated": "Video updated",
-  "@videoUpdated": {
-    "description": "Video updated message"
-  },
-  "saveError": "Save error",
-  "@saveError": {
-    "description": "Save error message"
-  },
-  "allPermissionsGranted": "All permissions granted",
-  "@allPermissionsGranted": {
-    "description": "All permissions granted message"
-  },
-  "permissionsMissing": "Permissions missing",
-  "@permissionsMissing": {
-    "description": "Permissions missing message"
-  },
-  "permissionInfo": "Linkcim app requires the following permissions:",
-  "@permissionInfo": {
-    "description": "Permission info description"
-  },
-  "storageAccess": "Storage Access",
-  "@storageAccess": {
-    "description": "Storage access description"
-  },
-  "storageAccessDesc": "To access app data",
-  "@storageAccessDesc": {
-    "description": "Storage access description"
-  },
-  "videoMediaAccess": "Video/Media Access",
-  "@videoMediaAccess": {
-    "description": "Video/Media access title"
-  },
-  "videoMediaAccessDesc": "To access video files",
-  "@videoMediaAccessDesc": {
-    "description": "Video/Media access description"
-  },
-  "fileManagement": "File Management",
-  "@fileManagement": {
-    "description": "File management title"
-  },
-  "fileManagementDesc": "To organize video files",
-  "@fileManagementDesc": {
-    "description": "File management description"
-  },
-  "dataPrivacy": "Your data is safe, only used for app functionality.",
-  "@dataPrivacy": {
-    "description": "Data privacy message"
-  },
-  "requestingPermissions": "Requesting permissions...",
-  "@requestingPermissions": {
-    "description": "Requesting permissions message"
-  },
-  "permissionsGranted": "All permissions granted!",
-  "@permissionsGranted": {
-    "description": "Permissions granted message"
-  },
-  "permissionsDenied": "Some permissions were denied.",
-  "@permissionsDenied": {
-    "description": "Permissions denied message"
-  },
-  "dataCleared": "All data cleared",
-  "@dataCleared": {
-    "description": "Data cleared message"
-  },
-  "clearDataError": "Error occurred while clearing data",
-  "@clearDataError": {
-    "description": "Clear data error"
-  },
-  "appVersion": "Application Version",
-  "@appVersion": {
-    "description": "Application version label"
-  },
-  "developedWith": "Developed with Flutter.",
-  "@developedWith": {
-    "description": "Development info"
-  },
-  "newVideo": "New Video",
+  "newVideo": "新视频",
   "@newVideo": {
     "description": "New video button"
   },
-  "searchVideos": "Search your videos...",
+  "editVideoInfo": "编辑视频信息",
+  "@editVideoInfo": {
+    "description": "Edit video title"
+  },
+  "videoInfoDescription": "输入视频信息并添加到您的收藏",
+  "@videoInfoDescription": {
+    "description": "Add video description"
+  },
+  "selectCategory": "选择视频类别",
+  "@selectCategory": {
+    "description": "Category selection placeholder"
+  },
+  "videoSaved": "视频保存成功",
+  "@videoSaved": {
+    "description": "Video saved message"
+  },
+  "videoUpdated": "视频已更新",
+  "@videoUpdated": {
+    "description": "Video updated message"
+  },
+  "saveError": "保存错误",
+  "@saveError": {
+    "description": "Save error message"
+  },
+  "allPermissionsGranted": "已授予所有权限",
+  "@allPermissionsGranted": {
+    "description": "All permissions granted message"
+  },
+  "permissionsMissing": "缺少权限",
+  "@permissionsMissing": {
+    "description": "Permissions missing message"
+  },
+  "permissionInfo": "Linkcim 应用需要以下权限：",
+  "@permissionInfo": {
+    "description": "Permission info description"
+  },
+  "storageAccess": "存储访问",
+  "@storageAccess": {
+    "description": "Storage access description"
+  },
+  "storageAccessDesc": "访问应用数据",
+  "@storageAccessDesc": {
+    "description": "Storage access description"
+  },
+  "videoMediaAccess": "视频/媒体访问",
+  "@videoMediaAccess": {
+    "description": "Video/Media access title"
+  },
+  "videoMediaAccessDesc": "访问视频文件",
+  "@videoMediaAccessDesc": {
+    "description": "Video/Media access description"
+  },
+  "fileManagement": "文件管理",
+  "@fileManagement": {
+    "description": "File management title"
+  },
+  "fileManagementDesc": "整理视频文件",
+  "@fileManagementDesc": {
+    "description": "File management description"
+  },
+  "dataPrivacy": "您的数据是安全的，仅用于应用功能。",
+  "@dataPrivacy": {
+    "description": "Data privacy message"
+  },
+  "requestingPermissions": "请求权限...",
+  "@requestingPermissions": {
+    "description": "Requesting permissions message"
+  },
+  "permissionsGranted": "已授予所有权限！",
+  "@permissionsGranted": {
+    "description": "Permissions granted message"
+  },
+  "permissionsDenied": "某些权限被拒绝。",
+  "@permissionsDenied": {
+    "description": "Permissions denied message"
+  },
+  "dataCleared": "所有数据已清除",
+  "@dataCleared": {
+    "description": "Data cleared message"
+  },
+  "clearDataError": "清除数据时出错",
+  "@clearDataError": {
+    "description": "Clear data error"
+  },
+  "appVersion": "应用版本",
+  "@appVersion": {
+    "description": "App version label"
+  },
+  "developedWith": "使用 Flutter 开发。",
+  "@developedWith": {
+    "description": "Development info"
+  },
+  "searchVideos": "搜索您的视频...",
   "@searchVideos": {
     "description": "Search placeholder"
   },
-  "videosLoading": "Loading videos...",
+  "videosLoading": "正在加载视频...",
   "@videosLoading": {
     "description": "Video loading message"
   },
-  "noVideoFound": "No video found",
+  "noVideoFound": "未找到视频",
   "@noVideoFound": {
     "description": "No video found message"
   },
-  "tryDifferentKeywords": "Try different keywords.",
+  "tryDifferentKeywords": "尝试不同的关键词。",
   "@tryDifferentKeywords": {
     "description": "Try different keywords message"
   },
-  "addFirstVideoButton": "Add Your First Video",
+  "addFirstVideoButton": "添加您的第一个视频",
   "@addFirstVideoButton": {
     "description": "Add first video button"
   },
-  "videoDelete": "Delete Video",
+  "videoDelete": "删除视频",
   "@videoDelete": {
     "description": "Delete video title"
   },
-  "confirmDelete": "Are you sure you want to delete this video?",
+  "confirmDelete": "您确定要删除此视频吗？",
   "@confirmDelete": {
     "description": "Delete confirmation message"
   },
-  "videoDeleted": "Video deleted",
+  "videoDeleted": "视频已删除",
   "@videoDeleted": {
     "description": "Video deleted message"
   },
-  "videoDeleteError": "Video could not be deleted",
+  "videoDeleteError": "无法删除视频",
   "@videoDeleteError": {
     "description": "Video delete error"
   },
-  "dataLoadError": "Error occurred while loading data",
+  "dataLoadError": "加载数据时出错",
   "@dataLoadError": {
     "description": "Data load error"
   },
-  "videoUrlRequired": "Video URL is required",
+  "videoUrlRequired": "需要视频网址",
   "@videoUrlRequired": {
     "description": "Video URL required message"
   },
-  "titleRequired": "Title is required",
+  "titleRequired": "需要标题",
   "@titleRequired": {
     "description": "Title required message"
   },
-  "categoryRequired": "Category is required",
+  "categoryRequired": "需要类别",
   "@categoryRequired": {
     "description": "Category required message"
   },
-  "enterTitle": "Enter video title",
+  "enterTitle": "输入视频标题",
   "@enterTitle": {
     "description": "Title placeholder"
   },
-  "enterDescription": "Write a description about the video (optional)",
+  "enterDescription": "写一个关于视频的描述（可选）",
   "@enterDescription": {
     "description": "Description placeholder"
   },
-  "tagsCount": "Tags ({count}/10)",
+  "tagsCount": "标签 ({count}/10)",
   "@tagsCount": {
     "description": "Tag count",
     "placeholders": {
@@ -353,19 +349,19 @@
       }
     }
   },
-  "videoSearch": "Video Search",
+  "videoSearch": "视频搜索",
   "@videoSearch": {
     "description": "Video search title"
   },
-  "searchPlaceholder": "Search videos... (title, author, platform, tag)",
+  "searchPlaceholder": "搜索视频...（标题、作者、平台、标签）",
   "@searchPlaceholder": {
     "description": "Search placeholder"
   },
-  "clearSearch": "Clear Search",
+  "clearSearch": "清除搜索",
   "@clearSearch": {
     "description": "Clear search button"
   },
-  "videosFound": "{count} videos found",
+  "videosFound": "找到 {count} 个视频",
   "@videosFound": {
     "description": "Videos found message",
     "placeholders": {
@@ -374,231 +370,231 @@
       }
     }
   },
-  "searchError": "Search error",
+  "searchError": "搜索错误",
   "@searchError": {
     "description": "Search error message"
   },
-  "noVideoMatch": "No video found matching your search criteria.\nTry different keywords.",
+  "noVideoMatch": "未找到符合您搜索条件的视频。\n尝试不同的关键词。",
   "@noVideoMatch": {
     "description": "No video match message"
   },
-  "videoStatistics": "Video Statistics",
+  "videoStatistics": "视频统计",
   "@videoStatistics": {
     "description": "Video statistics title"
   },
-  "totalVideos": "Total Videos",
+  "totalVideos": "视频总数",
   "@totalVideos": {
     "description": "Total videos label"
   },
-  "categories": "Categories",
+  "categories": "类别",
   "@categories": {
     "description": "Categories label"
   },
-  "platformDistribution": "Platform Distribution",
+  "platformDistribution": "平台分布",
   "@platformDistribution": {
     "description": "Platform distribution title"
   },
-  "popularCategories": "Popular Categories",
+  "popularCategories": "热门类别",
   "@popularCategories": {
     "description": "Popular categories title"
   },
-  "refresh": "Refresh",
+  "refresh": "刷新",
   "@refresh": {
     "description": "Refresh button"
   },
-  "share": "Share",
+  "share": "分享",
   "@share": {
     "description": "Share button"
   },
-  "preview": "Preview",
+  "preview": "预览",
   "@preview": {
     "description": "Preview button"
   },
-  "open": "Open",
+  "open": "打开",
   "@open": {
     "description": "Open button"
   },
-  "openInPlatform": "Open in Platform",
+  "openInPlatform": "在平台中打开",
   "@openInPlatform": {
     "description": "Open in platform button"
   },
-  "openInInstagram": "Open in Instagram",
+  "openInInstagram": "在 Instagram 中打开",
   "@openInInstagram": {
     "description": "Open in Instagram button"
   },
-  "openInYouTube": "Open in YouTube",
+  "openInYouTube": "在 YouTube 中打开",
   "@openInYouTube": {
     "description": "Open in YouTube button"
   },
-  "openInTikTok": "Open in TikTok",
+  "openInTikTok": "在 TikTok 中打开",
   "@openInTikTok": {
     "description": "Open in TikTok button"
   },
-  "openInTwitter": "Open in Twitter",
+  "openInTwitter": "在 Twitter 中打开",
   "@openInTwitter": {
     "description": "Open in Twitter button"
   },
-  "videoInfo": "Video Information",
+  "videoInfo": "视频信息",
   "@videoInfo": {
     "description": "Video information title"
   },
-  "duration": "Duration",
+  "duration": "时长",
   "@duration": {
     "description": "Duration label"
   },
-  "resolution": "Resolution",
+  "resolution": "分辨率",
   "@resolution": {
     "description": "Resolution label"
   },
-  "fileSize": "File Size",
+  "fileSize": "文件大小",
   "@fileSize": {
     "description": "File size label"
   },
-  "filePath": "File Path",
+  "filePath": "文件路径",
   "@filePath": {
     "description": "File path label"
   },
-  "calculating": "Calculating...",
+  "calculating": "计算中...",
   "@calculating": {
     "description": "Calculating message"
   },
-  "videoLoading": "Loading video...",
+  "videoLoading": "正在加载视频...",
   "@videoLoading": {
     "description": "Video loading message"
   },
-  "videoCannotPlay": "Cannot Play Video",
+  "videoCannotPlay": "无法播放视频",
   "@videoCannotPlay": {
     "description": "Cannot play video title"
   },
-  "retry": "Retry",
+  "retry": "重试",
   "@retry": {
     "description": "Retry button"
   },
-  "goBack": "Go Back",
+  "goBack": "返回",
   "@goBack": {
     "description": "Go back button"
   },
-  "unknownError": "An unknown error occurred",
+  "unknownError": "发生未知错误",
   "@unknownError": {
     "description": "Unknown error message"
   },
-  "videoFileNotFound": "Video file not found",
+  "videoFileNotFound": "未找到视频文件",
   "@videoFileNotFound": {
     "description": "Video file not found message"
   },
-  "videoFileEmpty": "Video file is empty or cannot be read",
+  "videoFileEmpty": "视频文件为空或无法读取",
   "@videoFileEmpty": {
     "description": "Video file empty message"
   },
-  "videoLoadTimeout": "Video loading timed out",
+  "videoLoadTimeout": "视频加载超时",
   "@videoLoadTimeout": {
     "description": "Video load timeout message"
   },
-  "videoFormatNotSupported": "Video format not supported",
+  "videoFormatNotSupported": "不支持的视频格式",
   "@videoFormatNotSupported": {
     "description": "Video format not supported message"
   },
-  "noPermission": "No permission to access video file",
+  "noPermission": "无权访问视频文件",
   "@noPermission": {
     "description": "No permission message"
   },
-  "videoPlayError": "Video cannot be played",
+  "videoPlayError": "无法播放视频",
   "@videoPlayError": {
     "description": "Video play error"
   },
-  "linkOpenError": "Link open error",
+  "linkOpenError": "打开链接错误",
   "@linkOpenError": {
-    "description": "Link open error"
+    "description": "Link opening error message"
   },
-  "platformCannotOpen": "cannot be opened",
+  "platformCannotOpen": "无法打开",
   "@platformCannotOpen": {
     "description": "Platform cannot open message"
   },
-  "organizeVideos": "Organize your videos and find them easily.",
+  "organizeVideos": "整理您的视频并轻松找到它们。",
   "@organizeVideos": {
     "description": "Application description"
   },
-  "manualEditPermissions": "Manually edit app permissions",
+  "manualEditPermissions": "手动编辑应用权限",
   "@manualEditPermissions": {
     "description": "Manual edit permissions message"
   },
-  "checkingPermissions": "Checking permissions...",
+  "checkingPermissions": "检查权限...",
   "@checkingPermissions": {
     "description": "Checking permissions message"
   },
-  "permissionRequestError": "Permission request error",
+  "permissionRequestError": "权限请求错误",
   "@permissionRequestError": {
     "description": "Permission request error"
   },
-  "iosAutoPermission": "Automatic permission granted on iOS devices",
+  "iosAutoPermission": "在 iOS 设备上自动授予权限",
   "@iosAutoPermission": {
     "description": "iOS auto permission message"
   },
-  "carefulUse": "Use carefully - cannot be undone",
+  "carefulUse": "谨慎使用 - 无法撤销",
   "@carefulUse": {
     "description": "Careful use message"
   },
-  "appInformation": "Application information",
+  "appInformation": "应用信息",
   "@appInformation": {
     "description": "Application information label"
   },
-  "searchPlaceholderShort": "Search...",
+  "searchPlaceholderShort": "搜索...",
   "@searchPlaceholderShort": {
     "description": "Short search placeholder"
   },
-  "shareVideoLink": "Share Video Link",
+  "shareVideoLink": "分享视频链接",
   "@shareVideoLink": {
     "description": "Share video link button"
   },
-  "shareVideoLinkDesc": "Via phone share menu",
+  "shareVideoLinkDesc": "通过手机分享菜单",
   "@shareVideoLinkDesc": {
     "description": "Share video link description"
   },
-  "shareDetailedInfo": "Share Detailed Info",
+  "shareDetailedInfo": "分享详细信息",
   "@shareDetailedInfo": {
     "description": "Share detailed info button"
   },
-  "shareDetailedInfoDesc": "With title, description and tags",
+  "shareDetailedInfoDesc": "包含标题、描述和标签",
   "@shareDetailedInfoDesc": {
     "description": "Share detailed info description"
   },
-  "copyLink": "Copy Link",
+  "copyLink": "复制链接",
   "@copyLink": {
     "description": "Copy link button"
   },
-  "copyLinkDesc": "Copy to clipboard",
+  "copyLinkDesc": "复制到剪贴板",
   "@copyLinkDesc": {
     "description": "Copy link description"
   },
-  "linkCopied": "Link copied to clipboard",
+  "linkCopied": "链接已复制到剪贴板",
   "@linkCopied": {
     "description": "Link copied message"
   },
-  "shareError": "Share error",
+  "shareError": "分享错误",
   "@shareError": {
     "description": "Share error message"
   },
-  "copyError": "Copy error",
+  "copyError": "复制错误",
   "@copyError": {
     "description": "Copy error message"
   },
-  "videoLinkShared": "Video link shared",
+  "videoLinkShared": "视频链接已分享",
   "@videoLinkShared": {
     "description": "Video link shared message"
   },
-  "videoDetailsShared": "Video details shared",
+  "videoDetailsShared": "视频详情已分享",
   "@videoDetailsShared": {
     "description": "Video details shared message"
   },
-  "loading": "Loading...",
+  "loading": "加载中...",
   "@loading": {
     "description": "Loading message"
   },
-  "previewLoading": "Preview\nLoading...",
+  "previewLoading": "预览\n加载中...",
   "@previewLoading": {
     "description": "Preview loading message"
   },
-  "previewUnavailable": "Preview\nUnavailable",
+  "previewUnavailable": "预览\n不可用",
   "@previewUnavailable": {
     "description": "Preview unavailable message"
   },
@@ -630,67 +626,67 @@
   "@platformReddit": {
     "description": "Reddit platform name"
   },
-  "platformGeneral": "General",
+  "platformGeneral": "通用",
   "@platformGeneral": {
     "description": "General platform name"
   },
-  "categoryGeneral": "General",
+  "categoryGeneral": "通用",
   "@categoryGeneral": {
     "description": "General category"
   },
-  "categorySoftware": "Software",
+  "categorySoftware": "软件",
   "@categorySoftware": {
     "description": "Software category"
   },
-  "categoryEducation": "Education",
+  "categoryEducation": "教育",
   "@categoryEducation": {
     "description": "Education category"
   },
-  "categoryEntertainment": "Entertainment",
+  "categoryEntertainment": "娱乐",
   "@categoryEntertainment": {
     "description": "Entertainment category"
   },
-  "categorySports": "Sports",
+  "categorySports": "体育",
   "@categorySports": {
     "description": "Sports category"
   },
-  "categoryFood": "Food",
+  "categoryFood": "美食",
   "@categoryFood": {
     "description": "Food category"
   },
-  "categoryMusic": "Music",
+  "categoryMusic": "音乐",
   "@categoryMusic": {
     "description": "Music category"
   },
-  "categoryArt": "Art",
+  "categoryArt": "艺术",
   "@categoryArt": {
     "description": "Art category"
   },
-  "categoryScience": "Science",
+  "categoryScience": "科学",
   "@categoryScience": {
     "description": "Science category"
   },
-  "categoryTechnology": "Technology",
+  "categoryTechnology": "技术",
   "@categoryTechnology": {
     "description": "Technology category"
   },
-  "noDescription": "No description",
+  "noDescription": "无描述",
   "@noDescription": {
     "description": "No description text"
   },
-  "descriptionNotAvailable": "Description not available",
+  "descriptionNotAvailable": "描述不可用",
   "@descriptionNotAvailable": {
     "description": "Description not available text"
   },
-  "noTags": "No tags",
+  "noTags": "无标签",
   "@noTags": {
     "description": "No tags text"
   },
-  "sharedFromLinkcim": "Shared from Linkcim app",
+  "sharedFromLinkcim": "来自 Linkcim 应用",
   "@sharedFromLinkcim": {
     "description": "Shared from app message"
   },
-  "videoCollection": "Video Collection ({count} videos)",
+  "videoCollection": "视频集合（{count} 个视频）",
   "@videoCollection": {
     "description": "Video collection title",
     "placeholders": {
@@ -699,7 +695,7 @@
       }
     }
   },
-  "categoryVideos": "{category} Category",
+  "categoryVideos": "{category} 类别",
   "@categoryVideos": {
     "description": "Category videos title",
     "placeholders": {
@@ -708,7 +704,7 @@
       }
     }
   },
-  "videosFoundInCategory": "{count} videos found",
+  "videosFoundInCategory": "找到 {count} 个视频",
   "@videosFoundInCategory": {
     "description": "Videos found in category",
     "placeholders": {
@@ -717,7 +713,7 @@
       }
     }
   },
-  "andMoreVideos": "... and {count} more videos",
+  "andMoreVideos": "... 还有 {count} 个视频",
   "@andMoreVideos": {
     "description": "And more videos message",
     "placeholders": {
@@ -726,43 +722,43 @@
       }
     }
   },
-  "videoTitleFromUrl": "Video Title",
+  "videoTitleFromUrl": "视频标题",
   "@videoTitleFromUrl": {
     "description": "Video title from URL"
   },
-  "instagramPost": "Instagram Post",
+  "instagramPost": "Instagram 帖子",
   "@instagramPost": {
-    "description": "Instagram post type"
+    "description": "Instagram Post type"
   },
   "instagramReel": "Instagram Reel",
   "@instagramReel": {
-    "description": "Instagram reel type"
+    "description": "Instagram Reel type"
   },
   "instagramTV": "Instagram TV",
   "@instagramTV": {
     "description": "Instagram TV type"
   },
-  "instagramVideo": "Instagram Video",
+  "instagramVideo": "Instagram 视频",
   "@instagramVideo": {
     "description": "Instagram video type"
   },
-  "youtubeVideo": "YouTube Video",
+  "youtubeVideo": "YouTube 视频",
   "@youtubeVideo": {
-    "description": "YouTube video type"
+    "description": "YouTube Video type"
   },
   "youtubeShorts": "YouTube Shorts",
   "@youtubeShorts": {
     "description": "YouTube Shorts type"
   },
-  "tiktokVideo": "TikTok Video",
+  "tiktokVideo": "TikTok 视频",
   "@tiktokVideo": {
-    "description": "TikTok video type"
+    "description": "TikTok Video type"
   },
-  "tiktokVideoShortLink": "TikTok Video (Short Link)",
+  "tiktokVideoShortLink": "TikTok 视频（短链接）",
   "@tiktokVideoShortLink": {
     "description": "TikTok video short link type"
   },
-  "twitterPost": "Twitter Post",
+  "twitterPost": "Twitter 帖子",
   "@twitterPost": {
     "description": "Twitter post type"
   },
@@ -775,7 +771,7 @@
       }
     }
   },
-  "xTwitterPost": "X/Twitter Post",
+  "xTwitterPost": "X/Twitter 帖子",
   "@xTwitterPost": {
     "description": "X/Twitter post type"
   },
@@ -788,31 +784,31 @@
       }
     }
   },
-  "facebookVideo": "Facebook Video",
+  "facebookVideo": "Facebook 视频",
   "@facebookVideo": {
     "description": "Facebook video type"
   },
-  "vimeoVideo": "Vimeo Video",
+  "vimeoVideo": "Vimeo 视频",
   "@vimeoVideo": {
     "description": "Vimeo video type"
   },
-  "redditVideo": "Reddit Video",
+  "redditVideo": "Reddit 视频",
   "@redditVideo": {
     "description": "Reddit video type"
   },
-  "unknownChannel": "Unknown Channel",
+  "unknownChannel": "未知频道",
   "@unknownChannel": {
     "description": "Unknown channel name"
   },
-  "quickShare": "Quick Share",
+  "quickShare": "快速分享",
   "@quickShare": {
     "description": "Quick share button"
   },
-  "videoShared": "Video shared",
+  "videoShared": "视频已分享",
   "@videoShared": {
     "description": "Video shared message"
   },
-  "shareFailed": "Share failed: {error}",
+  "shareFailed": "分享失败：{error}",
   "@shareFailed": {
     "description": "Share failed message",
     "placeholders": {
@@ -821,79 +817,79 @@
       }
     }
   },
-  "grantPermission": "Grant Permission",
+  "grantPermission": "授予权限",
   "@grantPermission": {
     "description": "Grant permission button"
   },
-  "later": "Later",
+  "later": "稍后",
   "@later": {
     "description": "Later button"
   },
-  "videoAccess": "Video Access",
+  "videoAccess": "视频访问",
   "@videoAccess": {
     "description": "Video access title"
   },
-  "videoAccessDescription": "To save and organize video links",
+  "videoAccessDescription": "保存和整理视频链接",
   "@videoAccessDescription": {
     "description": "Video access description"
   },
-  "collections": "Collections",
+  "collections": "收藏",
   "@collections": {
     "description": "Collections page title"
   },
-  "collection": "Collection",
+  "collection": "收藏",
   "@collection": {
     "description": "Collection label"
   },
-  "newCollection": "New Collection",
+  "newCollection": "新建收藏",
   "@newCollection": {
     "description": "New collection button"
   },
-  "collectionName": "Collection Name",
+  "collectionName": "收藏名称",
   "@collectionName": {
     "description": "Collection name label"
   },
-  "collectionDescription": "Description",
+  "collectionDescription": "描述",
   "@collectionDescription": {
     "description": "Collection description label"
   },
-  "addToCollection": "Add to Collection",
+  "addToCollection": "添加到收藏",
   "@addToCollection": {
     "description": "Add to collection button"
   },
-  "removeFromCollection": "Remove from Collection",
+  "removeFromCollection": "从收藏中移除",
   "@removeFromCollection": {
     "description": "Remove from collection button"
   },
-  "collectionCreated": "Collection created",
+  "collectionCreated": "收藏已创建",
   "@collectionCreated": {
     "description": "Collection created message"
   },
-  "collectionUpdated": "Collection updated",
+  "collectionUpdated": "收藏已更新",
   "@collectionUpdated": {
     "description": "Collection updated message"
   },
-  "collectionDeleted": "Collection deleted",
+  "collectionDeleted": "收藏已删除",
   "@collectionDeleted": {
     "description": "Collection deleted message"
   },
-  "videoAddedToCollection": "Video added to collection",
+  "videoAddedToCollection": "视频已添加到收藏",
   "@videoAddedToCollection": {
     "description": "Video added to collection message"
   },
-  "videoRemovedFromCollection": "Video removed from collection",
+  "videoRemovedFromCollection": "视频已从收藏中移除",
   "@videoRemovedFromCollection": {
     "description": "Video removed from collection message"
   },
-  "noCollections": "No collections yet",
+  "noCollections": "尚无收藏",
   "@noCollections": {
     "description": "No collections message"
   },
-  "createFirstCollection": "Create your first collection",
+  "createFirstCollection": "创建您的第一个收藏",
   "@createFirstCollection": {
     "description": "Create first collection message"
   },
-  "videosInCollection": "{count} videos",
+  "videosInCollection": "{count} 个视频",
   "@videosInCollection": {
     "description": "Videos in collection count",
     "placeholders": {
@@ -902,155 +898,135 @@
       }
     }
   },
-  "advancedSearch": "Advanced Search",
+  "advancedSearch": "高级搜索",
   "@advancedSearch": {
     "description": "Advanced search title"
   },
-  "filterBy": "Filter By",
+  "filterBy": "筛选条件",
   "@filterBy": {
     "description": "Filter by label"
   },
-  "sortBy": "Sort By",
+  "sortBy": "排序方式",
   "@sortBy": {
     "description": "Sort by label"
   },
-  "sortNewest": "Newest First",
+  "sortNewest": "最新的在前",
   "@sortNewest": {
     "description": "Sort newest option"
   },
-  "sortOldest": "Oldest First",
+  "sortOldest": "最旧的在前",
   "@sortOldest": {
     "description": "Sort oldest option"
   },
-  "sortTitle": "Title (A-Z)",
+  "sortTitle": "标题 (A-Z)",
   "@sortTitle": {
     "description": "Sort by title option"
   },
-  "sortPlatform": "Platform",
+  "sortPlatform": "平台",
   "@sortPlatform": {
     "description": "Sort by platform option"
   },
-  "filterPlatform": "Platform",
+  "filterPlatform": "平台",
   "@filterPlatform": {
     "description": "Filter by platform label"
   },
-  "filterCategory": "Category",
+  "filterCategory": "类别",
   "@filterCategory": {
     "description": "Filter by category label"
   },
-  "filterTags": "Tags",
+  "filterTags": "标签",
   "@filterTags": {
     "description": "Filter by tags label"
   },
-  "filterDateRange": "Date Range",
+  "filterDateRange": "日期范围",
   "@filterDateRange": {
     "description": "Filter by date range label"
   },
-  "fromDate": "From Date",
+  "fromDate": "开始日期",
   "@fromDate": {
     "description": "From date label"
   },
-  "toDate": "To Date",
+  "toDate": "结束日期",
   "@toDate": {
     "description": "To date label"
   },
-  "clearFilters": "Clear Filters",
+  "clearFilters": "清除筛选",
   "@clearFilters": {
     "description": "Clear filters button"
   },
-  "applyFilters": "Apply Filters",
+  "applyFilters": "应用筛选",
   "@applyFilters": {
     "description": "Apply filters button"
   },
-  "selectMultiple": "Select Multiple",
+  "selectMultiple": "多选",
   "@selectMultiple": {
     "description": "Select multiple label"
   },
-  "allPlatforms": "All Platforms",
+  "allPlatforms": "所有平台",
   "@allPlatforms": {
     "description": "All platforms option"
   },
-  "allCategories": "All Categories",
-  "@allCategories": {
-    "description": "All categories option"
-  },
-  "detailedInformation": "Detailed Information",
+  "detailedInformation": "详细信息",
   "@detailedInformation": {
     "description": "Detailed information title"
   },
-  "linkDetails": "Link Details",
+  "linkDetails": "链接详情",
   "@linkDetails": {
     "description": "Link details title"
   },
-  "videoType": "Video Type",
+  "videoType": "视频类型",
   "@videoType": {
     "description": "Video type label"
   },
-  "urlLength": "URL Length",
+  "urlLength": "网址长度",
   "@urlLength": {
     "description": "URL length label"
   },
-  "fullUrl": "Full URL",
+  "fullUrl": "完整网址",
   "@fullUrl": {
     "description": "Full URL label"
   },
-  "characters": "characters",
+  "characters": "字符",
   "@characters": {
     "description": "Characters unit"
   },
-  "playInApp": "Play in App",
+  "playInApp": "在应用中播放",
   "@playInApp": {
     "description": "Play in app button"
   },
-  "instagramInfo": "Instagram Information",
+  "instagramInfo": "Instagram 信息",
   "@instagramInfo": {
     "description": "Instagram information title"
   },
-  "loadingInstagramInfo": "Loading Instagram information...",
+  "loadingInstagramInfo": "正在加载 Instagram 信息...",
   "@loadingInstagramInfo": {
     "description": "Loading Instagram info message"
   },
-  "author": "Author",
+  "author": "作者",
   "@author": {
     "description": "Author label"
   },
-  "postType": "Type",
+  "postType": "类型",
   "@postType": {
     "description": "Post type label"
   },
-  "postId": "Post ID",
+  "postId": "帖子 ID",
   "@postId": {
     "description": "Post ID label"
-  },
-  "instagramReel": "Instagram Reel",
-  "@instagramReel": {
-    "description": "Instagram Reel type"
   },
   "igtv": "IGTV",
   "@igtv": {
     "description": "IGTV type"
   },
-  "instagramPost": "Instagram Post",
-  "@instagramPost": {
-    "description": "Instagram Post type"
-  },
-  "youtubeVideo": "YouTube Video",
-  "@youtubeVideo": {
-    "description": "YouTube Video type"
-  },
-  "tiktokVideo": "TikTok Video",
-  "@tiktokVideo": {
-    "description": "TikTok Video type"
-  },
-  "twitterVideo": "Twitter Video",
+  "twitterVideo": "Twitter 视频",
   "@twitterVideo": {
     "description": "Twitter Video type"
   },
-  "video": "Video",
+  "video": "视频",
   "@video": {
     "description": "Video type"
   },
-  "couldNotOpen": "Could not open {platform}",
+  "couldNotOpen": "无法打开 {platform}",
   "@couldNotOpen": {
     "description": "Could not open platform message",
     "placeholders": {
@@ -1059,60 +1035,59 @@
       }
     }
   },
-  "linkOpenError": "Link opening error",
-  "@linkOpenError": {
-    "description": "Link opening error message"
-  },
-  "platform": "Platform",
+  "platform": "平台",
   "@platform": {
     "description": "Platform label"
   },
-  "appDescription": "Video organization app. Organize videos from Instagram, YouTube, TikTok, and Twitter.",
+  "appDescription": "视频整理应用。整理来自 Instagram、YouTube、TikTok 和 Twitter 的视频。",
   "@appDescription": {
     "description": "App description"
   },
-  "technicalInformation": "Technical Information",
+  "technicalInformation": "技术信息",
   "@technicalInformation": {
     "description": "Technical information title"
   },
-  "framework": "Framework",
+  "framework": "框架",
   "@framework": {
     "description": "Framework label"
   },
-  "systemVersion": "System Version",
+  "systemVersion": "系统版本",
   "@systemVersion": {
     "description": "System version label"
   },
-  "packageName": "Package Name",
+  "packageName": "包名",
   "@packageName": {
     "description": "Package name label"
   },
-  "appVersion": "App Version",
-  "@appVersion": {
-    "description": "App version label"
-  },
-  "developer": "Developer",
+  "developer": "开发者",
   "@developer": {
     "description": "Developer title"
   },
-  "developerName": "Developer",
+  "developerName": "开发者",
   "@developerName": {
     "description": "Developer name label"
   },
-  "profession": "Profession",
+  "profession": "职业",
   "@profession": {
     "description": "Profession label"
   },
-  "visitWebsite": "Visit My Website",
+  "visitWebsite": "访问我的网站",
   "@visitWebsite": {
     "description": "Visit website button"
   },
-  "close": "Close",
+  "close": "关闭",
   "@close": {
     "description": "Close button"
   },
-  "computerEngineer": "Computer Engineer",
+  "computerEngineer": "计算机工程师",
   "@computerEngineer": {
     "description": "Computer Engineer profession"
-  }
+  },
+  "colorSchemeBlue": "蓝色",
+  "colorSchemeGreen": "绿色",
+  "colorSchemePurple": "紫色",
+  "colorSchemeOrange": "橙色",
+  "colorSchemeTeal": "青绿色",
+  "colorSchemeRed": "红色",
+  "colorSchemePink": "粉色"
 }

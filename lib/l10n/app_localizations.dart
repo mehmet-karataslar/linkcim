@@ -10,6 +10,7 @@ import 'app_localizations_en.dart';
 import 'app_localizations_fr.dart';
 import 'app_localizations_ru.dart';
 import 'app_localizations_tr.dart';
+import 'app_localizations_zh.dart';
 
 // ignore_for_file: type=lint
 
@@ -101,7 +102,8 @@ abstract class AppLocalizations {
     Locale('en'),
     Locale('fr'),
     Locale('ru'),
-    Locale('tr')
+    Locale('tr'),
+    Locale('zh')
   ];
 
   /// Application title
@@ -277,6 +279,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'French'**
   String get french;
+
+  /// Chinese language option
+  ///
+  /// In en, this message translates to:
+  /// **'Chinese'**
+  String get chinese;
 
   /// Theme selection label
   ///
@@ -1651,8 +1659,14 @@ class _AppLocalizationsDelegate
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['de', 'en', 'fr', 'ru', 'tr'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>[
+        'de',
+        'en',
+        'fr',
+        'ru',
+        'tr',
+        'zh'
+      ].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -1671,6 +1685,8 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
       return AppLocalizationsRu();
     case 'tr':
       return AppLocalizationsTr();
+    case 'zh':
+      return AppLocalizationsZh();
   }
 
   throw FlutterError(

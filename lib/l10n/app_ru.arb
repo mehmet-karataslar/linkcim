@@ -24,6 +24,74 @@
   "@settings": {
     "description": "Settings page title"
   },
+  "videoTitle": "Название видео",
+  "@videoTitle": {
+    "description": "Video title label"
+  },
+  "videoDescription": "Описание видео",
+  "@videoDescription": {
+    "description": "Video description label"
+  },
+  "category": "Категория",
+  "@category": {
+    "description": "Category label"
+  },
+  "tags": "Теги",
+  "@tags": {
+    "description": "Tags label"
+  },
+  "save": "Сохранить",
+  "@save": {
+    "description": "Save button"
+  },
+  "update": "Обновить",
+  "@update": {
+    "description": "Update button"
+  },
+  "cancel": "Отмена",
+  "@cancel": {
+    "description": "Cancel button"
+  },
+  "delete": "Удалить",
+  "@delete": {
+    "description": "Delete button"
+  },
+  "edit": "Редактировать",
+  "@edit": {
+    "description": "Edit button"
+  },
+  "noVideos": "Видео еще не добавлены",
+  "@noVideos": {
+    "description": "No videos message"
+  },
+  "addFirstVideo": "Добавьте свое первое видео",
+  "@addFirstVideo": {
+    "description": "Add first video message"
+  },
+  "allCategories": "Все категории",
+  "@allCategories": {
+    "description": "All categories option"
+  },
+  "videoUrl": "URL видео",
+  "@videoUrl": {
+    "description": "Video URL label"
+  },
+  "enterVideoUrl": "Введите URL видео",
+  "@enterVideoUrl": {
+    "description": "Video URL input placeholder"
+  },
+  "invalidUrl": "Пожалуйста, введите действительный URL видео",
+  "@invalidUrl": {
+    "description": "Invalid URL error"
+  },
+  "required": "Обязательно",
+  "@required": {
+    "description": "Required field label"
+  },
+  "optional": "Необязательно",
+  "@optional": {
+    "description": "Optional field label"
+  },
   "language": "Язык",
   "@language": {
     "description": "Language selection label"
@@ -48,6 +116,10 @@
   "@french": {
     "description": "French language option"
   },
+  "chinese": "Китайский",
+  "@chinese": {
+    "description": "Chinese language option"
+  },
   "theme": "Тема",
   "@theme": {
     "description": "Theme selection label"
@@ -67,5 +139,955 @@
   "colorScheme": "Цветовая схема",
   "@colorScheme": {
     "description": "Color scheme selection label"
-  }
+  },
+  "permissions": "Разрешения",
+  "@permissions": {
+    "description": "Permissions section"
+  },
+  "storagePermissions": "Разрешения на хранение",
+  "@storagePermissions": {
+    "description": "Storage permissions title"
+  },
+  "managePermissions": "Управление разрешениями",
+  "@managePermissions": {
+    "description": "Manage permissions button"
+  },
+  "systemSettings": "Системные настройки",
+  "@systemSettings": {
+    "description": "System settings button"
+  },
+  "dataManagement": "Управление данными",
+  "@dataManagement": {
+    "description": "Data management section"
+  },
+  "clearAllData": "Очистить все данные",
+  "@clearAllData": {
+    "description": "Clear all data button"
+  },
+  "clearDataWarning": "Это действие удалит все ваши видео и не может быть отменено. Вы уверены, что хотите продолжить?",
+  "@clearDataWarning": {
+    "description": "Clear data warning"
+  },
+  "about": "О приложении",
+  "@about": {
+    "description": "About button"
+  },
+  "appInfo": "Умное приложение для записи и категоризации видео",
+  "@appInfo": {
+    "description": "Application description"
+  },
+  "addTag": "Добавить тег",
+  "@addTag": {
+    "description": "Add tag label"
+  },
+  "enterTag": "Введите тег и нажмите Enter",
+  "@enterTag": {
+    "description": "Tag input placeholder"
+  },
+  "newVideo": "Новое видео",
+  "@newVideo": {
+    "description": "New video button"
+  },
+  "editVideoInfo": "Редактировать информацию о видео",
+  "@editVideoInfo": {
+    "description": "Edit video title"
+  },
+  "videoInfoDescription": "Введите информацию о видео и добавьте в свою коллекцию",
+  "@videoInfoDescription": {
+    "description": "Add video description"
+  },
+  "selectCategory": "Выберите категорию видео",
+  "@selectCategory": {
+    "description": "Category selection placeholder"
+  },
+  "videoSaved": "Видео успешно сохранено",
+  "@videoSaved": {
+    "description": "Video saved message"
+  },
+  "videoUpdated": "Видео обновлено",
+  "@videoUpdated": {
+    "description": "Video updated message"
+  },
+  "saveError": "Ошибка сохранения",
+  "@saveError": {
+    "description": "Save error message"
+  },
+  "allPermissionsGranted": "Все разрешения предоставлены",
+  "@allPermissionsGranted": {
+    "description": "All permissions granted message"
+  },
+  "permissionsMissing": "Разрешения отсутствуют",
+  "@permissionsMissing": {
+    "description": "Permissions missing message"
+  },
+  "permissionInfo": "Приложение Linkcim требует следующие разрешения:",
+  "@permissionInfo": {
+    "description": "Permission info description"
+  },
+  "storageAccess": "Доступ к хранилищу",
+  "@storageAccess": {
+    "description": "Storage access description"
+  },
+  "storageAccessDesc": "Для доступа к данным приложения",
+  "@storageAccessDesc": {
+    "description": "Storage access description"
+  },
+  "videoMediaAccess": "Доступ к видео/медиа",
+  "@videoMediaAccess": {
+    "description": "Video/Media access title"
+  },
+  "videoMediaAccessDesc": "Для доступа к видеофайлам",
+  "@videoMediaAccessDesc": {
+    "description": "Video/Media access description"
+  },
+  "fileManagement": "Управление файлами",
+  "@fileManagement": {
+    "description": "File management title"
+  },
+  "fileManagementDesc": "Для организации видеофайлов",
+  "@fileManagementDesc": {
+    "description": "File management description"
+  },
+  "dataPrivacy": "Ваши данные в безопасности и используются только для функциональности приложения.",
+  "@dataPrivacy": {
+    "description": "Data privacy message"
+  },
+  "requestingPermissions": "Запрос разрешений...",
+  "@requestingPermissions": {
+    "description": "Requesting permissions message"
+  },
+  "permissionsGranted": "Все разрешения предоставлены!",
+  "@permissionsGranted": {
+    "description": "Permissions granted message"
+  },
+  "permissionsDenied": "Некоторые разрешения были отклонены.",
+  "@permissionsDenied": {
+    "description": "Permissions denied message"
+  },
+  "dataCleared": "Все данные очищены",
+  "@dataCleared": {
+    "description": "Data cleared message"
+  },
+  "clearDataError": "Ошибка при очистке данных",
+  "@clearDataError": {
+    "description": "Clear data error"
+  },
+  "appVersion": "Версия приложения",
+  "@appVersion": {
+    "description": "App version label"
+  },
+  "developedWith": "Разработано с использованием Flutter.",
+  "@developedWith": {
+    "description": "Development info"
+  },
+  "searchVideos": "Поиск ваших видео...",
+  "@searchVideos": {
+    "description": "Search placeholder"
+  },
+  "videosLoading": "Загрузка видео...",
+  "@videosLoading": {
+    "description": "Video loading message"
+  },
+  "noVideoFound": "Видео не найдено",
+  "@noVideoFound": {
+    "description": "No video found message"
+  },
+  "tryDifferentKeywords": "Попробуйте другие ключевые слова.",
+  "@tryDifferentKeywords": {
+    "description": "Try different keywords message"
+  },
+  "addFirstVideoButton": "Добавьте свое первое видео",
+  "@addFirstVideoButton": {
+    "description": "Add first video button"
+  },
+  "videoDelete": "Удалить видео",
+  "@videoDelete": {
+    "description": "Delete video title"
+  },
+  "confirmDelete": "Вы уверены, что хотите удалить это видео?",
+  "@confirmDelete": {
+    "description": "Delete confirmation message"
+  },
+  "videoDeleted": "Видео удалено",
+  "@videoDeleted": {
+    "description": "Video deleted message"
+  },
+  "videoDeleteError": "Не удалось удалить видео",
+  "@videoDeleteError": {
+    "description": "Video delete error"
+  },
+  "dataLoadError": "Ошибка при загрузке данных",
+  "@dataLoadError": {
+    "description": "Data load error"
+  },
+  "videoUrlRequired": "URL видео обязателен",
+  "@videoUrlRequired": {
+    "description": "Video URL required message"
+  },
+  "titleRequired": "Название обязательно",
+  "@titleRequired": {
+    "description": "Title required message"
+  },
+  "categoryRequired": "Категория обязательна",
+  "@categoryRequired": {
+    "description": "Category required message"
+  },
+  "enterTitle": "Введите название видео",
+  "@enterTitle": {
+    "description": "Title placeholder"
+  },
+  "enterDescription": "Напишите описание видео (необязательно)",
+  "@enterDescription": {
+    "description": "Description placeholder"
+  },
+  "tagsCount": "Теги ({count}/10)",
+  "@tagsCount": {
+    "description": "Tag count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "videoSearch": "Поиск видео",
+  "@videoSearch": {
+    "description": "Video search title"
+  },
+  "searchPlaceholder": "Поиск видео... (название, автор, платформа, тег)",
+  "@searchPlaceholder": {
+    "description": "Search placeholder"
+  },
+  "clearSearch": "Очистить поиск",
+  "@clearSearch": {
+    "description": "Clear search button"
+  },
+  "videosFound": "Найдено {count} видео",
+  "@videosFound": {
+    "description": "Videos found message",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "searchError": "Ошибка поиска",
+  "@searchError": {
+    "description": "Search error message"
+  },
+  "noVideoMatch": "Не найдено видео, соответствующего вашим критериям поиска.\nПопробуйте другие ключевые слова.",
+  "@noVideoMatch": {
+    "description": "No video match message"
+  },
+  "videoStatistics": "Статистика видео",
+  "@videoStatistics": {
+    "description": "Video statistics title"
+  },
+  "totalVideos": "Всего видео",
+  "@totalVideos": {
+    "description": "Total videos label"
+  },
+  "categories": "Категории",
+  "@categories": {
+    "description": "Categories label"
+  },
+  "platformDistribution": "Распределение по платформам",
+  "@platformDistribution": {
+    "description": "Platform distribution title"
+  },
+  "popularCategories": "Популярные категории",
+  "@popularCategories": {
+    "description": "Popular categories title"
+  },
+  "refresh": "Обновить",
+  "@refresh": {
+    "description": "Refresh button"
+  },
+  "share": "Поделиться",
+  "@share": {
+    "description": "Share button"
+  },
+  "preview": "Предпросмотр",
+  "@preview": {
+    "description": "Preview button"
+  },
+  "open": "Открыть",
+  "@open": {
+    "description": "Open button"
+  },
+  "openInPlatform": "Открыть на платформе",
+  "@openInPlatform": {
+    "description": "Open in platform button"
+  },
+  "openInInstagram": "Открыть в Instagram",
+  "@openInInstagram": {
+    "description": "Open in Instagram button"
+  },
+  "openInYouTube": "Открыть в YouTube",
+  "@openInYouTube": {
+    "description": "Open in YouTube button"
+  },
+  "openInTikTok": "Открыть в TikTok",
+  "@openInTikTok": {
+    "description": "Open in TikTok button"
+  },
+  "openInTwitter": "Открыть в Twitter",
+  "@openInTwitter": {
+    "description": "Open in Twitter button"
+  },
+  "videoInfo": "Информация о видео",
+  "@videoInfo": {
+    "description": "Video information title"
+  },
+  "duration": "Длительность",
+  "@duration": {
+    "description": "Duration label"
+  },
+  "resolution": "Разрешение",
+  "@resolution": {
+    "description": "Resolution label"
+  },
+  "fileSize": "Размер файла",
+  "@fileSize": {
+    "description": "File size label"
+  },
+  "filePath": "Путь к файлу",
+  "@filePath": {
+    "description": "File path label"
+  },
+  "calculating": "Вычисление...",
+  "@calculating": {
+    "description": "Calculating message"
+  },
+  "videoLoading": "Загрузка видео...",
+  "@videoLoading": {
+    "description": "Video loading message"
+  },
+  "videoCannotPlay": "Не удается воспроизвести видео",
+  "@videoCannotPlay": {
+    "description": "Cannot play video title"
+  },
+  "retry": "Повторить",
+  "@retry": {
+    "description": "Retry button"
+  },
+  "goBack": "Назад",
+  "@goBack": {
+    "description": "Go back button"
+  },
+  "unknownError": "Произошла неизвестная ошибка",
+  "@unknownError": {
+    "description": "Unknown error message"
+  },
+  "videoFileNotFound": "Видеофайл не найден",
+  "@videoFileNotFound": {
+    "description": "Video file not found message"
+  },
+  "videoFileEmpty": "Видеофайл пуст или не может быть прочитан",
+  "@videoFileEmpty": {
+    "description": "Video file empty message"
+  },
+  "videoLoadTimeout": "Время загрузки видео истекло",
+  "@videoLoadTimeout": {
+    "description": "Video load timeout message"
+  },
+  "videoFormatNotSupported": "Формат видео не поддерживается",
+  "@videoFormatNotSupported": {
+    "description": "Video format not supported message"
+  },
+  "noPermission": "Нет разрешения на доступ к видеофайлу",
+  "@noPermission": {
+    "description": "No permission message"
+  },
+  "videoPlayError": "Видео не может быть воспроизведено",
+  "@videoPlayError": {
+    "description": "Video play error"
+  },
+  "linkOpenError": "Ошибка открытия ссылки",
+  "@linkOpenError": {
+    "description": "Link opening error message"
+  },
+  "platformCannotOpen": "не может быть открыт",
+  "@platformCannotOpen": {
+    "description": "Platform cannot open message"
+  },
+  "organizeVideos": "Организуйте свои видео и легко найдите их.",
+  "@organizeVideos": {
+    "description": "Application description"
+  },
+  "manualEditPermissions": "Вручную редактировать разрешения приложения",
+  "@manualEditPermissions": {
+    "description": "Manual edit permissions message"
+  },
+  "checkingPermissions": "Проверка разрешений...",
+  "@checkingPermissions": {
+    "description": "Checking permissions message"
+  },
+  "permissionRequestError": "Ошибка запроса разрешения",
+  "@permissionRequestError": {
+    "description": "Permission request error"
+  },
+  "iosAutoPermission": "Автоматическое разрешение предоставлено на устройствах iOS",
+  "@iosAutoPermission": {
+    "description": "iOS auto permission message"
+  },
+  "carefulUse": "Используйте осторожно - нельзя отменить",
+  "@carefulUse": {
+    "description": "Careful use message"
+  },
+  "appInformation": "Информация о приложении",
+  "@appInformation": {
+    "description": "Application information label"
+  },
+  "searchPlaceholderShort": "Поиск...",
+  "@searchPlaceholderShort": {
+    "description": "Short search placeholder"
+  },
+  "shareVideoLink": "Поделиться ссылкой на видео",
+  "@shareVideoLink": {
+    "description": "Share video link button"
+  },
+  "shareVideoLinkDesc": "Через меню обмена телефона",
+  "@shareVideoLinkDesc": {
+    "description": "Share video link description"
+  },
+  "shareDetailedInfo": "Поделиться подробной информацией",
+  "@shareDetailedInfo": {
+    "description": "Share detailed info button"
+  },
+  "shareDetailedInfoDesc": "С названием, описанием и тегами",
+  "@shareDetailedInfoDesc": {
+    "description": "Share detailed info description"
+  },
+  "copyLink": "Копировать ссылку",
+  "@copyLink": {
+    "description": "Copy link button"
+  },
+  "copyLinkDesc": "Копировать в буфер обмена",
+  "@copyLinkDesc": {
+    "description": "Copy link description"
+  },
+  "linkCopied": "Ссылка скопирована в буфер обмена",
+  "@linkCopied": {
+    "description": "Link copied message"
+  },
+  "shareError": "Ошибка обмена",
+  "@shareError": {
+    "description": "Share error message"
+  },
+  "copyError": "Ошибка копирования",
+  "@copyError": {
+    "description": "Copy error message"
+  },
+  "videoLinkShared": "Ссылка на видео поделена",
+  "@videoLinkShared": {
+    "description": "Video link shared message"
+  },
+  "videoDetailsShared": "Детали видео поделены",
+  "@videoDetailsShared": {
+    "description": "Video details shared message"
+  },
+  "loading": "Загрузка...",
+  "@loading": {
+    "description": "Loading message"
+  },
+  "previewLoading": "Предпросмотр\nЗагрузка...",
+  "@previewLoading": {
+    "description": "Preview loading message"
+  },
+  "previewUnavailable": "Предпросмотр\nНедоступен",
+  "@previewUnavailable": {
+    "description": "Preview unavailable message"
+  },
+  "platformInstagram": "Instagram",
+  "@platformInstagram": {
+    "description": "Instagram platform name"
+  },
+  "platformYouTube": "YouTube",
+  "@platformYouTube": {
+    "description": "YouTube platform name"
+  },
+  "platformTikTok": "TikTok",
+  "@platformTikTok": {
+    "description": "TikTok platform name"
+  },
+  "platformTwitter": "Twitter",
+  "@platformTwitter": {
+    "description": "Twitter platform name"
+  },
+  "platformFacebook": "Facebook",
+  "@platformFacebook": {
+    "description": "Facebook platform name"
+  },
+  "platformVimeo": "Vimeo",
+  "@platformVimeo": {
+    "description": "Vimeo platform name"
+  },
+  "platformReddit": "Reddit",
+  "@platformReddit": {
+    "description": "Reddit platform name"
+  },
+  "platformGeneral": "Общее",
+  "@platformGeneral": {
+    "description": "General platform name"
+  },
+  "categoryGeneral": "Общее",
+  "@categoryGeneral": {
+    "description": "General category"
+  },
+  "categorySoftware": "Программное обеспечение",
+  "@categorySoftware": {
+    "description": "Software category"
+  },
+  "categoryEducation": "Образование",
+  "@categoryEducation": {
+    "description": "Education category"
+  },
+  "categoryEntertainment": "Развлечения",
+  "@categoryEntertainment": {
+    "description": "Entertainment category"
+  },
+  "categorySports": "Спорт",
+  "@categorySports": {
+    "description": "Sports category"
+  },
+  "categoryFood": "Еда",
+  "@categoryFood": {
+    "description": "Food category"
+  },
+  "categoryMusic": "Музыка",
+  "@categoryMusic": {
+    "description": "Music category"
+  },
+  "categoryArt": "Искусство",
+  "@categoryArt": {
+    "description": "Art category"
+  },
+  "categoryScience": "Наука",
+  "@categoryScience": {
+    "description": "Science category"
+  },
+  "categoryTechnology": "Технологии",
+  "@categoryTechnology": {
+    "description": "Technology category"
+  },
+  "noDescription": "Нет описания",
+  "@noDescription": {
+    "description": "No description text"
+  },
+  "descriptionNotAvailable": "Описание недоступно",
+  "@descriptionNotAvailable": {
+    "description": "Description not available text"
+  },
+  "noTags": "Нет тегов",
+  "@noTags": {
+    "description": "No tags text"
+  },
+  "sharedFromLinkcim": "Поделено из приложения Linkcim",
+  "@sharedFromLinkcim": {
+    "description": "Shared from app message"
+  },
+  "videoCollection": "Коллекция видео ({count} видео)",
+  "@videoCollection": {
+    "description": "Video collection title",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "categoryVideos": "Категория {category}",
+  "@categoryVideos": {
+    "description": "Category videos title",
+    "placeholders": {
+      "category": {
+        "type": "String"
+      }
+    }
+  },
+  "videosFoundInCategory": "Найдено {count} видео",
+  "@videosFoundInCategory": {
+    "description": "Videos found in category",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "andMoreVideos": "... и еще {count} видео",
+  "@andMoreVideos": {
+    "description": "And more videos message",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "videoTitleFromUrl": "Название видео",
+  "@videoTitleFromUrl": {
+    "description": "Video title from URL"
+  },
+  "instagramPost": "Публикация в Instagram",
+  "@instagramPost": {
+    "description": "Instagram Post type"
+  },
+  "instagramReel": "Instagram Reel",
+  "@instagramReel": {
+    "description": "Instagram Reel type"
+  },
+  "instagramTV": "Instagram TV",
+  "@instagramTV": {
+    "description": "Instagram TV type"
+  },
+  "instagramVideo": "Видео Instagram",
+  "@instagramVideo": {
+    "description": "Instagram video type"
+  },
+  "youtubeVideo": "Видео YouTube",
+  "@youtubeVideo": {
+    "description": "YouTube Video type"
+  },
+  "youtubeShorts": "YouTube Shorts",
+  "@youtubeShorts": {
+    "description": "YouTube Shorts type"
+  },
+  "tiktokVideo": "Видео TikTok",
+  "@tiktokVideo": {
+    "description": "TikTok Video type"
+  },
+  "tiktokVideoShortLink": "Видео TikTok (короткая ссылка)",
+  "@tiktokVideoShortLink": {
+    "description": "TikTok video short link type"
+  },
+  "twitterPost": "Публикация в Twitter",
+  "@twitterPost": {
+    "description": "Twitter post type"
+  },
+  "twitterUser": "Twitter (@{username})",
+  "@twitterUser": {
+    "description": "Twitter user format",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "xTwitterPost": "Публикация в X/Twitter",
+  "@xTwitterPost": {
+    "description": "X/Twitter post type"
+  },
+  "xTwitterUser": "X/Twitter (@{username})",
+  "@xTwitterUser": {
+    "description": "X/Twitter user format",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "facebookVideo": "Видео Facebook",
+  "@facebookVideo": {
+    "description": "Facebook video type"
+  },
+  "vimeoVideo": "Видео Vimeo",
+  "@vimeoVideo": {
+    "description": "Vimeo video type"
+  },
+  "redditVideo": "Видео Reddit",
+  "@redditVideo": {
+    "description": "Reddit video type"
+  },
+  "unknownChannel": "Неизвестный канал",
+  "@unknownChannel": {
+    "description": "Unknown channel name"
+  },
+  "quickShare": "Быстрый обмен",
+  "@quickShare": {
+    "description": "Quick share button"
+  },
+  "videoShared": "Видео поделено",
+  "@videoShared": {
+    "description": "Video shared message"
+  },
+  "shareFailed": "Не удалось поделиться: {error}",
+  "@shareFailed": {
+    "description": "Share failed message",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "grantPermission": "Предоставить разрешение",
+  "@grantPermission": {
+    "description": "Grant permission button"
+  },
+  "later": "Позже",
+  "@later": {
+    "description": "Later button"
+  },
+  "videoAccess": "Доступ к видео",
+  "@videoAccess": {
+    "description": "Video access title"
+  },
+  "videoAccessDescription": "Для сохранения и организации ссылок на видео",
+  "@videoAccessDescription": {
+    "description": "Video access description"
+  },
+  "collections": "Коллекции",
+  "@collections": {
+    "description": "Collections page title"
+  },
+  "collection": "Коллекция",
+  "@collection": {
+    "description": "Collection label"
+  },
+  "newCollection": "Новая коллекция",
+  "@newCollection": {
+    "description": "New collection button"
+  },
+  "collectionName": "Название коллекции",
+  "@collectionName": {
+    "description": "Collection name label"
+  },
+  "collectionDescription": "Описание",
+  "@collectionDescription": {
+    "description": "Collection description label"
+  },
+  "addToCollection": "Добавить в коллекцию",
+  "@addToCollection": {
+    "description": "Add to collection button"
+  },
+  "removeFromCollection": "Удалить из коллекции",
+  "@removeFromCollection": {
+    "description": "Remove from collection button"
+  },
+  "collectionCreated": "Коллекция создана",
+  "@collectionCreated": {
+    "description": "Collection created message"
+  },
+  "collectionUpdated": "Коллекция обновлена",
+  "@collectionUpdated": {
+    "description": "Collection updated message"
+  },
+  "collectionDeleted": "Коллекция удалена",
+  "@collectionDeleted": {
+    "description": "Collection deleted message"
+  },
+  "videoAddedToCollection": "Видео добавлено в коллекцию",
+  "@videoAddedToCollection": {
+    "description": "Video added to collection message"
+  },
+  "videoRemovedFromCollection": "Видео удалено из коллекции",
+  "@videoRemovedFromCollection": {
+    "description": "Video removed from collection message"
+  },
+  "noCollections": "Пока нет коллекций",
+  "@noCollections": {
+    "description": "No collections message"
+  },
+  "createFirstCollection": "Создайте свою первую коллекцию",
+  "@createFirstCollection": {
+    "description": "Create first collection message"
+  },
+  "videosInCollection": "{count} видео",
+  "@videosInCollection": {
+    "description": "Videos in collection count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "advancedSearch": "Расширенный поиск",
+  "@advancedSearch": {
+    "description": "Advanced search title"
+  },
+  "filterBy": "Фильтровать по",
+  "@filterBy": {
+    "description": "Filter by label"
+  },
+  "sortBy": "Сортировать по",
+  "@sortBy": {
+    "description": "Sort by label"
+  },
+  "sortNewest": "Сначала новые",
+  "@sortNewest": {
+    "description": "Sort newest option"
+  },
+  "sortOldest": "Сначала старые",
+  "@sortOldest": {
+    "description": "Sort oldest option"
+  },
+  "sortTitle": "Название (А-Я)",
+  "@sortTitle": {
+    "description": "Sort by title option"
+  },
+  "sortPlatform": "Платформа",
+  "@sortPlatform": {
+    "description": "Sort by platform option"
+  },
+  "filterPlatform": "Платформа",
+  "@filterPlatform": {
+    "description": "Filter by platform label"
+  },
+  "filterCategory": "Категория",
+  "@filterCategory": {
+    "description": "Filter by category label"
+  },
+  "filterTags": "Теги",
+  "@filterTags": {
+    "description": "Filter by tags label"
+  },
+  "filterDateRange": "Диапазон дат",
+  "@filterDateRange": {
+    "description": "Filter by date range label"
+  },
+  "fromDate": "С даты",
+  "@fromDate": {
+    "description": "From date label"
+  },
+  "toDate": "По дату",
+  "@toDate": {
+    "description": "To date label"
+  },
+  "clearFilters": "Очистить фильтры",
+  "@clearFilters": {
+    "description": "Clear filters button"
+  },
+  "applyFilters": "Применить фильтры",
+  "@applyFilters": {
+    "description": "Apply filters button"
+  },
+  "selectMultiple": "Выбрать несколько",
+  "@selectMultiple": {
+    "description": "Select multiple label"
+  },
+  "allPlatforms": "Все платформы",
+  "@allPlatforms": {
+    "description": "All platforms option"
+  },
+  "detailedInformation": "Подробная информация",
+  "@detailedInformation": {
+    "description": "Detailed information title"
+  },
+  "linkDetails": "Детали ссылки",
+  "@linkDetails": {
+    "description": "Link details title"
+  },
+  "videoType": "Тип видео",
+  "@videoType": {
+    "description": "Video type label"
+  },
+  "urlLength": "Длина URL",
+  "@urlLength": {
+    "description": "URL length label"
+  },
+  "fullUrl": "Полный URL",
+  "@fullUrl": {
+    "description": "Full URL label"
+  },
+  "characters": "символов",
+  "@characters": {
+    "description": "Characters unit"
+  },
+  "playInApp": "Воспроизвести в приложении",
+  "@playInApp": {
+    "description": "Play in app button"
+  },
+  "instagramInfo": "Информация Instagram",
+  "@instagramInfo": {
+    "description": "Instagram information title"
+  },
+  "loadingInstagramInfo": "Загрузка информации Instagram...",
+  "@loadingInstagramInfo": {
+    "description": "Loading Instagram info message"
+  },
+  "author": "Автор",
+  "@author": {
+    "description": "Author label"
+  },
+  "postType": "Тип",
+  "@postType": {
+    "description": "Post type label"
+  },
+  "postId": "ID публикации",
+  "@postId": {
+    "description": "Post ID label"
+  },
+  "igtv": "IGTV",
+  "@igtv": {
+    "description": "IGTV type"
+  },
+  "twitterVideo": "Видео Twitter",
+  "@twitterVideo": {
+    "description": "Twitter Video type"
+  },
+  "video": "Видео",
+  "@video": {
+    "description": "Video type"
+  },
+  "couldNotOpen": "Не удалось открыть {platform}",
+  "@couldNotOpen": {
+    "description": "Could not open platform message",
+    "placeholders": {
+      "platform": {
+        "type": "String"
+      }
+    }
+  },
+  "platform": "Платформа",
+  "@platform": {
+    "description": "Platform label"
+  },
+  "appDescription": "Приложение для организации видео. Организуйте видео с Instagram, YouTube, TikTok и Twitter.",
+  "@appDescription": {
+    "description": "App description"
+  },
+  "technicalInformation": "Техническая информация",
+  "@technicalInformation": {
+    "description": "Technical information title"
+  },
+  "framework": "Фреймворк",
+  "@framework": {
+    "description": "Framework label"
+  },
+  "systemVersion": "Версия системы",
+  "@systemVersion": {
+    "description": "System version label"
+  },
+  "packageName": "Имя пакета",
+  "@packageName": {
+    "description": "Package name label"
+  },
+  "developer": "Разработчик",
+  "@developer": {
+    "description": "Developer title"
+  },
+  "developerName": "Разработчик",
+  "@developerName": {
+    "description": "Developer name label"
+  },
+  "profession": "Профессия",
+  "@profession": {
+    "description": "Profession label"
+  },
+  "visitWebsite": "Посетить мой сайт",
+  "@visitWebsite": {
+    "description": "Visit website button"
+  },
+  "close": "Закрыть",
+  "@close": {
+    "description": "Close button"
+  },
+  "computerEngineer": "Инженер-программист",
+  "@computerEngineer": {
+    "description": "Computer Engineer profession"
+  },
+  "colorSchemeBlue": "Синий",
+  "colorSchemeGreen": "Зелёный",
+  "colorSchemePurple": "Фиолетовый",
+  "colorSchemeOrange": "Оранжевый",
+  "colorSchemeTeal": "Бирюзовый",
+  "colorSchemeRed": "Красный",
+  "colorSchemePink": "Розовый"
 }

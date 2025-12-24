@@ -66,6 +66,7 @@ class LinkciApp extends StatelessWidget {
               Locale('de', ''), // Almanca
               Locale('ru', ''), // Rusça
               Locale('fr', ''), // Fransızca
+              Locale('zh', ''), // Çince
             ],
             locale: localeService.currentLocale,
 

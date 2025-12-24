@@ -27,55 +27,55 @@ class AppLocalizationsRu extends AppLocalizations {
   String get settings => 'Настройки';
 
   @override
-  String get videoTitle => 'Video Title';
+  String get videoTitle => 'Название видео';
 
   @override
-  String get videoDescription => 'Video Description';
+  String get videoDescription => 'Описание видео';
 
   @override
-  String get category => 'Category';
+  String get category => 'Категория';
 
   @override
-  String get tags => 'Tags';
+  String get tags => 'Теги';
 
   @override
-  String get save => 'Save';
+  String get save => 'Сохранить';
 
   @override
-  String get update => 'Update';
+  String get update => 'Обновить';
 
   @override
-  String get cancel => 'Cancel';
+  String get cancel => 'Отмена';
 
   @override
-  String get delete => 'Delete';
+  String get delete => 'Удалить';
 
   @override
-  String get edit => 'Edit';
+  String get edit => 'Редактировать';
 
   @override
-  String get noVideos => 'No videos added yet';
+  String get noVideos => 'Видео еще не добавлены';
 
   @override
-  String get addFirstVideo => 'Add your first video';
+  String get addFirstVideo => 'Добавьте свое первое видео';
 
   @override
-  String get allCategories => 'All Categories';
+  String get allCategories => 'Все категории';
 
   @override
-  String get videoUrl => 'Video URL';
+  String get videoUrl => 'URL видео';
 
   @override
-  String get enterVideoUrl => 'Enter video URL';
+  String get enterVideoUrl => 'Введите URL видео';
 
   @override
-  String get invalidUrl => 'Please enter a valid video URL';
+  String get invalidUrl => 'Пожалуйста, введите действительный URL видео';
 
   @override
-  String get required => 'Required';
+  String get required => 'Обязательно';
 
   @override
-  String get optional => 'Optional';
+  String get optional => 'Необязательно';
 
   @override
   String get language => 'Язык';
@@ -96,6 +96,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get french => 'Французский';
 
   @override
+  String get chinese => 'Китайский';
+
+  @override
   String get theme => 'Тема';
 
   @override
@@ -111,351 +114,352 @@ class AppLocalizationsRu extends AppLocalizations {
   String get colorScheme => 'Цветовая схема';
 
   @override
-  String get permissions => 'Permissions';
+  String get permissions => 'Разрешения';
 
   @override
-  String get storagePermissions => 'Storage Permissions';
+  String get storagePermissions => 'Разрешения на хранение';
 
   @override
-  String get managePermissions => 'Manage Permissions';
+  String get managePermissions => 'Управление разрешениями';
 
   @override
-  String get systemSettings => 'System Settings';
+  String get systemSettings => 'Системные настройки';
 
   @override
-  String get dataManagement => 'Data Management';
+  String get dataManagement => 'Управление данными';
 
   @override
-  String get clearAllData => 'Clear All Data';
+  String get clearAllData => 'Очистить все данные';
 
   @override
   String get clearDataWarning =>
-      'This action will delete all your videos and cannot be undone. Are you sure you want to continue?';
+      'Это действие удалит все ваши видео и не может быть отменено. Вы уверены, что хотите продолжить?';
 
   @override
-  String get about => 'About';
+  String get about => 'О приложении';
 
   @override
-  String get appInfo => 'Smart Video Recording and Categorization Application';
+  String get appInfo => 'Умное приложение для записи и категоризации видео';
 
   @override
-  String get addTag => 'Add Tag';
+  String get addTag => 'Добавить тег';
 
   @override
-  String get enterTag => 'Enter tag and press Enter';
+  String get enterTag => 'Введите тег и нажмите Enter';
 
   @override
-  String get newVideo => 'New Video';
+  String get newVideo => 'Новое видео';
 
   @override
-  String get editVideoInfo => 'Edit Video Information';
+  String get editVideoInfo => 'Редактировать информацию о видео';
 
   @override
   String get videoInfoDescription =>
-      'Enter video information and add to your collection';
+      'Введите информацию о видео и добавьте в свою коллекцию';
 
   @override
-  String get selectCategory => 'Select video category';
+  String get selectCategory => 'Выберите категорию видео';
 
   @override
-  String get videoSaved => 'Video saved successfully';
+  String get videoSaved => 'Видео успешно сохранено';
 
   @override
-  String get videoUpdated => 'Video updated';
+  String get videoUpdated => 'Видео обновлено';
 
   @override
-  String get saveError => 'Save error';
+  String get saveError => 'Ошибка сохранения';
 
   @override
-  String get allPermissionsGranted => 'All permissions granted';
+  String get allPermissionsGranted => 'Все разрешения предоставлены';
 
   @override
-  String get permissionsMissing => 'Permissions missing';
+  String get permissionsMissing => 'Разрешения отсутствуют';
 
   @override
   String get permissionInfo =>
-      'Linkcim app requires the following permissions:';
+      'Приложение Linkcim требует следующие разрешения:';
 
   @override
-  String get storageAccess => 'Storage Access';
+  String get storageAccess => 'Доступ к хранилищу';
 
   @override
-  String get storageAccessDesc => 'To access app data';
+  String get storageAccessDesc => 'Для доступа к данным приложения';
 
   @override
-  String get videoMediaAccess => 'Video/Media Access';
+  String get videoMediaAccess => 'Доступ к видео/медиа';
 
   @override
-  String get videoMediaAccessDesc => 'To access video files';
+  String get videoMediaAccessDesc => 'Для доступа к видеофайлам';
 
   @override
-  String get fileManagement => 'File Management';
+  String get fileManagement => 'Управление файлами';
 
   @override
-  String get fileManagementDesc => 'To organize video files';
+  String get fileManagementDesc => 'Для организации видеофайлов';
 
   @override
   String get dataPrivacy =>
-      'Your data is safe, only used for app functionality.';
+      'Ваши данные в безопасности и используются только для функциональности приложения.';
 
   @override
-  String get requestingPermissions => 'Requesting permissions...';
+  String get requestingPermissions => 'Запрос разрешений...';
 
   @override
-  String get permissionsGranted => 'All permissions granted!';
+  String get permissionsGranted => 'Все разрешения предоставлены!';
 
   @override
-  String get permissionsDenied => 'Some permissions were denied.';
+  String get permissionsDenied => 'Некоторые разрешения были отклонены.';
 
   @override
-  String get dataCleared => 'All data cleared';
+  String get dataCleared => 'Все данные очищены';
 
   @override
-  String get clearDataError => 'Error occurred while clearing data';
+  String get clearDataError => 'Ошибка при очистке данных';
 
   @override
-  String get appVersion => 'App Version';
+  String get appVersion => 'Версия приложения';
 
   @override
-  String get developedWith => 'Developed with Flutter.';
+  String get developedWith => 'Разработано с использованием Flutter.';
 
   @override
-  String get searchVideos => 'Search your videos...';
+  String get searchVideos => 'Поиск ваших видео...';
 
   @override
-  String get videosLoading => 'Loading videos...';
+  String get videosLoading => 'Загрузка видео...';
 
   @override
-  String get noVideoFound => 'No video found';
+  String get noVideoFound => 'Видео не найдено';
 
   @override
-  String get tryDifferentKeywords => 'Try different keywords.';
+  String get tryDifferentKeywords => 'Попробуйте другие ключевые слова.';
 
   @override
-  String get addFirstVideoButton => 'Add Your First Video';
+  String get addFirstVideoButton => 'Добавьте свое первое видео';
 
   @override
-  String get videoDelete => 'Delete Video';
+  String get videoDelete => 'Удалить видео';
 
   @override
-  String get confirmDelete => 'Are you sure you want to delete this video?';
+  String get confirmDelete => 'Вы уверены, что хотите удалить это видео?';
 
   @override
-  String get videoDeleted => 'Video deleted';
+  String get videoDeleted => 'Видео удалено';
 
   @override
-  String get videoDeleteError => 'Video could not be deleted';
+  String get videoDeleteError => 'Не удалось удалить видео';
 
   @override
-  String get dataLoadError => 'Error occurred while loading data';
+  String get dataLoadError => 'Ошибка при загрузке данных';
 
   @override
-  String get videoUrlRequired => 'Video URL is required';
+  String get videoUrlRequired => 'URL видео обязателен';
 
   @override
-  String get titleRequired => 'Title is required';
+  String get titleRequired => 'Название обязательно';
 
   @override
-  String get categoryRequired => 'Category is required';
+  String get categoryRequired => 'Категория обязательна';
 
   @override
-  String get enterTitle => 'Enter video title';
+  String get enterTitle => 'Введите название видео';
 
   @override
-  String get enterDescription =>
-      'Write a description about the video (optional)';
+  String get enterDescription => 'Напишите описание видео (необязательно)';
 
   @override
   String tagsCount(int count) {
-    return 'Tags ($count/10)';
+    return 'Теги ($count/10)';
   }
 
   @override
-  String get videoSearch => 'Video Search';
+  String get videoSearch => 'Поиск видео';
 
   @override
   String get searchPlaceholder =>
-      'Search videos... (title, author, platform, tag)';
+      'Поиск видео... (название, автор, платформа, тег)';
 
   @override
-  String get clearSearch => 'Clear Search';
+  String get clearSearch => 'Очистить поиск';
 
   @override
   String videosFound(int count) {
-    return '$count videos found';
+    return 'Найдено $count видео';
   }
 
   @override
-  String get searchError => 'Search error';
+  String get searchError => 'Ошибка поиска';
 
   @override
   String get noVideoMatch =>
-      'No video found matching your search criteria.\nTry different keywords.';
+      'Не найдено видео, соответствующего вашим критериям поиска.\nПопробуйте другие ключевые слова.';
 
   @override
-  String get videoStatistics => 'Video Statistics';
+  String get videoStatistics => 'Статистика видео';
 
   @override
-  String get totalVideos => 'Total Videos';
+  String get totalVideos => 'Всего видео';
 
   @override
-  String get categories => 'Categories';
+  String get categories => 'Категории';
 
   @override
-  String get platformDistribution => 'Platform Distribution';
+  String get platformDistribution => 'Распределение по платформам';
 
   @override
-  String get popularCategories => 'Popular Categories';
+  String get popularCategories => 'Популярные категории';
 
   @override
-  String get refresh => 'Refresh';
+  String get refresh => 'Обновить';
 
   @override
-  String get share => 'Share';
+  String get share => 'Поделиться';
 
   @override
-  String get preview => 'Preview';
+  String get preview => 'Предпросмотр';
 
   @override
-  String get open => 'Open';
+  String get open => 'Открыть';
 
   @override
-  String get openInPlatform => 'Open in Platform';
+  String get openInPlatform => 'Открыть на платформе';
 
   @override
-  String get openInInstagram => 'Open in Instagram';
+  String get openInInstagram => 'Открыть в Instagram';
 
   @override
-  String get openInYouTube => 'Open in YouTube';
+  String get openInYouTube => 'Открыть в YouTube';
 
   @override
-  String get openInTikTok => 'Open in TikTok';
+  String get openInTikTok => 'Открыть в TikTok';
 
   @override
-  String get openInTwitter => 'Open in Twitter';
+  String get openInTwitter => 'Открыть в Twitter';
 
   @override
-  String get videoInfo => 'Video Information';
+  String get videoInfo => 'Информация о видео';
 
   @override
-  String get duration => 'Duration';
+  String get duration => 'Длительность';
 
   @override
-  String get resolution => 'Resolution';
+  String get resolution => 'Разрешение';
 
   @override
-  String get fileSize => 'File Size';
+  String get fileSize => 'Размер файла';
 
   @override
-  String get filePath => 'File Path';
+  String get filePath => 'Путь к файлу';
 
   @override
-  String get calculating => 'Calculating...';
+  String get calculating => 'Вычисление...';
 
   @override
-  String get videoLoading => 'Loading video...';
+  String get videoLoading => 'Загрузка видео...';
 
   @override
-  String get videoCannotPlay => 'Cannot Play Video';
+  String get videoCannotPlay => 'Не удается воспроизвести видео';
 
   @override
-  String get retry => 'Retry';
+  String get retry => 'Повторить';
 
   @override
-  String get goBack => 'Go Back';
+  String get goBack => 'Назад';
 
   @override
-  String get unknownError => 'An unknown error occurred';
+  String get unknownError => 'Произошла неизвестная ошибка';
 
   @override
-  String get videoFileNotFound => 'Video file not found';
+  String get videoFileNotFound => 'Видеофайл не найден';
 
   @override
-  String get videoFileEmpty => 'Video file is empty or cannot be read';
+  String get videoFileEmpty => 'Видеофайл пуст или не может быть прочитан';
 
   @override
-  String get videoLoadTimeout => 'Video loading timed out';
+  String get videoLoadTimeout => 'Время загрузки видео истекло';
 
   @override
-  String get videoFormatNotSupported => 'Video format not supported';
+  String get videoFormatNotSupported => 'Формат видео не поддерживается';
 
   @override
-  String get noPermission => 'No permission to access video file';
+  String get noPermission => 'Нет разрешения на доступ к видеофайлу';
 
   @override
-  String get videoPlayError => 'Video cannot be played';
+  String get videoPlayError => 'Видео не может быть воспроизведено';
 
   @override
-  String get linkOpenError => 'Link opening error';
+  String get linkOpenError => 'Ошибка открытия ссылки';
 
   @override
-  String get platformCannotOpen => 'cannot be opened';
+  String get platformCannotOpen => 'не может быть открыт';
 
   @override
-  String get organizeVideos => 'Organize your videos and find them easily.';
+  String get organizeVideos => 'Организуйте свои видео и легко найдите их.';
 
   @override
-  String get manualEditPermissions => 'Manually edit app permissions';
+  String get manualEditPermissions =>
+      'Вручную редактировать разрешения приложения';
 
   @override
-  String get checkingPermissions => 'Checking permissions...';
+  String get checkingPermissions => 'Проверка разрешений...';
 
   @override
-  String get permissionRequestError => 'Permission request error';
+  String get permissionRequestError => 'Ошибка запроса разрешения';
 
   @override
-  String get iosAutoPermission => 'Automatic permission granted on iOS devices';
+  String get iosAutoPermission =>
+      'Автоматическое разрешение предоставлено на устройствах iOS';
 
   @override
-  String get carefulUse => 'Use carefully - cannot be undone';
+  String get carefulUse => 'Используйте осторожно - нельзя отменить';
 
   @override
-  String get appInformation => 'Application information';
+  String get appInformation => 'Информация о приложении';
 
   @override
-  String get searchPlaceholderShort => 'Search...';
+  String get searchPlaceholderShort => 'Поиск...';
 
   @override
-  String get shareVideoLink => 'Share Video Link';
+  String get shareVideoLink => 'Поделиться ссылкой на видео';
 
   @override
-  String get shareVideoLinkDesc => 'Via phone share menu';
+  String get shareVideoLinkDesc => 'Через меню обмена телефона';
 
   @override
-  String get shareDetailedInfo => 'Share Detailed Info';
+  String get shareDetailedInfo => 'Поделиться подробной информацией';
 
   @override
-  String get shareDetailedInfoDesc => 'With title, description and tags';
+  String get shareDetailedInfoDesc => 'С названием, описанием и тегами';
 
   @override
-  String get copyLink => 'Copy Link';
+  String get copyLink => 'Копировать ссылку';
 
   @override
-  String get copyLinkDesc => 'Copy to clipboard';
+  String get copyLinkDesc => 'Копировать в буфер обмена';
 
   @override
-  String get linkCopied => 'Link copied to clipboard';
+  String get linkCopied => 'Ссылка скопирована в буфер обмена';
 
   @override
-  String get shareError => 'Share error';
+  String get shareError => 'Ошибка обмена';
 
   @override
-  String get copyError => 'Copy error';
+  String get copyError => 'Ошибка копирования';
 
   @override
-  String get videoLinkShared => 'Video link shared';
+  String get videoLinkShared => 'Ссылка на видео поделена';
 
   @override
-  String get videoDetailsShared => 'Video details shared';
+  String get videoDetailsShared => 'Детали видео поделены';
 
   @override
-  String get loading => 'Loading...';
+  String get loading => 'Загрузка...';
 
   @override
-  String get previewLoading => 'Preview\nLoading...';
+  String get previewLoading => 'Предпросмотр\nЗагрузка...';
 
   @override
-  String get previewUnavailable => 'Preview\nUnavailable';
+  String get previewUnavailable => 'Предпросмотр\nНедоступен';
 
   @override
   String get platformInstagram => 'Instagram';
@@ -479,75 +483,75 @@ class AppLocalizationsRu extends AppLocalizations {
   String get platformReddit => 'Reddit';
 
   @override
-  String get platformGeneral => 'General';
+  String get platformGeneral => 'Общее';
 
   @override
-  String get categoryGeneral => 'General';
+  String get categoryGeneral => 'Общее';
 
   @override
-  String get categorySoftware => 'Software';
+  String get categorySoftware => 'Программное обеспечение';
 
   @override
-  String get categoryEducation => 'Education';
+  String get categoryEducation => 'Образование';
 
   @override
-  String get categoryEntertainment => 'Entertainment';
+  String get categoryEntertainment => 'Развлечения';
 
   @override
-  String get categorySports => 'Sports';
+  String get categorySports => 'Спорт';
 
   @override
-  String get categoryFood => 'Food';
+  String get categoryFood => 'Еда';
 
   @override
-  String get categoryMusic => 'Music';
+  String get categoryMusic => 'Музыка';
 
   @override
-  String get categoryArt => 'Art';
+  String get categoryArt => 'Искусство';
 
   @override
-  String get categoryScience => 'Science';
+  String get categoryScience => 'Наука';
 
   @override
-  String get categoryTechnology => 'Technology';
+  String get categoryTechnology => 'Технологии';
 
   @override
-  String get noDescription => 'No description';
+  String get noDescription => 'Нет описания';
 
   @override
-  String get descriptionNotAvailable => 'Description not available';
+  String get descriptionNotAvailable => 'Описание недоступно';
 
   @override
-  String get noTags => 'No tags';
+  String get noTags => 'Нет тегов';
 
   @override
-  String get sharedFromLinkcim => 'Shared from Linkcim app';
+  String get sharedFromLinkcim => 'Поделено из приложения Linkcim';
 
   @override
   String videoCollection(int count) {
-    return 'Video Collection ($count videos)';
+    return 'Коллекция видео ($count видео)';
   }
 
   @override
   String categoryVideos(String category) {
-    return '$category Category';
+    return 'Категория $category';
   }
 
   @override
   String videosFoundInCategory(int count) {
-    return '$count videos found';
+    return 'Найдено $count видео';
   }
 
   @override
   String andMoreVideos(int count) {
-    return '... and $count more videos';
+    return '... и еще $count видео';
   }
 
   @override
-  String get videoTitleFromUrl => 'Video Title';
+  String get videoTitleFromUrl => 'Название видео';
 
   @override
-  String get instagramPost => 'Instagram Post';
+  String get instagramPost => 'Публикация в Instagram';
 
   @override
   String get instagramReel => 'Instagram Reel';
@@ -556,22 +560,22 @@ class AppLocalizationsRu extends AppLocalizations {
   String get instagramTV => 'Instagram TV';
 
   @override
-  String get instagramVideo => 'Instagram Video';
+  String get instagramVideo => 'Видео Instagram';
 
   @override
-  String get youtubeVideo => 'YouTube Video';
+  String get youtubeVideo => 'Видео YouTube';
 
   @override
   String get youtubeShorts => 'YouTube Shorts';
 
   @override
-  String get tiktokVideo => 'TikTok Video';
+  String get tiktokVideo => 'Видео TikTok';
 
   @override
-  String get tiktokVideoShortLink => 'TikTok Video (Short Link)';
+  String get tiktokVideoShortLink => 'Видео TikTok (короткая ссылка)';
 
   @override
-  String get twitterPost => 'Twitter Post';
+  String get twitterPost => 'Публикация в Twitter';
 
   @override
   String twitterUser(String username) {
@@ -579,7 +583,7 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get xTwitterPost => 'X/Twitter Post';
+  String get xTwitterPost => 'Публикация в X/Twitter';
 
   @override
   String xTwitterUser(String username) {
@@ -587,222 +591,223 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get facebookVideo => 'Facebook Video';
+  String get facebookVideo => 'Видео Facebook';
 
   @override
-  String get vimeoVideo => 'Vimeo Video';
+  String get vimeoVideo => 'Видео Vimeo';
 
   @override
-  String get redditVideo => 'Reddit Video';
+  String get redditVideo => 'Видео Reddit';
 
   @override
-  String get unknownChannel => 'Unknown Channel';
+  String get unknownChannel => 'Неизвестный канал';
 
   @override
-  String get quickShare => 'Quick Share';
+  String get quickShare => 'Быстрый обмен';
 
   @override
-  String get videoShared => 'Video shared';
+  String get videoShared => 'Видео поделено';
 
   @override
   String shareFailed(String error) {
-    return 'Share failed: $error';
+    return 'Не удалось поделиться: $error';
   }
 
   @override
-  String get grantPermission => 'Grant Permission';
+  String get grantPermission => 'Предоставить разрешение';
 
   @override
-  String get later => 'Later';
+  String get later => 'Позже';
 
   @override
-  String get videoAccess => 'Video Access';
+  String get videoAccess => 'Доступ к видео';
 
   @override
-  String get videoAccessDescription => 'To save and organize video links';
+  String get videoAccessDescription =>
+      'Для сохранения и организации ссылок на видео';
 
   @override
-  String get collections => 'Collections';
+  String get collections => 'Коллекции';
 
   @override
-  String get collection => 'Collection';
+  String get collection => 'Коллекция';
 
   @override
-  String get newCollection => 'New Collection';
+  String get newCollection => 'Новая коллекция';
 
   @override
-  String get collectionName => 'Collection Name';
+  String get collectionName => 'Название коллекции';
 
   @override
-  String get collectionDescription => 'Description';
+  String get collectionDescription => 'Описание';
 
   @override
-  String get addToCollection => 'Add to Collection';
+  String get addToCollection => 'Добавить в коллекцию';
 
   @override
-  String get removeFromCollection => 'Remove from Collection';
+  String get removeFromCollection => 'Удалить из коллекции';
 
   @override
-  String get collectionCreated => 'Collection created';
+  String get collectionCreated => 'Коллекция создана';
 
   @override
-  String get collectionUpdated => 'Collection updated';
+  String get collectionUpdated => 'Коллекция обновлена';
 
   @override
-  String get collectionDeleted => 'Collection deleted';
+  String get collectionDeleted => 'Коллекция удалена';
 
   @override
-  String get videoAddedToCollection => 'Video added to collection';
+  String get videoAddedToCollection => 'Видео добавлено в коллекцию';
 
   @override
-  String get videoRemovedFromCollection => 'Video removed from collection';
+  String get videoRemovedFromCollection => 'Видео удалено из коллекции';
 
   @override
-  String get noCollections => 'No collections yet';
+  String get noCollections => 'Пока нет коллекций';
 
   @override
-  String get createFirstCollection => 'Create your first collection';
+  String get createFirstCollection => 'Создайте свою первую коллекцию';
 
   @override
   String videosInCollection(int count) {
-    return '$count videos';
+    return '$count видео';
   }
 
   @override
-  String get advancedSearch => 'Advanced Search';
+  String get advancedSearch => 'Расширенный поиск';
 
   @override
-  String get filterBy => 'Filter By';
+  String get filterBy => 'Фильтровать по';
 
   @override
-  String get sortBy => 'Sort By';
+  String get sortBy => 'Сортировать по';
 
   @override
-  String get sortNewest => 'Newest First';
+  String get sortNewest => 'Сначала новые';
 
   @override
-  String get sortOldest => 'Oldest First';
+  String get sortOldest => 'Сначала старые';
 
   @override
-  String get sortTitle => 'Title (A-Z)';
+  String get sortTitle => 'Название (А-Я)';
 
   @override
-  String get sortPlatform => 'Platform';
+  String get sortPlatform => 'Платформа';
 
   @override
-  String get filterPlatform => 'Platform';
+  String get filterPlatform => 'Платформа';
 
   @override
-  String get filterCategory => 'Category';
+  String get filterCategory => 'Категория';
 
   @override
-  String get filterTags => 'Tags';
+  String get filterTags => 'Теги';
 
   @override
-  String get filterDateRange => 'Date Range';
+  String get filterDateRange => 'Диапазон дат';
 
   @override
-  String get fromDate => 'From Date';
+  String get fromDate => 'С даты';
 
   @override
-  String get toDate => 'To Date';
+  String get toDate => 'По дату';
 
   @override
-  String get clearFilters => 'Clear Filters';
+  String get clearFilters => 'Очистить фильтры';
 
   @override
-  String get applyFilters => 'Apply Filters';
+  String get applyFilters => 'Применить фильтры';
 
   @override
-  String get selectMultiple => 'Select Multiple';
+  String get selectMultiple => 'Выбрать несколько';
 
   @override
-  String get allPlatforms => 'All Platforms';
+  String get allPlatforms => 'Все платформы';
 
   @override
-  String get detailedInformation => 'Detailed Information';
+  String get detailedInformation => 'Подробная информация';
 
   @override
-  String get linkDetails => 'Link Details';
+  String get linkDetails => 'Детали ссылки';
 
   @override
-  String get videoType => 'Video Type';
+  String get videoType => 'Тип видео';
 
   @override
-  String get urlLength => 'URL Length';
+  String get urlLength => 'Длина URL';
 
   @override
-  String get fullUrl => 'Full URL';
+  String get fullUrl => 'Полный URL';
 
   @override
-  String get characters => 'characters';
+  String get characters => 'символов';
 
   @override
-  String get playInApp => 'Play in App';
+  String get playInApp => 'Воспроизвести в приложении';
 
   @override
-  String get instagramInfo => 'Instagram Information';
+  String get instagramInfo => 'Информация Instagram';
 
   @override
-  String get loadingInstagramInfo => 'Loading Instagram information...';
+  String get loadingInstagramInfo => 'Загрузка информации Instagram...';
 
   @override
-  String get author => 'Author';
+  String get author => 'Автор';
 
   @override
-  String get postType => 'Type';
+  String get postType => 'Тип';
 
   @override
-  String get postId => 'Post ID';
+  String get postId => 'ID публикации';
 
   @override
   String get igtv => 'IGTV';
 
   @override
-  String get twitterVideo => 'Twitter Video';
+  String get twitterVideo => 'Видео Twitter';
 
   @override
-  String get video => 'Video';
+  String get video => 'Видео';
 
   @override
   String couldNotOpen(String platform) {
-    return 'Could not open $platform';
+    return 'Не удалось открыть $platform';
   }
 
   @override
-  String get platform => 'Platform';
+  String get platform => 'Платформа';
 
   @override
   String get appDescription =>
-      'Video organization app. Organize videos from Instagram, YouTube, TikTok, and Twitter.';
+      'Приложение для организации видео. Организуйте видео с Instagram, YouTube, TikTok и Twitter.';
 
   @override
-  String get technicalInformation => 'Technical Information';
+  String get technicalInformation => 'Техническая информация';
 
   @override
-  String get framework => 'Framework';
+  String get framework => 'Фреймворк';
 
   @override
-  String get systemVersion => 'System Version';
+  String get systemVersion => 'Версия системы';
 
   @override
-  String get packageName => 'Package Name';
+  String get packageName => 'Имя пакета';
 
   @override
-  String get developer => 'Developer';
+  String get developer => 'Разработчик';
 
   @override
-  String get developerName => 'Developer';
+  String get developerName => 'Разработчик';
 
   @override
-  String get profession => 'Profession';
+  String get profession => 'Профессия';
 
   @override
-  String get visitWebsite => 'Visit My Website';
+  String get visitWebsite => 'Посетить мой сайт';
 
   @override
-  String get close => 'Close';
+  String get close => 'Закрыть';
 
   @override
-  String get computerEngineer => 'Computer Engineer';
+  String get computerEngineer => 'Инженер-программист';
 }

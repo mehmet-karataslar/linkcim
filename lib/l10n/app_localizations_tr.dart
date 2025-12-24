@@ -96,6 +96,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get french => 'Fransızca';
 
   @override
+  String get chinese => 'Çince';
+
+  @override
   String get theme => 'Tema';
 
   @override

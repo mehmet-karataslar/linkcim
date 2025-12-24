@@ -4,7 +4,7 @@
   "@appTitle": {
     "description": "Application title"
   },
-  "home": "Home",
+  "home": "Startseite",
   "@home": {
     "description": "Home page title"
   },
@@ -23,6 +23,74 @@
   "settings": "Einstellungen",
   "@settings": {
     "description": "Settings page title"
+  },
+  "videoTitle": "Videotitel",
+  "@videoTitle": {
+    "description": "Video title label"
+  },
+  "videoDescription": "Videobeschreibung",
+  "@videoDescription": {
+    "description": "Video description label"
+  },
+  "category": "Kategorie",
+  "@category": {
+    "description": "Category label"
+  },
+  "tags": "Schlagwörter",
+  "@tags": {
+    "description": "Tags label"
+  },
+  "save": "Speichern",
+  "@save": {
+    "description": "Save button"
+  },
+  "update": "Aktualisieren",
+  "@update": {
+    "description": "Update button"
+  },
+  "cancel": "Abbrechen",
+  "@cancel": {
+    "description": "Cancel button"
+  },
+  "delete": "Löschen",
+  "@delete": {
+    "description": "Delete button"
+  },
+  "edit": "Bearbeiten",
+  "@edit": {
+    "description": "Edit button"
+  },
+  "noVideos": "Noch keine Videos hinzugefügt",
+  "@noVideos": {
+    "description": "No videos message"
+  },
+  "addFirstVideo": "Fügen Sie Ihr erstes Video hinzu",
+  "@addFirstVideo": {
+    "description": "Add first video message"
+  },
+  "allCategories": "Alle Kategorien",
+  "@allCategories": {
+    "description": "All categories option"
+  },
+  "videoUrl": "Video-URL",
+  "@videoUrl": {
+    "description": "Video URL label"
+  },
+  "enterVideoUrl": "Video-URL eingeben",
+  "@enterVideoUrl": {
+    "description": "Video URL input placeholder"
+  },
+  "invalidUrl": "Bitte geben Sie eine gültige Video-URL ein",
+  "@invalidUrl": {
+    "description": "Invalid URL error"
+  },
+  "required": "Erforderlich",
+  "@required": {
+    "description": "Required field label"
+  },
+  "optional": "Optional",
+  "@optional": {
+    "description": "Optional field label"
   },
   "language": "Sprache",
   "@language": {
@@ -48,6 +116,10 @@
   "@french": {
     "description": "French language option"
   },
+  "chinese": "Chinesisch",
+  "@chinese": {
+    "description": "Chinese language option"
+  },
   "theme": "Design",
   "@theme": {
     "description": "Theme selection label"
@@ -67,5 +139,955 @@
   "colorScheme": "Farbschema",
   "@colorScheme": {
     "description": "Color scheme selection label"
-  }
+  },
+  "permissions": "Berechtigungen",
+  "@permissions": {
+    "description": "Permissions section"
+  },
+  "storagePermissions": "Speicher-Berechtigungen",
+  "@storagePermissions": {
+    "description": "Storage permissions title"
+  },
+  "managePermissions": "Berechtigungen verwalten",
+  "@managePermissions": {
+    "description": "Manage permissions button"
+  },
+  "systemSettings": "Systemeinstellungen",
+  "@systemSettings": {
+    "description": "System settings button"
+  },
+  "dataManagement": "Datenverwaltung",
+  "@dataManagement": {
+    "description": "Data management section"
+  },
+  "clearAllData": "Alle Daten löschen",
+  "@clearAllData": {
+    "description": "Clear all data button"
+  },
+  "clearDataWarning": "Diese Aktion löscht alle Ihre Videos und kann nicht rückgängig gemacht werden. Möchten Sie fortfahren?",
+  "@clearDataWarning": {
+    "description": "Clear data warning"
+  },
+  "about": "Über",
+  "@about": {
+    "description": "About button"
+  },
+  "appInfo": "Intelligente Video-Aufnahme- und Kategorisierungsanwendung",
+  "@appInfo": {
+    "description": "Application description"
+  },
+  "addTag": "Tag hinzufügen",
+  "@addTag": {
+    "description": "Add tag label"
+  },
+  "enterTag": "Tag eingeben und Enter drücken",
+  "@enterTag": {
+    "description": "Tag input placeholder"
+  },
+  "newVideo": "Neues Video",
+  "@newVideo": {
+    "description": "New video button"
+  },
+  "editVideoInfo": "Videoinformationen bearbeiten",
+  "@editVideoInfo": {
+    "description": "Edit video title"
+  },
+  "videoInfoDescription": "Geben Sie Videoinformationen ein und fügen Sie sie zu Ihrer Sammlung hinzu",
+  "@videoInfoDescription": {
+    "description": "Add video description"
+  },
+  "selectCategory": "Videokategorie auswählen",
+  "@selectCategory": {
+    "description": "Category selection placeholder"
+  },
+  "videoSaved": "Video erfolgreich gespeichert",
+  "@videoSaved": {
+    "description": "Video saved message"
+  },
+  "videoUpdated": "Video aktualisiert",
+  "@videoUpdated": {
+    "description": "Video updated message"
+  },
+  "saveError": "Speicherfehler",
+  "@saveError": {
+    "description": "Save error message"
+  },
+  "allPermissionsGranted": "Alle Berechtigungen erteilt",
+  "@allPermissionsGranted": {
+    "description": "All permissions granted message"
+  },
+  "permissionsMissing": "Berechtigungen fehlen",
+  "@permissionsMissing": {
+    "description": "Permissions missing message"
+  },
+  "permissionInfo": "Die Linkcim-App erfordert die folgenden Berechtigungen:",
+  "@permissionInfo": {
+    "description": "Permission info description"
+  },
+  "storageAccess": "Speicherzugriff",
+  "@storageAccess": {
+    "description": "Storage access description"
+  },
+  "storageAccessDesc": "Zum Zugriff auf App-Daten",
+  "@storageAccessDesc": {
+    "description": "Storage access description"
+  },
+  "videoMediaAccess": "Video/Medien-Zugriff",
+  "@videoMediaAccess": {
+    "description": "Video/Media access title"
+  },
+  "videoMediaAccessDesc": "Zum Zugriff auf Videodateien",
+  "@videoMediaAccessDesc": {
+    "description": "Video/Media access description"
+  },
+  "fileManagement": "Dateiverwaltung",
+  "@fileManagement": {
+    "description": "File management title"
+  },
+  "fileManagementDesc": "Zum Organisieren von Videodateien",
+  "@fileManagementDesc": {
+    "description": "File management description"
+  },
+  "dataPrivacy": "Ihre Daten sind sicher und werden nur für die App-Funktionalität verwendet.",
+  "@dataPrivacy": {
+    "description": "Data privacy message"
+  },
+  "requestingPermissions": "Berechtigungen anfordern...",
+  "@requestingPermissions": {
+    "description": "Requesting permissions message"
+  },
+  "permissionsGranted": "Alle Berechtigungen erteilt!",
+  "@permissionsGranted": {
+    "description": "Permissions granted message"
+  },
+  "permissionsDenied": "Einige Berechtigungen wurden verweigert.",
+  "@permissionsDenied": {
+    "description": "Permissions denied message"
+  },
+  "dataCleared": "Alle Daten gelöscht",
+  "@dataCleared": {
+    "description": "Data cleared message"
+  },
+  "clearDataError": "Fehler beim Löschen der Daten",
+  "@clearDataError": {
+    "description": "Clear data error"
+  },
+  "appVersion": "Anwendungsversion",
+  "@appVersion": {
+    "description": "App version label"
+  },
+  "developedWith": "Entwickelt mit Flutter.",
+  "@developedWith": {
+    "description": "Development info"
+  },
+  "searchVideos": "Suchen Sie Ihre Videos...",
+  "@searchVideos": {
+    "description": "Search placeholder"
+  },
+  "videosLoading": "Videos werden geladen...",
+  "@videosLoading": {
+    "description": "Video loading message"
+  },
+  "noVideoFound": "Kein Video gefunden",
+  "@noVideoFound": {
+    "description": "No video found message"
+  },
+  "tryDifferentKeywords": "Versuchen Sie andere Schlüsselwörter.",
+  "@tryDifferentKeywords": {
+    "description": "Try different keywords message"
+  },
+  "addFirstVideoButton": "Fügen Sie Ihr erstes Video hinzu",
+  "@addFirstVideoButton": {
+    "description": "Add first video button"
+  },
+  "videoDelete": "Video löschen",
+  "@videoDelete": {
+    "description": "Delete video title"
+  },
+  "confirmDelete": "Möchten Sie dieses Video wirklich löschen?",
+  "@confirmDelete": {
+    "description": "Delete confirmation message"
+  },
+  "videoDeleted": "Video gelöscht",
+  "@videoDeleted": {
+    "description": "Video deleted message"
+  },
+  "videoDeleteError": "Video konnte nicht gelöscht werden",
+  "@videoDeleteError": {
+    "description": "Video delete error"
+  },
+  "dataLoadError": "Fehler beim Laden der Daten",
+  "@dataLoadError": {
+    "description": "Data load error"
+  },
+  "videoUrlRequired": "Video-URL ist erforderlich",
+  "@videoUrlRequired": {
+    "description": "Video URL required message"
+  },
+  "titleRequired": "Titel ist erforderlich",
+  "@titleRequired": {
+    "description": "Title required message"
+  },
+  "categoryRequired": "Kategorie ist erforderlich",
+  "@categoryRequired": {
+    "description": "Category required message"
+  },
+  "enterTitle": "Videotitel eingeben",
+  "@enterTitle": {
+    "description": "Title placeholder"
+  },
+  "enterDescription": "Schreiben Sie eine Beschreibung über das Video (optional)",
+  "@enterDescription": {
+    "description": "Description placeholder"
+  },
+  "tagsCount": "Schlagwörter ({count}/10)",
+  "@tagsCount": {
+    "description": "Tag count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "videoSearch": "Video-Suche",
+  "@videoSearch": {
+    "description": "Video search title"
+  },
+  "searchPlaceholder": "Videos suchen... (Titel, Autor, Plattform, Tag)",
+  "@searchPlaceholder": {
+    "description": "Search placeholder"
+  },
+  "clearSearch": "Suche löschen",
+  "@clearSearch": {
+    "description": "Clear search button"
+  },
+  "videosFound": "{count} Videos gefunden",
+  "@videosFound": {
+    "description": "Videos found message",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "searchError": "Suchfehler",
+  "@searchError": {
+    "description": "Search error message"
+  },
+  "noVideoMatch": "Kein Video gefunden, das Ihren Suchkriterien entspricht.\nVersuchen Sie andere Schlüsselwörter.",
+  "@noVideoMatch": {
+    "description": "No video match message"
+  },
+  "videoStatistics": "Video-Statistiken",
+  "@videoStatistics": {
+    "description": "Video statistics title"
+  },
+  "totalVideos": "Gesamt Videos",
+  "@totalVideos": {
+    "description": "Total videos label"
+  },
+  "categories": "Kategorien",
+  "@categories": {
+    "description": "Categories label"
+  },
+  "platformDistribution": "Plattform-Verteilung",
+  "@platformDistribution": {
+    "description": "Platform distribution title"
+  },
+  "popularCategories": "Beliebte Kategorien",
+  "@popularCategories": {
+    "description": "Popular categories title"
+  },
+  "refresh": "Aktualisieren",
+  "@refresh": {
+    "description": "Refresh button"
+  },
+  "share": "Teilen",
+  "@share": {
+    "description": "Share button"
+  },
+  "preview": "Vorschau",
+  "@preview": {
+    "description": "Preview button"
+  },
+  "open": "Öffnen",
+  "@open": {
+    "description": "Open button"
+  },
+  "openInPlatform": "Auf Plattform öffnen",
+  "@openInPlatform": {
+    "description": "Open in platform button"
+  },
+  "openInInstagram": "Auf Instagram öffnen",
+  "@openInInstagram": {
+    "description": "Open in Instagram button"
+  },
+  "openInYouTube": "Auf YouTube öffnen",
+  "@openInYouTube": {
+    "description": "Open in YouTube button"
+  },
+  "openInTikTok": "Auf TikTok öffnen",
+  "@openInTikTok": {
+    "description": "Open in TikTok button"
+  },
+  "openInTwitter": "Auf Twitter öffnen",
+  "@openInTwitter": {
+    "description": "Open in Twitter button"
+  },
+  "videoInfo": "Videoinformationen",
+  "@videoInfo": {
+    "description": "Video information title"
+  },
+  "duration": "Dauer",
+  "@duration": {
+    "description": "Duration label"
+  },
+  "resolution": "Auflösung",
+  "@resolution": {
+    "description": "Resolution label"
+  },
+  "fileSize": "Dateigröße",
+  "@fileSize": {
+    "description": "File size label"
+  },
+  "filePath": "Dateipfad",
+  "@filePath": {
+    "description": "File path label"
+  },
+  "calculating": "Berechne...",
+  "@calculating": {
+    "description": "Calculating message"
+  },
+  "videoLoading": "Video wird geladen...",
+  "@videoLoading": {
+    "description": "Video loading message"
+  },
+  "videoCannotPlay": "Video kann nicht abgespielt werden",
+  "@videoCannotPlay": {
+    "description": "Cannot play video title"
+  },
+  "retry": "Wiederholen",
+  "@retry": {
+    "description": "Retry button"
+  },
+  "goBack": "Zurück",
+  "@goBack": {
+    "description": "Go back button"
+  },
+  "unknownError": "Ein unbekannter Fehler ist aufgetreten",
+  "@unknownError": {
+    "description": "Unknown error message"
+  },
+  "videoFileNotFound": "Videodatei nicht gefunden",
+  "@videoFileNotFound": {
+    "description": "Video file not found message"
+  },
+  "videoFileEmpty": "Videodatei ist leer oder kann nicht gelesen werden",
+  "@videoFileEmpty": {
+    "description": "Video file empty message"
+  },
+  "videoLoadTimeout": "Video-Ladezeit überschritten",
+  "@videoLoadTimeout": {
+    "description": "Video load timeout message"
+  },
+  "videoFormatNotSupported": "Videoformat wird nicht unterstützt",
+  "@videoFormatNotSupported": {
+    "description": "Video format not supported message"
+  },
+  "noPermission": "Keine Berechtigung zum Zugriff auf die Videodatei",
+  "@noPermission": {
+    "description": "No permission message"
+  },
+  "videoPlayError": "Video kann nicht abgespielt werden",
+  "@videoPlayError": {
+    "description": "Video play error"
+  },
+  "linkOpenError": "Link-Öffnungsfehler",
+  "@linkOpenError": {
+    "description": "Link opening error message"
+  },
+  "platformCannotOpen": "kann nicht geöffnet werden",
+  "@platformCannotOpen": {
+    "description": "Platform cannot open message"
+  },
+  "organizeVideos": "Organisieren Sie Ihre Videos und finden Sie sie leicht.",
+  "@organizeVideos": {
+    "description": "Application description"
+  },
+  "manualEditPermissions": "App-Berechtigungen manuell bearbeiten",
+  "@manualEditPermissions": {
+    "description": "Manual edit permissions message"
+  },
+  "checkingPermissions": "Berechtigungen prüfen...",
+  "@checkingPermissions": {
+    "description": "Checking permissions message"
+  },
+  "permissionRequestError": "Berechtigungsanfragefehler",
+  "@permissionRequestError": {
+    "description": "Permission request error"
+  },
+  "iosAutoPermission": "Automatische Berechtigung auf iOS-Geräten erteilt",
+  "@iosAutoPermission": {
+    "description": "iOS auto permission message"
+  },
+  "carefulUse": "Vorsichtig verwenden - kann nicht rückgängig gemacht werden",
+  "@carefulUse": {
+    "description": "Careful use message"
+  },
+  "appInformation": "Anwendungsinformationen",
+  "@appInformation": {
+    "description": "Application information label"
+  },
+  "searchPlaceholderShort": "Suchen...",
+  "@searchPlaceholderShort": {
+    "description": "Short search placeholder"
+  },
+  "shareVideoLink": "Video-Link teilen",
+  "@shareVideoLink": {
+    "description": "Share video link button"
+  },
+  "shareVideoLinkDesc": "Über Telefon-Teilmenü",
+  "@shareVideoLinkDesc": {
+    "description": "Share video link description"
+  },
+  "shareDetailedInfo": "Detaillierte Informationen teilen",
+  "@shareDetailedInfo": {
+    "description": "Share detailed info button"
+  },
+  "shareDetailedInfoDesc": "Mit Titel, Beschreibung und Tags",
+  "@shareDetailedInfoDesc": {
+    "description": "Share detailed info description"
+  },
+  "copyLink": "Link kopieren",
+  "@copyLink": {
+    "description": "Copy link button"
+  },
+  "copyLinkDesc": "In Zwischenablage kopieren",
+  "@copyLinkDesc": {
+    "description": "Copy link description"
+  },
+  "linkCopied": "Link in Zwischenablage kopiert",
+  "@linkCopied": {
+    "description": "Link copied message"
+  },
+  "shareError": "Teilfehler",
+  "@shareError": {
+    "description": "Share error message"
+  },
+  "copyError": "Kopierfehler",
+  "@copyError": {
+    "description": "Copy error message"
+  },
+  "videoLinkShared": "Video-Link geteilt",
+  "@videoLinkShared": {
+    "description": "Video link shared message"
+  },
+  "videoDetailsShared": "Video-Details geteilt",
+  "@videoDetailsShared": {
+    "description": "Video details shared message"
+  },
+  "loading": "Laden...",
+  "@loading": {
+    "description": "Loading message"
+  },
+  "previewLoading": "Vorschau\nLaden...",
+  "@previewLoading": {
+    "description": "Preview loading message"
+  },
+  "previewUnavailable": "Vorschau\nNicht verfügbar",
+  "@previewUnavailable": {
+    "description": "Preview unavailable message"
+  },
+  "platformInstagram": "Instagram",
+  "@platformInstagram": {
+    "description": "Instagram platform name"
+  },
+  "platformYouTube": "YouTube",
+  "@platformYouTube": {
+    "description": "YouTube platform name"
+  },
+  "platformTikTok": "TikTok",
+  "@platformTikTok": {
+    "description": "TikTok platform name"
+  },
+  "platformTwitter": "Twitter",
+  "@platformTwitter": {
+    "description": "Twitter platform name"
+  },
+  "platformFacebook": "Facebook",
+  "@platformFacebook": {
+    "description": "Facebook platform name"
+  },
+  "platformVimeo": "Vimeo",
+  "@platformVimeo": {
+    "description": "Vimeo platform name"
+  },
+  "platformReddit": "Reddit",
+  "@platformReddit": {
+    "description": "Reddit platform name"
+  },
+  "platformGeneral": "Allgemein",
+  "@platformGeneral": {
+    "description": "General platform name"
+  },
+  "categoryGeneral": "Allgemein",
+  "@categoryGeneral": {
+    "description": "General category"
+  },
+  "categorySoftware": "Software",
+  "@categorySoftware": {
+    "description": "Software category"
+  },
+  "categoryEducation": "Bildung",
+  "@categoryEducation": {
+    "description": "Education category"
+  },
+  "categoryEntertainment": "Unterhaltung",
+  "@categoryEntertainment": {
+    "description": "Entertainment category"
+  },
+  "categorySports": "Sport",
+  "@categorySports": {
+    "description": "Sports category"
+  },
+  "categoryFood": "Essen",
+  "@categoryFood": {
+    "description": "Food category"
+  },
+  "categoryMusic": "Musik",
+  "@categoryMusic": {
+    "description": "Music category"
+  },
+  "categoryArt": "Kunst",
+  "@categoryArt": {
+    "description": "Art category"
+  },
+  "categoryScience": "Wissenschaft",
+  "@categoryScience": {
+    "description": "Science category"
+  },
+  "categoryTechnology": "Technologie",
+  "@categoryTechnology": {
+    "description": "Technology category"
+  },
+  "noDescription": "Keine Beschreibung",
+  "@noDescription": {
+    "description": "No description text"
+  },
+  "descriptionNotAvailable": "Beschreibung nicht verfügbar",
+  "@descriptionNotAvailable": {
+    "description": "Description not available text"
+  },
+  "noTags": "Keine Tags",
+  "@noTags": {
+    "description": "No tags text"
+  },
+  "sharedFromLinkcim": "Von Linkcim-App geteilt",
+  "@sharedFromLinkcim": {
+    "description": "Shared from app message"
+  },
+  "videoCollection": "Video-Sammlung ({count} Videos)",
+  "@videoCollection": {
+    "description": "Video collection title",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "categoryVideos": "{category} Kategorie",
+  "@categoryVideos": {
+    "description": "Category videos title",
+    "placeholders": {
+      "category": {
+        "type": "String"
+      }
+    }
+  },
+  "videosFoundInCategory": "{count} Videos gefunden",
+  "@videosFoundInCategory": {
+    "description": "Videos found in category",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "andMoreVideos": "... und {count} weitere Videos",
+  "@andMoreVideos": {
+    "description": "And more videos message",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "videoTitleFromUrl": "Videotitel",
+  "@videoTitleFromUrl": {
+    "description": "Video title from URL"
+  },
+  "instagramPost": "Instagram-Beitrag",
+  "@instagramPost": {
+    "description": "Instagram Post type"
+  },
+  "instagramReel": "Instagram Reel",
+  "@instagramReel": {
+    "description": "Instagram Reel type"
+  },
+  "instagramTV": "Instagram TV",
+  "@instagramTV": {
+    "description": "Instagram TV type"
+  },
+  "instagramVideo": "Instagram Video",
+  "@instagramVideo": {
+    "description": "Instagram video type"
+  },
+  "youtubeVideo": "YouTube Video",
+  "@youtubeVideo": {
+    "description": "YouTube Video type"
+  },
+  "youtubeShorts": "YouTube Shorts",
+  "@youtubeShorts": {
+    "description": "YouTube Shorts type"
+  },
+  "tiktokVideo": "TikTok Video",
+  "@tiktokVideo": {
+    "description": "TikTok Video type"
+  },
+  "tiktokVideoShortLink": "TikTok Video (Kurzer Link)",
+  "@tiktokVideoShortLink": {
+    "description": "TikTok video short link type"
+  },
+  "twitterPost": "Twitter-Beitrag",
+  "@twitterPost": {
+    "description": "Twitter post type"
+  },
+  "twitterUser": "Twitter (@{username})",
+  "@twitterUser": {
+    "description": "Twitter user format",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "xTwitterPost": "X/Twitter-Beitrag",
+  "@xTwitterPost": {
+    "description": "X/Twitter post type"
+  },
+  "xTwitterUser": "X/Twitter (@{username})",
+  "@xTwitterUser": {
+    "description": "X/Twitter user format",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "facebookVideo": "Facebook Video",
+  "@facebookVideo": {
+    "description": "Facebook video type"
+  },
+  "vimeoVideo": "Vimeo Video",
+  "@vimeoVideo": {
+    "description": "Vimeo video type"
+  },
+  "redditVideo": "Reddit Video",
+  "@redditVideo": {
+    "description": "Reddit video type"
+  },
+  "unknownChannel": "Unbekannter Kanal",
+  "@unknownChannel": {
+    "description": "Unknown channel name"
+  },
+  "quickShare": "Schnell teilen",
+  "@quickShare": {
+    "description": "Quick share button"
+  },
+  "videoShared": "Video geteilt",
+  "@videoShared": {
+    "description": "Video shared message"
+  },
+  "shareFailed": "Teilen fehlgeschlagen: {error}",
+  "@shareFailed": {
+    "description": "Share failed message",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "grantPermission": "Berechtigung erteilen",
+  "@grantPermission": {
+    "description": "Grant permission button"
+  },
+  "later": "Später",
+  "@later": {
+    "description": "Later button"
+  },
+  "videoAccess": "Videozugriff",
+  "@videoAccess": {
+    "description": "Video access title"
+  },
+  "videoAccessDescription": "Zum Speichern und Organisieren von Video-Links",
+  "@videoAccessDescription": {
+    "description": "Video access description"
+  },
+  "collections": "Sammlungen",
+  "@collections": {
+    "description": "Collections page title"
+  },
+  "collection": "Sammlung",
+  "@collection": {
+    "description": "Collection label"
+  },
+  "newCollection": "Neue Sammlung",
+  "@newCollection": {
+    "description": "New collection button"
+  },
+  "collectionName": "Sammlungsname",
+  "@collectionName": {
+    "description": "Collection name label"
+  },
+  "collectionDescription": "Beschreibung",
+  "@collectionDescription": {
+    "description": "Collection description label"
+  },
+  "addToCollection": "Zur Sammlung hinzufügen",
+  "@addToCollection": {
+    "description": "Add to collection button"
+  },
+  "removeFromCollection": "Aus Sammlung entfernen",
+  "@removeFromCollection": {
+    "description": "Remove from collection button"
+  },
+  "collectionCreated": "Sammlung erstellt",
+  "@collectionCreated": {
+    "description": "Collection created message"
+  },
+  "collectionUpdated": "Sammlung aktualisiert",
+  "@collectionUpdated": {
+    "description": "Collection updated message"
+  },
+  "collectionDeleted": "Sammlung gelöscht",
+  "@collectionDeleted": {
+    "description": "Collection deleted message"
+  },
+  "videoAddedToCollection": "Video zur Sammlung hinzugefügt",
+  "@videoAddedToCollection": {
+    "description": "Video added to collection message"
+  },
+  "videoRemovedFromCollection": "Video aus Sammlung entfernt",
+  "@videoRemovedFromCollection": {
+    "description": "Video removed from collection message"
+  },
+  "noCollections": "Noch keine Sammlungen",
+  "@noCollections": {
+    "description": "No collections message"
+  },
+  "createFirstCollection": "Erstellen Sie Ihre erste Sammlung",
+  "@createFirstCollection": {
+    "description": "Create first collection message"
+  },
+  "videosInCollection": "{count} Videos",
+  "@videosInCollection": {
+    "description": "Videos in collection count",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "advancedSearch": "Erweiterte Suche",
+  "@advancedSearch": {
+    "description": "Advanced search title"
+  },
+  "filterBy": "Filtern nach",
+  "@filterBy": {
+    "description": "Filter by label"
+  },
+  "sortBy": "Sortieren nach",
+  "@sortBy": {
+    "description": "Sort by label"
+  },
+  "sortNewest": "Neueste zuerst",
+  "@sortNewest": {
+    "description": "Sort newest option"
+  },
+  "sortOldest": "Älteste zuerst",
+  "@sortOldest": {
+    "description": "Sort oldest option"
+  },
+  "sortTitle": "Titel (A-Z)",
+  "@sortTitle": {
+    "description": "Sort by title option"
+  },
+  "sortPlatform": "Plattform",
+  "@sortPlatform": {
+    "description": "Sort by platform option"
+  },
+  "filterPlatform": "Plattform",
+  "@filterPlatform": {
+    "description": "Filter by platform label"
+  },
+  "filterCategory": "Kategorie",
+  "@filterCategory": {
+    "description": "Filter by category label"
+  },
+  "filterTags": "Schlagwörter",
+  "@filterTags": {
+    "description": "Filter by tags label"
+  },
+  "filterDateRange": "Datumsbereich",
+  "@filterDateRange": {
+    "description": "Filter by date range label"
+  },
+  "fromDate": "Von Datum",
+  "@fromDate": {
+    "description": "From date label"
+  },
+  "toDate": "Bis Datum",
+  "@toDate": {
+    "description": "To date label"
+  },
+  "clearFilters": "Filter löschen",
+  "@clearFilters": {
+    "description": "Clear filters button"
+  },
+  "applyFilters": "Filter anwenden",
+  "@applyFilters": {
+    "description": "Apply filters button"
+  },
+  "selectMultiple": "Mehrfach auswählen",
+  "@selectMultiple": {
+    "description": "Select multiple label"
+  },
+  "allPlatforms": "Alle Plattformen",
+  "@allPlatforms": {
+    "description": "All platforms option"
+  },
+  "detailedInformation": "Detaillierte Informationen",
+  "@detailedInformation": {
+    "description": "Detailed information title"
+  },
+  "linkDetails": "Link-Details",
+  "@linkDetails": {
+    "description": "Link details title"
+  },
+  "videoType": "Videotyp",
+  "@videoType": {
+    "description": "Video type label"
+  },
+  "urlLength": "URL-Länge",
+  "@urlLength": {
+    "description": "URL length label"
+  },
+  "fullUrl": "Vollständige URL",
+  "@fullUrl": {
+    "description": "Full URL label"
+  },
+  "characters": "Zeichen",
+  "@characters": {
+    "description": "Characters unit"
+  },
+  "playInApp": "In App abspielen",
+  "@playInApp": {
+    "description": "Play in app button"
+  },
+  "instagramInfo": "Instagram-Informationen",
+  "@instagramInfo": {
+    "description": "Instagram information title"
+  },
+  "loadingInstagramInfo": "Instagram-Informationen werden geladen...",
+  "@loadingInstagramInfo": {
+    "description": "Loading Instagram info message"
+  },
+  "author": "Autor",
+  "@author": {
+    "description": "Author label"
+  },
+  "postType": "Typ",
+  "@postType": {
+    "description": "Post type label"
+  },
+  "postId": "Beitrags-ID",
+  "@postId": {
+    "description": "Post ID label"
+  },
+  "igtv": "IGTV",
+  "@igtv": {
+    "description": "IGTV type"
+  },
+  "twitterVideo": "Twitter Video",
+  "@twitterVideo": {
+    "description": "Twitter Video type"
+  },
+  "video": "Video",
+  "@video": {
+    "description": "Video type"
+  },
+  "couldNotOpen": "{platform} konnte nicht geöffnet werden",
+  "@couldNotOpen": {
+    "description": "Could not open platform message",
+    "placeholders": {
+      "platform": {
+        "type": "String"
+      }
+    }
+  },
+  "platform": "Plattform",
+  "@platform": {
+    "description": "Platform label"
+  },
+  "appDescription": "Video-Organisations-App. Organisieren Sie Videos von Instagram, YouTube, TikTok und Twitter.",
+  "@appDescription": {
+    "description": "App description"
+  },
+  "technicalInformation": "Technische Informationen",
+  "@technicalInformation": {
+    "description": "Technical information title"
+  },
+  "framework": "Framework",
+  "@framework": {
+    "description": "Framework label"
+  },
+  "systemVersion": "Systemversion",
+  "@systemVersion": {
+    "description": "System version label"
+  },
+  "packageName": "Paketname",
+  "@packageName": {
+    "description": "Package name label"
+  },
+  "developer": "Entwickler",
+  "@developer": {
+    "description": "Developer title"
+  },
+  "developerName": "Entwickler",
+  "@developerName": {
+    "description": "Developer name label"
+  },
+  "profession": "Beruf",
+  "@profession": {
+    "description": "Profession label"
+  },
+  "visitWebsite": "Besuchen Sie meine Website",
+  "@visitWebsite": {
+    "description": "Visit website button"
+  },
+  "close": "Schließen",
+  "@close": {
+    "description": "Close button"
+  },
+  "computerEngineer": "Informatiker",
+  "@computerEngineer": {
+    "description": "Computer Engineer profession"
+  },
+  "colorSchemeBlue": "Blau",
+  "colorSchemeGreen": "Grün",
+  "colorSchemePurple": "Lila",
+  "colorSchemeOrange": "Orange",
+  "colorSchemeTeal": "Türkis",
+  "colorSchemeRed": "Rot",
+  "colorSchemePink": "Rosa"
 }

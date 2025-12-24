@@ -28,6 +28,8 @@ class LocaleService extends ChangeNotifier {
         return const Locale('ru');
       } else if (languageCode == 'fr') {
         return const Locale('fr');
+      } else if (languageCode == 'zh') {
+        return const Locale('zh');
       } else {
         // Varsayılan olarak İngilizce
         return const Locale('en');
